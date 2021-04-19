@@ -1,0 +1,13 @@
+@import "vars";
+@import "typo";
+@import "grids";
+@import "mixins";
+@import "modals";
+
+/**
+ *  Reset defaults
+ */
+html, body {
+    margin: 0;
+    padding: 0;
+}
