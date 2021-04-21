@@ -3,12 +3,16 @@
 /**
  *  Load modules
  */
-import echo from './modules/echo.js';
+
+import main from './modules/main';
+import form from './modules/form';
+import sliders from './modules/sliders';
+import faq from './modules/faq';
+$(document).ready(() => {
+    main();
+    form();
+    sliders();
+    faq();
+});
 
 import '../scss/app.scss';
-
-$(document).ready(() => {
-
-    echo('App ready');
-
-});

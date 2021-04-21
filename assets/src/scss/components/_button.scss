@@ -1,0 +1,62 @@
+a.btn,
+%btn,
+.btn {
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 120%;
+    border-radius: 4px;
+    outline: none;
+    font-weight: 900;
+    background: $primaryGradient;
+    border: none;
+    color: $white;
+    font-family: $fontFerry;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px 35px;
+    align-self: center;
+    width: auto;
+    display: inline-flex;
+    text-transform: uppercase;
+    @include animate(all);
+    position: relative;
+    filter: saturate(100%);
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+        @include animate(all);
+        filter: saturate(300%);
+    }
+    &:disabled,
+    &.disabled {
+        color: $white;
+        box-shadow: unset;
+        pointer-events: none;
+        cursor: default;
+        background: $bg;
+        @include animate(all);
+    }
+    &_secondary {
+        background: $secondaryGradient;
+    }
+    &_light {
+        background: linear-gradient(92.15deg, rgba(71, 79, 160, 0.2) 0.76%, rgba(136, 143, 218, 0.2) 120.91%);
+        color: $accent;
+    }
+    &_white {
+        background: $white;
+        color: $accent;
+    }
+    &_white-secondary {
+        background: $white;
+        color: $secondary;
+    }
+    &_fullwidth {
+        width: 100%;
+        display: flex;
+    }
+}

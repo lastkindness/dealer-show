@@ -2,4 +2,278 @@
  *  Global elements
  */
 
- // <--------- Describe styles of your global elements, e.g. buttons, forms, fields, etc here --------->
+p,
+input,
+textarea,
+address,
+blockquote,
+blockquote p {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    max-width: 100%;
+    margin: 0 0 24px;
+    &:last-child {
+        margin: 0;
+    }
+    @include respond-to('mobile') {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+input {
+    width: 100%;
+    line-height: 1.2em;
+}
+
+address {
+    font-style: normal;
+}
+
+b,
+i,
+strong,
+em,
+a,
+span,
+input,
+i,
+mark,
+a {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    margin: 0;
+    outline: none;
+    @include respond-to('mobile') {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        word-wrap: break-word;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.3em;
+    margin: 0 0 0.6em;
+    text-transform: uppercase;
+    font-family: $fontFerry;
+    font-weight: 900;
+    text-align: left;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    @include animate(all);
+    @include respond-to('mobile') {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+.h1,
+h1 {
+    font-size: 40px;
+}
+
+.h2,
+h2 {
+    font-size: 32px;
+}
+
+.h3,
+h3 {
+    font-size: 20px;
+}
+
+.h4,
+h4 {
+    font-size: 18px;
+}
+
+.h5,
+h5 {
+    font-size: 16px;
+}
+
+.h6,
+h6 {
+    font-size: 14px;
+}
+
+%a {
+    @include animate(all);
+    text-decoration: underline;
+    color: $accent;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        color: $primary;
+        text-decoration: unset;
+        @include animate(all);
+    }
+    &:disabled,
+    &.disabled {
+        color: $fontLight;
+        box-shadow: unset;
+        pointer-events: none;
+        cursor: default;
+        @include animate(all);
+        &:hover {
+            color: $fontLight;
+            text-decoration: unset;
+            @include animate(all);
+        }
+    }
+}
+
+a {
+    @extend %a;
+}
+
+b,
+strong {
+    font-family: $fontMontserrat;
+    font-weight: 700;
+}
+
+em,
+i {
+    font-family: $fontMontserrat;
+    font-style: italic;
+    font-weight: 300;
+}
+
+mark {
+    padding: 5px;
+    background-color: transparentize($primary, 0.5);
+}
+
+blockquote,
+q {
+    font-weight: 300;
+    color: $font;
+    font-style: normal;
+    font-family: $fontMontserrat;
+    display: block;
+    padding: 20px;
+    margin: 0 auto 30px;
+    p {
+        margin-bottom: 20px;
+        &:before,
+        &:after {
+            content: '"';
+        }
+    }
+}
+
+cite,
+figcaption {
+    font-style: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    &:before {
+        content: '- ';
+    }
+}
+
+li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+ol,
+ul {
+    list-style-type: none;
+    margin: 30px 0;
+    padding-left: 25px;
+    max-width: 100%;
+}
+
+ul > li:before {
+    content: '-';
+    position: absolute;
+    color: $white;
+    top: 0;
+    left: -25px;
+}
+
+ol {
+    counter-reset: myCounter;
+}
+
+ul li,
+ol li {
+    list-style: none;
+}
+
+ol > li:after {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: -20px;
+    top: 2px;
+    counter-increment: myCounter;
+    content: counter(myCounter) ". ";
+    color: $primary;
+    background: 0 0;
+    display: inline-block;
+    text-align: center;
+    font-feature-settings: "pnum" on, "lnum" on;
+    font-weight: 600;
+}
+
+textarea,
+input {
+    &::placeholder {
+
+    }
+}
+
+.section {
+    &_light {
+        color: $font;
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        blockquote,
+        q {
+            color: $font;
+        }
+    }
+}

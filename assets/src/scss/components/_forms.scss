@@ -1,0 +1,301 @@
+.select2 {
+    width: 100% !important;
+    border: none;
+    color: $font;
+    font-family: $fontMontserrat;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.select2-container .select2-selection--single {
+    height: 100%;
+    border-radius: 4px;
+    background: rgba(224, 225, 235, 0.5);
+    border: 1px solid #C2C2CB;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 15px 12px;
+    line-height: 1em;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border: none;
+    font-family: 'icomoon';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 10px;
+    width: auto;
+    left: unset;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include animate(all);
+    &:before {
+        font-style: normal;
+        font-family: 'icomoon' !important;
+        content: "\E90A";
+        font-size: 22px;
+        font-weight: 700;
+        @include animate(all);
+    }
+}
+
+.select2-container--open .select2-dropdown {
+    border: 1px solid #C2C2CB;
+    margin-top: 0px;
+    min-width: 150px;
+    border-radius: 0 0 4px 4px;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    @include animate(all);
+    background-color: $bg;
+    color: $font;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    @include animate(all);
+    background-color: $primary;
+}
+
+.select2-results__option {
+    @include animate(all);
+    margin: 0;
+    padding: 10px 12px;
+    font-family: $fontMontserrat;
+    font-style: normal;
+    color: $font;
+}
+
+.select2-container--open.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    &:before {
+        transform: rotate(180deg);
+        @include animate(all);
+    }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: $font;
+    font-style: normal;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+    padding: 0px;
+    margin: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar {
+    width: 3px;
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+
+.select2-container--default .select2-results > .select2-results__options::-webkit-scrollbar-thumb {
+    background-color: $bg;
+}
+
+.wpcf7 {
+    width: 100%;
+}
+
+.wpcf7-not-valid-tip {
+    position: absolute;
+    font-size: 12px;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    color: $error;
+}
+
+.input {
+    &-item {
+        margin-bottom: 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        textarea,
+        input {
+            width: 100%;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .btn {
+            margin: 0;
+        }
+        .wpcf7-form-control-wrap {
+            width: 100%;
+            input {
+                width: 100%;
+            }
+        }
+    }
+    &-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: space-between;
+        label {
+            @include animate(all);
+            order: 0;
+        }
+        span {
+            order: 1;
+        }
+    }
+}
+
+textarea,
+input {
+    -webkit-appearance: none;
+    color: $white;
+    text-transform: none;
+    font-weight: 400;
+    padding: 24px 12px;
+    font-family: $fontMontserrat;
+    outline: none;
+    margin-bottom: 0px;
+    line-height: 1em;
+    font-style: normal;
+    border: unset;
+    background: transparentize($black, 0.8);
+    border: 1px solid $white;
+    box-sizing: border-box;
+    border-radius: 4px;
+    @include animate(all);
+    &::placeholder {
+        color: $white;
+        text-transform: none;
+        font-family: $fontMontserrat;
+    }
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    color: $white;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: transparent;
+    background: transparentize($black, 0.8);
+    border: 1px solid $white;
+    appearance: none;
+    transition: unset;
+    border-radius: 4px;
+    &:hover,
+    &:active,
+    &:focus {
+        transition: unset;
+    }
+}
+
+.checkbox-wrapper {
+    display: block;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    height: 70px;
+    margin-bottom: 20px;
+    &.check {
+        .checkbox {
+            background-color: $primary;
+            border: 2px solid $primary;
+            &:after {
+                opacity: 0;
+                @include animate(all);
+            }
+        }
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+        &.active {
+            & + .checkbox {
+                &:after {
+                    width: 0;
+                    @include animate(all);
+                }
+            }
+        }
+    }
+    label {
+        position: absolute;
+        left: 35px;
+        text-transform: unset;
+        white-space: normal;
+        top: -5px;
+        width: 1060px;
+        font-family: $fontMontserrat;
+        font-weight: 400;
+        text-align: left;
+        cursor: pointer;
+    }
+    .checkbox {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        cursor: pointer;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: $white;
+        border: 2px solid $white;
+        vertical-align: middle;
+        margin-right: 10px;
+        @include animate(all);
+        &:before {
+            content: "✓";
+            font-family: $fontMontserrat;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            position: absolute;
+            color: $white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include animate(all);
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: $white;
+            opacity: 1;
+            @include animate(all);
+        }
+    }
+}

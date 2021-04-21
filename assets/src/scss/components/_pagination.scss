@@ -1,0 +1,63 @@
+.pagination  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        li {
+            margin: 0;
+            font-weight: 600;
+            color: $bgDark;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include animate(all);
+            &:before {
+                display: none;
+            }
+            &.active {
+                color: $white;
+                background: $secondaryGradient;
+            }
+            &.prev,
+            &.next {
+                color: $secondary;
+                font-size: 18px;
+                width: auto;
+                height: auto;
+            }
+            &.prev {
+                margin-right: 15px;
+                transform: rotate(180deg);
+            }
+            &.next {
+                margin-left: 15px;
+            }
+            &:not(.active) {
+                &:hover,
+                &:active,
+                &:focus {
+                    @include animate(all);
+                    cursor: pointer;
+                    color: $secondary;
+                }
+            }
+        }
+    }
+    .btn {
+        position: absolute;
+        align-self: flex-start;
+        margin: 0;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

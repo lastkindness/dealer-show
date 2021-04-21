@@ -73,12 +73,19 @@ function rst_load_assets()
     //--- Load scripts and styles only for frontend: -----------------------------
     if ( ! is_admin()) {
         // Styles
+        wp_enqueue_style('swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper.min.css');
+        wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/libs/fancybox/jquery.fancybox.min.css');
+        wp_enqueue_style('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.css');
         wp_enqueue_style('app', get_template_directory_uri() . '/assets/dist/app.min.css');
 
         // Scripts
         wp_deregister_script('jquery');
         wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', false, null, false);
         wp_enqueue_script('jquery');
+        wp_enqueue_script('fancybox', get_template_directory_uri() . '/assets/libs/fancybox/jquery.fancybox.min.js', [], '1.0.0', true);
+        wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper.min.js', [], '1.0.0', true);
+        wp_enqueue_script('text-lines', get_template_directory_uri() . '/assets/libs/text-lines/text-lines.js', [], '1.0.0', true);
+        wp_enqueue_script('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.js', [], '1.0.0', true);
         wp_enqueue_script('app', get_template_directory_uri() . '/assets/dist/app.min.js', [], '1.0.0', true);
     }
 

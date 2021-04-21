@@ -1,13 +1,21 @@
-@import "vars";
-@import "typo";
-@import "grids";
 @import "mixins";
+@import "vars";
+@import "fonts";
+@import "typo";
+@import "global";
+@import "grids";
 @import "modals";
 
-/**
- *  Reset defaults
- */
-html, body {
-    margin: 0;
-    padding: 0;
-}
+@import "components/_button.scss";
+@import "components/_forms.scss";
+@import "components/_dropdown.scss";
+@import "components/_pagination.scss";
+@import "components/_menu.scss";
+@import "components/_header.scss";
+@import "components/_footer.scss";
+@import "components/_faq.scss";
+
+@import "components/_hero.scss";
+
+@import "pages/_error.scss";
+@import "pages/_single.scss";
