@@ -218,9 +218,10 @@ ul {
 ul > li:before {
     content: '-';
     position: absolute;
-    color: $white;
+    color: $secondary;
     top: 0;
     left: -25px;
+    font-weight: 600;
 }
 
 ol {
@@ -240,7 +241,7 @@ ol > li:after {
     top: 2px;
     counter-increment: myCounter;
     content: counter(myCounter) ". ";
-    color: $primary;
+    color: $secondary;
     background: 0 0;
     display: inline-block;
     text-align: center;

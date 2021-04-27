@@ -8,17 +8,7 @@
         padding: 0 80px;
     }
     @include respond-to('mobile') {
-        padding: 0 20px;
-    }
-    &_big {
-        padding: 0 60px;
-        max-width: 100%;
-        @include respond-to('desktop') {
-            padding: 0 40px;
-        }
-        @include respond-to('mobile') {
-            padding: 0 20px;
-        }
+        padding: 0 16px;
     }
 }
 

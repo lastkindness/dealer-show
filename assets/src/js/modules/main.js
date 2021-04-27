@@ -72,4 +72,14 @@ export default () => {
     }
     //select2 end
 
+    //header sticky start
+    $(window).scroll(function(){
+        if($(this).scrollTop()>=1){
+            $('.header').addClass('sticky');
+        } else {
+            $('.header').removeClass('sticky');
+        }
+    });
+    //header sticky start
+
 };

@@ -1,3 +1,205 @@
 .footer {
-
+    background-color: $bgDark;
+    color: $white;
+    font-weight: 500;
+    &>* {
+        border-bottom: 1px solid transparentize(#A2AAAD, 0.77);
+        &:last-child {
+            border-bottom: unset;
+        }
+    }
+    &__info {
+        padding: 28px 0;
+        &-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    &__main {
+        padding: 26px 0 35px;
+        &-title {
+            display: inline-block;
+            color: transparentize($gray, 0.7);
+            text-transform: uppercase;
+            font-family: $fontFerry;
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 26px;
+        }
+        &-wrapper {
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            &>* {
+                padding: 0 6.94%;
+                border-right: 1px solid transparentize(#A2AAAD, 0.8);
+                &:first-child {
+                    padding: 0 5.20vw 0 0;
+                }
+                &:last-child {
+                    padding: 0 0 0 3.20vw;
+                    border-right: unset;
+                }
+            }
+        }
+    }
+    &__menu {
+        .menu {
+            column-count: 2;
+            display: block;
+            a {
+                text-transform: none;
+                color: $gray;
+                font-size: 16px;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $fontLight;
+                }
+            }
+            .menu-item {
+                margin-bottom: 13px;
+            }
+        }
+    }
+    &__contacts {
+        &-list {
+            margin: 0;
+            padding: 0;
+            li {
+                max-width: 250px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                &:before {
+                    display: none;
+                }
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 15px;
+                    margin-right: 10px;
+                    color: $secondary;
+                }
+            }
+            address,
+            a {
+                font-size: 18px;
+                color: $gray;
+                text-decoration: none;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $fontLight;
+                }
+            }
+        }
+    }
+    &__copyright {
+        padding: 23px 0;
+    }
+    &__logo {
+        display: inline-block;
+        width: 166px;
+        height: 38px;
+        img {
+            object-fit: contain;
+        }
+    }
+    .footer__btn {
+        width: 42.5%;
+    }
+    &__messengers {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .title {
+            font-size: 24px;
+            font-family: $fontFerry;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: $white;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .social-list {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            overflow: hidden;
+            border-radius: 4px;
+            li {
+                height: 100%;
+                margin: 0;
+            }
+            a {
+                color: $white;
+                font-size: 30px;
+                height: 100%;
+                padding: 15px 13px;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $fontLight;
+                }
+            }
+            .icon-telegram {
+                background-color: #0798E3;
+            }
+            .icon-viber {
+                background-color: #474FA0;
+            }
+        }
+    }
+    &__catalog {
+        .menu {
+            column-count: 2;
+            display: block;
+            a {
+                color: $white;
+                font-size: 18px;
+                text-transform: none;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $fontLight;
+                }
+            }
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__copyright {
+        &-copy {
+            font-weight: 400;
+            color: transparentize(#FBFBFB, 0.5);
+        }
+        &-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &>* {
+                margin: 0;
+            }
+        }
+        &-dev {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-weight: 400;
+            color: transparentize(#FBFBFB, 0.5);
+            .logo {
+                width: 120px;
+                height: 30px;
+                img {
+                    object-fit: contain;
+                }
+            }
+            .title {
+                margin-right: 10px;
+            }
+        }
+    }
 }
