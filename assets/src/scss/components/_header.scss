@@ -25,13 +25,6 @@
         padding: 16px 0;
         &-hidden {
             position: relative;
-            &:hover,
-            &:active,
-            &:focus {
-                .menu {
-                    display: block;
-                }
-            }
             .btn {
                 -webkit-mask-size: contain!important;
                 mask-size: contain!important;
@@ -58,34 +51,6 @@
                     .icon {
                         transform: rotate(360deg);
                         @include animate(all);
-                    }
-                }
-            }
-            .menu {
-                display: none;
-                position: absolute;
-                width: 100%;
-                top: 100%;
-                left: 0;
-                background-color: $white;
-                padding: 20px 15px;
-                flex-direction: column;
-                align-items: flex-start;
-                border-radius: 0 0 4px 4px;
-                .menu-item {
-                    margin-bottom: 10px;
-                    &:last-child {
-                        margin: 0;
-                    }
-                }
-                a {
-                    font-family: $fontFerry;
-                    font-weight: 900;
-                    color: $bgDark;
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: $fontGray;
                     }
                 }
             }
@@ -191,6 +156,9 @@
             margin: 0;
             padding: 5px 12px;
             border-right: 1px solid $bg;
+            &:before {
+                display: none;
+            }
             &:first-child {
                 padding: 5px 12px 5px 0;
             }

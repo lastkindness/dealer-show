@@ -1,5 +1,6 @@
 .navbar,
-.menu {
+.menu,
+.sub-menu {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -14,7 +15,7 @@
         }
         &.current-menu-item,
         &.active {
-            a {
+            &>a {
                 color: $secondary;
             }
         }
@@ -26,5 +27,55 @@
 }
 
 .menu {
-
+    &-item-has-children {
+        position: relative;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background-color: transparent;
+            height: 25px;
+        }
+        .sub-menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: calc(100% + 15px);
+            left: 0;
+            background-color: $white;
+            padding: 20px 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 4px;
+            box-shadow: $shadow;
+            min-width: 150px;
+            .menu-item {
+                margin: 0 0 10px 0;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+            a {
+                font-size: 14px;
+                font-family: $fontFerry;
+                font-weight: 900;
+                color: $bgDark;
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $fontGray;
+                }
+            }
+        }
+        &:hover,
+        &:active,
+        &:focus {
+            .sub-menu {
+                display: block;
+            }
+        }
+    }
 }

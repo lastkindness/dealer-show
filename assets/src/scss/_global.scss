@@ -304,11 +304,31 @@ input[type=number] {
 
 .swiper-button-next,
 .swiper-button-prev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    color: $white;
+    &:after {
+        font-family: 'icomoon';
+        content: "\ea1c";
+        font-size: 15px;
+    }
     &:hover,
     &:active,
     &:focus {
         outline: none;
     }
+}
+
+.swiper-button-prev {
+    &:after {
+        transform: rotate(-180deg);
+    }
+}
+
+.swiper-button-next {
+    background-color: $secondary;
 }
 
 .burger {

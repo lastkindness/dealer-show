@@ -113,47 +113,99 @@
                         </div>
                         <div class="header__catalog">
                             <div class="header__catalog-hidden">
-                                <span class="btn btn_secondary">
+                                <a href="/catalog" class="btn btn_secondary">
                                     <span class="icon" style="-webkit-mask-box-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/tire.svg'); mask: url('<?php echo get_template_directory_uri(); ?>/assets/img/tire.svg');"></span>
                                     <span class="title">Каталог</span>
-                                </span>
-                                <ul class="navbar menu">
-                                    <li class="menu-item current-menu-item">
-                                        <a href="#">Volkswagen</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Mercedes-Benz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Opel</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Renault</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">BMW</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Ford</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Audi</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="#">Toyota</a>
-                                    </li>
-                                </ul>
+                                </a>
                             </div>
                             <div class="header__catalog-menu">
                                 <ul class="navbar menu">
-                                    <li class="menu-item current-menu-item">
+                                    <li class="menu-item current-menu-item menu-item-has-children">
                                         <a href="#">автомобили</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item current-menu-item">
+                                                <a href="#">Volkswagen</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Mercedes-Benz</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Opel</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Renault</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">BMW</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Ford</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Audi</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Toyota</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="menu-item menu-item-has-children">
                                         <a href="#">мото техника</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item current-menu-item">
+                                                <a href="#">Volkswagen</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Mercedes-Benz</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Opel</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Renault</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">BMW</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Ford</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Audi</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Toyota</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="menu-item menu-item-has-children">
                                         <a href="#">Электрокары</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item current-menu-item">
+                                                <a href="#">Volkswagen</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Mercedes-Benz</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Opel</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Renault</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">BMW</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Ford</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Audi</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="#">Toyota</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="menu-item">
                                         <a href="#">Под заказ</a>

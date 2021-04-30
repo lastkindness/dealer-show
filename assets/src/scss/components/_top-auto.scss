@@ -1,0 +1,34 @@
+.top-auto {
+    &__wrapper {
+
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        .title {
+            flex-grow: 0;
+            order: 0;
+            white-space: nowrap;
+        }
+        .btn {
+            flex-grow: 0;
+            order: 2;
+        }
+        &:before {
+            order: 1;
+            content: '';
+            width: 100%;
+            flex-grow: 1;
+            display: block;
+            height: 1px;
+            background-color: $bg;
+            margin: 0 40px;
+        }
+    }
+    &__grid {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}

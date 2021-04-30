@@ -82,4 +82,17 @@ export default () => {
     });
     //header sticky start
 
+    //ellipsis
+    $('.grid__card-description').ellipsis({lines: 3});
+    $(window).on('load', function () {
+        $('.grid__card-description').ellipsis({lines: 3});
+    });
+    $(document).ajaxComplete(function () {
+        $('.grid__card-description').ellipsis({lines: 3});
+    });
+    $(window).resize(function () {
+        $('.grid__card-description').ellipsis({lines: 3});
+    });
+    //ellipsis
+
 };

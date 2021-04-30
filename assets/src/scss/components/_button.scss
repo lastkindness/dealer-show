@@ -24,6 +24,7 @@ a.btn,
     @include animate(all);
     position: relative;
     filter: saturate(100%);
+    white-space: nowrap;
     &:hover,
     &:active,
     &:focus {
@@ -58,5 +59,16 @@ a.btn,
     &_fullwidth {
         width: 100%;
         display: flex;
+        padding: 22px;
+    }
+    &_transparent {
+        background: transparent;
+        color: $white;
+        border: 1px solid transparentize($white, 0.88);
+        &:hover,
+        &:active,
+        &:focus {
+            color: $fontLight;
+        }
     }
 }
