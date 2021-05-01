@@ -1,0 +1,85 @@
+.viber-form {
+    color: $white;
+    &__wrapper {
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 60px 105px;
+        text-align: center;
+        border-radius: 16px;
+        position: relative;
+        &:before {
+            border-radius: 16px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            content: '';
+            display: block;
+            background-color: transparentize($primary, 0.3);
+            z-index: 0;
+        }
+    }
+    &__content {
+        z-index: 1;
+        position: relative;
+        margin-bottom: 40px;
+        .title {
+            margin-bottom: 24px;
+            text-align: center;
+            color: $white;
+        }
+        .text {
+            width: 78%;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 auto;
+        }
+    }
+    &__form {
+        z-index: 1;
+        position: relative;
+        margin: 0 auto;
+        width: 78%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &>* {
+            width: calc(33.3% - 12px);
+        }
+        input {
+            margin-right: 24px;
+        }
+        .btn {
+            padding: 23px 12px;
+        }
+        .button-wrap {
+            position: relative;
+            .text {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: calc(100% + 10px);
+                width: 100%;
+            }
+        }
+    }
+    &__icon {
+        width: 106px;
+        height: 106px;
+        border-radius: 16px;
+        background-color: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -60px;
+        .icon {
+            color: $white;
+            font-size: 55px;
+        }
+    }
+}

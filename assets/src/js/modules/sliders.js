@@ -19,5 +19,14 @@ export default () => {
 
     function addZero(num){
         return (num > 9) ? num : '0' + num;
-    }
+    };
+
+    var swiperAuctionsImg = new Swiper('.auctions__wrapper', {
+        spaceBetween: 30,
+        slidesPerView: 4,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+        },
+    });
 };

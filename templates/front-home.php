@@ -876,6 +876,445 @@ get_header('front'); ?>
         </div>
     </div>
 </section>
+<section class="individual-form" id="individual-form">
+    <div class="container">
+        <div class="individual-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/9.jpg')">
+            <div class="individual-form__content">
+                <h2 class="title h2">Наши эксперты сделают для вас индивидуальную подборку абсолютно бесплатно</h2>
+                <p class="text">Сайт по продаже автомобилей из Америки. Здесь можно купить Бу автомобили, целые и битые машины с авто аукционов США
+                    Копарт, Манхейм, IAAI, CARS.COM ЭКОНОМИЯ при покупке авто под заказ в США до -40%</p>
+            </div>
+            <form action="#" class="individual-form__form">
+                <input id="name" type="text" name="name" required="required" placeholder="Введите ваше имя">
+                <input id="phone" name="phone" type="tel" placeholder="Введите ваш номер телефона">
+                <button class="btn btn_white-secondary">Получить консультацию</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="warranty" id="warranty">
+    <div class="container">
+        <div class="warranty__wrapper">
+            <h2 class="h1 warranty__title">Наша компания карантирует</h2>
+            <div class="warranty__grid">
+                <div class="grid">
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h5 class="h5 grid__card-title">Лучшую цену на авто</h5>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
+                                    <p class="grid__card-description">
+                                        Мы озвучиваем вам лучшую цену, сопровождаем оформление сделки, вы сразу же получаете деньги за авто.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Качественную проверку</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Качественную проверку</h5>
+                                    <p class="grid__card-description">
+                                        Мы используем только надежных перевозчиков по суше на территории США, а также самые быстрые судоходные линии. Среднее время погрузки транспортного средства с момента прибытия на склад в порту отправления составляет 7-10 рабочих дней. Таможенное оформление транспортного средства в портах Украины максимум занимает 2 рабочих дня.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Фиксацию бюджета</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Фиксацию бюджета</h5>
+                                    <p class="grid__card-description">
+                                        Перед участием в торгах на аукционе США, мы изучаем и проверяем полную историю авто: от даты выхода с конвейера до последнего визита на СТО. В Америке, фиксировать жизнь авто в единой базе - обязательная процедура. Именно поэтому Вы можете быть уверены в полноте и правдивости полученной информации об автомобиле, в отличии от «размытой» истории ТС на украинском рынке.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Быструю доставку</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Быструю доставку</h5>
+                                    <p class="grid__card-description">
+                                        Компания сделает процесс доставки автомобиля легким и эффективным, оправдав все Ваши ожидания! Многолетний опыт работы в сфере международных транспортно-логистических услуг, поможет решить любые проблемы и вопросы, возникающие в процессе оформления, покупки и доставки автомобиля.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Ремонт с гарантией</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Ремонт с гарантией</h5>
+                                    <p class="grid__card-description">
+                                        Каждый автопроизводитель дает на свои автомобили гарантию, то есть обязуется бесплатно их ремонтировать в определенный срок. Если, конечно, поломка произошла из-за самого производителя. Гарантия начинает действовать в тот момент, когда покупатель забирает свою новую машину из салона. А вот срок у нее может быть разный: у кого-то она длится год, у кого-то два, три и больше. Большинство производителей ограничивают гарантию не только количеством лет, но и километражом.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Лучшую цену на авто</h5>
+                                    <p class="grid__card-description">
+                                        Правила гарантии простые. Ремонт будет бесплатным только тогда, когда поломка произошла из-за производителя. Например, если какая-то деталь вышла из строя из-за ошибки в сборке. А вот расходники под гарантийное обслуживание не подпадают: речь о деталях, которые нужно регулярно менять по регламенту. Это тормозные колодки, лампочки, фильтры, предохранители, технические жидкости и тому подобное.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Лучший сервис</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Лучший сервис</h5>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <span class="grid__card-img" >
+                                        <span class="img" style="
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                    </span>
+                                    <h4 class="h4 grid__card-title">Сохранность</h4>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Сохранность</h5>
+                                    <p class="grid__card-description">
+                                        Автомобили и прицепной состав обычно эксплуатируются в течение первой-второй смен, В ночное время подвижной состав размещают на территории АТП в отапливаемых зданиях или на открытых площадках, в зависимости от климатических и эксплуатационных условий.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-form" id="contact-form">
+    <div class="container">
+        <div class="contact-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/19.jpg')">
+            <div class="contact-form__content">
+                <h2 class="contact-form__title h1">
+                    <span class="red">Получить консультацию</span>
+                    <br>
+                    <div class="white">со старшим менеджером</div>
+                </h2>
+                <form action="#" class="contact-form__form">
+                    <input id="contact-name" type="text" name="contact-name" required="required" placeholder="Введите ваше имя">
+                    <input id="phone" name="phone" type="tel" placeholder="Номер телефона">
+                    <textarea id="contact-text" name="contact-text" placeholder="Введите ваш вопрос"></textarea>
+                    <button class="btn">Получить консультацию</button>
+                </form>
+            </div>
+            <div class="contact-form__image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/11.png" alt="grid card img">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="reviews" id="reviews">
+    <div class="container">
+        <div class="reviews__wrapper">
+            <div class="reviews__title">
+                <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                <h2 class="title h2">Отзывы клиентов</h2>
+                <a href="#" class="btn btn_secondary">Смотреть все</a>
+            </div>
+            <ul class="reviews__grid">
+                <li class="reviews__item">
+                    <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
+                       class="reviews__video">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
+                        <div class="reviews__icon"></div>
+                    </a>
+                    <a href="/review" class="reviews__item-content">
+                        <h4 class="h4 reviews__item-title">Маркова Василиса</h4>
+                        <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
+                    </a>
+                </li>
+                <li class="reviews__item">
+                    <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
+                       class="reviews__video">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
+                        <div class="reviews__icon"></div>
+                    </a>
+                    <a href="/review" class="reviews__item-content">
+                        <h4 class="h4 reviews__item-title">Калмыков Макар</h4>
+                        <p class="reviews__item-text">Купив когда-то Шеви Ниву, полюбил бездорожье и полный привод.
+                            Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
+                    </a>
+                </li>
+                <li class="reviews__item">
+                    <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
+                       class="reviews__video">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
+                        <div class="reviews__icon"></div>
+                    </a>
+                    <a href="/review" class="reviews__item-content">
+                        <h4 class="h4 reviews__item-title">Воробьев Артём</h4>
+                        <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
+                    </a>
+                </li>
+                <li class="reviews__item">
+                    <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
+                       class="reviews__video">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
+                        <div class="reviews__icon"></div>
+                    </a>
+                    <a href="/review" class="reviews__item-content">
+                        <h4 class="h4 reviews__item-title">Константин Пирогов</h4>
+                        <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="stages" id="stages">
+    <div class="container">
+        <div class="stages__wrapper">
+            <h2 class="h1 stages__title">Этапы покупки автомобиля в США</h2>
+            <ul class="stages__grid">
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>1</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Покупка</h5>
+                    <p class="stages__text">Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины</p>
+                </li>
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>2</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Перерегистрация авто</h5>
+                    <p class="stages__text">Переоформление прав собственности на автомобиль в 2020 году производится непосредственно в сервисном центре МВД (ранее МРЭО).</p>
+                </li>
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>3</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Договор купли-продажи автомобиля</h5>
+                    <p class="stages__text">Для оформления продажи авто в СЦ МВД представитель собственника должен иметь на руках нотариальную доверенность и её заверенную копию. </p>
+                </li>
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>4</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Налоги при покупке-продаже авто</h5>
+                    <p class="stages__text">Сбор в пенсионный фонд 3-5% (исключительно при первой регистрации автомобиля на территории Украины). Зависит от стоимости автомобиля и размера прожиточного минимума для трудоспособных лиц (на момент покупки).</p>
+                </li>
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>5</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Название четвертого шага</h5>
+                    <p class="stages__text">Закажите экспертизу ТС экспертом в сервисном центре МВД, до момента передачи денег и заключения договора купли-продажи.</p>
+                </li>
+                <li class="stages__item">
+                    <span class="stages__img">
+                        <span class="stages__value">
+                            <span>6</span>
+                        </span>
+                        <span class="img" style="
+                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);
+                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);"></span>
+                    </span>
+                    <h5 class="h5 stages__subtitle">Название первого шага</h5>
+                    <p class="stages__text">Внимательно читайте все что написано в документах, которые подписываете.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="viber-form" id="viber-form">
+    <div class="container">
+        <div class="viber-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/9.jpg')">
+            <span class="viber-form__icon">
+                <span class="icon icon-viber"></span>
+            </span>
+            <div class="viber-form__content">
+                <h2 class="title h2">Получить готовую подборку на Viber</h2>
+                <p class="text">Отправим прямо сейчас </p>
+            </div>
+            <form action="#" class="viber-form__form">
+                <input id="name" type="text" name="name" required="required" placeholder="Введите ваше имя">
+                <input id="phone" name="phone" type="tel" placeholder="Ваш Viber">
+                <div class="button-wrap">
+                    <button class="btn btn_white btn_fullwidth">Получить подборку</button>
+                    <span class="text">10 авто в вашем бюджете</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="auctions" id="auctions">
+    <div class="container">
+        <div class="auctions__wrapper swiper-container">
+            <h2 class="h1 auctions__title">Аукционы с которыми работаем</h2>
+            <ul class="auctions__grid swiper-wrapper">
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/EBay-logo.png"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/puma-Logo.png"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/rozetka-logo.png"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/NP-logo.svg"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/EBay-logo.png"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link"><span>Подробнее</span><span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 <section class="faq" id="faq">
     <div class="faq-wrapper">
         <div class="container">
@@ -948,6 +1387,110 @@ get_header('front'); ?>
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+</section>
+<section class="individual-form" id="individual-form2">
+    <div class="container">
+        <div class="individual-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/9.jpg')">
+            <div class="individual-form__content">
+                <h2 class="title h2">Не нашли нужного ответа?</h2>
+                <p class="text">Заполните форму и мы проконсультируем Вам по любому вопросу</p>
+            </div>
+            <form action="#" class="individual-form__form">
+                <input id="individual-name" type="text" name="individual-name" required="required"
+                       placeholder="Введите ваше имя">
+                <input id="individual-phone" name="individual-phone" type="tel" placeholder="Введите ваш номер телефона">
+                <button class="btn btn_white-secondary">Получить консультацию</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="map-section" id="map-section">
+    <div class="container">
+        <div class="map-section__wrapper">
+            <div class="map" id="map">
+
+            </div>
+            <ul class="map__info">
+                <li class="map__info-item">
+                    <span class="icon icon-phone"></span>
+                    <a href="tel:+380936164441">+38 (093) 616-44-41</a>
+                </li>
+                <li class="map__info-item">
+                    <span class="icon icon-phone"></span>
+                    <a href="tel:+380936164442">+38 (093) 616-44-42</a>
+                </li>
+                <li class="map__info-item">
+                    <span class="icon icon-mail"></span>
+                    <a href="mailto:dealer@gmail.com">dealer@gmail.com</a>
+                </li>
+                <li class="map__info-item">
+                    <span class="icon icon-map"></span>
+                    <address>г. Киев, Улица, Номер дома</address>
+                </li>
+                <li class="map__info-item">
+                    <span class="text">Мессенджеры:</span>
+                    <ul class="social-list">
+                        <li class="social-item">
+                            <a href="https://telegram.me/groupe_name" class="icon icon-telegram" target="_blank"></a>
+                        </li>
+                        <li class="social-item">
+                            <a href="viber://chat/?number=%2B380966771503" class="icon icon-viber" target="_blank"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="blog-posts" id="blog-posts">
+    <div class="container">
+        <div class="blog-posts__wrapper">
+            <div class="blog-posts__title">
+                <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                <h2 class="title h2">Читайте наш блог</h2>
+                <a href="#" class="btn btn_secondary">Смотреть все</a>
+            </div>
+            <ul class="blog-posts__grid">
+                <li class="blog-posts__item">
+                    <a href="/blog-post" class="blog-posts__link">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
+                        <div href="/review" class="blog-posts__item-content">
+                            <h4 class="h4 blog-posts__item-title">Как проверить скрученный пробег машины</h4>
+                            <p class="blog-posts__item-text">Одометр современного автомобиля, который фиксирует количество пройденных километров с момента начала эксплуатации — электронный прибор. Как и любой другой, его можно взломать. Причиной "скручивания" может быть не только продажа. В некоторых моделях бортовой компьютер требует посещения станции технического обслуживания после определенного километража. Если средств на СТО нет, некоторым проще обмануть бортовой компьютер, подправив данные одометра. Бывает и другая необходимость изменить цифры, не связанная с </p>
+                        </div>
+                    </a>
+                </li>
+                <li class="blog-posts__item">
+                    <a href="/blog-post" class="blog-posts__link">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
+                        <div href="/review" class="blog-posts__item-content">
+                            <h4 class="h4 blog-posts__item-title">Проставки в пружину или авто бафферы</h4>
+                            <p class="blog-posts__item-text">Любой автовладелец может купить набор резиновых проставок в пружину автомобиля, чтобы увеличить дорожный просвет. Расскажем что такое авто бафферы и чем отличаются от обычных межвитковых вставок в пружины. Какие материалы лучше, сколько служат и как установить своими руками.</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="blog-posts__item">
+                    <a href="/blog-post" class="blog-posts__link">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
+                        <div href="/review" class="blog-posts__item-content">
+                            <h4 class="h4 blog-posts__item-title">Всё про авто аукцион USS</h4>
+                            <p class="blog-posts__item-text">Аукцион USS – лидер среди японских реселлеров поддержанных авто. Доступ из любой точки мира, широкая сеть филиалов, использование современных технологий и высокий уровень организации торгов.</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="blog-posts__item">
+                    <a href="/blog-post" class="blog-posts__link">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
+                        <div href="/review" class="blog-posts__item-content">
+                            <h4 class="h4 blog-posts__item-title">Всё про гайковёрт для ремонта авто</h4>
+                            <p class="blog-posts__item-text">Гайковерт - это инструмент, применяемый для откручивания и закручивания деталей авто с резьбовыми соединениями. Он работает по принципу электрического гаечного ключа большой мощности. Расскажем про выбор гайковерта для автомобиля. Какие бывают и отличия, цены и рекомендации по выбору.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </section>

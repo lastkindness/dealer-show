@@ -1,0 +1,73 @@
+.auctions {
+    &__grid {
+        margin: 0 0 0 -30px;
+    }
+    &__title {
+        margin-bottom: 48px;
+        text-align: center;
+    }
+    &__item {
+        opacity: 0;
+        @include animate(all);
+        &-text {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+        &:before {
+            display: none;
+        }
+        &.swiper-slide-active {
+            opacity: 1;
+            @include animate(all);
+            &+.swiper-slide {
+                opacity: 1;
+                @include animate(all);
+                &+.swiper-slide {
+                    opacity: 1;
+                    @include animate(all);
+                    &+.swiper-slide {
+                        opacity: 1;
+                        @include animate(all);
+                    }
+                }
+            }
+        }
+    }
+    &__card {
+        height: 200px;
+        box-shadow: $shadow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 57px 72px;
+        border-radius: 16px;
+        margin-bottom: 24px;
+        img {
+            object-fit: contain;
+        }
+    }
+    &__wrapper {
+        overflow: visible;
+    }
+    &__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__link {
+        font-weight: 900;
+        font-family: 'Ferry';
+        color: $primary;
+        text-decoration: unset;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        .icon {
+            transform: translateY(3px);
+            margin-left: 5px;
+        }
+    }
+}

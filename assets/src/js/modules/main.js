@@ -83,15 +83,31 @@ export default () => {
     //header sticky start
 
     //ellipsis
-    $('.grid__card-description').ellipsis({lines: 3});
+    $('.top-auto .grid__card-description').ellipsis( {lines: 3});
+    $('.warranty .grid__card-description').ellipsis( {lines: 10});
+    $('.reviews__item-text').ellipsis( {lines: 5});
+    $('.stages__text').ellipsis( {lines: 4});
+    $('.blog-posts__item-text').ellipsis( {lines: 5});
     $(window).on('load', function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.reviews__item-text').ellipsis( {lines: 5});
+        $('.stages__text').ellipsis( {lines: 4});
+        $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(document).ajaxComplete(function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.reviews__item-text').ellipsis( {lines: 5});
+        $('.stages__text').ellipsis( {lines: 4});
+        $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(window).resize(function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.reviews__item-text').ellipsis( {lines: 5});
+        $('.stages__text').ellipsis( {lines: 4});
+        $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     //ellipsis
 

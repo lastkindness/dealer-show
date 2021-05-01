@@ -1,0 +1,89 @@
+.reviews {
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        .title {
+            flex-grow: 0;
+            order: 0;
+            white-space: nowrap;
+        }
+        .btn {
+            flex-grow: 0;
+            order: 2;
+        }
+        &:before {
+            order: 1;
+            content: '';
+            width: 100%;
+            flex-grow: 1;
+            display: block;
+            height: 1px;
+            background-color: $bg;
+            margin: 0 40px;
+        }
+    }
+    &__item {
+        &-title {
+            color: $primary;
+        }
+        &-text {
+            color: $font;
+        }
+    }
+    &__grid {
+        margin: 0 -15px;
+        padding: 0;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+    &__item {
+        width: calc(25% - 30px);
+        margin: 0 15px;
+        &:before {
+            display: none;
+        }
+        &-content {
+            display: block;
+            text-decoration: unset;
+        }
+    }
+    &__video {
+        margin-bottom: 24px;
+        display: flex;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        height: 200px;
+        width: 100%;
+        &:before {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'icomoon';
+            position: absolute;
+            width: 58px;
+            height: 58px;
+            z-index: 1;
+            content: "\ea1c";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparentize($bg, 0.1);
+            border-radius: 50%;
+            color: $font;
+            font-size: 22px;
+            @include animate(all);
+        }
+        &:hover,
+        &:active,
+        &:focus {
+            &:before {
+                @include animate(all);
+                font-size: 30px;
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.individual-form {
+    color: $white;
+    &__wrapper {
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 60px 105px;
+        text-align: center;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        &:before {
+            top: 0;
+            left: 0;
+            width: 102%;
+            height: 102%;
+            position: absolute;
+            content: '';
+            display: block;
+            background-color: transparentize($secondary, 0.3);
+            z-index: 0;
+        }
+    }
+    &__content {
+        z-index: 1;
+        position: relative;
+        margin-bottom: 40px;
+        .title {
+            margin-bottom: 24px;
+            text-align: center;
+            color: $white;
+        }
+        .text {
+            width: 78%;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 auto;
+        }
+    }
+    &__form {
+        z-index: 1;
+        position: relative;
+        margin: 0 auto;
+        width: 78%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &>* {
+            width: calc(33.3% - 12px);
+        }
+        input {
+            margin-right: 24px;
+        }
+        .btn {
+            padding: 23px 12px;
+        }
+    }
+}

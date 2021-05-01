@@ -1,0 +1,57 @@
+.warranty {
+    &__title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .grid {
+        &__card {
+            &-img {
+                width: 82px;
+                height: 82px;
+                border-radius: 16px;
+                background: $secondaryGradient;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 16px;
+                .img {
+                    display: block;
+                    width: 24px;
+                    height: 32px;
+                    mask-position: 50% 50%;
+                    mask-size: contain !important;
+                    mask-repeat: no-repeat !important;
+                    -webkit-mask-position: 50% 50% !important;
+                    -webkit-mask-size: contain !important;
+                    -webkit-mask-repeat: no-repeat !important;
+                    background-color: $white;
+                }
+            }
+            &-flip {
+                height: 290px;
+            }
+            &-front {
+                padding: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            &-back {
+                background: $secondaryGradient;
+                .grid {
+                    &__card {
+                        &-title {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+            &-title {
+                text-align: center;
+                height: auto;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
