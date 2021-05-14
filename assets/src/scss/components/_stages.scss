@@ -56,6 +56,9 @@
             @include respond-to('desktop') {
                 left: 100%;
             }
+            @include respond-to('tablet') {
+                display: none;
+            }
         }
         .img {
             width: 52px;
@@ -81,6 +84,9 @@
         @include respond-to('desktop') {
             margin: 0 10px 100px;
             width: calc(33.3% - 20px);
+        }
+        @include respond-to('tablet') {
+            margin: 0 10px 50px;
         }
         &:before {
             display: none;
@@ -122,6 +128,9 @@
                 top: calc(100% + 25px);
                 transform: translateX(-50%);
                 left: 50%;
+                @include respond-to('tablet') {
+                    display: none;
+                }
             }
         }
         &:nth-child(3) {

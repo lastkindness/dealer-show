@@ -88,9 +88,9 @@ section {
     z-index: 0;
     background-color: transparent;
     margin-bottom: 100px;
-    order: 1;
-    &.text-content {
-        order: 2;
+    order: 2;
+    @include respond-to('mobile') {
+        margin-bottom: 60px;
     }
 }
 

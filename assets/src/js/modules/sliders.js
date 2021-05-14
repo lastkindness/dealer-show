@@ -42,7 +42,7 @@ export default () => {
     function initSwiperReviews() {
         if($( window ).width()<=1024  && swiperReviews == undefined) {
             swiperReviews = new Swiper('.reviews .swiper-container', {
-                spaceBetween: 0,
+                spaceBetween: 15,
                 loop: true,
                 slidesPerView: 1,
                 centeredSlides: true,
@@ -81,7 +81,7 @@ export default () => {
     function initSwiperWarranty() {
         if($( window ).width()<=1024  && swiperWarranty == undefined) {
             swiperWarranty = new Swiper('.warranty .swiper-container', {
-                spaceBetween: 0,
+                spaceBetween: 15,
                 loop: true,
                 slidesPerView: 1,
                 centeredSlides: true,

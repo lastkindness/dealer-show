@@ -3,6 +3,9 @@
         border-radius: 16px;
         overflow: hidden;
         position: relative;
+        @include respond-to('mobile') {
+            order: 0;
+        }
         @include respond-to('mobile-sm') {
             margin-top: -20px;
             border-radius: 0px;

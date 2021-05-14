@@ -33,13 +33,19 @@
         justify-content: flex-start;
         @include respond-to('tablet') {
             align-items: flex-start;
+            margin: 0;
         }
     }
     &__item {
         width: calc(25% - 30px);
         margin: 0 15px;
+        @include animate(all);
         @include respond-to('tablet') {
             width: auto;
+            margin: 0;
+        }
+        @include respond-to('mobile') {
+            opacity: 0.5;
         }
         &:before {
             display: none;
@@ -53,6 +59,12 @@
         }
         &-text {
             color: $font;
+        }
+        &.swiper-slide-active {
+            @include animate(all);
+            @include respond-to('mobile') {
+                opacity: 1;
+            }
         }
     }
     &__controls,

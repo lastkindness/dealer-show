@@ -8,10 +8,22 @@
         @include respond-to('tablet') {
             align-items: flex-start;
             flex-wrap: nowrap;
+            margin: 0;
         }
         &__card {
+            @include animate(all);
             @include respond-to('tablet') {
                 width: auto;
+                margin: 0;
+            }
+            @include respond-to('mobile') {
+                opacity: 0.5;
+            }
+            &.swiper-slide-active {
+                @include animate(all);
+                @include respond-to('mobile') {
+                    opacity: 1;
+                }
             }
             &-img {
                 width: 82px;
