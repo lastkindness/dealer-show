@@ -52,6 +52,10 @@
             top: 50%;
             transform: translateY(-50%);
             left: calc(100% + 50px);
+            z-index: -1;
+            @include respond-to('desktop') {
+                left: 100%;
+            }
         }
         .img {
             width: 52px;
@@ -74,6 +78,10 @@
         margin: 0 50px 100px;
         padding: 0;
         width: calc(33.3% - 100px);
+        @include respond-to('desktop') {
+            margin: 0 10px 100px;
+            width: calc(33.3% - 20px);
+        }
         &:before {
             display: none;
         }

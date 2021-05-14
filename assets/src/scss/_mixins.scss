@@ -28,7 +28,7 @@ $breakpoints: (
     'laptop': 1280px,
     'tablet': 1024px,
     'mobile': 768px,
-    'mobile-sm': 480px
+    'mobile-sm': 540px
 );
 @mixin respond-to( $breakpoint ) {
     @if map-has-key($breakpoints, $breakpoint) {

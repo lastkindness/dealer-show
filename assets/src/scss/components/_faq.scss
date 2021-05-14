@@ -7,6 +7,9 @@
         overflow: hidden;
         width: 77.77%;
         margin: 0 auto;
+        @include respond-to('desktop') {
+            width: 100%;
+        }
         &-list {
             margin: 0;
             padding: 0;

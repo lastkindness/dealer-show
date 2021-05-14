@@ -23,10 +23,96 @@ export default () => {
 
     var swiperAuctionsImg = new Swiper('.auctions__wrapper', {
         spaceBetween: 30,
-        slidesPerView: 4,
+        slidesPerView: 2,
         loop: true,
         autoplay: {
             delay: 3000,
         },
+        breakpoints: {
+            768: {
+                slidesPerView: 3
+            },
+            1280: {
+                slidesPerView: 4
+            }
+        }
     });
+
+    var swiperReviews = undefined;
+    function initSwiperReviews() {
+        if($( window ).width()<=1024  && swiperReviews == undefined) {
+            swiperReviews = new Swiper('.reviews .swiper-container', {
+                spaceBetween: 0,
+                loop: true,
+                slidesPerView: 1,
+                centeredSlides: true,
+                pagination: {
+                    el: '.reviews .swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".reviews .swiper-button-next",
+                    prevEl: ".reviews .swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        } else if ($( window ).width()>1024 && swiperReviews != undefined) {
+            swiperReviews.destroy();
+            swiperReviews = undefined;
+        }
+    }
+    $( window ).resize(function(){
+        if($('.reviews__item').length>0) {
+            initSwiperReviews();
+        }
+    });
+    if($('.reviews__item').length>0) {
+        initSwiperReviews();
+    }
+
+    var swiperWarranty = undefined;
+    function initSwiperWarranty() {
+        if($( window ).width()<=1024  && swiperWarranty == undefined) {
+            swiperWarranty = new Swiper('.warranty .swiper-container', {
+                spaceBetween: 0,
+                loop: true,
+                slidesPerView: 1,
+                centeredSlides: true,
+                pagination: {
+                    el: '.warranty .swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".warranty .swiper-button-next",
+                    prevEl: ".warranty .swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    }
+                }
+            });
+        } else if ($( window ).width()>1024 && swiperWarranty != undefined) {
+            swiperWarranty.destroy();
+            swiperWarranty = undefined;
+        }
+    }
+    $( window ).resize(function(){
+        if($('.warranty .grid__card').length>0) {
+            initSwiperWarranty();
+        }
+    });
+    if($('.warranty .grid__card').length>0) {
+        initSwiperWarranty();
+    }
 };

@@ -8,8 +8,16 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @include respond-to('tablet') {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     li {
         margin-bottom: 0;
+        @include respond-to('tablet') {
+            margin: 0 0 24px 0;
+        }
         &:before {
             display: none;
         }
@@ -29,15 +37,36 @@
 .menu {
     &-item-has-children {
         position: relative;
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
+        @include respond-to('tablet') {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             width: 100%;
+        }
+        &:after {
+            display: none;
+            position: static;
+            width: 25px;
             top: 100%;
             left: 0;
             background-color: transparent;
             height: 25px;
+            font-family: 'icomoon';
+            content: "\e908";
+            font-size: 18px;
+            color: $secondary;
+            order: 1;
+            @include animate(all);
+            transform: translateY(5px) translateX(5px);
+            @include respond-to('tablet') {
+                display: inline-block;
+            }
+        }
+        &>a {
+            @include respond-to('tablet') {
+                order: 0;
+            }
         }
         .sub-menu {
             display: none;
@@ -52,10 +81,28 @@
             border-radius: 4px;
             box-shadow: $shadow;
             min-width: 150px;
+            @include respond-to('tablet') {
+                position: static;
+                box-shadow: unset;
+                padding: 20px 10px 0;
+                order: 2;
+            }
             .menu-item {
                 margin: 0 0 10px 0;
                 &:last-child {
                     margin: 0;
+                    @include respond-to('tablet') {
+                        margin: 0;
+                    }
+                }
+                @include respond-to('laptop') {
+                    margin: 0 0 5px 0;
+                }
+                @include respond-to('tablet') {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
             a {
@@ -63,6 +110,12 @@
                 font-family: $fontFerry;
                 font-weight: 900;
                 color: $bgDark;
+                @include respond-to('laptop') {
+                    font-size: 12px;
+                }
+                @include respond-to('tablet') {
+                    font-size: 16px;
+                }
                 &:hover,
                 &:active,
                 &:focus {
@@ -75,6 +128,10 @@
         &:focus {
             .sub-menu {
                 display: block;
+            }
+            &:after {
+                @include animate(all);
+                transform: translateY(5px) translateX(5px) rotate(90deg);
             }
         }
     }

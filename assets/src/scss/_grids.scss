@@ -3,7 +3,7 @@
     height: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    @include respond-to('desktop') {
+    @include respond-to('desktop-l') {
         max-width: 100%;
         padding: 0 80px;
     }

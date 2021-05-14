@@ -7,6 +7,9 @@
     margin-bottom: 20px;
     &.sticky {
         position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         .header {
             &__info,
             &__menu {
@@ -21,14 +24,41 @@
     a {
         text-decoration: unset;
     }
+    &__mobile {
+        display: none;
+        border-bottom: 1px solid $bg;
+        z-index: 100;
+        padding: 20px 0;
+        @include respond-to('tablet') {
+            display: block;
+        }
+        &.sticky {
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: fixed;
+            @include animate(all);
+        }
+    }
     &__catalog {
         padding: 16px 0;
+        @include respond-to('tablet') {
+            padding: 0;
+            flex-wrap: wrap;
+        }
         &-hidden {
             position: relative;
+            @include respond-to('tablet') {
+                width: 100%;
+                margin: 0 0 24px 0;
+            }
             .btn {
                 -webkit-mask-size: contain!important;
                 mask-size: contain!important;
                 padding: 0;
+                @include respond-to('tablet') {
+                    width: 100%;
+                }
                 .icon {
                     width: 28px;
                     height: 28px;
@@ -40,10 +70,20 @@
                     margin: 9px 15px;
                     transform: rotate(0deg);
                     @include animate(all);
+                    @include respond-to('tablet') {
+                        position: absolute;
+                        top: 50%;
+                        left: 15px;
+                        transform: translateY(-50%);
+                        margin: 0;
+                    }
                 }
                 .title {
                     padding: 15px 35px;
                     border-left: 2px solid transparentize($black, 0.9);
+                    @include respond-to('tablet') {
+                        width: calc(100% - 110px);
+                    }
                 }
                 &:hover,
                 &:active,
@@ -51,16 +91,32 @@
                     .icon {
                         transform: rotate(360deg);
                         @include animate(all);
+                        @include respond-to('tablet') {
+                            transform: translateY(-50%) rotate(360deg);
+                        }
                     }
                 }
             }
         }
         &-menu {
+            @include respond-to('tablet') {
+                width: 100%;
+                margin-bottom: 24px;
+            }
             a {
                 font-size: 16px;
                 font-family: $fontFerry;
                 font-weight: 900;
                 color: $bgDark;
+                @include respond-to('desktop') {
+                    font-size: 14px;
+                }
+                @include respond-to('laptop') {
+                    font-size: 11px;
+                }
+                @include respond-to('tablet') {
+                    font-size: 16px;
+                }
                 &:hover,
                 &:active,
                 &:focus {
@@ -69,10 +125,41 @@
             }
             .menu-item {
                 margin-right: 50px;
+                @include respond-to('desktop-l') {
+                    margin-right: 20px;
+                }
+                @include respond-to('desktop') {
+                    margin-right: 10px;
+                }
+                @include respond-to('tablet') {
+                    margin: 0 0 24px 0;
+                    text-align: center;
+                }
                 &:last-child {
                     margin-right: 0;
+                    @include respond-to('tablet') {
+                        margin: 0;
+                    }
                 }
             }
+        }
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 100%;
+        @include respond-to('tablet') {
+            padding: 20px 0 0;
+            display: none;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 101;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
         }
     }
     &__menu {
@@ -82,6 +169,11 @@
         height: auto;
         opacity: 1;
         @include animate(all);
+        @include respond-to('tablet') {
+            order: 1;
+            padding: 24px 24px 40px;
+            margin: 0;
+        }
         a {
             color: $white;
             font-weight: 600;
@@ -90,17 +182,47 @@
             &:focus {
                 color: $fontLight;
             }
-        }
-        &-list {
-
+            @include respond-to('desktop') {
+                font-size: 12px;
+            }
+            @include respond-to('laptop') {
+                font-size: 10px;
+            }
+            @include respond-to('tablet') {
+                font-size: 16px;
+            }
         }
         .menu-item {
             margin-right: 45px;
+            @include respond-to('desktop-l') {
+                margin-right: 25px;
+            }
+            @include respond-to('desktop') {
+                margin-right: 15px;
+            }
+            @include respond-to('tablet') {
+                margin: 0 0 24px 0;
+            }
+            &:last-child {
+                @include respond-to('tablet') {
+                    margin: 0;
+                }
+            }
         }
         &-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            @include respond-to('tablet') {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .navbar {
+                @include respond-to('tablet') {
+                    margin-bottom: 40px;
+                }
+            }
         }
         &-social {
             a {
@@ -116,6 +238,10 @@
     }
     &__main {
         background-color: $white;
+        @include respond-to('tablet') {
+            order: 0;
+            margin: 0;
+        }
     }
     &__info {
         display: flex;
@@ -126,8 +252,22 @@
         height: auto;
         opacity: 1;
         @include animate(all);
+        @include respond-to('laptop') {
+           flex-wrap: wrap;
+            padding: 16px 0;
+        }
+        @include respond-to('tablet') {
+            border-bottom: unset;
+            padding: 0;
+        }
         &>* {
             margin-right: 30px;
+            @include respond-to('desktop-l') {
+                margin-right: 10px;
+            }
+            @include respond-to('tablet') {
+                margin: 0 0 24px 0;
+            }
             &:last-child {
                 margin: 0;
             }
@@ -141,6 +281,10 @@
     &__logo {
         width: 150px;
         height: 35px;
+        @include respond-to('tablet') {
+            order: 1;
+            margin: 0;
+        }
         img {
             object-fit: contain;
         }
@@ -152,21 +296,53 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 4px;
+        @include respond-to('laptop') {
+            //order: 5;
+        }
+        @include respond-to('tablet') {
+            order: 5;
+            width: 100%;
+            margin: 0 0 24px 0;
+        }
         &-item {
             margin: 0;
             padding: 5px 12px;
             border-right: 1px solid $bg;
+            @include animate(all);
+            @include respond-to('tablet') {
+                padding: 0px;
+                width: 50%;
+                border-top: 2px solid $fontLight;
+                border-right: 2px solid $fontLight;
+                border-bottom: 2px solid $fontLight;
+                overflow: hidden;
+                text-align: center;
+            }
             &:before {
                 display: none;
             }
             &:first-child {
                 padding: 5px 12px 5px 0;
+                @include respond-to('tablet') {
+                    padding: 0px;
+                }
             }
             &:last-child {
                 padding: 5px 0 5px 12px;
                 border-right: unset;
+                @include respond-to('tablet') {
+                    padding: 0px;
+                    border-radius: 0 4px 4px 0;
+                    border-right: 2px solid $fontLight;
+                }
             }
             &.active {
+                @include respond-to('tablet') {
+                    border: 2px solid $primary;
+                    border-radius: 4px;
+                    overflow: hidden;
+                }
                 a {
                     color: $primary;
                 }
@@ -178,6 +354,11 @@
                 &:active,
                 &:focus {
                     color: $primary;
+                }
+                @include respond-to('tablet') {
+                    padding: 14px;
+                    width: 100%;
+                    display: inline-block;
                 }
             }
         }
@@ -192,10 +373,25 @@
             display: flex;
             align-items: stretch;
             justify-content: center;
+            background-color: $error;
+            @include animate(all);
             &:hover,
             &:active,
             &:focus {
-                color: $seo;
+                background-color: $bright;
+                @include animate(all);
+                color: $white;
+                .text {
+                    background-color: $bright;
+                    @include animate(all);
+                    color: $white;
+                }
+            }
+            @include respond-to('tablet') {
+                order: 6;
+                width: 100%;
+                margin: 0 0 24px 0;
+                padding: 0 45px 0 0;
             }
             .text {
                 padding: 12px 16px;
@@ -205,6 +401,15 @@
                 background-color: $bright;
                 padding: 12px 9px;
                 font-size: 26px;
+                border-radius: 4px;
+                @include respond-to('tablet') {
+                    align-self: flex-end;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 100%;
+                }
             }
         }
     }
@@ -215,6 +420,17 @@
         border-radius: 4px;
         overflow: hidden;
         width: 34.72%;
+        @include respond-to('desktop-l') {
+            width: 25%;
+        }
+        @include respond-to('laptop') {
+            order: 7;
+            width: 100%;
+            margin: 20px 0 0 0;
+        }
+        @include respond-to('tablet') {
+            margin: 0 0 24px 0;
+        }
         .search-field {
             padding: 12px 16px;
             border: 1px solid $bgLight;
@@ -223,6 +439,9 @@
             font-weight: 500;
             font-size: 16px;
             border-radius: unset;
+            @include respond-to('desktop') {
+                font-size: 14px;
+            }
             &::placeholder {
                 color: $fontGray;
                 font-weight: 500;
@@ -248,6 +467,12 @@
         }
     }
     &__messengers {
+        @include respond-to('tablet') {
+            order: 4;
+            width: 20%;
+            justify-content: flex-end;
+            margin: 24px 0 24px 0;
+        }
         .social-item {
             margin: 0 12px 0 0;
             &:last-child {
@@ -271,6 +496,11 @@
         }
     }
     &__phones {
+        @include respond-to('tablet') {
+            order: 3;
+            width: 80%;
+            margin: 24px 0 24px 0;
+        }
         .dropdown {
             &__header {
                 min-width: unset;
@@ -278,6 +508,9 @@
                 font-family: $fontFerry;
                 font-size: 18px;
                 font-weight: 900;
+                @include respond-to('desktop-l') {
+                    font-size: 14px;
+                }
                 &-item {
                     margin-bottom: 5px;
                 }
@@ -298,6 +531,9 @@
             justify-content: flex-start;
             color: $secondary;
             font-weight: 600;
+            @include respond-to('tablet') {
+               display: none;
+            }
             &:hover,
             &:active,
             &:focus {
@@ -311,4 +547,226 @@
             }
         }
     }
+    &__burger {
+        display: none;
+        @include respond-to('tablet') {
+            display: flex;
+            order: 0;
+            margin: 0;
+        }
+    }
+    &__phone {
+        &-mobile {
+            display: none;
+            position: relative;
+            @include respond-to('tablet') {
+                order: 2;
+                margin: 0;
+            }
+            .icon {
+                font-size: 16px;
+                color: $white;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: $secondaryGradient;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                position: relative;
+                z-index: 1;
+                filter: saturate(100%);
+                -webkit-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+                -moz-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+                -ms-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+                -o-animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+                animation: coccoc-alo-circle-img-anim 1s infinite ease-in-out;
+            }
+            .circle {
+                content: '';
+                display: block;
+                width: 130%;
+                height: 130%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background: $secondaryGradient;
+                opacity: 20%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                z-index: 0;
+                -webkit-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                -moz-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                -ms-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                -o-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                -o-transition: all .5s;
+                transition: all .5s;
+            }
+            @include respond-to('tablet') {
+                display: flex;
+            }
+            &:hover,
+            &:active,
+            &:focus {
+                .icon {
+                    outline: none;
+                    @include animate(all);
+                    filter: saturate(300%);
+                }
+            }
+        }
+    }
+    &.nav-active {
+        .header__wrapper {
+            @include respond-to('tablet') {
+                display: flex;
+            }
+        }
+    }
 }
+
+@-webkit-keyframes coccoc-alo-circle-fill-anim {
+    0% {
+        transform: translate(-50%, -50%) rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+    100% {
+        transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@-o-keyframes coccoc-alo-circle-fill-anim {
+    0% {
+        transform: translate(-50%, -50%) rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+    100% {
+        transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@keyframes coccoc-alo-circle-fill-anim {
+    0% {
+        transform: translate(-50%, -50%) rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@-moz-keyframes coccoc-alo-circle-img-anim {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@-webkit-keyframes coccoc-alo-circle-img-anim {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@-o-keyframes coccoc-alo-circle-img-anim {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@keyframes coccoc-alo-circle-img-anim {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    10% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+    100% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+

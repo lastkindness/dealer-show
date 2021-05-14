@@ -1,0 +1,23 @@
+.modal {
+    text-align: center;
+    border-radius: 16px;
+    &_phone {
+
+    }
+    &__title {
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: space-between;
+        .btn {
+            margin-top: 20px;
+        }
+        input {
+            width: calc(50% - 10px);
+        }
+    }
+}

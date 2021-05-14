@@ -74,10 +74,20 @@ export default () => {
 
     //header sticky start
     $(window).scroll(function(){
-        if($(this).scrollTop()>=1){
-            $('.header').addClass('sticky');
+        if($(window).width()>1024) {
+            $('.header__mobile').removeClass('sticky');
+            if($(this).scrollTop()>=1){
+                $('.header').addClass('sticky');
+            } else {
+                $('.header').removeClass('sticky');
+            }
         } else {
             $('.header').removeClass('sticky');
+            if($(this).scrollTop()>=1){
+                $('.header__mobile').addClass('sticky');
+            } else {
+                $('.header__mobile').removeClass('sticky');
+            }
         }
     });
     //header sticky start

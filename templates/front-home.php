@@ -48,7 +48,12 @@ get_header('front'); ?>
                         </div>
                         <a href="#" class="btn">подробнее</a>
                     </div>
-                    <img class="hero-slider__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/1.jpg" alt="hero-slider">
+                    <picture class="hero-slider__img">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/27.jpg" media="
+                        (max-width: 1024px)">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/1.jpg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/1.jpg" alt="hero-slider">
+                    </picture>
                 </li>
                 <li class="hero-slider__item swiper-slide">
                     <div class="hero-slider__content">
@@ -64,8 +69,12 @@ get_header('front'); ?>
                         </div>
                         <a href="#" class="btn">подробнее</a>
                     </div>
-                    <img class="hero-slider__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/8.jpg"
-                         alt="hero-slider">
+                    <picture class="hero-slider__img">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/28.jpg" media="
+                        (max-width: 1024px)">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/8.jpg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/8.jpg" alt="hero-slider">
+                    </picture>
                 </li>
                 <li class="hero-slider__item swiper-slide">
                     <div class="hero-slider__content">
@@ -81,8 +90,12 @@ get_header('front'); ?>
                         </div>
                         <a href="#" class="btn">подробнее</a>
                     </div>
-                    <img class="hero-slider__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/13.jpg"
-                         alt="hero-slider">
+                    <picture class="hero-slider__img">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/29.jpg" media="
+                        (max-width: 1024px)">
+                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/img/13.jpg">s
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/13.jpg" alt="hero-slider">
+                    </picture>
                 </li>
             </ul>
             <div class="hero-slider__nav">
@@ -896,9 +909,9 @@ get_header('front'); ?>
     <div class="container">
         <div class="warranty__wrapper">
             <h2 class="h1 warranty__title">Наша компания карантирует</h2>
-            <div class="warranty__grid">
-                <div class="grid">
-                    <div class="grid__card">
+            <div class="warranty__grid swiper-container">
+                <div class="grid swiper-wrapper">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -918,7 +931,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -938,7 +951,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -958,7 +971,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -978,7 +991,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -998,7 +1011,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -1018,7 +1031,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -1038,7 +1051,7 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="grid__card">
+                    <div class="grid__card swiper-slide">
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
@@ -1058,6 +1071,11 @@ get_header('front'); ?>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="warranty__controls swiper-pagination"></div>
+                <div class="warranty__nav swiper-nav">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
@@ -1087,15 +1105,15 @@ get_header('front'); ?>
 </section>
 <section class="reviews" id="reviews">
     <div class="container">
-        <div class="reviews__wrapper">
+        <div class="reviews__wrapper swiper-container">
             <div class="reviews__title">
                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
                 <h2 class="title h2">Отзывы клиентов</h2>
                 <a href="#" class="btn btn_secondary">Смотреть все</a>
             </div>
-            <ul class="reviews__grid">
-                <li class="reviews__item">
+            <ul class="reviews__grid swiper-wrapper">
+                <li class="reviews__item swiper-slide">
                     <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
@@ -1106,7 +1124,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
                     </a>
                 </li>
-                <li class="reviews__item">
+                <li class="reviews__item swiper-slide">
                     <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
@@ -1118,7 +1136,7 @@ get_header('front'); ?>
                             Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
                     </a>
                 </li>
-                <li class="reviews__item">
+                <li class="reviews__item swiper-slide">
                     <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
@@ -1129,7 +1147,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
                     </a>
                 </li>
-                <li class="reviews__item">
+                <li class="reviews__item swiper-slide">
                     <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
@@ -1141,6 +1159,11 @@ get_header('front'); ?>
                     </a>
                 </li>
             </ul>
+            <div class="reviews__controls swiper-pagination"></div>
+            <div class="reviews__nav swiper-nav">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
     </div>
 </section>

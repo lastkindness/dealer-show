@@ -38,7 +38,7 @@
                         </li>
                         <li>
                             <span class="icon icon-map"></span>
-                            <address>5031 S.W. 100th Avenue Cooper City FL 33328</address>
+                            <address>5031 S.W. 100th Avenue <br> Cooper City FL 33328</address>
                         </li>
                         <li>
                             <span class="icon icon-mail"></span>
@@ -133,12 +133,12 @@
 </footer>
 </div>
 <div class="modals">
-    <div id="modal-phone" style="display: none;">
-        <span class="h3">Заказать звонок:</span>
-        <form action="#">
-            <input id="name" type="text" name="name" required="required" placeholder="Vorname">
-            <input id="phone" name="phone" type="tel"  placeholder="Telefon">
-            <button type="submit" class="btn btn_form btn_big">antrag stellen</button>
+    <div id="modal-phone" style="display: none;" class="modal modal_phone">
+        <span class="h3 modal__title">Заказать звонок:</span>
+        <form class="modal__form" action="#">
+            <input id="name" type="text" name="name" required="required" placeholder="ФИО">
+            <input id="phone" name="phone" type="tel"  placeholder="Контактный телефон">
+            <button type="submit" class="btn btn_form btn_big">Перезвоните мне</button>
         </form>
     </div>
 </div>
