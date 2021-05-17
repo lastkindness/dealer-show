@@ -46,6 +46,12 @@
         width: 40px;
         height: 28px;
     }
+    &__title {
+        font-size: 16px;
+        margin-right: 16px;
+        color: $bgDark;
+        display: inline-block;
+    }
     &__text {
         display: inline-flex;
         align-items: flex-start;
@@ -155,6 +161,14 @@
                     @include animate(all);
                     text-decoration: unset;
                 }
+            }
+        }
+        &.disabled {
+            color: $fontGray;
+            pointer-events: none;
+            cursor: default;
+            .dropdown__text {
+                color: $fontGray;
             }
         }
     }

@@ -3,6 +3,9 @@
     &__title {
         margin-bottom: 40px;
         text-align: center;
+        @include respond-to('mobile-sm') {
+            text-align: left;
+        }
     }
     .grid {
         @include respond-to('tablet') {
@@ -34,6 +37,9 @@
                 align-items: center;
                 justify-content: center;
                 margin: 0 auto 16px;
+                @include respond-to('mobile-sm') {
+                    margin: 0;
+                }
                 .img {
                     display: block;
                     width: 24px;
@@ -49,6 +55,9 @@
             }
             &-flip {
                 height: 290px;
+                @include respond-to('mobile-sm') {
+                    height: 200px;
+                }
             }
             &-front {
                 padding: 24px;
@@ -56,6 +65,24 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                @include respond-to('mobile-sm') {
+                    padding: 24px 16px;
+                }
+                &-content {
+                    @include respond-to('mobile-sm') {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        width: 100%;
+                    }
+                }
+                .grid__card-description {
+                    display: none;
+                    margin-top: 14px;
+                    @include respond-to('mobile-sm') {
+                        display: block;
+                    }
+                }
             }
             &-back {
                 background: $secondaryGradient;
@@ -64,6 +91,12 @@
                         &-title {
                             text-align: left;
                         }
+                        &-description {
+                            @include respond-to('mobile-sm') {
+                                font-size: 12px;
+                                line-height: 1.2em;
+                            }
+                        }
                     }
                 }
             }
@@ -71,6 +104,11 @@
                 text-align: center;
                 height: auto;
                 margin-bottom: 10px;
+                @include respond-to('mobile-sm') {
+                    font-size: 18px;
+                    text-align: left;
+                    margin-left: 22px;
+                }
             }
         }
     }
@@ -82,6 +120,13 @@
         display: none;
         @include respond-to('tablet') {
             display: flex;
+        }
+    }
+    .grid {
+        &__card-description {
+            @include respond-to('mobile-sm') {
+                display: block;
+            }
         }
     }
 }

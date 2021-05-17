@@ -1,0 +1,31 @@
+.breadcrumbs {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    &__li {
+        margin: 0;
+        &:before {
+            display: none;
+        }
+        &:last-child {
+            .breadcrumbs__link {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+    &__link {
+        text-decoration: unset;
+        color: $bgDark;
+        font-size: 14px;
+        &:after {
+            content: "/";
+            display: inline-block;
+            padding: 0 5px;
+        }
+    }
+}

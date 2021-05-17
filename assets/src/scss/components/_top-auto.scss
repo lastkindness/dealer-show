@@ -21,6 +21,7 @@
             white-space: nowrap;
             @include respond-to('mobile') {
                 width: 100%;
+                white-space: normal;
             }
         }
         .btn {

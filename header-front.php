@@ -26,7 +26,7 @@
                         <a href="#" class="header__logo">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
                         </a>
-                        <a data-fancybox="modal-phone1" href="#modal-phone"
+                        <a data-fancybox="modal-phone" href="#modal-phone"
                            class="header__phone-mobile">
                             <span class="icon icon-phone"></span>
                             <span class="circle"></span>
@@ -91,11 +91,6 @@
                             </div>
                             <a href="#" class="header__logo">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
-                            </a>
-                            <a data-fancybox="modal-phone1" href="#modal-phone"
-                               class="header__phone-mobile">
-                                <span class="icon icon-phone"></span>
-                                <span class="circle"></span>
                             </a>
                             <ul class="header__lang">
                                 <li class="header__lang-item active"><a href="#RUS">RUS</a></li>

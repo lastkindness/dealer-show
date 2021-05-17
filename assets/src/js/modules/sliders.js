@@ -22,17 +22,27 @@ export default () => {
     };
 
     var swiperAuctionsImg = new Swiper('.auctions__wrapper', {
-        spaceBetween: 30,
-        slidesPerView: 2,
+        spaceBetween: 0,
+        slidesPerView: 1,
+        centeredSlides: true,
         loop: true,
         autoplay: {
             delay: 3000,
         },
         breakpoints: {
             768: {
-                slidesPerView: 3
+                centeredSlides: false,
+                spaceBetween: 30,
+                slidesPerView: 2
             },
             1280: {
+                centeredSlides: false,
+                spaceBetween: 30,
+                slidesPerView: 3
+            },
+            1366: {
+                centeredSlides: false,
+                spaceBetween: 30,
                 slidesPerView: 4
             }
         }

@@ -5,14 +5,31 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
+        @include respond-to('mobile') {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-bottom: 32px;
+        }
         .title {
             flex-grow: 0;
             order: 0;
             white-space: nowrap;
+            @include respond-to('mobile') {
+                width: 100%;
+                white-space: normal;
+            }
         }
         .btn {
             flex-grow: 0;
             order: 2;
+            @include respond-to('mobile') {
+                margin: 0;
+            }
+            @include respond-to('mobile-sm') {
+                width: 100%;
+                padding: 20px;
+                margin: 0;
+            }
         }
         &:before {
             order: 1;
@@ -23,6 +40,9 @@
             height: 1px;
             background-color: $bg;
             margin: 0 40px;
+            @include respond-to('mobile') {
+                display: none;
+            }
         }
     }
     &__grid {

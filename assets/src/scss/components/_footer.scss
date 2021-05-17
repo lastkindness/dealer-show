@@ -10,6 +10,10 @@
     }
     &__info {
         padding: 28px 0;
+        @include respond-to('mobile-sm') {
+            padding: 40px 0 0;
+            border: none;
+        }
         &-wrapper {
             display: flex;
             align-items: center;
@@ -17,10 +21,17 @@
             @include respond-to('tablet') {
                 flex-wrap: wrap;
             }
+            @include respond-to('mobile-sm') {
+                justify-content: center;
+            }
         }
     }
     &__main {
         padding: 26px 0 35px;
+        @include respond-to('mobile-sm') {
+            padding: 0 0 35px;
+            border: none;
+        }
         .container {
             @include respond-to('mobile-sm') {
                 padding: 0;
@@ -166,6 +177,9 @@
         @include respond-to('tablet') {
             order: 0;
         }
+        @include respond-to('mobile-sm') {
+            margin-bottom: 40px;
+        }
         img {
             object-fit: contain;
         }
@@ -182,6 +196,11 @@
             width: 100%;
             order: 2;
         }
+        @include respond-to('mobile-sm') {
+            order: 1;
+            padding: 20px;
+            margin: 0 0 40px 0;
+        }
     }
     &__messengers {
         display: flex;
@@ -189,6 +208,12 @@
         justify-content: flex-end;
         @include respond-to('tablet') {
             order: 1;
+        }
+        @include respond-to('mobile-sm') {
+            order: 2;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
         }
         .title {
             font-size: 24px;
@@ -200,6 +225,10 @@
             margin-right: 20px;
             @include respond-to('laptop') {
                 font-size: 18px;
+            }
+            @include respond-to('mobile-sm') {
+                margin: 0 0  24px 0;
+                width: 100%;
             }
         }
         .social-list {
@@ -217,6 +246,11 @@
                 font-size: 30px;
                 height: 100%;
                 padding: 15px 13px;
+                display: inline-block;
+                @include respond-to('mobile-sm') {
+                    width: 60px;
+                    height: 60px;
+                }
                 &:hover,
                 &:active,
                 &:focus {
@@ -272,14 +306,25 @@
         }
     }
     &__copyright {
+        @include respond-to('mobile-sm') {
+            border-top: 1px solid rgba(162, 170, 173, 0.2);;
+        }
         &-copy {
             font-weight: 400;
             color: transparentize(#FBFBFB, 0.5);
+            @include respond-to('mobile-sm') {
+                margin-bottom: 24px !important;
+            }
         }
         &-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
+            @include respond-to('mobile-sm') {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
             &>* {
                 margin: 0;
             }

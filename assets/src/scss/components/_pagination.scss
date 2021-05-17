@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-top: 40px;
     &__list {
         display: flex;
         align-items: center;
@@ -59,5 +60,8 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
+        @include respond-to('laptop') {
+            display: none;
+        }
     }
 }

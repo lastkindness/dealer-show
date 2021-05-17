@@ -10,6 +10,7 @@ import sliders from './modules/sliders';
 import faq from './modules/faq';
 import modals from './modules/modals';
 import map from './modules/map';
+import filters from './modules/filters';
 $(document).ready(() => {
     main();
     form();
@@ -17,6 +18,7 @@ $(document).ready(() => {
     faq();
     modals();
     map();
+    filters();
 });
 
 import '../scss/app.scss';

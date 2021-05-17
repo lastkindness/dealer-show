@@ -915,12 +915,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h5 class="h5 grid__card-title">Лучшую цену на авто</h5>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
@@ -935,12 +940,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
                                             -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
                                             mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Качественную проверку</h4>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Качественную проверку</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Качественную проверку</h5>
@@ -955,12 +965,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Фиксацию бюджета</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Фиксацию бюджета</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Фиксацию бюджета</h5>
@@ -975,12 +990,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Быструю доставку</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Быструю доставку</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Быструю доставку</h5>
@@ -995,12 +1015,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Ремонт с гарантией</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Ремонт с гарантией</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Ремонт с гарантией</h5>
@@ -1015,12 +1040,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Лучшую цену на авто</h5>
@@ -1035,12 +1065,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Лучший сервис</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Лучший сервис</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Лучший сервис</h5>
@@ -1055,12 +1090,17 @@ get_header('front'); ?>
                         <div class="grid__card-flip">
                             <div class="grid__card-wrapper">
                                 <div class="grid__card-front">
-                                    <span class="grid__card-img" >
-                                        <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                    </span>
-                                    <h4 class="h4 grid__card-title">Сохранность</h4>
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Сохранность</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
                                 </div>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Сохранность</h5>
@@ -1341,6 +1381,7 @@ get_header('front'); ?>
 <section class="faq" id="faq">
     <div class="faq-wrapper">
         <div class="container">
+            <h2 class="h1 faq__title">Часто задаваемые вопросы</h2>
             <div class="faq__content">
                 <ul class="faq__content-list">
                     <li class="faq__content-li">
@@ -1476,44 +1517,46 @@ get_header('front'); ?>
                 <h2 class="title h2">Читайте наш блог</h2>
                 <a href="#" class="btn btn_secondary">Смотреть все</a>
             </div>
-            <ul class="blog-posts__grid">
-                <li class="blog-posts__item">
-                    <a href="/blog-post" class="blog-posts__link">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
-                        <div href="/review" class="blog-posts__item-content">
-                            <h4 class="h4 blog-posts__item-title">Как проверить скрученный пробег машины</h4>
-                            <p class="blog-posts__item-text">Одометр современного автомобиля, который фиксирует количество пройденных километров с момента начала эксплуатации — электронный прибор. Как и любой другой, его можно взломать. Причиной "скручивания" может быть не только продажа. В некоторых моделях бортовой компьютер требует посещения станции технического обслуживания после определенного километража. Если средств на СТО нет, некоторым проще обмануть бортовой компьютер, подправив данные одометра. Бывает и другая необходимость изменить цифры, не связанная с </p>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog-posts__item">
-                    <a href="/blog-post" class="blog-posts__link">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
-                        <div href="/review" class="blog-posts__item-content">
-                            <h4 class="h4 blog-posts__item-title">Проставки в пружину или авто бафферы</h4>
-                            <p class="blog-posts__item-text">Любой автовладелец может купить набор резиновых проставок в пружину автомобиля, чтобы увеличить дорожный просвет. Расскажем что такое авто бафферы и чем отличаются от обычных межвитковых вставок в пружины. Какие материалы лучше, сколько служат и как установить своими руками.</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog-posts__item">
-                    <a href="/blog-post" class="blog-posts__link">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
-                        <div href="/review" class="blog-posts__item-content">
-                            <h4 class="h4 blog-posts__item-title">Всё про авто аукцион USS</h4>
-                            <p class="blog-posts__item-text">Аукцион USS – лидер среди японских реселлеров поддержанных авто. Доступ из любой точки мира, широкая сеть филиалов, использование современных технологий и высокий уровень организации торгов.</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog-posts__item">
-                    <a href="/blog-post" class="blog-posts__link">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
-                        <div href="/review" class="blog-posts__item-content">
-                            <h4 class="h4 blog-posts__item-title">Всё про гайковёрт для ремонта авто</h4>
-                            <p class="blog-posts__item-text">Гайковерт - это инструмент, применяемый для откручивания и закручивания деталей авто с резьбовыми соединениями. Он работает по принципу электрического гаечного ключа большой мощности. Расскажем про выбор гайковерта для автомобиля. Какие бывают и отличия, цены и рекомендации по выбору.</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <div class="blog-posts__grid">
+                <ul class="blog-posts__list">
+                    <li class="blog-posts__item">
+                        <a href="/blog-post" class="blog-posts__link">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
+                            <div href="/review" class="blog-posts__item-content">
+                                <h4 class="h4 blog-posts__item-title">Как проверить скрученный пробег машины</h4>
+                                <p class="blog-posts__item-text">Одометр современного автомобиля, который фиксирует количество пройденных километров с момента начала эксплуатации — электронный прибор. Как и любой другой, его можно взломать. Причиной "скручивания" может быть не только продажа. В некоторых моделях бортовой компьютер требует посещения станции технического обслуживания после определенного километража. Если средств на СТО нет, некоторым проще обмануть бортовой компьютер, подправив данные одометра. Бывает и другая необходимость изменить цифры, не связанная с </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="blog-posts__item">
+                        <a href="/blog-post" class="blog-posts__link">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
+                            <div href="/review" class="blog-posts__item-content">
+                                <h4 class="h4 blog-posts__item-title">Проставки в пружину или авто бафферы</h4>
+                                <p class="blog-posts__item-text">Любой автовладелец может купить набор резиновых проставок в пружину автомобиля, чтобы увеличить дорожный просвет. Расскажем что такое авто бафферы и чем отличаются от обычных межвитковых вставок в пружины. Какие материалы лучше, сколько служат и как установить своими руками.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="blog-posts__item">
+                        <a href="/blog-post" class="blog-posts__link">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
+                            <div href="/review" class="blog-posts__item-content">
+                                <h4 class="h4 blog-posts__item-title">Всё про авто аукцион USS</h4>
+                                <p class="blog-posts__item-text">Аукцион USS – лидер среди японских реселлеров поддержанных авто. Доступ из любой точки мира, широкая сеть филиалов, использование современных технологий и высокий уровень организации торгов.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="blog-posts__item">
+                        <a href="/blog-post" class="blog-posts__link">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
+                            <div href="/review" class="blog-posts__item-content">
+                                <h4 class="h4 blog-posts__item-title">Всё про гайковёрт для ремонта авто</h4>
+                                <p class="blog-posts__item-text">Гайковерт - это инструмент, применяемый для откручивания и закручивания деталей авто с резьбовыми соединениями. Он работает по принципу электрического гаечного ключа большой мощности. Расскажем про выбор гайковерта для автомобиля. Какие бывают и отличия, цены и рекомендации по выбору.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

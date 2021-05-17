@@ -1,0 +1,65 @@
+.page-title {
+    z-index: 10;
+    position: relative;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        background-color: #E7E8F3;
+        border-radius: 12px;
+        @include respond-to('laptop') {
+            flex-wrap: wrap;
+        }
+    }
+    .title {
+        margin: 0;
+        @include respond-to('laptop') {
+            order: 0;
+        }
+        @include respond-to('mobile-sm') {
+            margin-bottom: 20px;
+        }
+    }
+    &__breadcrumbs {
+        @include respond-to('laptop') {
+            order: 1;
+        }
+    }
+    &__dropdown {
+        @include respond-to('laptop') {
+            order: 2;
+            width: 100%;
+            margin: 20px 0 0;
+            justify-content: flex-end;
+            display: flex;
+            align-items: center;
+        }
+        @include respond-to('mobile-sm') {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .dropdown {
+            &__header {
+                background-color: $white;
+                border: 1px solid $fontGray;
+            }
+            &__text {
+                color: $bgDark;
+            }
+            &__dropdown {
+                border: 1px solid $fontGray;
+            }
+            &__title {
+                @include respond-to('mobile-sm') {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .icon,
+        .text {
+            color: $bgDark;
+        }
+    }
+}

@@ -7,13 +7,27 @@
         @include respond-to('laptop') {
             flex-wrap: wrap;
         }
+        @include respond-to('mobile-sm') {
+            margin-bottom: 24px;
+        }
         .subtitle {
             color: transparent;
             -webkit-text-stroke: 1px $accent;
+            @include respond-to('mobile-sm') {
+                color: $secondary;
+                font-weight: 700;
+                font-size: 16px;
+                -webkit-text-stroke: unset;
+                text-transform: none;
+                font-family: $fontMontserrat;
+            }
         }
         .subtitle,
         .title {
             margin: 0;
+        }
+        .title {
+            margin-bottom: 12px;
         }
     }
     &__content {
@@ -22,6 +36,9 @@
         justify-content: space-between;
         @include respond-to('laptop') {
             flex-wrap: wrap;
+        }
+        @include respond-to('mobile-sm') {
+            margin: 0 -16px;
         }
     }
     &__form {
@@ -37,8 +54,16 @@
             width: 100%;
             margin-bottom: 60px;
         }
+        @include respond-to('mobile-sm') {
+            border-radius: 0px;
+            padding: 32px 16px;
+            flex-wrap: wrap;
+        }
         .column {
             width: calc(50% - 17px);
+            @include respond-to('mobile-sm') {
+                width: 100%;
+            }
         }
     }
     &__advantages {
@@ -51,6 +76,9 @@
         justify-content: space-between;
         @include respond-to('laptop') {
             width: 100%;
+        }
+        @include respond-to('mobile-sm') {
+            padding: 0 16px;
         }
     }
     &__advantage {
@@ -73,6 +101,10 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            @include respond-to('mobile-sm') {
+                width: 62px;
+                height: 62px;
+            }
         }
         .img {
             display: inline-block;
@@ -85,13 +117,23 @@
             -webkit-mask-position: 50% 50% !important;
             -webkit-mask-size: contain !important;
             -webkit-mask-repeat: no-repeat !important;
+            @include respond-to('mobile-sm') {
+                width: 30px;
+                height: 30px;
+            }
         }
         .content {
             width: calc(100% - 82px - 24px);
+            @include respond-to('mobile-sm') {
+                width: calc(100% - 62px - 14px);
+            }
         }
     }
     .btn {
         margin-top: 30px;
+        @include respond-to('mobile-sm') {
+            margin-top: 0px;
+        }
     }
 }
 /**

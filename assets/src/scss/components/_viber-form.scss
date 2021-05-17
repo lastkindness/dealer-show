@@ -1,5 +1,10 @@
 .viber-form {
     color: $white;
+    .container {
+        @include respond-to('mobile-sm') {
+            padding: 0;
+        }
+    }
     &__wrapper {
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -10,6 +15,10 @@
         position: relative;
         @include respond-to('desktop') {
             padding: 45px 50px;
+        }
+        @include respond-to('mobile-sm') {
+            padding: 75px 16px 45px;
+            border-radius: 0px;
         }
         &:before {
             border-radius: 16px;
@@ -22,6 +31,9 @@
             display: block;
             background-color: transparentize($primary, 0.3);
             z-index: 0;
+            @include respond-to('mobile-sm') {
+                border-radius: 0px;
+            }
         }
     }
     &__content {
@@ -51,17 +63,39 @@
         @include respond-to('desktop') {
             width: 100%;
         }
+        @include respond-to('tablet') {
+            flex-wrap: wrap;
+        }
         &>* {
             width: calc(33.3% - 12px);
+            @include respond-to('tablet') {
+                width: calc(50% - 12px);
+                margin: 0;
+            }
+            @include respond-to('mobile-sm') {
+                width: 100%;
+            }
         }
         input {
             margin-right: 24px;
+            @include respond-to('tablet') {
+                margin: 0;
+            }
+            &:first-child {
+                @include respond-to('mobile-sm') {
+                    margin-bottom: 24px;
+                }
+            }
         }
         .btn {
             padding: 23px 12px;
         }
         .button-wrap {
             position: relative;
+            @include respond-to('tablet') {
+                margin-top: 24px;
+                width: 100%;
+            }
             .text {
                 position: absolute;
                 left: 50%;

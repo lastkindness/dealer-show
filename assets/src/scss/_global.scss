@@ -89,6 +89,9 @@ section {
     background-color: transparent;
     margin-bottom: 100px;
     order: 2;
+    @include respond-to('tablet') {
+        margin-bottom: 70px;
+    }
     @include respond-to('mobile') {
         margin-bottom: 60px;
     }

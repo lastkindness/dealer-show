@@ -37,12 +37,14 @@ export default () => {
     //dropdown select start
 
     function dropdownToggle(thisItem) {
-        $(thisItem).toggleClass('active');
+        $(thisItem).siblings().removeClass('disabled');
+        $(thisItem).addClass('disabled');
         $(thisItem).find('.dropdown__dropdown').slideToggle();
     }
 
     function dropdownItem(thisItem) {
-        $(thisItem).toggleClass('active');
+        $(thisItem).siblings().removeClass('disabled');
+        $(thisItem).addClass('disabled');
         $(thisItem).closest('.dropdown').find('.dropdown__header .text').text($(thisItem).find('.dropdown__text').text());
         $(thisItem).find('.dropdown__dropdown').slideToggle();
     }
@@ -93,32 +95,48 @@ export default () => {
     //header sticky start
 
     //ellipsis
-    $('.top-auto .grid__card-description').ellipsis( {lines: 3});
+    $('.grid__card-description').ellipsis( {lines: 3});
     $('.warranty .grid__card-description').ellipsis( {lines: 10});
+    $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
     $('.reviews__item-text').ellipsis( {lines: 5});
-    $('.stages__text').ellipsis( {lines: 4});
+    ellipsisStages();
     $('.blog-posts__item-text').ellipsis( {lines: 5});
     $(window).on('load', function () {
-        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 3});
         $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});
-        $('.stages__text').ellipsis( {lines: 4});
+        ellipsisStages();
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(document).ajaxComplete(function () {
-        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 3});
         $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});
-        $('.stages__text').ellipsis( {lines: 4});
+        ellipsisStages();
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(window).resize(function () {
-        $('.top-auto .grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 3});
         $('.warranty .grid__card-description').ellipsis( {lines: 10});
+        $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});
-        $('.stages__text').ellipsis( {lines: 4});
+        ellipsisStages();
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
+    function ellipsisStages() {
+        if($( window ).width()>540) {
+            $('.stages__text').ellipsis( {lines: 4});
+        }
+    }
     //ellipsis
+
+    //body onclick start
+    $('body').on('click', function () {
+        $("body" ).removeClass('mobile-filter');
+        $(".catalog__filter" ).removeClass('mobile-active');
+    });
+    //body onclick end
 
 };

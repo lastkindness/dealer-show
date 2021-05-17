@@ -17,6 +17,10 @@
     padding-right: 10px;
     -webkit-column-count: 2;
     column-count: 2;
+    @include respond-to('mobile') {
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
 }
 .text-content__title {
     text-align: left;

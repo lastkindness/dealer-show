@@ -4,14 +4,30 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
+        @include respond-to('mobile') {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-bottom: 32px;
+        }
         .title {
             flex-grow: 0;
             order: 0;
             white-space: nowrap;
+            @include respond-to('mobile') {
+                width: 100%;
+                white-space: normal;
+            }
         }
         .btn {
             flex-grow: 0;
             order: 2;
+            @include respond-to('mobile') {
+                margin: 0;
+            }
+            @include respond-to('mobile-sm') {
+                width: 100%;
+                padding: 20px;
+            }
         }
         &:before {
             order: 1;
@@ -22,25 +38,17 @@
             height: 1px;
             background-color: $bg;
             margin: 0 40px;
-        }
-    }
-    &__item {
-        &-title {
-            color: $primary;
-        }
-        &-text {
-            color: $font;
-        }
-        img {
-            border-radius: 4px;
-            overflow: hidden;
-            width: 100%;
-            height: 200px;
+            @include respond-to('mobile') {
+                display: none;
+            }
         }
     }
     &__grid {
-        margin: 0 -15px;
+        margin: 0 -15px -15px;
+    }
+    &__list {
         padding: 0;
+        margin: 0 !important;
         display: flex;
         align-items: stretch;
         justify-content: flex-start;
@@ -61,6 +69,24 @@
         &-content {
             display: block;
             text-decoration: unset;
+        }
+        &-title {
+            color: $primary;
+        }
+        &-text {
+            color: $font;
+            @include respond-to('mobile-sm') {
+                display: none;
+            }
+        }
+        img {
+            border-radius: 4px;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            @include respond-to('mobile-sm') {
+                height: 90px;
+            }
         }
     }
     &__link {

@@ -1,6 +1,10 @@
 .modal {
     text-align: center;
     border-radius: 16px;
+    @include respond-to('mobile-sm') {
+        padding: 20px 15px;
+        width: 100%;
+    }
     &_phone {
 
     }
@@ -13,11 +17,18 @@
         flex-wrap: wrap;
         align-items: stretch;
         justify-content: space-between;
+        @include respond-to('mobile-sm') {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
         .btn {
             margin-top: 20px;
         }
         input {
             width: calc(50% - 10px);
+            @include respond-to('mobile-sm') {
+                width: 100%;
+            }
         }
     }
 }
