@@ -361,5 +361,7 @@ export default () => {
             icon: 'https://i.ibb.co/DprYnh7/map-marker2.png',
         });
     }
-    initMap();
+    if($('.map-section').length>0) {
+        initMap();
+    }
 };

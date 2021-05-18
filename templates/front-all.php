@@ -329,7 +329,7 @@ get_header('front'); ?>
                                         <th>Lorem ipsum dolor</th>
                                     </tr>
                                     <tr>
-                                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing.</td>
+                                        <td><span>НАЛИЧИЕ</span><span>В УКРАИНЕ</span></td>
                                         <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.</td>
                                         <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.</td>
                                     </tr>

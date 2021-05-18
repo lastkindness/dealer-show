@@ -125,4 +125,103 @@ export default () => {
     if($('.warranty .grid__card').length>0) {
         initSwiperWarranty();
     }
+
+
+
+    function sliderBig() {
+        $('.product__image_slider-big').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            arrows: false,
+            infinite: false,
+            fade: true,
+            asNavFor: '.product__image_slider-small',
+            swipe: false,
+            responsive: [
+                {
+                    breakpoint: 1030,
+                    settings: {
+                        swipe: true
+                    }
+                },
+                {
+                    breakpoint: 690,
+                    settings: {
+                        swipe: true
+                    }
+                }
+            ]
+        });
+        $('.product__image_slider-small').slick({
+            asNavFor: '.product__image_slider-big',
+            dots: false,
+            swipe: true,
+            centerMode: true,
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            focusOnSelect: true,
+            vertical: true,
+            verticalSwiping: true,
+            arrows: true,
+            centerPadding: '0',
+            adaptiveHeight: true,
+            prevArrow:"<button type='button' class='slick-prev'><i class='icon fa fa-arrow-up' aria-hidden='true'></i></button>",
+            nextArrow:"<button type='button' class='slick-next'><i class='icon fa fa-arrow-down' aria-hidden='true'></i></button>",
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+
+                    }
+                },
+                {
+                    breakpoint: 690,
+                    settings: {
+
+                    }
+                }
+            ]
+        });
+    }
+
+
+
+    if ($('.product__image_slider-big').length) {
+        sliderBig();
+    }
+
+// elevateZoom start
+    function elevateZoom () {
+        if ($(window).width() > 1030) {
+            setTimeout(function () {
+                $('.gallery-images .slick-active img').elevateZoom({
+                    scrollZoom: "true",
+                    zoomType: "inner",
+                    cursor: "crosshair",
+                    zoomLevel: 1,
+                    constrainType: 'width'
+                });
+            }, 300);
+        }
+    }
+
+    if($('.product__image_loupe').length) {
+        elevateZoom ();
+        $('.product__image_slider-small-slide').on('click', function(event){
+            event.preventDefault();
+            $('.gallery-images .slick-active img').removeData('elevateZoom');
+            $('.zoomContainer').remove();
+            elevateZoom ();
+        });
+
+        $('.product__image_loupe .slick-arrow').on('click', function(event){
+            event.preventDefault();
+            $('.gallery-images .slick-active img').removeData('elevateZoom');
+            $('.zoomContainer').remove();
+            elevateZoom ();
+        });
+    }
+    // elevateZoom end
 };

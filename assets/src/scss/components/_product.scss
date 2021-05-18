@@ -1,0 +1,225 @@
+.product {
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+            font-weight: 500;
+            color: $fontGray;
+            &:last-child {
+                font-weight: 700;
+                color: $accent;
+            }
+        }
+    }
+    &__info {
+        margin-bottom: 32px;
+    }
+    &__buttons {
+        margin-bottom: 40px;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        .btn {
+            width: calc(50% - 8px);
+            &:first-child {
+                margin: 0 16px 16px 0;
+            }
+            &:nth-child(2) {
+                margin: 0 0 16px 0;
+            }
+            &:last-child {
+                width: 100%;
+            }
+        }
+    }
+    &__content {
+        p {
+            font-size: 16px;
+        }
+    }
+    &__image {
+        &_loupe {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &_slider {
+            &-small {
+                width: 86px;
+                margin-right: 50px;
+                height: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                overflow: hidden;
+                &-counter {
+                    display: none;
+                    .current {
+                        font-size: 16px;
+                    }
+                    .all {
+                        font-size: 12px;
+                        font-weight: 300;
+                    }
+                    .separator {
+                        margin: 0 5px;
+                        display: inline-block;
+                    }
+                }
+                .slick-arrow,
+                .slick-arrow .icon {
+                    height: auto;
+                    position: static;
+                    background-color: transparent;
+                }
+                .slick-arrow {
+                    height: 20px;
+                    margin: 10px auto 0;
+                }
+                .slick-list,
+                .slick-track,
+                .slick-slide {
+                    width: 100% !important;
+                }
+                .slick-list {
+                    overflow: hidden;
+                }
+                .slick-slide {
+                    margin-bottom: 20px;
+                    border: 1px solid $fontGray;
+                    height: 130px;
+                    @include animate(all);
+                    img {
+                        object-fit: cover;
+                    }
+                    &.slick-current {
+                        border: 1px solid $accent;
+                        @include animate(all);
+                    }
+                }
+                .slick-arrow {
+                    .icon {
+                        color: $font;
+                        font-size: 15px;
+                        @include animate(all);
+                        &:hover,
+                        &:focus {
+                            color: $font;
+                            @include animate(all);
+                        }
+                    }
+                }
+            }
+            &-main {
+                width: 450px;
+                height: 667px;
+                position: relative;
+                z-index: 0;
+                .slick-list {
+                    height: auto !important;
+                }
+                .slick-track {
+                    display: flex;
+                    align-items: stretch;
+                }
+            }
+            &-status {
+                padding: 20px;
+                position: absolute;
+                z-index: 5;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                .product-item__label,
+                .product-item__favorite {
+                    position: static;
+                }
+            }
+            &-big {
+                height: 100%;
+                background-color: $white;
+                overflow: hidden;
+                z-index: 1;
+                position: relative;
+                .slick-slide {
+                    z-index: 1 !important;
+                    display: inline-block;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        outline: none;
+                        border: none;
+                    }
+                }
+                .slick-current,
+                .slick-active {
+                    z-index: 99 !important;
+                }
+                .slick-list,
+                .slick-track {
+                    height: 100% !important;
+                }
+                &-slide {
+                    background-color: $white;
+                    height: 100%;
+                    img {
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card-sidebar {
+    margin-bottom: 80px;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__image {
+        width: 586px;
+        margin-right: 115px;
+        a {
+            &:after {
+                display: none;
+            }
+        }
+        &_loupe {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+            height: 100%;
+        }
+        &_slider-small {
+            height: 100%;
+        }
+    }
+    .slick-slide {
+        outline: none !important;
+        @include animate(all);
+        &:hover,
+        &:active,
+        &:focus {
+            outline: 0;
+            outline: none !important;
+            border: 1px solid $accent;
+        }
+    }
+}
+
+.zoomContainer,
+.zoomLens,
+.zoomWindowContainer {
+    z-index: 9;
+}
+
+.zoomWindow {
+    border: 1px solid $accent !important;
+}
