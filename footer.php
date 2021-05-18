@@ -1,4 +1,216 @@
-<?php # TODO: code here ?>
+</main>
+<footer class="footer">
+    <div class="footer__info">
+        <div class="container">
+            <div class="footer__info-wrapper">
+
+            	<?php  
+
+            		$footer_logo = get_field('footer_logo', 'option') ;
+            		$pay_footer = get_field('pay_footer', 'option') ;
+
+            	?>
+
+            	<?php if( $footer_logo ) : ?>
+	                <a href="<?php echo home_url() ; ?>" class="footer__logo">
+	                    <img src="<?php echo $footer_logo['url'] ; ?>" alt="<?php echo $footer_logo['alt'] ; ?>">
+	                </a>
+	            <?php endif ; ?>
+
+	            <?php if( $pay_footer['url'] && $pay_footer['title'] ) : ?>
+	                <a href="<?php echo $pay_footer['url'] ; ?>" class="footer__btn btn"><?php echo $pay_footer['title'] ; ?></a>
+	            <?php endif ; ?>
+
+	            <?php  
+
+	            	$telegram_chat = get_field('telegram_chat_footer', 'option') ;
+                    $viber_chat = get_field('viber_chat_footer', 'option') ;
+                    $title_messenger = get_field('title_messenger', 'option') ;
+
+	            ?>
+
+                <?php if( $viber_chat || $telegram_chat ) : ?>
+
+	                <div class="footer__messengers">
+
+	                	<?php if( $title_messenger ) : ?>
+		                    <span class="title"><?php echo $title_messenger ; ?></span>
+		                <?php endif ; ?>
+
+	                    <ul class="social-list">
+
+	                        <?php if( $telegram_chat ) : ?>
+	                            <li class="social-item">
+	                                <a href="<?php echo $telegram_chat ; ?>" class="icon icon-telegram" target="_blank"></a>
+	                            </li>
+	                        <?php endif ; ?>
+
+	                        <?php if( $viber_chat ) : ?>
+	                            <li class="social-item">
+	                                <a href="<?php echo $viber_chat ; ?>" class="icon icon-viber"
+	                                   target="_blank"></a>
+	                            </li>
+	                        <?php endif ; ?>
+
+	                    </ul>
+
+	                </div>
+
+                <?php endif ; ?>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer__main">
+        <div class="container">
+            <div class="footer__main-wrapper">
+
+            	<?php  
+
+            		$footer_contacts_title = get_field('footer_contacts_title', 'option') ;
+            		$footer_address = get_field('footer_address', 'option') ;
+            		$email_footer = get_field('email_footer', 'option') ;
+
+            	?>
+
+            	<?php if( have_rows('footer_phones', 'option') || $footer_address || $email_footer || $footer_contacts_title ) :  ?>
+
+	                <div class="footer__contacts">
+
+	                	<?php if( $footer_contacts_title ) : ?>
+		                    <span class="footer__main-title"><?php echo $footer_contacts_title ; ?></span>
+		                <?php endif ; ?>
+
+	                    <ul class="footer__contacts-list">
+
+	                    	<?php while( have_rows('footer_phones', 'option') ) : the_row(); ?>
+
+	                    		<?php  
+
+	                    			$phone = get_sub_field('phone') ;
+
+	                    		?>
+
+		                        <li>
+		                            <span class="icon icon-phone"></span>
+		                            <a href="tel:<?php echo clean_phone( $phone ) ; ?>"><?php echo $phone ; ?></a>
+		                        </li>
+
+		                    <?php endwhile ; ?>
+
+		                    <?php if( $footer_address ) : ?>
+		                        <li>
+		                            <span class="icon icon-map"></span>
+		                            <address><?php echo $footer_address ; ?></address>
+		                        </li>
+		                    <?php endif ; ?>
+
+		                    <?php if( $email_footer ) : ?>
+		                        <li>
+		                            <span class="icon icon-mail"></span>
+		                            <a href="mailto:<?php echo antispambot( $email_footer ) ; ?>"><?php echo antispambot( $email_footer ) ; ?></a>
+		                        </li>
+		                    <?php endif ; ?>
+
+	                    </ul>
+	                </div>
+
+	            <?php endif ; ?>
+
+	            <?php  
+
+	            	$footer_menu_title_first = get_field('footer_menu_title_first', 'option') ;
+	            	$footer_menu_title_second = get_field('footer_menu_title_second', 'option') ;
+
+	            ?>
+
+                <div class="footer__menu">
+
+                	<?php if( $footer_menu_title_first ) : ?>
+                    	<span class="footer__main-title"><?php echo $footer_menu_title_first ; ?></span>
+                    <?php endif ; ?>
+
+                    <?php if( has_nav_menu( 'footer-first' ) ) : ?>
+
+                		<?php
+							wp_nav_menu( array(
+								'container' => false,
+								'theme_location' => 'footer-first',
+								'menu_id'        => 'navigation',
+								'menu_class'     => 'navbar menu',
+								'items_wrap'     => '<ul id="%1$s" class="navbar menu">%3$s</ul>'
+								)
+							);
+
+						?>
+
+                	<?php endif ; ?>
+
+                </div>
+                <div class="footer__catalog">
+
+                	<?php if( $footer_menu_title_second ) : ?>
+                    	<span class="footer__main-title"><?php echo $footer_menu_title_second ; ?></span>
+                    <?php endif ; ?>
+
+                    <?php if( has_nav_menu( 'footer-second' ) ) : ?>
+
+                		<?php
+							wp_nav_menu( array(
+								'container' => false,
+								'theme_location' => 'footer-second',
+								'menu_id'        => 'navigation',
+								'menu_class'     => 'navbar menu',
+								'items_wrap'     => '<ul id="%1$s" class="navbar menu">%3$s</ul>'
+								)
+							);
+
+						?>
+
+                	<?php endif ; ?>
+                	
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <div class="container">
+            <div class="footer__copyright-wrapper">
+                <p class="footer__copyright-copy">Copyright © <?php echo date('Y') ; ?>. All rights reserved.</p>
+                <p class="footer__copyright-dev">
+                    <span class="title">Разработка сайта</span>
+                    <a href="#" class="logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/dev-logo.svg" alt="header
+                        logo">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+<?php  
+
+	$call_back_form = get_field('call_back_form', 'option') ;
+	$title_call_back_form = get_field('title_call_back_form', 'option') ;
+
+?>
+
+<?php if( $call_back_form ) : ?>
+	<div class="modals">
+	    <div id="modal-phone" style="display: none;">
+
+	    	<?php if( $title_call_back_form ) : ?>
+		        <span class="h3"><?php echo $title_call_back_form ; ?></span>
+		    <?php endif ; ?>
+
+	        <?php echo do_shortcode( $call_back_form ) ; ?>
+
+	    </div>
+	</div>
+
+<?php endif ; ?>
 
 <?php wp_footer(); ?>
 
