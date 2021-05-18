@@ -16,7 +16,7 @@
 
 	<section class="reviews" id="reviews">
     	<div class="container">
-       		<div class="reviews__wrapper">
+       		<div class="reviews__wrapper swiper-container">
 
        			<div class="reviews__title">
 
@@ -45,7 +45,7 @@
 
 	            <?php if( $reviews->have_posts() ) : ?>
 
-		            <ul class="reviews__grid">
+		            <ul class="reviews__grid swiper-wrapper">
 
 		            	<?php while( $reviews->have_posts() ) : $reviews->the_post(); ?>
 
@@ -55,7 +55,7 @@
 
 		            		?>
 
-			            	<li class="reviews__item">
+			            	<li class="reviews__item swiper-slide">
 
 			            		<?php if (has_post_thumbnail( get_the_ID() ) ): ?>
 

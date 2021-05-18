@@ -44,25 +44,27 @@
 
 	           	<?php if( $posts_query->have_posts() ) : ?>
 
-	           		<ul class="blog-posts__grid">
+	           		<div class="blog-posts__grid">
+		           		<ul class="blog-posts__list">
 
-						<?php while( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
+							<?php while( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
 
-							<li class="blog-posts__item">
-			                    <a href="<?php echo get_permalink(); ?>" class="blog-posts__link">
-			                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-			                        <div href="<?php echo get_permalink(); ?>" class="blog-posts__item-content">
-			                            <h4 class="h4 blog-posts__item-title"><?php echo get_the_title() ; ?></h4>
-			                            <p class="blog-posts__item-text"><?php echo get_the_content() ; ?></p>
-			                        </div>
-			                    </a>
-			                </li>
+								<li class="blog-posts__item">
+				                    <a href="<?php echo get_permalink(); ?>" class="blog-posts__link">
+				                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+				                        <div href="<?php echo get_permalink(); ?>" class="blog-posts__item-content">
+				                            <h4 class="h4 blog-posts__item-title"><?php echo get_the_title() ; ?></h4>
+				                            <p class="blog-posts__item-text"><?php echo get_the_content() ; ?></p>
+				                        </div>
+				                    </a>
+				                </li>
 
-						<?php endwhile ; ?>
+							<?php endwhile ; ?>
 
-						<?php wp_reset_query() ; ?>
+							<?php wp_reset_query() ; ?>
 
-					</ul>
+						</ul>
+					</div>
 
 				<?php endif ; ?>
 
