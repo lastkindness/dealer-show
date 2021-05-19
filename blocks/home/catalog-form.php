@@ -44,7 +44,7 @@
 	                        	$car_manufacturer = get_terms( array(
 								    'taxonomy' => 'car_manufacturer',
 								    'parent' => 0,
-								    'hide_empty' => false
+								    'hide_empty' => true
 								) );
 
 	                        ?>
@@ -91,7 +91,7 @@
 
 	                    		$issue_year = get_terms( array(
 								    'taxonomy' => 'issue_year',
-								    'hide_empty' => false,
+								    'hide_empty' => true,
 								    'orderby' => 'name',
 								    'order' => 'DESC',
 								) );

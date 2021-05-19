@@ -86,7 +86,7 @@
 				$car_manufacturer = get_terms( array(
 				    'taxonomy' => 'car_manufacturer',
 				    'parent' => 0,
-				    'hide_empty' => false
+				    'hide_empty' => true
 				) );
 
 			}elseif( $type == 'electrocars' ){
@@ -94,7 +94,7 @@
 				$car_manufacturer = get_terms( array(
 				    'taxonomy' => 'electrocars_manufacturer',
 				    'parent' => 0,
-				    'hide_empty' => false
+				    'hide_empty' => true
 				) );
 
 			}else{
@@ -102,7 +102,7 @@
 				$car_manufacturer = get_terms( array(
 				    'taxonomy' => 'mototechnics_manufacturer',
 				    'parent' => 0,
-				    'hide_empty' => false
+				    'hide_empty' => true
 				) );
 
 			}
