@@ -38,22 +38,22 @@ get_header('front'); ?>
                 <div class="dropdown js__dropdown">
                     <div class="dropdown__header">
                         <span class="dropdown__header-item">
-                            <span class="text">по рейтингу</span>
+                            <span class="text" data-value="rating">по рейтингу</span>
                             <span class="icon icon-arr_down2"></span>
                         </span>
                     </div>
                     <ul class="dropdown__dropdown">
-                        <li id="red" class="dropdown__item">
-                            <span class="dropdown__text">цена от большего к меньшему</span>
+                        <li id="price-more" class="dropdown__item">
+                            <span class="dropdown__text" data-value="price-more">цена от большего к меньшему</span>
                         </li>
-                        <li id="blue" class="dropdown__item">
-                            <span class="dropdown__text">цена от меньшего к большему</span>
+                        <li id="price-less" class="dropdown__item">
+                            <span class="dropdown__text" data-value="price-less">цена от меньшего к большему</span>
                         </li>
                         <li id="green" class="dropdown__item disabled">
-                            <span class="dropdown__text">по рейтингу</span>
+                            <span class="dropdown__text" data-value="rating">по рейтингу</span>
                         </li>
                         <li id="green" class="dropdown__item">
-                            <span class="dropdown__text">по алфавиту</span>
+                            <span class="dropdown__text" data-value="ABC">по алфавиту</span>
                         </li>
                     </ul>
                 </div>
@@ -104,31 +104,31 @@ get_header('front'); ?>
                             <div class="dropdown js__dropdown">
                                 <div class="dropdown__header">
                                     <span class="dropdown__header-item">
-                                        <span class="text">Все авто</span>
+                                        <span class="text" data-value="all">Все авто</span>
                                         <span class="icon icon-arr_down2"></span>
                                     </span>
                                 </div>
                                 <ul class="dropdown__dropdown">
                                     <li id="all-vehicles" class="dropdown__item disabled">
-                                        <span class="dropdown__text">Все авто</span>
+                                        <span class="dropdown__text" data-value="all">Все авто</span>
                                     </li>
                                     <li id="сars-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Легковые автомобили</span>
+                                        <span class="dropdown__text" data-value="сars">Легковые автомобили</span>
                                     </li>
                                     <li id="motor-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Мототранспортные средства</span>
+                                        <span class="dropdown__text" data-value="motor">Мототранспортные средства</span>
                                     </li>
                                     <li id="trucks-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Грузовые автомобили</span>
+                                        <span class="dropdown__text" data-value="trucks">Грузовые автомобили</span>
                                     </li>
                                     <li id="buses-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Автобусы</span>
+                                        <span class="dropdown__text" data-value="buses">Автобусы</span>
                                     </li>
                                     <li id="trailers-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Автодома</span>
+                                        <span class="dropdown__text" data-value="trailers">Автодома</span>
                                     </li>
                                     <li id="hindcarriage-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text">Прицепы</span>
+                                        <span class="dropdown__text" data-value="hindcarriage">Прицепы</span>
                                     </li>
                                 </ul>
                             </div>
