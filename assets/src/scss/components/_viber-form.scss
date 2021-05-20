@@ -76,6 +76,24 @@
                 width: 100%;
             }
         }
+        &>p {
+            width: 65%;
+            display: flex;
+            margin: 0;
+            align-items: stretch;
+            justify-content: space-between;
+            @include respond-to('tablet') {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            &>span {
+                display: inline-block;
+                width: calc(50% - 12px);
+                @include respond-to('mobile-sm') {
+                    width: 100%;
+                }
+            }
+        }
         input {
             margin-right: 24px;
             @include respond-to('tablet') {
@@ -95,6 +113,9 @@
             @include respond-to('tablet') {
                 margin-top: 24px;
                 width: 100%;
+            }
+            @include respond-to('mobile-sm') {
+                margin-top: 0px;
             }
             .text {
                 position: absolute;

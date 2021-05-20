@@ -40,20 +40,40 @@
         @include respond-to('laptop') {
             width: 100%;
         }
-        input {
-            width: calc(50% - 12px);
-            border: unset;
-            background: transparentize($white, 0.9);
-            margin-bottom: 24px;
-            @include respond-to('mobile-sm') {
-                width: 100%;
+        &>p {
+            width: 100%;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            span {
+                width: calc(50% - 12px);
+                border: unset;
+                background: transparentize($white, 0.9);
+                margin-bottom: 24px;
+                @include respond-to('mobile-sm') {
+                    width: 100%;
+                }
             }
         }
-        textarea {
-            width: 100%;
+        input {
+            //width: calc(50% - 12px);
             border: unset;
-            background: transparentize($white, 0.9);
+            //background: transparentize($white, 0.9);
+            //margin-bottom: 24px;
+            //@include respond-to('mobile-sm') {
+            //    width: 100%;
+            //}
+        }
+        .contact-text {
+            width: 100%;
             margin-bottom: 32px;
+            background: unset;
+            textarea {
+                width: 100%;
+                border: unset;
+                background: transparentize($white, 0.9);
+            }
         }
         .btn {
             margin: 0;

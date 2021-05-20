@@ -63,7 +63,7 @@ get_header('front'); ?>
                 <li class="breadcrumbs__li">
                     <a class="breadcrumbs__link" href="#">Главная</a>
                 </li>
-                <li class="breadcrumbs__li">
+                <li class="breadcrumbs__li active">
                     <a class="breadcrumbs__link" href="#">Каталог</a>
                 </li>
                 <li class="breadcrumbs__li">

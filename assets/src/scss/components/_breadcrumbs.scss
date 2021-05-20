@@ -17,6 +17,11 @@
                 }
             }
         }
+        &.active {
+            .breadcrumbs__link {
+                font-weight: 700;
+            }
+        }
     }
     &__link {
         text-decoration: unset;
@@ -27,5 +32,8 @@
             display: inline-block;
             padding: 0 5px;
         }
+    }
+    &-section {
+        margin-bottom: 30px;
     }
 }

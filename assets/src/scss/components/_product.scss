@@ -17,6 +17,12 @@
     &__info {
         width: 40%;
         margin-bottom: 32px;
+        margin-top: -20px;
+        @include respond-to('laptop') {
+            order: 0;
+            width: 100%;
+            margin-top: 0px;
+        }
     }
     &__buttons {
         margin-bottom: 40px;
@@ -26,11 +32,20 @@
         flex-wrap: wrap;
         .btn {
             width: calc(50% - 8px);
+            @include respond-to('mobile-sm') {
+                width: 100%;
+            }
             &:first-child {
                 margin: 0 16px 16px 0;
+                @include respond-to('mobile-sm') {
+                    margin: 0 0 16px;
+                }
             }
             &:nth-child(2) {
                 margin: 0 0 16px 0;
+                @include respond-to('mobile-sm') {
+                    margin: 0 0 16px;
+                }
             }
             &:last-child {
                 width: 100%;
@@ -44,6 +59,10 @@
     }
     &__image {
         width: calc(60% - 60px);
+        @include respond-to('laptop') {
+            order: 1;
+            width: 100%;
+        }
         &_loupe {
             //display: flex;
             //align-items: center;
@@ -58,6 +77,10 @@
                 //align-items: center;
                 //justify-content: space-between;
                 //overflow: hidden;
+                margin-right: -25px;
+                @include respond-to('mobile-sm') {
+                    margin-right: -10px;
+                }
                 &-counter {
                     display: none;
                     .current {
@@ -89,17 +112,27 @@
                 }
                 .slick-list {
                     //overflow: hidden;
+                    margin-right: -25px;
+                    @include respond-to('mobile-sm') {
+                        margin-right: -10px;
+                    }
                 }
                 .slick-slide {
-                    margin-bottom: 20px;
-                    border: 1px solid $fontGray;
-                    height: 130px;
+                    margin: 0 25px 0 0;
+                    border: 1px solid transparent;
+                    height: 150px;
+                    border-radius: 16px;
+                    overflow: hidden;
                     @include animate(all);
+                    @include respond-to('mobile-sm') {
+                        height: 100px;
+                        margin: 0 10px 0 0;
+                    }
                     img {
                         object-fit: cover;
                     }
                     &.slick-current {
-                        border: 1px solid $accent;
+                        border: 1px solid $secondary;
                         @include animate(all);
                     }
                 }
@@ -115,6 +148,22 @@
                         }
                     }
                 }
+                &-slide {
+                    &_video {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            content: "\ea1c";
+                            font-family: 'icomoon';
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: block;
+                            font-size: 40px;
+                            color: $secondary;
+                        }
+                    }
+                }
             }
             &-main {
                 width: 100%;
@@ -124,6 +173,9 @@
                 border-radius: 26px;
                 overflow: hidden;
                 margin-bottom: 24px;
+                @include respond-to('mobile-sm') {
+                    height: 230px;
+                }
                 .slick-list {
                     height: auto !important;
                 }
@@ -176,6 +228,20 @@
                     img {
                         object-fit: cover;
                     }
+                    &_video {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            content: "\ea1c";
+                            font-family: 'icomoon';
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: block;
+                            font-size: 60px;
+                            color: $secondary;
+                        }
+                    }
                 }
             }
         }
@@ -184,6 +250,20 @@
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+        @include respond-to('laptop') {
+            flex-wrap: wrap;
+        }
+    }
+    & + .top-auto {
+        @include respond-to('mobile') {
+            order: 2;
+        }
+        .grid {
+            flex-wrap: nowrap;
+        }
+        .top-auto__grid {
+            overflow: visible;
+        }
     }
 }
 
@@ -221,7 +301,7 @@
         &:focus {
             outline: 0;
             outline: none !important;
-            border: 1px solid $accent;
+            border: 1px solid $secondary;
         }
     }
 }
@@ -233,5 +313,6 @@
 }
 
 .zoomWindow {
-    border: 1px solid $accent !important;
+    border: 1px solid $secondary !important;
+    border-radius: 26px;
 }

@@ -56,6 +56,9 @@ export default () => {
                 loop: true,
                 slidesPerView: 1,
                 centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                },
                 pagination: {
                     el: '.reviews .swiper-pagination',
                     clickable: true,
@@ -95,6 +98,9 @@ export default () => {
                 loop: true,
                 slidesPerView: 1,
                 centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                },
                 pagination: {
                     el: '.warranty .swiper-pagination',
                     clickable: true,
@@ -125,6 +131,39 @@ export default () => {
     if($('.warranty .grid__card').length>0) {
         initSwiperWarranty();
     }
+
+    function topAuto() {
+        var lengthAuto = 4;
+        if($(window).width()<=1680) {
+            lengthAuto = 3;
+        } else if ($(window).width()<=1024) {
+            lengthAuto = 2;
+        }
+        if($('.product + .top-auto .grid__card').length>lengthAuto) {
+            swiperWarranty = new Swiper('.product + .top-auto .swiper-container', {
+                spaceBetween: 15,
+                loop: true,
+                slidesPerView: 2,
+                centeredSlides: true,
+                // autoplay: {
+                //     delay: 3000,
+                // },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 3
+                    },
+                    1680: {
+                        slidesPerView: 4
+                    }
+                }
+            });
+        }
+    };
+
+    $( window ).resize(function(){
+        topAuto();
+    });
+    topAuto();
 
 
 
@@ -158,7 +197,7 @@ export default () => {
             swipe: true,
             centerMode: false,
             infinite: false,
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1,
             focusOnSelect: true,
             vertical: false,
@@ -168,12 +207,9 @@ export default () => {
             adaptiveHeight: true,
             responsive: [
                 {
-                    breakpoint: 1201,
-                    settings: {
-                    }
-                }, {
                     breakpoint: 690,
                     settings: {
+                        slidesToShow: 2,
                     }
                 }
             ]

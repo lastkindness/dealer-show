@@ -139,6 +139,10 @@ table {
     @include respond-to('mobile') {
         width: 100%;
     }
+    @include respond-to('mobile-sm') {
+        width: 100%;
+        display: block;
+    }
     &:after,
     &:before {
         background-color: $white;
@@ -177,6 +181,10 @@ table {
             left: unset;
             right: 0;
         }
+        @include respond-to('mobile-sm') {
+            width: 100%;
+            display: block;
+        }
     }
     caption {
         width: 100%;
@@ -204,11 +212,19 @@ table {
                 border-bottom: unset;
             }
         }
+        @include respond-to('mobile-sm') {
+            width: 100%;
+            display: block;
+        }
     }
     th {
         text-transform: uppercase;
         font-weight: 700;
         background-color: transparent;
+        @include respond-to('mobile-sm') {
+            width: 100%;
+            display: block;
+        }
     }
     th,
     td {
@@ -217,6 +233,10 @@ table {
         border-bottom: 1px solid $bg;
         padding: 20px;
         text-align: left;
+        @include respond-to('mobile-sm') {
+            width: 100%;
+            display: block;
+        }
         &:last-child {
             border-right: none;
         }
