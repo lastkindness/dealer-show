@@ -144,8 +144,7 @@ export default () => {
                     settings: {
                         swipe: true
                     }
-                },
-                {
+                }, {
                     breakpoint: 690,
                     settings: {
                         swipe: true
@@ -157,29 +156,24 @@ export default () => {
             asNavFor: '.product__image_slider-big',
             dots: false,
             swipe: true,
-            centerMode: true,
+            centerMode: false,
             infinite: false,
             slidesToShow: 4,
             slidesToScroll: 1,
             focusOnSelect: true,
-            vertical: true,
-            verticalSwiping: true,
-            arrows: true,
+            vertical: false,
+            verticalSwiping: false,
+            arrows: false,
             centerPadding: '0',
             adaptiveHeight: true,
-            prevArrow:"<button type='button' class='slick-prev'><i class='icon fa fa-arrow-up' aria-hidden='true'></i></button>",
-            nextArrow:"<button type='button' class='slick-next'><i class='icon fa fa-arrow-down' aria-hidden='true'></i></button>",
             responsive: [
                 {
                     breakpoint: 1201,
                     settings: {
-
                     }
-                },
-                {
+                }, {
                     breakpoint: 690,
                     settings: {
-
                     }
                 }
             ]

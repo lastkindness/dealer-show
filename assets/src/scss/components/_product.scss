@@ -6,13 +6,16 @@
         span {
             font-weight: 500;
             color: $fontGray;
+            justify-content: flex-start;
             &:last-child {
+                justify-content: flex-end;
                 font-weight: 700;
                 color: $accent;
             }
         }
     }
     &__info {
+        width: 40%;
         margin-bottom: 32px;
     }
     &__buttons {
@@ -40,20 +43,21 @@
         }
     }
     &__image {
+        width: calc(60% - 60px);
         &_loupe {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            //display: flex;
+            //align-items: center;
+            //justify-content: space-between;
         }
         &_slider {
             &-small {
-                width: 86px;
-                margin-right: 50px;
-                height: 100%;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                overflow: hidden;
+                width: 100%;
+                //margin-right: 50px;
+                //height: 100%;
+                //flex-direction: column;
+                //align-items: center;
+                //justify-content: space-between;
+                //overflow: hidden;
                 &-counter {
                     display: none;
                     .current {
@@ -81,10 +85,10 @@
                 .slick-list,
                 .slick-track,
                 .slick-slide {
-                    width: 100% !important;
+                    //width: 100% !important;
                 }
                 .slick-list {
-                    overflow: hidden;
+                    //overflow: hidden;
                 }
                 .slick-slide {
                     margin-bottom: 20px;
@@ -113,10 +117,13 @@
                 }
             }
             &-main {
-                width: 450px;
-                height: 667px;
+                width: 100%;
+                height: 470px;
                 position: relative;
                 z-index: 0;
+                border-radius: 26px;
+                overflow: hidden;
+                margin-bottom: 24px;
                 .slick-list {
                     height: auto !important;
                 }
@@ -172,6 +179,11 @@
                 }
             }
         }
+    }
+    &__wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
     }
 }
 

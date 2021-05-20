@@ -24,14 +24,6 @@ get_header('front'); ?>
         <div class="product__wrapper">
             <div class="product__image">
                 <div class="product__image_loupe">
-                    <div class="product__image_slider-small">
-                        <div class="product__image_slider-small-slide"><img src="https://st.tsum.com/btrx/i/10/92/85/81//02_1526.jpg?u=1583272181" title="Тренч Лилия Бежевый" alt="Тренч Лилия Бежевый" data-image-index="1" /></div>
-                        <div class="product__image_slider-small-slide"><img src="https://images.ua.prom.st/2600673440_plasch-trench-zhenskij.jpg" title="Тренч Лилия Синий" alt="Тренч Лилия Синий" data-image-index="2" /></div>
-                        <div class="product__image_slider-small-slide"><img src="https://textiletrend.ru/wp-content/uploads/2018/08/trench-4.jpg" title="Тренч Лилия Красный" alt="Тренч Лилия Красный" data-image-index="3" /></div>
-                        <div class="product__image_slider-small-slide"><img src="https://a.lmcdn.ru/pi/product/U/N/UN012EWHXUJ7_10384138_1_v1_2x.jpg" title="Тренч Лилия Зеленый" alt="Тренч Лилия Зеленый" data-image-index="4" /></div>
-                        <div class="product__image_slider-small-slide"><img src="https://alot.com.ua/imgs/b491.jpg" title="Тренч Лилия Белый" alt="Тренч Лилия Белый" data-image-index="5" /></div>
-                        <div class="product__image_slider-small-slide product__image_video"><img src="https://i.pinimg.com/originals/81/2f/75/812f755b692e6899627ba827a52c8991.jpg" title="Тренч Лилия Черный" alt="Тренч Лилия Черный" data-image-index="6" /></div>
-                    </div>
                     <div class="product__image_slider-main">
                         <div class="product__image_slider-big gallery-images"><a href="https://st.tsum.com/btrx/i/10/92/85/81//02_1526.jpg?u=1583272181" data-fancybox="gallery" data-title="Тренч Лилия Бежевый">
                                 <div class="product__image_slider-big-slide"><img src="https://st.tsum.com/btrx/i/10/92/85/81//02_1526.jpg?u=1583272181" title="Тренч Лилия Бежевый" id="image-1" data-zoom-image="https://st.tsum.com/btrx/i/10/92/85/81//02_1526.jpg?u=1583272181" /></div>
@@ -45,7 +37,16 @@ get_header('front'); ?>
                                 <div class="product__image_slider-big-slide"><img src="https://alot.com.ua/imgs/b491.jpg" title="Тренч Лилия Белый" alt="Тренч Лилия Белый" id="image-5" data-zoom-image="https://alot.com.ua/imgs/b491.jpg" /></div>
                             </a><a href="https://youtu.be/eUsJ9cJfkZg" data-fancybox="gallery" data-title="Тренч Лилия Черный">
                                 <div class="product__image_slider-big-slide product-info__image_video"><img src="https://i.pinimg.com/originals/81/2f/75/812f755b692e6899627ba827a52c8991.jpg" title="Тренч Лилия Черный" alt="Тренч Лилия Черный" id="image-6" /></div>
-                            </a></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product__image_slider-small">
+                        <div class="product__image_slider-small-slide"><img src="https://st.tsum.com/btrx/i/10/92/85/81//02_1526.jpg?u=1583272181" title="Тренч Лилия Бежевый" alt="Тренч Лилия Бежевый" data-image-index="1" /></div>
+                        <div class="product__image_slider-small-slide"><img src="https://images.ua.prom.st/2600673440_plasch-trench-zhenskij.jpg" title="Тренч Лилия Синий" alt="Тренч Лилия Синий" data-image-index="2" /></div>
+                        <div class="product__image_slider-small-slide"><img src="https://textiletrend.ru/wp-content/uploads/2018/08/trench-4.jpg" title="Тренч Лилия Красный" alt="Тренч Лилия Красный" data-image-index="3" /></div>
+                        <div class="product__image_slider-small-slide"><img src="https://a.lmcdn.ru/pi/product/U/N/UN012EWHXUJ7_10384138_1_v1_2x.jpg" title="Тренч Лилия Зеленый" alt="Тренч Лилия Зеленый" data-image-index="4" /></div>
+                        <div class="product__image_slider-small-slide"><img src="https://alot.com.ua/imgs/b491.jpg" title="Тренч Лилия Белый" alt="Тренч Лилия Белый" data-image-index="5" /></div>
+                        <div class="product__image_slider-small-slide product__image_video"><img src="https://i.pinimg.com/originals/81/2f/75/812f755b692e6899627ba827a52c8991.jpg" title="Тренч Лилия Черный" alt="Тренч Лилия Черный" data-image-index="6" /></div>
                     </div>
                 </div>
             </div>
@@ -115,15 +116,15 @@ get_header('front'); ?>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="product__buttons">
-                <a href="#" class="btn">Расчитать стоимость</a>
-                <a href="#" class="btn btn_secondary">Внести депозит</a>
-                <a href="#" class="btn btn_light btn_fullwidth">Связаться с нами</a>
-            </div>
-            <div class="product__content">
-                <p>Пять столетий спустя Lorem Ipsum испытал всплеск популярности
-                    с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования.</p>
+                <div class="product__buttons">
+                    <a href="#" class="btn">Расчитать стоимость</a>
+                    <a href="#" class="btn btn_secondary">Внести депозит</a>
+                    <a href="#" class="btn btn_light btn_fullwidth">Связаться с нами</a>
+                </div>
+                <div class="product__content">
+                    <p>Пять столетий спустя Lorem Ipsum испытал всплеск популярности
+                        с выпуском сухого переноса листов Letraset в. Эти листы надписи можно потереть на любом месте и были быстро приняты художники-графики, принтеры, архитекторов и рекламодателей для их профессионального вида и простоты использования.</p>
+                </div>
             </div>
         </div>
     </div>
