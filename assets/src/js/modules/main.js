@@ -46,6 +46,8 @@ export default () => {
         $(thisItem).siblings().removeClass('disabled');
         $(thisItem).addClass('disabled');
         $(thisItem).closest('.dropdown').find('.dropdown__header .text').text($(thisItem).find('.dropdown__text').text());
+        $(thisItem).closest('.dropdown').find('.dropdown__header .text').data("value", $(thisItem).find('.dropdown__text').data("value"));
+        console.log($(thisItem).closest('.dropdown').find('.dropdown__header .text').data("value"));
         $(thisItem).find('.dropdown__dropdown').slideToggle();
     }
 
