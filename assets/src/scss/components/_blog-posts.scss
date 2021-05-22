@@ -13,6 +13,7 @@
             flex-grow: 0;
             order: 0;
             white-space: nowrap;
+            @include animate(all);
             @include respond-to('mobile') {
                 width: 100%;
                 white-space: normal;
@@ -44,7 +45,10 @@
         }
     }
     &__grid {
-        margin: 0 -15px -15px;
+        margin: 0 -15px -30px;
+        @include respond-to('laptop') {
+            margin: 0 -15px -15px;
+        }
     }
     &__list {
         padding: 0;
@@ -52,16 +56,22 @@
         display: flex;
         align-items: stretch;
         justify-content: flex-start;
-        @include respond-to('laptop') {
-            flex-wrap: wrap;
-        }
+        flex-wrap: wrap;
     }
     &__item {
         width: calc(25% - 30px);
-        margin: 0 15px;
+        margin: 0 15px 30px;
         @include respond-to('laptop') {
             width: calc(50% - 30px);
             margin: 0 15px 15px;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+            .blog-posts__item-title {
+                color: $secondary;
+                @include animate(all);
+            }
         }
         &:before {
             display: none;
@@ -91,5 +101,7 @@
     }
     &__link {
         text-decoration: unset;
+        display: inline-block;
+        width: 100%;
     }
 }

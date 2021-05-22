@@ -44,6 +44,18 @@
             flex-wrap: wrap;
             width: 100%;
         }
+        &:before {
+            display: block !important;
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            left: 0;
+            background-color: transparent;
+            height: 25px;
+            content: "";
+            opacity: 0;
+        }
         &:after {
             display: none;
             position: static;

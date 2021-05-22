@@ -4,7 +4,7 @@
  */
 
 get_header('front'); ?>
-<section class="breadcrumbs-section">
+<section class="breadcrumbs-section" id="breadcrumbs-section">
     <div class="container">
         <ul class="breadcrumbs">
             <li class="breadcrumbs__li">
@@ -19,7 +19,7 @@ get_header('front'); ?>
         </ul>
     </div>
 </section>
-<section class="product">
+<section class="product" id="product">
     <div class="container">
         <div class="product__wrapper">
             <div class="product__image">

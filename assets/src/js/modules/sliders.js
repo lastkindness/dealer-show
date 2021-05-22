@@ -253,5 +253,16 @@ export default () => {
             elevateZoom ();
         });
     }
+
+    $('.header').on('mouseenter', function(event){
+        $('.zoomContainer').css('zIndex', '1');
+        $('.zoomLens').css('zIndex', '1');
+        $('.zoomWindowContainer').css('zIndex', '1');
+    });
+    $('.header').on('mouseleave', function(event){
+        $('.zoomContainer').css('zIndex', '9');
+        $('.zoomLens').css('zIndex', '9');
+        $('.zoomWindowContainer').css('zIndex', '9');
+    });
     // elevateZoom end
 };
