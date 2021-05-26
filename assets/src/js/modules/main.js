@@ -134,6 +134,10 @@ export default () => {
     }
     //ellipsis
 
+    $('.stages__item .plus').on('click', function () {
+        $(this).closest('.stages__item').toggleClass('active');
+    });
+
     //body onclick start
     $('body').on('click', function () {
         $("body" ).removeClass('mobile-filter');

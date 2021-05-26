@@ -107,7 +107,7 @@
                 &:hover,
                 &:active,
                 &:focus {
-                    color: $fontLight;
+                    color: $secondary;
                 }
             }
             .menu-item {
@@ -162,10 +162,12 @@
                 font-size: 18px;
                 color: $gray;
                 text-decoration: none;
+                @include animate(all);
                 &:hover,
                 &:active,
                 &:focus {
-                    color: $fontLight;
+                    color: $secondary;
+                    @include animate(all);
                 }
             }
         }
@@ -175,8 +177,8 @@
     }
     &__logo {
         display: inline-block;
-        width: 166px;
-        height: 38px;
+        width: 274px;
+        height: 57px;
         @include respond-to('tablet') {
             order: 0;
         }
@@ -300,7 +302,7 @@
                 &:hover,
                 &:active,
                 &:focus {
-                    color: $fontLight;
+                    color: $secondary;
                 }
             }
             li {

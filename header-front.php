@@ -24,7 +24,8 @@
                             <span></span>
                         </div>
                         <a href="#" class="header__logo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg" alt="header
+                            logo">
                         </a>
                         <a data-fancybox="modal-phone1" href="#modal-phone"
                            class="header__phone-mobile">
@@ -68,13 +69,9 @@
                                 <a href="#">Вакансии</a>
                             </li>
                         </ul>
-                        <ul class="social-list header__menu-social">
-                            <li class="social-item">
-                                <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
-                            </li>
-                            <li class="social-item">
-                                <a href="https://www.instagram.com/" class="icon icon-instagram" target="_blank"></a>
-                            </li>
+                        <ul class="header__lang">
+                            <li class="header__lang-item active"><a href="#RUS">RUS</a></li>
+                            <li class="header__lang-item"><a href="#UKR">UKR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -90,26 +87,29 @@
                                 <span></span>
                             </div>
                             <a href="#" class="header__logo">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg"
+                                     alt="header logo">
                             </a>
                             <a data-fancybox="modal-phone" href="#modal-phone"
                                class="header__phone-mobile">
                                 <span class="icon icon-phone"></span>
                                 <span class="circle"></span>
                             </a>
-                            <ul class="header__lang">
-                                <li class="header__lang-item active"><a href="#RUS">RUS</a></li>
-                                <li class="header__lang-item"><a href="#UKR">UKR</a></li>
-                            </ul>
-                            <a href="https://www.youtube.com/" class="header__youtube-link" target="_blank">
-                                <span class="text">dealer ШОУ</span>
-                                <span class="icon icon-youtube"></span>
-                            </a>
                             <form role="search" class="header__search search-form" method="get" action="#">
                                 <input type="search" class="search-field" placeholder="Поиск по сайту" value="" name="s">
                                 <button type="submit" class="icon icon-search"></button>
                             </form>
+                            <a href="https://www.youtube.com/" class="header__youtube-link" target="_blank">
+                                <span class="text">dealer ШОУ</span>
+                                <span class="icon icon-youtube"></span>
+                            </a>
                             <ul class="header__messengers social-list">
+                                <li class="social-item">
+                                    <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
+                                </li>
+                                <li class="social-item">
+                                    <a href="https://www.instagram.com/" class="icon icon-instagram" target="_blank"></a>
+                                </li>
                                 <li class="social-item">
                                     <a href="https://telegram.me/groupe_name" class="icon icon-telegram" target="_blank"></a>
                                 </li>

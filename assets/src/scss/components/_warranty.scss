@@ -37,13 +37,10 @@
                 align-items: center;
                 justify-content: center;
                 margin: 0 auto 16px;
-                @include respond-to('mobile-sm') {
-                    margin: 0;
-                }
                 .img {
                     display: block;
-                    width: 24px;
-                    height: 32px;
+                    width: 50px;
+                    height: 50px;
                     mask-position: 50% 50%;
                     mask-size: contain !important;
                     mask-repeat: no-repeat !important;
@@ -72,15 +69,16 @@
                     @include respond-to('mobile-sm') {
                         display: flex;
                         align-items: center;
-                        justify-content: flex-start;
                         width: 100%;
+                        flex-direction: column;
+                        justify-content: center;
                     }
                 }
                 .grid__card-description {
                     display: none;
                     margin-top: 14px;
                     @include respond-to('mobile-sm') {
-                        display: block;
+                        //display: block;
                     }
                 }
             }
@@ -106,8 +104,9 @@
                 margin-bottom: 10px;
                 @include respond-to('mobile-sm') {
                     font-size: 18px;
-                    text-align: left;
+                    text-align: center;
                     margin-left: 22px;
+
                 }
             }
         }

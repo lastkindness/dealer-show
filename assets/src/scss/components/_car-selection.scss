@@ -3,28 +3,23 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 66px;
-        @include respond-to('laptop') {
-            flex-wrap: wrap;
-        }
+        margin-bottom: 32px;
+        flex-wrap: wrap;
         @include respond-to('mobile-sm') {
             margin-bottom: 24px;
         }
         .subtitle {
-            color: transparent;
-            -webkit-text-stroke: 1px $accent;
+            color: $accent;
+            font-size: 24px;
             @include respond-to('mobile-sm') {
-                color: $secondary;
-                font-weight: 700;
+                font-weight: 900;
                 font-size: 16px;
-                -webkit-text-stroke: unset;
-                text-transform: none;
-                font-family: $fontMontserrat;
             }
         }
         .subtitle,
         .title {
             margin: 0;
+            width: 100%;
         }
         .title {
             margin-bottom: 12px;

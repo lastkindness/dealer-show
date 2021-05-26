@@ -21,6 +21,9 @@
         &:before {
             display: none;
         }
+        &:hover,
+        &:active,
+        &:focus,
         &.current-menu-item,
         &.active {
             &>a {

@@ -1,5 +1,6 @@
 .contact-form {
     margin-top: 200px;
+    z-index: 2;
     @include respond-to('desktop') {
         margin-top: 100px;
     }
@@ -150,6 +151,9 @@
             opacity: 0.1;
             right: 23%;
             top: -25%;
+            @include respond-to('mobile-sm') {
+                display: none;
+            }
         }
     }
 }

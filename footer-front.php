@@ -4,7 +4,7 @@
         <div class="container">
             <div class="footer__info-wrapper">
                 <a href="#" class="footer__logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-logo.svg" alt="header logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
                 </a>
                 <a href="#" class="footer__btn btn">Внести депозит</a>
                 <div class="footer__messengers">

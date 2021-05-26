@@ -110,7 +110,7 @@ get_header('front'); ?>
     <div class="container">
         <div class="car-selection__wrapper">
             <div class="car-selection__title">
-                <h2 class="title h2">Подобрать авто</h2>
+                <h2 class="title h1">Подобрать авто</h2>
                 <h2 class="subtitle h2">Выгода до 40% от рынка Украины</h2>
             </div>
             <div class="car-selection__content">
@@ -241,7 +241,7 @@ get_header('front'); ?>
             <div class="top-auto__title">
 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="title h2">Топовые автомобили</h2>
+                <h2 class="title h1">Топовые автомобили</h2>
                 <a href="#" class="btn btn_secondary">Смотреть все</a>
             </div>
             <div class="top-auto__grid">
@@ -889,9 +889,9 @@ get_header('front'); ?>
         </div>
     </div>
 </section>
-<section class="individual-form" id="individual-form">
+<section class="individual-form individual-form_dark" id="individual-form">
     <div class="container">
-        <div class="individual-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/9.jpg')">
+        <div class="individual-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/42.jpg')">
             <div class="individual-form__content">
                 <h2 class="title h2">Наши эксперты сделают для вас индивидуальную подборку абсолютно бесплатно</h2>
                 <p class="text">Сайт по продаже автомобилей из Америки. Здесь можно купить Бу автомобили, целые и битые машины с авто аукционов США
@@ -900,7 +900,7 @@ get_header('front'); ?>
             <form action="#" class="individual-form__form">
                 <input id="name" type="text" name="name" required="required" placeholder="Введите ваше имя">
                 <input id="phone" name="phone" type="tel" placeholder="Введите ваш номер телефона">
-                <button class="btn btn_white-secondary">Получить консультацию</button>
+                <button class="btn btn_secondary">Получить консультацию</button>
             </form>
         </div>
     </div>
@@ -908,7 +908,7 @@ get_header('front'); ?>
 <section class="warranty" id="warranty">
     <div class="container">
         <div class="warranty__wrapper">
-            <h2 class="h1 warranty__title">Наша компания карантирует</h2>
+            <h2 class="h1 warranty__title">Наша компания гарантирует</h2>
             <div class="warranty__grid swiper-container">
                 <div class="grid swiper-wrapper">
                     <div class="grid__card swiper-slide">
@@ -918,8 +918,8 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/wallet.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/wallet.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
                                     </div>
@@ -943,8 +943,8 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/car.svg);
+                                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/car.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Качественную проверку</h4>
                                     </div>
@@ -968,8 +968,8 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/money.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/money.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Фиксацию бюджета</h4>
                                     </div>
@@ -993,8 +993,8 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/express.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/express.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Быструю доставку</h4>
                                     </div>
@@ -1018,8 +1018,33 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/eye.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/eye.svg);"></span>
+                                        </span>
+                                        <h4 class="h4 grid__card-title">Прозрачность</h4>
+                                    </div>
+                                    <p class="grid__card-description">
+                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                    </p>
+                                </div>
+                                <div class="grid__card-back">
+                                    <h5 class="h5 grid__card-title">Прозрачность</h5>
+                                    <p class="grid__card-description">
+                                        Каждый автопроизводитель дает на свои автомобили гарантию, то есть обязуется бесплатно их ремонтировать в определенный срок. Если, конечно, поломка произошла из-за самого производителя. Гарантия начинает действовать в тот момент, когда покупатель забирает свою новую машину из салона. А вот срок у нее может быть разный: у кого-то она длится год, у кого-то два, три и больше. Большинство производителей ограничивают гарантию не только количеством лет, но и километражом.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__card swiper-slide">
+                        <div class="grid__card-flip">
+                            <div class="grid__card-wrapper">
+                                <div class="grid__card-front">
+                                    <div class="grid__card-front-content">
+                                        <span class="grid__card-img" >
+                                            <span class="img" style="
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/nuts.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/nuts.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Ремонт с гарантией</h4>
                                     </div>
@@ -1043,33 +1068,8 @@ get_header('front'); ?>
                                     <div class="grid__card-front-content">
                                         <span class="grid__card-img" >
                                             <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
-                                        </span>
-                                        <h4 class="h4 grid__card-title">Лучшую цену на авто</h4>
-                                    </div>
-                                    <p class="grid__card-description">
-                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
-                                    </p>
-                                </div>
-                                <div class="grid__card-back">
-                                    <h5 class="h5 grid__card-title">Лучшую цену на авто</h5>
-                                    <p class="grid__card-description">
-                                        Правила гарантии простые. Ремонт будет бесплатным только тогда, когда поломка произошла из-за производителя. Например, если какая-то деталь вышла из строя из-за ошибки в сборке. А вот расходники под гарантийное обслуживание не подпадают: речь о деталях, которые нужно регулярно менять по регламенту. Это тормозные колодки, лампочки, фильтры, предохранители, технические жидкости и тому подобное.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid__card swiper-slide">
-                        <div class="grid__card-flip">
-                            <div class="grid__card-wrapper">
-                                <div class="grid__card-front">
-                                    <div class="grid__card-front-content">
-                                        <span class="grid__card-img" >
-                                            <span class="img" style="
-                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/qestion.svg);
+                                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/qestion.svg);"></span>
                                         </span>
                                         <h4 class="h4 grid__card-title">Лучший сервис</h4>
                                     </div>
@@ -1080,7 +1080,7 @@ get_header('front'); ?>
                                 <div class="grid__card-back">
                                     <h5 class="h5 grid__card-title">Лучший сервис</h5>
                                     <p class="grid__card-description">
-                                        Как известно, автотехцентр начинается… нет не с вешалки (не театр всё ж таки), а с зоны приёмки. Здесь должно быть просторно, число и светло, равно как и в цехах. Форма сотрудников должна быть фирменной, опрятной и, вообще, — она должна просто быть! Порядок свидетельствует, что и бизнес ведётся добросовестно и ответственно.
+                                        Правила гарантии простые. Ремонт будет бесплатным только тогда, когда поломка произошла из-за производителя. Например, если какая-то деталь вышла из строя из-за ошибки в сборке. А вот расходники под гарантийное обслуживание не подпадают: речь о деталях, которые нужно регулярно менять по регламенту. Это тормозные колодки, лампочки, фильтры, предохранители, технические жидкости и тому подобное.
                                     </p>
                                 </div>
                             </div>
@@ -1149,7 +1149,7 @@ get_header('front'); ?>
             <div class="reviews__title">
                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="title h2">Отзывы клиентов</h2>
+                <h2 class="title h1">Отзывы клиентов</h2>
                 <a href="#" class="btn btn_secondary">Смотреть все</a>
             </div>
             <ul class="reviews__grid swiper-wrapper">
@@ -1217,11 +1217,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>1</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Покупка</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Покупка</h5>
                     <p class="stages__text">Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины</p>
                 </li>
                 <li class="stages__item">
@@ -1229,11 +1227,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>2</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Перерегистрация авто</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Перерегистрация авто</h5>
                     <p class="stages__text">Переоформление прав собственности на автомобиль в 2020 году производится непосредственно в сервисном центре МВД (ранее МРЭО).</p>
                 </li>
                 <li class="stages__item">
@@ -1241,11 +1237,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>3</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Договор купли-продажи автомобиля</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Договор купли-продажи автомобиля</h5>
                     <p class="stages__text">Для оформления продажи авто в СЦ МВД представитель собственника должен иметь на руках нотариальную доверенность и её заверенную копию. </p>
                 </li>
                 <li class="stages__item">
@@ -1253,11 +1247,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>4</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/wheel.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Налоги при покупке-продаже авто</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Налоги при покупке-продаже авто</h5>
                     <p class="stages__text">Сбор в пенсионный фонд 3-5% (исключительно при первой регистрации автомобиля на территории Украины). Зависит от стоимости автомобиля и размера прожиточного минимума для трудоспособных лиц (на момент покупки).</p>
                 </li>
                 <li class="stages__item">
@@ -1265,11 +1257,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>5</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/checked.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Название пятого шага</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Название четвертого шага</h5>
                     <p class="stages__text">Закажите экспертизу ТС экспертом в сервисном центре МВД, до момента передачи денег и заключения договора купли-продажи.</p>
                 </li>
                 <li class="stages__item">
@@ -1277,11 +1267,9 @@ get_header('front'); ?>
                         <span class="stages__value">
                             <span>6</span>
                         </span>
-                        <span class="img" style="
-                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);
-                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/check-sticker.svg);"></span>
+                        <h5 class="h5 stages__subtitle">Название шестого шага</h5>
+                        <span class="plus"></span>
                     </span>
-                    <h5 class="h5 stages__subtitle">Название первого шага</h5>
                     <p class="stages__text">Внимательно читайте все что написано в документах, которые подписываете.</p>
                 </li>
             </ul>
@@ -1295,7 +1283,7 @@ get_header('front'); ?>
                 <span class="icon icon-viber"></span>
             </span>
             <div class="viber-form__content">
-                <h2 class="title h2">Получить готовую подборку на Viber</h2>
+                <h2 class="title h1">Получить готовую подборку на Viber</h2>
                 <p class="text">Отправим прямо сейчас </p>
             </div>
             <form action="#" class="viber-form__form">
@@ -1514,7 +1502,7 @@ get_header('front'); ?>
             <div class="blog-posts__title">
                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="title h2">Читайте наш блог</h2>
+                <h2 class="title h1">Читайте наш блог</h2>
                 <a href="#" class="btn btn_secondary">Смотреть все</a>
             </div>
             <div class="blog-posts__grid">
