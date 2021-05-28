@@ -130,7 +130,40 @@
             &:before {
                 @include animate(all);
                 font-size: 30px;
+                color: $secondary;
             }
+        }
+    }
+    &_list {
+        .reviews {
+            &__grid {
+                flex-wrap: wrap;
+                margin: 0;
+                @include respond-to('tablet') {
+                    flex-wrap: nowrap;
+                }
+            }
+            &__wrapper {
+                margin: 0 -15px;
+                @include respond-to('tablet') {
+                    margin: 0;
+                }
+            }
+            &__item {
+                margin: 0 15px 30px;
+                @include respond-to('tablet') {
+                    margin: 0;
+                }
+            }
+        }
+        .pagination {
+            margin: 40px 15px 0;
+            @include respond-to('tablet') {
+                margin: 40px 0px 0;
+            }
+        }
+        &+.contact-form {
+            margin-top: 100px;
         }
     }
 }

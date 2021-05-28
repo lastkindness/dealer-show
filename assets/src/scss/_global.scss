@@ -317,11 +317,13 @@ input[type=number] {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     z-index: 1;
+    margin: 0 0 -10px;
     .swiper-pagination-bullet {
         width: 8px;
         height: 8px;
-        margin: 0 16px 0 0 !important;
+        margin: 0 16px 10px 0 !important;
         background-color: transparentize($secondary, 0.5);
         border: unset;
         opacity: 1;
@@ -332,7 +334,7 @@ input[type=number] {
         align-items: center;
         justify-content: center;
         &:last-child {
-            margin: 0 0 0 0 !important;
+            margin: 0 0 10px 0 !important;
         }
         &:before {
             display: none;
@@ -350,7 +352,7 @@ input[type=number] {
     &.swiper-pagination-bullets {
         bottom: -40px;
         width: calc(100% - 100px);
-        margin: 0 auto;
+        margin: 0 auto -10px;
     }
 }
 

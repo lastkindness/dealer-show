@@ -35,8 +35,8 @@ get_header('front'); ?>
                             <a href="<?php echo get_template_directory_uri(); ?>/assets/img/30.jpg" data-fancybox="gallery" data-title="TOYOTA Camry">
                                 <div class="product__image_slider-big-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/30.jpg" title="TOYOTA Camry" id="image-3" data-zoom-image="<?php echo get_template_directory_uri(); ?>/assets/img/30.jpg" /></div>
                             </a>
-                            <a href="<?php echo get_template_directory_uri(); ?>/assets/img/31.jpg" data-fancybox="gallery" data-title="TOYOTA Camry">
-                                <div class="product__image_slider-big-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/31.jpg" title="TOYOTA Camry" id="image-4" data-zoom-image="<?php echo get_template_directory_uri(); ?>/assets/img/31.jpg" /></div>
+                            <a href="<?php echo get_template_directory_uri(); ?>/assets/img/43.jpeg" data-fancybox="gallery" data-title="TOYOTA Camry">
+                                <div class="product__image_slider-big-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/43.jpeg" title="TOYOTA Camry" id="image-4" data-zoom-image="<?php echo get_template_directory_uri(); ?>/assets/img/43.jpeg" /></div>
                             </a>
                             <a href="<?php echo get_template_directory_uri(); ?>/assets/img/32.jpg" data-fancybox="gallery" data-title="TOYOTA Camry">
                                 <div class="product__image_slider-big-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/32.jpg" title="TOYOTA Camry" id="image-5" data-zoom-image="<?php echo get_template_directory_uri(); ?>/assets/img/32.jpg" /></div>
@@ -50,7 +50,7 @@ get_header('front'); ?>
                         <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/34.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="1" /></div>
                         <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/35.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="2" /></div>
                         <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/30.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="3" /></div>
-                        <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/31.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="4" /></div>
+                        <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/43.jpeg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="4" /></div>
                         <div class="product__image_slider-small-slide"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/32.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="5" /></div>
                         <div class="product__image_slider-small-slide product__image_slider-small-slide_video"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/33.jpg" title="TOYOTA Camry" alt="TOYOTA Camry" data-image-index="6" /></div>
                     </div>
