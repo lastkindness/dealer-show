@@ -51,9 +51,9 @@ get_header('front'); ?>
 </section>
 <section class="reviews reviews_list" id="reviews">
     <div class="container">
-        <div class="reviews__wrapper swiper-container">
-            <ul class="reviews__grid swiper-wrapper">
-                <li class="reviews__item swiper-slide">
+        <div class="reviews__wrapper">
+            <ul class="reviews__grid">
+                <li class="reviews__item">
                     <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
@@ -64,7 +64,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
@@ -76,7 +76,7 @@ get_header('front'); ?>
                             Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
@@ -87,7 +87,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
@@ -98,7 +98,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
@@ -109,7 +109,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
@@ -121,7 +121,7 @@ get_header('front'); ?>
                             Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
@@ -132,7 +132,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
@@ -143,7 +143,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
@@ -154,7 +154,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
@@ -166,7 +166,7 @@ get_header('front'); ?>
                             Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
@@ -177,7 +177,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
@@ -188,7 +188,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
@@ -199,7 +199,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
@@ -211,7 +211,7 @@ get_header('front'); ?>
                             Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
@@ -222,7 +222,7 @@ get_header('front'); ?>
                         <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
+                <li class="reviews__item ">
                     <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
                        class="reviews__video">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
@@ -235,7 +235,7 @@ get_header('front'); ?>
                 </li>
             </ul>
             <div class="pagination">
-                <button class="btn btn_secondary">Browse Products</button>
+                <button class="btn btn_secondary">следующая страница</button>
                 <ul class="pagination__list">
                     <li class="prev">
                         <span class="icon icon-arr"></span>
@@ -265,11 +265,6 @@ get_header('front'); ?>
                         <span class="icon icon-arr"></span>
                     </li>
                 </ul>
-            </div>
-            <div class="reviews__controls swiper-pagination"></div>
-            <div class="reviews__nav swiper-nav">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </div>

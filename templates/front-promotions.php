@@ -37,206 +37,80 @@ get_header('front'); ?>
         <div class="page-title__wrapper">
             <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
             <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-            <h2 class="title h2">Новости</h2>
+            <h2 class="title h2">Акции</h2>
             <ul class="page-title__breadcrumbs breadcrumbs">
                 <li class="breadcrumbs__li">
                     <a class="breadcrumbs__link" href="#">Главная</a>
                 </li>
                 <li class="breadcrumbs__li active">
-                    <a class="breadcrumbs__link" href="#">Новости</a>
+                    <a class="breadcrumbs__link" href="#">Акции</a>
                 </li>
             </ul>
         </div>
     </div>
 </section>
-
-<section class="reviews" id="reviews">
+<section class="promotions" id="promotions">
     <div class="container">
-        <div class="reviews__wrapper swiper-container">
-            <ul class="reviews__grid swiper-wrapper">
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Маркова Василиса</h4>
-                        <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Калмыков Макар</h4>
-                        <p class="reviews__item-text">Купив когда-то Шеви Ниву, полюбил бездорожье и полный привод.
-                            Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
+        <div class="promotions__wrapper">
+            <ul class="promotions__grid">
+                <li class="promotions__item">
+                    <a href="#" class="promotions__link">
+                        <div class="promotions__image">
+                            <img class="promotions__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/46.jpg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                        </div>
+                        <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                        <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                        <h3 class="h3 promotions__title">SUZUKI SX4 від 504 900 грн!</h3>
+                        <p class="promotions__text">Зараз в Альфа-М Плюс на проспекті Гагаріна, 314-б Suzuki SX4 з бензиновим двигуном 1.6 л в комплектації 2WD 5МТ – від 504 900 грн. Ціна дійсна з 20.05.2021.</p>
+                        <div class="promotions__more"><span>Подробнее</span></div>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Воробьев Артём</h4>
-                        <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Константин Пирогов</h4>
-                        <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
+                <li class="promotions__item">
+                    <a href="#" class="promotions__link">
+                        <div class="promotions__image">
+                            <img class="promotions__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/47.jpg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                        </div>
+                        <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                        <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                        <h3 class="h3 promotions__title">Склад моделей Kia із вигодою до 1700 Євро вичерпується. Встигни придбати мрію до закінчення травня!</h3>
+                        <p class="promotions__text">Спеціальна пропозиція діє на обмежений склад автомобілів в період з 26.05.2021 до 31.05.2021.</p>
+                        <div class="promotions__more"><span>Подробнее</span></div>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Маркова Василиса</h4>
-                        <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Калмыков Макар</h4>
-                        <p class="reviews__item-text">Купив когда-то Шеви Ниву, полюбил бездорожье и полный привод.
-                            Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
+                <li class="promotions__item">
+                    <a href="#" class="promotions__link">
+                        <div class="promotions__image">
+                            <img class="promotions__img" src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/48.jpg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                        </div>
+                        <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                        <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                        <h3 class="h3 promotions__title">Спеціальна пропозиція на комплексну діагностику автомобіля</h3>
+                        <p class="promotions__text">Акційна пропозиція діє з 01.05.2021 до 30.06.2021, в ДЦ Субару ВІДІ Стар.</p>
+                        <div class="promotions__more"><span>Подробнее</span></div>
                     </a>
                 </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Воробьев Артём</h4>
-                        <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Константин Пирогов</h4>
-                        <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Маркова Василиса</h4>
-                        <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Калмыков Макар</h4>
-                        <p class="reviews__item-text">Купив когда-то Шеви Ниву, полюбил бездорожье и полный привод.
-                            Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Воробьев Артём</h4>
-                        <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Константин Пирогов</h4>
-                        <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/0nGw6BmkaW4" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/20.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Маркова Василиса</h4>
-                        <p class="reviews__item-text">Ну вот и прошел месяц после покупки кроссовера Чери Тигго 8. Позади уже 2000 км пробега. Общие впечатления от Чери Тигго 8 на данный момент положительные. Никаких нареканий на автомобиль нет. Расход по городу по пробкам с утренними прогревами — 10,7-11,0 литров, по трассе не катались, данных пока нет.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/zft1dwqGIik" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/22.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Калмыков Макар</h4>
-                        <p class="reviews__item-text">Купив когда-то Шеви Ниву, полюбил бездорожье и полный привод.
-                            Недавно принял решение поменять Хонду Аккорд на настоящий внедорожник. Из доступных был только он — Хавал Н5. А вот Нива осталась как вторая машина. Ничего такого, что бы сильно напрягало, в Хавале Н5 нет. Посмотрим, что интересного будет дальше.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/3Geya5auw-g" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/21.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Воробьев Артём</h4>
-                        <p class="reviews__item-text">Пробег уже перевалил за 10 тысяч км — самое время описать впечатления от Мерседеса А-класса после полугода владения. Отличная динамика и управляемость. Хотя я и так себе водитель, чувствую себя очень уверенно, входя в повороты на высокой скорости. В режиме спорт+ можно даже немножко отправить автомобиль в управляемый занос.</p>
-                    </a>
-                </li>
-                <li class="reviews__item swiper-slide">
-                    <a href="https://youtu.be/5YTvETWXxu8" data-fancybox="gallery" data-title="Video"
-                       class="reviews__video">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
-                        <div class="reviews__icon"></div>
-                    </a>
-                    <a href="/review" class="reviews__item-content">
-                        <h4 class="h4 reviews__item-title">Константин Пирогов</h4>
-                        <p class="reviews__item-text">Купил эту машину на замену Шевроле Ланос 2006 года, так как старая начала уже цвести по низу дверей и кромке капота, ну и так 8 лет машине бюджетной – срок весьма большой. Мне 24, стаж вождения 2 полных года. Заказал авто 11 декабря. Брать стоит не выше второй комплектации с расширенным пакетом.</p>
+                <li class="promotions__item">
+                    <a href="#" class="promotions__link">
+                        <div class="promotions__image">
+                            <img class="promotions__img" src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/49.jpg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                        </div>
+                        <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+                        <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+                        <h3 class="h3 promotions__title">Літо заощаджень на офіційному сервісі KIA на Харківському</h3>
+                        <p class="promotions__text">Шановні Клієнти, з 11.05.2021р. до 30.06.2021р. включно кожному
+                            власнику KIA, у період проведення Акції надається можливість отримати послуги з діагностики (комплекс діагностичних робіт) за спеціальною акційною ціною 594* грн. з ПДВ.</p>
+                        <div class="promotions__more"><span>Подробнее</span></div>
                     </a>
                 </li>
             </ul>
             <div class="pagination">
-                <button class="btn btn_secondary">Browse Products</button>
+                <button class="btn btn_secondary">следующая страница</button>
                 <ul class="pagination__list">
                     <li class="prev">
                         <span class="icon icon-arr"></span>
@@ -267,32 +141,31 @@ get_header('front'); ?>
                     </li>
                 </ul>
             </div>
-            <div class="reviews__controls swiper-pagination"></div>
-            <div class="reviews__nav swiper-nav">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>
+<section class="contact-form" id="contact-form">
+    <div class="container">
+        <div class="contact-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/19.jpg')">
+            <div class="contact-form__content">
+                <h2 class="contact-form__title h1">
+                    <span class="red">Получить консультацию</span>
+                    <br>
+                    <div class="white">со старшим менеджером</div>
+                </h2>
+                <form action="#" class="contact-form__form">
+                    <input id="contact-name" type="text" name="contact-name" required="required" placeholder="Введите ваше имя">
+                    <input id="phone" name="phone" type="tel" placeholder="Номер телефона">
+                    <textarea id="contact-text" name="contact-text" placeholder="Введите ваш вопрос"></textarea>
+                    <button class="btn">Получить консультацию</button>
+                </form>
+            </div>
+            <div class="contact-form__image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/11.png" alt="grid card img">
             </div>
         </div>
     </div>
 </section>
 
-<section class="individual-form individual-form_dark" id="individual-form">
-    <div class="container">
-        <div class="individual-form__wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/42.jpg')">
-            <div class="individual-form__content">
-                <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
-                <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="title h2">Наши эксперты сделают для вас индивидуальную подборку абсолютно бесплатно</h2>
-                <p class="text">Сайт по продаже автомобилей из Америки. Здесь можно купить Бу автомобили, целые и битые машины с авто аукционов США
-                    Копарт, Манхейм, IAAI, CARS.COM ЭКОНОМИЯ при покупке авто под заказ в США до -40%</p>
-            </div>
-            <form action="#" class="individual-form__form">
-                <input id="name" type="text" name="name" required="required" placeholder="Введите ваше имя">
-                <input id="phone" name="phone" type="tel" placeholder="Введите ваш номер телефона">
-                <button class="btn btn_secondary">Получить консультацию</button>
-            </form>
-        </div>
-    </div>
-</section>
 <?php
 get_footer('front'); ?>

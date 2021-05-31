@@ -139,8 +139,11 @@
             &__grid {
                 flex-wrap: wrap;
                 margin: 0;
-                @include respond-to('tablet') {
-                    flex-wrap: nowrap;
+                @include respond-to('laptop') {
+                    margin: 0 -15px -15px;
+                }
+                @include respond-to('mobile-sm') {
+                    margin: 0;
                 }
             }
             &__wrapper {
@@ -151,8 +154,16 @@
             }
             &__item {
                 margin: 0 15px 30px;
-                @include respond-to('tablet') {
-                    margin: 0;
+                @include respond-to('laptop') {
+                    width: calc(50% - 30px);
+                    margin: 0 15px 15px;
+                }
+                @include respond-to('mobile') {
+                    opacity: 1;
+                }
+                @include respond-to('mobile-sm') {
+                    width: 100%;
+                    margin: 0 0 30px;
                 }
             }
         }
