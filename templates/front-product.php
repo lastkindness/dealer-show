@@ -23,6 +23,7 @@ get_header('front'); ?>
     <div class="container">
         <div class="product__wrapper">
             <div class="product__image">
+                <h1 class="product__title h1">TOYOTA CAMRY</h1>
                 <div class="product__image_loupe">
                     <div class="product__image_slider-main">
                         <div class="product__image_slider-big gallery-images">

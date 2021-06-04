@@ -137,11 +137,12 @@ h6 {
 %a {
     @include animate(all);
     text-decoration: underline;
-    color: $accent;
+    color: $secondary;
     position: relative;
     cursor: pointer;
+    font-weight: 500;
     &:hover {
-        color: $primary;
+        color: $secondary;
         text-decoration: unset;
         @include animate(all);
     }
@@ -164,10 +165,15 @@ a {
     @extend %a;
 }
 
+iframe {
+    margin-bottom: 30px;
+}
+
 b,
 strong {
     font-family: $fontMontserrat;
     font-weight: 700;
+    color: $primary;
 }
 
 em,
@@ -178,19 +184,33 @@ i {
 }
 
 mark {
-    padding: 5px;
-    background-color: transparentize($primary, 0.5);
+    width: 100%;
+    padding: 25px 30px;
+    background: $primaryGradient;
+    border-radius: 4px;
+    font-style: italic;
+    color: $white;
+    font-weight: 500;
+    display: block;
+    margin: 0 auto 30px;
 }
 
 blockquote,
 q {
-    font-weight: 300;
+    font-weight: 500;
     color: $font;
-    font-style: normal;
     font-family: $fontMontserrat;
     display: block;
-    padding: 20px;
+    padding: 25px 100px 25px 30px;
+    font-size: 18px;
+    font-style: italic;
     margin: 0 auto 30px;
+    background-color: $seo;
+    border-left: 8px solid $secondary;
+    position: relative;
+    @include respond-to('mobile-sm') {
+        padding: 20px;
+    }
     p {
         margin-bottom: 20px;
         &:before,
@@ -198,10 +218,24 @@ q {
             content: '"';
         }
     }
+    &:after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        content: url("../../img/cite.svg");
+        right: 20px;
+        font-family: $fontFerry;
+        font-weight: 900;
+        color: $secondary;
+        display: block;
+        width: auto;
+        @include respond-to('mobile-sm') {
+            display: none;
+        }
+    }
 }
 
-cite,
-figcaption {
+cite {
     font-style: normal;
     font-size: 12px;
     line-height: 14px;
@@ -210,6 +244,15 @@ figcaption {
         content: '- ';
     }
 }
+figcaption {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
 
 li {
     position: relative;
@@ -225,7 +268,7 @@ ul {
 }
 
 ul > li:before {
-    content: '-';
+    content: url("../../img/car-wheel1.svg");
     position: absolute;
     color: $secondary;
     top: 0;
@@ -250,7 +293,7 @@ ol > li:after {
     top: 2px;
     counter-increment: myCounter;
     content: counter(myCounter) ". ";
-    color: $secondary;
+    color: $primary;
     background: 0 0;
     display: inline-block;
     text-align: center;

@@ -19,9 +19,13 @@
         margin-bottom: 32px;
         margin-top: -20px;
         @include respond-to('laptop') {
-            order: 0;
             width: 100%;
             margin-top: 0px;
+        }
+        .product__title {
+            @include respond-to('laptop') {
+                display: none;
+            }
         }
     }
     &__buttons {
@@ -32,6 +36,14 @@
         flex-wrap: wrap;
         .btn {
             width: calc(50% - 8px);
+            @include animate(all);
+            transform: scale(1);
+            &:hover,
+            &:active,
+            &:focus {
+                @include animate(all);
+                transform: scale(1.05);
+            }
             @include respond-to('mobile-sm') {
                 width: 100%;
             }
@@ -60,8 +72,8 @@
     &__image {
         width: calc(60% - 60px);
         @include respond-to('laptop') {
-            order: 1;
             width: 100%;
+            margin-bottom: 30px;
         }
         &_loupe {
             //display: flex;
@@ -243,6 +255,12 @@
                         }
                     }
                 }
+            }
+        }
+        .product__title {
+            display: none;
+            @include respond-to('laptop') {
+                display: block;
             }
         }
     }

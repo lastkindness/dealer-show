@@ -177,8 +177,8 @@
     }
     &__logo {
         display: inline-block;
-        width: 274px;
-        height: 57px;
+        width: 172px;
+        height: 60px;
         @include respond-to('tablet') {
             order: 0;
         }
@@ -191,6 +191,12 @@
     }
     .footer__btn {
         width: 42.5%;
+        transform: scale(1);
+        &:hover,
+        &:active,
+        &:focus {
+            transform: scale(1.05);
+        }
         @include respond-to('laptop') {
             width: auto;
             flex-grow: 1;
@@ -256,17 +262,77 @@
                     width: 60px;
                     height: 60px;
                 }
+                &:before {
+                    display: inline-block;
+                    -webkit-animation: ring 2s infinite;
+                    -webkit-animation-iteration-count:infinite;
+                }
                 &:hover,
                 &:active,
                 &:focus {
                     color: $fontLight;
                 }
+
             }
             .icon-telegram {
                 background-color: #0798E3;
             }
             .icon-viber {
                 background-color: #474FA0;
+            }
+            @-webkit-keyframes ring{
+                0% {
+                }
+                10% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                20% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                30% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                40% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                50% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                60% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                70% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                80% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                90% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                100% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
             }
         }
     }

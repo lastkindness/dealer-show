@@ -57,7 +57,7 @@ get_header('front'); ?>
                     <a href="#" class="promotions__link">
                         <div class="promotions__image">
                             <img class="promotions__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/46.jpg" alt="">
-                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.svg" alt="">
                         </div>
                         <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                         <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -70,7 +70,7 @@ get_header('front'); ?>
                     <a href="#" class="promotions__link">
                         <div class="promotions__image">
                             <img class="promotions__img" src="<?php echo get_template_directory_uri(); ?>/assets/img/47.jpg" alt="">
-                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.svg" alt="">
                         </div>
                         <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                         <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -84,7 +84,7 @@ get_header('front'); ?>
                         <div class="promotions__image">
                             <img class="promotions__img" src="<?php echo get_template_directory_uri();
                             ?>/assets/img/48.jpg" alt="">
-                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.svg" alt="">
                         </div>
                         <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                         <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -98,7 +98,7 @@ get_header('front'); ?>
                         <div class="promotions__image">
                             <img class="promotions__img" src="<?php echo get_template_directory_uri();
                             ?>/assets/img/49.jpg" alt="">
-                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="">
+                            <img class="promotions__logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.svg" alt="">
                         </div>
                         <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                         <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
