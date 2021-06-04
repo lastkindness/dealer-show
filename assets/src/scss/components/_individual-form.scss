@@ -119,7 +119,8 @@
                     border: 1px solid transparentize($white, 0.8);
                 }
                 &:before {
-                    background-color: rgba(5,11,65,0.5);
+                    //background-color: rgba(5,11,65,0.5);
+                    background-color: rgba(2, 4, 25, 0.6)
                 }
             }
         }

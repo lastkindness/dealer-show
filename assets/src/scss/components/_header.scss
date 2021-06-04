@@ -536,6 +536,18 @@
                 background-color: #474FA0;
                 -webkit-animation: ring 2s infinite;
                 -webkit-animation-iteration-count:infinite;
+                &:before {
+                    display: block;
+                    -webkit-animation: scale-anim 2.3s infinite ease-in-out;
+                    -moz-animation: scale-anim 2.3s infinite ease-in-out;
+                    -ms-animation: scale-anim 2.3s infinite ease-in-out;
+                    -o-animation: scale-anim 2.3s infinite ease-in-out;
+                    animation: scale-anim 2.3s infinite ease-in-out;
+                    -webkit-transition: all .5s;
+                    -moz-transition: all .5s;
+                    -o-transition: all .5s;
+                    transition: all .5s;
+                }
                 &:after {
                     content: '';
                     display: block;
@@ -775,6 +787,50 @@
                 display: flex;
             }
         }
+    }
+}
+@-webkit-keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@-o-keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@-moz-keyframes scale-anim{
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
     }
 }
 
