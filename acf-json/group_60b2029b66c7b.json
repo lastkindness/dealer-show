@@ -506,25 +506,6 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_60b36bbd3c73b",
-            "label": "Заголовок",
-            "name": "about_simple_title3",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_60b36bce3c73c",
             "label": "Текст",
             "name": "about_simple_text3",
@@ -1023,5 +1004,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622825866
+    "modified": 1623071216
 }

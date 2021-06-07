@@ -23,29 +23,24 @@
 		            		?>
 
 		            		<?php if( $icon || $text || $title ) : ?>
-			            		<li class="stages__item">
+
+				                <li class="stages__item">
 				                    <span class="stages__img">
 				                        <span class="stages__value">
 				                            <span><?php echo get_row_index(); ?></span>
 				                        </span>
 
-				                        <?php if( $icon ) : ?>
-				                        	<span class="img" style="
-				                            -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon ; ?>.svg);
-				                            mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon ; ?>.svg);"></span>
+				                        <?php if( $title ) : ?>
+				                        	<h5 class="h5 stages__subtitle"><?php echo $title ; ?></h5>
 				                        <?php endif ; ?>
 
+				                        <span class="plus"></span>
 				                    </span>
-
-				                    <?php if( $title ) : ?>
-					                    <h5 class="h5 stages__subtitle"><?php echo $title ; ?></h5>
-					                <?php endif ; ?>
-
-					                <?php if( $text ) : ?>
+				                    <?php if( $text ) : ?>
 				                    	<p class="stages__text"><?php echo $text ; ?></p>
 				                    <?php endif ; ?>
-
 				                </li>
+
 				            <?php endif ; ?>
 
 		            	<?php endwhile ; ?>
