@@ -28,7 +28,7 @@ get_header();
         <div class="container">
             <div class="error__wrapper">
                 <span class="error__title"><?php _e( '404', 'prime' ); ?></span>
-                <p class="error__subtitle"><?php _e( 'Ooops! Page not Found', 'prime' ); ?></p>
+                <p class="error__subtitle"><?php _e( 'Страница не найдена', 'prime' ); ?></p>
             </div>
         </div>
     </section>
