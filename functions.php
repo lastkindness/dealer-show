@@ -37,6 +37,11 @@ $reviews->setLabels([
     'name' => __('Отзывы'),
 ]);
 
+$promotions = new PostType('promotion');
+$promotions->setLabels([
+    'name' => __('Акции'),
+]);
+
 function register_custom_taxonomies() {
 
     /*--------------------------------------cars------------------------------------------*/
@@ -92,6 +97,32 @@ function register_custom_taxonomies() {
     );
 
     register_taxonomy( 'car_type', [ 'cars' ], $args_car_type );
+
+    $label_car_budget = array(
+        'name'              => _x( 'Бюджет', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Бюджет', 'taxonomy singular name' ),
+        'search_items'      => __( 'Поиск' ),
+        'all_items'         => __( 'Все' ),
+        'parent_item'       => __( 'Родительская' ),
+        'parent_item_colon' => __( 'Родительская' ),
+        'edit_item'         => __( 'Редактировать' ),
+        'update_item'       => __( 'Обновить' ),
+        'add_new_item'      => __( 'Добавить Бюджет' ),
+        'new_item_name'     => __( 'Новый Бюджет' ),
+        'menu_name'         => __( 'Бюджет' ),
+    );
+
+    $args_car_budget   = array(
+        'hierarchical'      => true,
+        'labels'            => $label_car_budget,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => [ 'slug' => 'car_budget' ],
+        'show_in_rest' => true,
+    );
+
+    register_taxonomy( 'car_budget', [ 'cars' ], $args_car_budget );
 
 
     /*--------------------------------------electrocars------------------------------------------*/
@@ -427,8 +458,8 @@ function rst_load_assets()
         wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/libs/fancybox/jquery.fancybox.min.css');
         wp_enqueue_style('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.css');
         wp_enqueue_style('jqueryui', get_template_directory_uri() . '/assets/libs/jqueryui/jquery-ui.min.css');
-        wp_enqueue_style('slick-theme', get_template_directory_uri() . '/assets/libs/slick/slick-theme.min.css');
-        wp_enqueue_style('slick', get_template_directory_uri() . '/assets/libs/slick/slick.min.css');
+        wp_enqueue_style('slick', get_template_directory_uri() . '/assets/libs/slick/slick-theme.min.css');
+        wp_enqueue_style('slick-auto', get_template_directory_uri() . '/assets/libs/slick/slick.min.css');
         wp_enqueue_style('app', get_template_directory_uri() . '/assets/dist/app.min.css');
         wp_enqueue_style( 'base-style', get_stylesheet_uri(), array() );
 

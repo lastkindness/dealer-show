@@ -69,7 +69,7 @@
 
 					                <?php else : ?>
 
-					                	<a href="<?php echo get_permalink(); ?>" class="reviews__video">
+					                	<a href="#" class="reviews__video">
 					                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
 					                        <div class="reviews__icon"></div>
 					                    </a>
@@ -78,9 +78,9 @@
 
 				                <?php endif ; ?>
 
-			                    <a href="<?php echo get_permalink(); ?>" class="reviews__item-content">
+			                    <a href="#" class="reviews__item-content">
 			                        <h4 class="h4 reviews__item-title"><?php echo get_the_title() ; ?></h4>
-			                        <p class="reviews__item-text"><?php echo get_the_content() ; ?></p>
+			                        <p class="reviews__item-text"><?php echo get_the_excerpt() ; ?></p>
 			                    </a>
 			                </li>
 

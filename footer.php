@@ -147,29 +147,43 @@
                 	<?php endif ; ?>
 
                 </div>
-                <div class="footer__catalog">
 
-                	<?php if( $footer_menu_title_second ) : ?>
-                    	<span class="footer__main-title"><?php echo $footer_menu_title_second ; ?></span>
-                    <?php endif ; ?>
+                <?php if( $footer_menu_title_second ) : ?>
+                    
+                    <?php  
 
-                    <?php if( has_nav_menu( 'footer-second' ) ) : ?>
+                    	$car_budget = get_terms( array(
+						    'taxonomy' => 'car_budget',
+						    'hide_empty' => true
+						) );
 
-                		<?php
-							wp_nav_menu( array(
-								'container' => false,
-								'theme_location' => 'footer-second',
-								'menu_id'        => 'navigation',
-								'menu_class'     => 'navbar menu',
-								'items_wrap'     => '<ul id="%1$s" class="navbar menu">%3$s</ul>'
-								)
-							);
+                    ?>
 
-						?>
+                    <?php if( !empty($car_budget) ) : ?>
+		                <div class="footer__catalog">
 
-                	<?php endif ; ?>
-                	
-                </div>
+		                    <span class="footer__main-title">Авто по бюджетам</span>
+
+
+		                    <ul class="navbar menu">
+
+		                    	<?php foreach( $car_budget as $budget ) : ?>
+
+		                    		<?php $term_link = get_term_link( $budget ); ?>
+
+			                        <li class="menu-item">
+			                            <a href="<?php echo $term_link ; ?>"><?php echo $budget->name ; ?></a>
+			                        </li>
+
+			                    <?php endforeach ; ?>
+
+		                    </ul>
+		                	
+		                </div>
+		            <?php endif ; ?>
+
+	            <?php endif ; ?>
+
             </div>
         </div>
     </div>

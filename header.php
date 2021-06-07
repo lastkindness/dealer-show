@@ -13,6 +13,14 @@
 
 <?php # TODO: code here ?>
 <div class="wrapper">
+
+    <?php  
+
+		$logo = get_field('logo', 'option') ;
+		$youtube_link = get_field('youtube_link', 'option') ;
+
+	?>
+
     <header class="header">
     	<div class="header__mobile header__main">
             <div class="container">
@@ -24,9 +32,13 @@
                             <span></span>
                             <span></span>
                         </div>
-                        <a href="#" class="header__logo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header logo">
-                        </a>
+
+                        <?php if( $logo ) : ?>
+	                        <a href="<?php echo home_url() ; ?>" class="header__logo">
+	                            <img src="<?php echo $logo['url'] ; ?>" alt="<?php echo $logo['alt'] ; ?>">
+	                        </a>
+	                    <?php endif ; ?>
+
                         <a data-fancybox="modal-phone1" href="#modal-phone"
                            class="header__phone-mobile">
                             <span class="icon icon-phone"></span>
@@ -57,21 +69,22 @@
 
                     	<?php endif ; ?>
 
-                    	<?php if( have_rows('social_network', 'option') ) :  ?>
+                		<?php if( $languages = get_field('languages', 'option') ) : ?>
 
-                    		<ul class="social-list header__menu-social">
+                            <!-- GTranslate: https://gtranslate.io/ -->
 
-                    			<?php while( have_rows('social_network', 'option') ) : the_row(); ?>
+                            <ul class="header__lang">
+                            	<li class="header__lang-item is-active-ru">
+                            		<a href="#" onclick="doGTranslate('ru|ru');jQuery('div.switcher div.selected a').html(jQuery(this).html());return false;" title="Russian" class="nturl selected">RUS</a>
+                            	</li>
+                            	<li class="header__lang-item is-active-uk">
+                            		<a href="#" onclick="doGTranslate('ru|uk');jQuery('div.switcher div.selected a').html(jQuery(this).html());return false;" title="Ukrainian" class="nturl">UKR</a>
+                            	</li>
+                            </ul>
+							
+							<div id="google_translate_element2"></div>
 
-                    				<li class="social-item">
-		                                <a href="<?php echo get_sub_field('link') ; ?>" class="icon icon-<?php echo get_sub_field('icon') ; ?>" target="_blank"></a>
-		                            </li>
-
-                    			<?php endwhile ; ?>
-
-                    		</ul>
-
-                    	<?php endif ; ?>
+                        <?php endif ; ?>
 
                     </div>
                 </div>
@@ -88,13 +101,6 @@
                                 <span></span>
                             </div>
 
-                        	<?php  
-
-                        		$logo = get_field('logo', 'option') ;
-                        		$youtube_link = get_field('youtube_link', 'option') ;
-
-                        	?>
-
                         	<?php if( $logo ) : ?>
 
 	                            <a href="<?php echo home_url() ; ?>" class="header__logo">
@@ -109,23 +115,15 @@
                                 <span class="circle"></span>
                             </a>
 
-	                        <?php if( $languages = get_field('languages', 'option') ) : ?>
+	                        <?php if( $search = get_field('search', 'option') ) : ?>
 
-	                            <!-- GTranslate: https://gtranslate.io/ -->
+		                        <form role="search" method="get" class="header__search search-form" action="<?php echo home_url(); ?>" >
+									<input type="search" class="search-field" name="s" placeholder="Поиск по сайту" value="<?php echo get_search_query(); ?>" />
+									<button type="submit" class="icon icon-search"></button>
+								</form>
 
-	                            <ul class="header__lang">
-	                            	<li class="header__lang-item">
-	                            		<a href="#" onclick="doGTranslate('ru|ru');jQuery('div.switcher div.selected a').html(jQuery(this).html());return false;" title="Russian" class="nturl selected">RUS</a>
-	                            	</li>
-	                            	<li class="header__lang-item">
-	                            		<a href="#" onclick="doGTranslate('ru|uk');jQuery('div.switcher div.selected a').html(jQuery(this).html());return false;" title="Ukrainian" class="nturl">UKR</a>
-	                            	</li>
-	                            </ul>
-								
-								<div id="google_translate_element2"></div>
-
-	                        <?php endif ; ?>
-
+							<?php endif ; ?>
+                            
                             <?php if( $youtube_link['url'] && $youtube_link['title'] ) : ?>
 
 	                            <a href="<?php echo $youtube_link['url'] ; ?>" class="header__youtube-link" target="_blank">
@@ -135,25 +133,30 @@
 
 	                        <?php endif ; ?>
 
-	                        <?php if( $search = get_field('search', 'option') ) : ?>
-
-		                        <form role="search" method="get" class="header__search search-form" action="<?php echo home_url(); ?>" >
-									<input type="search" class="search-field" name="s" placeholder="Поиск по сайту" value="<?php echo get_search_query(); ?>" />
-									<button type="submit" class="icon icon-search"></button>
-								</form>
-
-							<?php endif ; ?>
-
                             <?php  
 
                             	$telegram_chat = get_field('telegram_chat', 'option') ;
                             	$viber_chat = get_field('viber_chat', 'option') ;
+                            	$facebook_chat = get_field('facebook_chat', 'option') ;
+                            	$instagram_chat = get_field('instagram_chat', 'option') ;
 
                             ?>
 
-                            <?php if( $viber_chat || $telegram_chat ) : ?>
+                            <?php if( $viber_chat || $telegram_chat || $facebook_chat || $instagram_chat ) : ?>
 
 	                            <ul class="header__messengers social-list">
+
+	                            	<?php if( $facebook_chat ) : ?>
+		                            	<li class="social-item">
+	                                    	<a href="<?php echo $facebook_chat ; ?>" class="icon icon-facebook" target="_blank"></a>
+		                                </li>
+		                            <?php endif ; ?>
+
+		                            <?php if( $instagram_chat ) : ?>
+		                                <li class="social-item">
+		                                    <a href="<?php echo $instagram_chat ; ?>" class="icon icon-instagram" target="_blank"></a>
+		                                </li>
+		                            <?php endif ; ?>
 
 	                            	<?php if( $telegram_chat ) : ?>
 		                                <li class="social-item">
