@@ -1,0 +1,71 @@
+.search {
+    .title {
+        margin-bottom: 50px;
+    }
+    .content {
+        padding: 15px 0;
+        border-bottom:1px solid $bg;
+        p {
+            margin: 0 0 5px;
+        }
+    }
+    .pagination {
+        .screen-reader-text {
+            display: none;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            a {
+                text-decoration: unset;
+            }
+            span:not(.prev),
+            a:not(.prev),
+            span:not(.next),
+            a:not(.next) {
+                margin: 0;
+                font-weight: 600;
+                color: $bgDark;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include animate(all);
+                &:before {
+                    display: none;
+                }
+                &.active,
+                &.current {
+                    color: $white;
+                    background: $secondaryGradient;
+                }
+                &.prev,
+                &.next {
+                    color: $secondary;
+                    font-size: 18px;
+                    width: auto;
+                    height: auto;
+                }
+                &.prev {
+                    margin-right: 15px;
+                }
+                &.next {
+                    margin-left: 15px;
+                }
+                &:not(.active),
+                &:not(.current) {
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        @include animate(all);
+                        cursor: pointer;
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php  
+		<?php
 
 			date_default_timezone_set("Europe/Kiev");
 			date_default_timezone_get();
@@ -41,7 +41,7 @@
 
 			                        	<?php while( have_rows('lot_images') ) : the_row(); ?>
 
-			                        		<?php  
+			                        		<?php
 
 			                        			$image = get_sub_field('image') ;
 
@@ -63,7 +63,7 @@
 
 			                    	<?php while( have_rows('lot_images') ) : the_row(); ?>
 
-			                    		<?php  
+			                    		<?php
 
 		                        			$image = get_sub_field('image') ;
 
@@ -75,7 +75,7 @@
 				                        <?php endif ; ?>
 
 			                        <?php endwhile ; ?>
-			                        
+
 			                    </div>
 			                </div>
 			            </div>
@@ -85,7 +85,7 @@
 			        <div class="product__info">
 		                <h1 class="product__title h1"><?php the_title() ; ?></h1>
 
-		                <?php  
+		                <?php
 
 		                	$car_manufacturer = wp_get_object_terms( get_the_ID(), 'mototechnics_manufacturer', array( 'parent' => '0' ) );
 		                	$car_model = wp_get_object_terms( get_the_ID(), 'mototechnics_manufacturer', array( 'parent' => $car_manufacturer[0]->term_id ) ) ;
@@ -129,7 +129,7 @@
 
 		                        </tr>
 
-		                        <?php  
+		                        <?php
 
 				                	$auction_ends = get_field('auction_ends') ;
 				                	$price = get_field('price') ;
@@ -202,7 +202,7 @@
 		                        	</td>
 		                        	<td>
 		                        		<div class="product__item">
-		                                    
+
 		                                </div>
 		                        	</td>
 		                        </tr>
@@ -212,7 +212,7 @@
 
 		                <div class="product__buttons">
 		                    <a href="#" class="btn">Расчитать стоимость</a>
-		                    <a href="#" class="btn btn_light btn_fullwidth">Связаться с нами</a>
+		                    <a href="#" class="btn btn_light">Связаться с нами</a>
 		                </div>
 		                <div class="product__content">
 		                    <?php the_content() ; ?>
@@ -225,7 +225,7 @@
 
 		<?php
 
-			$today_date_time = date('Y-m-d H:i');  
+			$today_date_time = date('Y-m-d H:i');
 
 			$cars_arr = array(
 				'post_type' => 'mototechnics',
@@ -239,7 +239,7 @@
 				    )
 			    ),
 			    'tax_query' => array(
-			    	array( 
+			    	array(
 						'taxonomy'=>'mototechnics_manufacturer',
 						'field'=>'term_id',
 						'terms'=>$car_manufacturer[0]->term_id
@@ -264,7 +264,7 @@
 
 			                	<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-			                		<?php  
+			                		<?php
 
 			                			$price = get_field('price') ;
 	                					$mileage = get_field('mileage') ;

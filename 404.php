@@ -24,7 +24,14 @@ get_header();
 
 
 
-<?php # TODO: code here ?>
+    <section class="error">
+        <div class="container">
+            <div class="error__wrapper">
+                <span class="error__title"><?php _e( '404', 'prime' ); ?></span>
+                <p class="error__subtitle"><?php _e( 'Ooops! Page not Found', 'prime' ); ?></p>
+            </div>
+        </div>
+    </section>
 
 
 
