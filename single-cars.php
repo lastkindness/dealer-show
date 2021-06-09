@@ -50,7 +50,7 @@
 			                        		<?php if( $image ) : ?>
 					                            <a href="<?php echo $image['url'] ; ?>" data-fancybox="gallery" data-title="TOYOTA Camry">
 					                                <div class="product__image_slider-big-slide">
-					                                	<img src="<?php echo $image['url'] ; ?>" id="image-<?php echo get_row_index() ; ?>" data-zoom-image="<?php echo $image['url'] ; ?>" />
+					                                	<img src="<?php echo $image['url'] ; ?>" id="image-<?php echo get_row_index() ; ?>"  />
 					                                </div>
 					                            </a>
 					                        <?php endif ; ?>
