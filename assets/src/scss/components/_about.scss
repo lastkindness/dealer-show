@@ -62,7 +62,6 @@
         }
     }
     .car-selection {
-        margin-top: 50px;
         &__advantages {
             display: flex;
             align-items: center;
@@ -70,6 +69,7 @@
             flex-direction: row;
             width: 100%;
             margin: 0 -10px;
+            margin-top: 50px;
             @include respond-to('tablet') {
                 flex-direction: column;
             }
