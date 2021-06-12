@@ -44,6 +44,16 @@
             }
         }
     }
+    &__img {
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 4px;
+        width: 100%;
+        height: 200px;
+        @include respond-to('mobile-sm') {
+            height: 90px;
+        }
+    }
     &__grid {
         margin: 0 -15px -30px;
         @include respond-to('laptop') {
@@ -68,9 +78,17 @@
         &:hover,
         &:active,
         &:focus {
-            .blog-posts__item-title {
-                color: $secondary;
-                @include animate(all);
+            .blog-posts {
+                &__item-title {
+                    color: $secondary;
+                    @include animate(all);
+                }
+                &__img {
+                    img {
+                        transform: scale(1.05);
+                        @include animate(all);
+                    }
+                }
             }
         }
         &:before {
@@ -94,6 +112,8 @@
             overflow: hidden;
             width: 100%;
             height: 200px;
+            transform: scale(1);
+            @include animate(all);
             @include respond-to('mobile-sm') {
                 height: 90px;
             }

@@ -67,7 +67,7 @@
         }
         @include respond-to('mobile-sm') {
             width: 100%;
-            margin: 0 0 80px;
+            margin: 0 0 24px;
             order: 0;
             padding: 20px;
         }
@@ -112,13 +112,13 @@
                 left: 100%;
                 display: none;
             }
-            @include respond-to('mobile-sm') {
-                display: block;
-                bottom: -50px;
-                left: 40px;
-                transform: rotate(90deg);
-                top: unset;
-            }
+            //@include respond-to('mobile-sm') {
+            //    display: block;
+            //    bottom: -50px;
+            //    left: 40px;
+            //    transform: rotate(90deg);
+            //    top: unset;
+            //}
         }
         &:hover,
         &:active,
@@ -147,13 +147,13 @@
                 bottom: calc(0% - 50px);
                 transform: translateX(-50%) rotate(90deg);
                 left: 50%;
-                @include respond-to('mobile-sm') {
-                    display: block;
-                    bottom: -50px;
-                    left: 40px;
-                    transform: rotate(90deg);
-                    top: unset;
-                }
+                //@include respond-to('mobile-sm') {
+                //    display: block;
+                //    bottom: -50px;
+                //    left: 40px;
+                //    transform: rotate(90deg);
+                //    top: unset;
+                //}
             }
             @include respond-to('mobile') {
                 order: 1;
@@ -171,13 +171,13 @@
             &:before {
                 left: calc(0% - 70px);
                 transform: rotate(-180deg);
-                @include respond-to('mobile-sm') {
-                    display: block;
-                    bottom: -50px;
-                    left: 40px;
-                    transform: rotate(90deg);
-                    top: unset;
-                }
+                //@include respond-to('mobile-sm') {
+                //    display: block;
+                //    bottom: -50px;
+                //    left: 40px;
+                //    transform: rotate(90deg);
+                //    top: unset;
+                //}
             }
             @include respond-to('mobile') {
                 order: 2;
@@ -195,13 +195,13 @@
             &:before {
                 left: calc(0% - 70px);
                 transform: rotate(-180deg);
-                @include respond-to('mobile-sm') {
-                    display: block;
-                    bottom: -50px;
-                    left: 40px;
-                    transform: rotate(90deg);
-                    top: unset;
-                }
+                //@include respond-to('mobile-sm') {
+                //    display: block;
+                //    bottom: -50px;
+                //    left: 40px;
+                //    transform: rotate(90deg);
+                //    top: unset;
+                //}
             }
             @include respond-to('mobile') {
                 order: 3;

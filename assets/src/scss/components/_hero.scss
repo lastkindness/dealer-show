@@ -64,6 +64,12 @@
             }
             .btn {
                 padding: 22px 62px;
+                transform: scale(1);
+                &:hover,
+                &:active,
+                &:focus {
+                    transform: scale(1.05);
+                }
             }
             picture,
             img {

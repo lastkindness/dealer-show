@@ -19,6 +19,7 @@
 	            			$first_title = get_sub_field('first_title') ;
 	            			$second_title = get_sub_field('second_title') ;
 	            			$text = get_sub_field('text') ;
+	            			$image_mobile = get_sub_field('image_mobile') ;
 	            			$image = get_sub_field('image') ;
 	            			$link = get_sub_field('link') ;
 
@@ -57,8 +58,19 @@
 
 			                    </div>
 
-			                    <?php if( $image ) : ?>
+			                    <?php if( $image || $image_mobile ) : ?>
 			                   		<img class="hero-slider__img" src="<?php echo $image['url'] ; ?>" alt="<?php echo $image['alt'] ; ?>">
+
+			                   		<picture class="hero-slider__img">
+
+			                   			<?php if( $image_mobile ) : ?>
+					                        	<source srcset="<?php echo $image_mobile['url']; ?>" media="(max-width: 1024px)">
+					                    <?php endif ; ?>
+
+				                        <source srcset="<?php echo $image['url'] ; ?>">
+				                        <img src="<?php echo $image['url'] ; ?>" alt="hero-slider">
+				                    </picture>
+
 			                   	<?php endif ; ?>
 			                   	
 			                </li>

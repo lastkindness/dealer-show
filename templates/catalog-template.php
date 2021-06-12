@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<section class="page-title">
+<section class="page-title" id="page-title-scroll">
     <div class="container">
         <div class="page-title__wrapper">
             <div class="page-title__dropdown">
@@ -13,16 +13,22 @@ get_header(); ?>
                 <div class="dropdown js__dropdown">
                     <div class="dropdown__header">
                         <span class="dropdown__header-item">
-                            <span class="text">по дате</span>
+                            <span class="text" data-value="price-date-new">по дате добавления сначала новые</span>
                             <span class="icon icon-arr_down2"></span>
                         </span>
                     </div>
                     <ul class="dropdown__dropdown">
-                        <li id="red" class="dropdown__item">
-                            <span class="dropdown__text">цена от большей к меньшей</span>
-                        </li>
                         <li id="blue" class="dropdown__item">
-                            <span class="dropdown__text">цена от меньшей к большей</span>
+                            <span class="dropdown__text" data-value="price-date-new">по дате добавления сначала новые</span>
+                        </li>
+                        <li id="white" class="dropdown__item">
+                            <span class="dropdown__text" data-value="price-date-old">по дате добавления сначала старые</span>
+                        </li>
+                        <li id="red" class="dropdown__item">
+                            <span class="dropdown__text" data-value="price-more">цена от большей к меньшей</span>
+                        </li>
+                        <li id="green" class="dropdown__item">
+                            <span class="dropdown__text" data-value="price-less">цена от меньшей к большей</span>
                         </li>
                     </ul>
                 </div>
@@ -47,24 +53,39 @@ get_header(); ?>
 
         	<aside class="catalog__filter">
 
-        		<!-- <div class="catalog__filter-wrapper">
-                    <div class="catalog__filter-choose">
-                        <div class="catalog__filter-choose-head">
-                            <div class="catalog__filter-choose-title h3">Вы выбрали:</div>
-                        </div>
-                        <div class="catalog__filter-choose-items">
-                            <div class="btn btn_secondary"><span>Под заказ</span><span class="icon icon-close"></span></div>
-                            <div class="btn btn_secondary"><span>Автомобили</span><span class="icon icon-close"></span></div>
-                        </div>
-                        <div class="catalog__filter-choose-matched">Подобрано 45 из 362</div>
-                        <div class="catalog__filter-choose-clear">Очистить всё</div>
-                    </div>
-                </div> -->
+        		<div class="ajax-choose-holder"></div>
 
                 <div class="catalog__filter-wrapper">
 
                 	<div class="catalog__filter-head">
                         <div class="catalog__filter-title h3">Фильтры</div>
+
+                        <?php  
+
+                            if( isset( $_GET['type'] ) && $_GET['type'] !== '' ){
+
+                                $get_type = $_GET['type'] ;
+
+                                switch ( $get_type ) {
+                                    case 'electrocars':
+                                        $get_type_title = 'Электрокары' ;
+                                        break;
+                                    case 'mototechnics':
+                                        $get_type_title = 'Мототехника' ;
+                                        break;
+                                    case 'cars':
+                                        $get_type_title = 'Автомобили' ;
+                                        break;
+                                }
+
+
+                            }else{
+                                $get_type = 'cars' ;
+                                $get_type_title = 'Автомобили' ;
+                            }
+
+                        ?>
+
                     </div>
                     <div class="catalog__filter_item">
 
@@ -76,25 +97,41 @@ get_header(); ?>
                             <div class="dropdown js__dropdown">
                                 <div class="dropdown__header">
                                     <span class="dropdown__header-item">
-                                        <span class="text" data-transport="cars">Автомобили</span>
+                                        <span class="text" data-value="<?php echo $get_type ; ?>"><?php echo $get_type_title ; ?></span>
                                         <span class="icon icon-arr_down2"></span>
                                     </span>
                                 </div>
                                 <ul class="dropdown__dropdown">
                                     <li id="сars-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text" data-transport="cars">Автомобили</span>
+                                        <span class="dropdown__text" data-value="cars">Автомобили</span>
                                     </li>
                                     <li id="mototehnic-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text" data-transport="electrocars">Мототехника</span>
+                                        <span class="dropdown__text" data-value="mototechnics">Мототехника</span>
                                     </li>
                                     <li id="electrocars-vehicles" class="dropdown__item">
-                                        <span class="dropdown__text" data-transport="mototechnics">Электрокары</span>
+                                        <span class="dropdown__text" data-value="electrocars">Электрокары</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
                     </div>
+
+                    <?php  
+
+                        if( isset( $_GET['cost-from'] ) && $_GET['cost-from'] !== '' ){
+                            $min_price_val = intval( $_GET['cost-from'] ) ;
+                        }else{
+                            $min_price_val = '0' ;
+                        }
+
+                        if( isset( $_GET['cost-up-to'] ) && $_GET['cost-up-to'] !== '' ){
+                            $max_price_val = intval( $_GET['cost-up-to'] ) ;
+                        }else{
+                            $max_price_val = '100000' ;
+                        }
+
+                    ?>
 
                     <div class="catalog__filter_item">
                         <div class="catalog__filter_item_title filter-title">
@@ -107,13 +144,13 @@ get_header(); ?>
                                     <div class="catalog__filter_item_range_input">
                                         <span>от</span>
                                         <input type="text" data-slider-min="0" data-slider-max="100000" data-value="0"
-                                               value="0" readonly
-                                               class="catalog__filter_item_range_from">
+                                               value="<?php echo $min_price_val ; ?>" readonly
+                                               class="catalog__filter_item_range_from catalog__filter_item_range_from_price">
                                     </div>
                                     <div class="catalog__filter_item_range_input">
                                         <span>до</span>
-                                        <input type="text" data-slider-min="0" data-slider-max="100000" data-value="100000" value="100000" readonly
-                                               class="catalog__filter_item_range_to">
+                                        <input type="text" data-slider-min="0" data-slider-max="100000" data-value="100000" value="<?php echo $max_price_val ; ?>" readonly
+                                               class="catalog__filter_item_range_to catalog__filter_item_range_to_price">
                                     </div>
                                 </div>
                             </div>
@@ -147,6 +184,18 @@ get_header(); ?>
                     		$min_year = min($year_arr) ;
                     		$max_year = max($year_arr) ;
 
+                            if( isset( $_GET['year-of-issue'] ) && $_GET['year-of-issue'] !== '' ){
+                                $min_year_val = intval( $_GET['year-of-issue'] ) ;
+                            }else{
+                                $min_year_val = min($year_arr) ;
+                            }
+
+                            if( isset( $_GET['year-of-ending'] ) && $_GET['year-of-ending'] !== '' ){
+                                $max_year_val = intval( $_GET['year-of-ending'] ) ;
+                            }else{
+                                $max_year_val = max($year_arr) ;
+                            }
+
                     	?>
 
                     	<div class="catalog__filter_item">
@@ -161,13 +210,13 @@ get_header(); ?>
 	                                        <span>от</span>
 	                                        <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>"
 	                                               data-value="<?php echo $min_year ; ?>"
-	                                               value="<?php echo $min_year ; ?>" readonly
-	                                               class="catalog__filter_item_range_from">
+	                                               value="<?php echo $min_year_val ; ?>" readonly
+	                                               class="catalog__filter_item_range_from catalog__filter_item_range_from_year">
 	                                    </div>
 	                                    <div class="catalog__filter_item_range_input">
 	                                        <span>до</span>
-	                                        <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>" data-value="<?php echo $max_year ; ?>" value="<?php echo $max_year ; ?>" readonly
-	                                               class="catalog__filter_item_range_to">
+	                                        <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>" data-value="<?php echo $max_year ; ?>" value="<?php echo $max_year_val ; ?>" readonly
+	                                               class="catalog__filter_item_range_to catalog__filter_item_range_to_year">
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -181,59 +230,126 @@ get_header(); ?>
 
                     <?php endif  ?>
 
-                    <?php  
+                    <div class="filter-manufacturer-by-type">
+                    	<div class="catalog__filter_item"></div>
+                    </div>
 
-                    	$car_manufacturer = get_terms( array(
-						    'taxonomy' => 'car_manufacturer',
-						    'parent' => 0,
-						    'hide_empty' => true
-						) );
+	                <div class="filter-model-by-manufacturer"></div>
 
-                    ?>
+	                <div class="filters-by-type"></div>
 
-                    <?php if( !empty($car_manufacturer) ) : ?>
-	                    <div class="catalog__filter_item">
-	                        <div class="catalog__filter_item_title filter-title">
-	                            <div class="plus icon icon-up"></div>
-	                            <div class="filter-subtitle"><span>Производитель</span></div>
-	                        </div>
-	                        <div class="catalog__filter_item_content close">
-
-	                        	<?php foreach( $car_manufacturer as $manufacturer ) : ?>
-		                            <div class="catalog__filter_item_checkbox">
-		                                <div class="catalog__filter_item_input">
-		                                    <input id="<?php echo $manufacturer->slug ; ?>" type="checkbox" value="<?php echo $manufacturer->term_id ; ?>">
-		                                    <div class="checkbox"></div>
-		                                    <label for="<?php echo $manufacturer->slug ; ?>"><?php echo $manufacturer->name ; ?><span class="grey">(<span class="number"><?php echo $manufacturer->count ; ?></span>)
-		                                        </span></label><a href="#link-for-seo" class="hide"></a>
-		                                </div>
-		                            </div>
-		                        <?php endforeach ; ?>
-
-	                        </div>
-	                    </div>
-	                <?php endif ; ?>
-
-                    <div class="catalog__filter_item">
-                        <div class="catalog__filter_item_title filter-title">
-                            <div class="plus icon icon-up"></div>
-                            <div class="filter-subtitle"><span>Модель</span></div>
-                        </div>
-                        <div class="catalog__filter_item_content close filter-model-by-man">
-
-                            <div class="catalog__filter_item_checkbox">
-                                <p>Сначала выберите производителя</p>
-                            </div>
-
-                        </div>
+	                <div class="catalog__filter_button">
+                        <button class="btn btn_fullwidth">Применить фильтры</button>
                     </div>
 
                 </div>
 
         	</aside>
 
+            <div class="catalog__grid"></div>
+
        	</div>
     </div>
 </section>
+
+<?php if( $show_contacts = get_field('show_contacts') ) : ?>
+
+    <section class="map-section" id="map-section">
+        <div class="container">
+            <div class="map-section__wrapper">
+                <div class="map" id="map">
+
+                </div>
+                <ul class="map__info">
+
+                    <?php if( have_rows('contacts_phones') ) : ?>
+
+                        <?php while( have_rows('contacts_phones') ) : the_row(); ?>
+
+                            <?php if( $phone = get_sub_field('phone') ) : ?>
+                                <li class="map__info-item">
+                                    <span class="icon icon-phone"></span>
+                                    <a href="tel:<?php echo clean_phone( $phone ) ; ?>"><?php echo $phone ; ?></a>
+                                </li>
+                            <?php endif ; ?>
+
+                        <?php endwhile ; ?>
+                        
+                    <?php endif ; ?>
+
+                    <?php if( $email = get_field('email') ) : ?>
+                        <li class="map__info-item">
+                            <span class="icon icon-mail"></span>
+                            <a href="mailto:<?php echo antispambot( $email ) ; ?>"><?php echo antispambot( $email ) ; ?></a>
+                        </li>
+                    <?php endif ; ?>
+
+                    <?php if( $adress = get_field('adress') ) : ?>
+                        <li class="map__info-item">
+                            <span class="icon icon-map"></span>
+                            <address><?php echo $adress ; ?></address>
+                        </li>
+                    <?php endif ; ?>
+
+                    <?php if( have_rows('messangers') ) : ?>
+                        <li class="map__info-item">
+                            <span class="text">Мессенджеры:</span>
+                            <ul class="social-list">
+
+                                <?php while( have_rows('messangers') ) : the_row(); ?>
+
+                                    <?php  
+
+                                        $link = get_sub_field('link') ;
+                                        $icon = get_sub_field('icon') ;
+
+                                    ?>
+
+                                    <?php if( $icon && $link ) : ?>
+                                        <li class="social-item">
+                                            <a href="<?php echo $link ; ?>" class="icon icon-<?php echo $icon ; ?>" target="_blank"></a>
+                                        </li>
+                                    <?php endif ; ?>
+
+                                <?php endwhile ; ?>
+
+                            </ul>
+                        </li>
+                    <?php endif ; ?>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<?php endif ; ?>
+
+<?php  
+
+    $seo_text_title = get_field('seo_text_title') ;
+    $seo_text_content = get_field('seo_text_content') ;
+    
+?>
+
+<?php if( $seo_text_content ) : ?>
+    <section class="text-content" id="text-content">
+        <div class="container">
+            <div class="text-content__wrapper">
+
+                <?php if( $seo_text_title ) : ?>
+                    <h1 class="h3 text-content__title"><?php echo $seo_text_title ; ?></h1>
+                <?php endif ; ?>
+
+                <div class="text-content__container">
+                    <div class="text-content__item">
+                        
+                        <?php echo $seo_text_content ; ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif ; ?>
 
 <?php get_footer(); ?>

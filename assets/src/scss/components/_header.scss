@@ -316,8 +316,8 @@
         justify-content: space-between;
     }
     &__logo {
-        width: 290px;
-        height: 61px;
+        width: 250px;
+        height: 71px;
         @include respond-to('tablet') {
             order: 1;
             margin: 0;
@@ -534,6 +534,43 @@
             }
             .icon-viber {
                 background-color: #474FA0;
+                -webkit-animation: ring 2s infinite;
+                -webkit-animation-iteration-count:infinite;
+                &:before {
+                    display: block;
+                    -webkit-animation: scale-anim 2.3s infinite ease-in-out;
+                    -moz-animation: scale-anim 2.3s infinite ease-in-out;
+                    -ms-animation: scale-anim 2.3s infinite ease-in-out;
+                    -o-animation: scale-anim 2.3s infinite ease-in-out;
+                    animation: scale-anim 2.3s infinite ease-in-out;
+                    -webkit-transition: all .5s;
+                    -moz-transition: all .5s;
+                    -o-transition: all .5s;
+                    transition: all .5s;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 130%;
+                    height: 130%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    background: #474FA0;
+                    opacity: 20%;
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                    z-index: 0;
+                    -webkit-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                    -moz-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                    -ms-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                    -o-animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                    animation: coccoc-alo-circle-fill-anim 2.3s infinite ease-in-out;
+                    -webkit-transition: all .5s;
+                    -moz-transition: all .5s;
+                    -o-transition: all .5s;
+                    transition: all .5s;
+                }
             }
             .icon-facebook {
                 background-color: #3B5998;
@@ -547,6 +584,60 @@
                 .icon {
                     transform: scale(1.05);
                     @include animate(all);
+                }
+            }
+            @-webkit-keyframes ring{
+                0% {
+                }
+                10% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                20% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                30% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                40% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                50% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                60% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                70% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                80% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
+                }
+                90% {
+                    -webkit-transform:rotate(5deg);
+                    -moz-transform:rotate(5deg);
+                    -o-transform:rotate(5deg);
+                }
+                100% {
+                    -webkit-transform:rotate(-5deg);
+                    -moz-transform:rotate(-5deg);
+                    -o-transform:rotate(-5deg);
                 }
             }
         }
@@ -696,6 +787,50 @@
                 display: flex;
             }
         }
+    }
+}
+@-webkit-keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@-o-keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@keyframes scale-anim {
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
+    }
+}
+@-moz-keyframes scale-anim{
+    0% {
+        transform: scale(.7);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.7);
     }
 }
 

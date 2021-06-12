@@ -81,6 +81,30 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_60ac95fdd2726",
+                    "label": "Картинка mobile",
+                    "name": "image_mobile",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
                     "key": "field_609101c2d4638",
                     "label": "Размер Заголовка",
                     "name": "title_size",
@@ -260,7 +284,7 @@
         {
             "key": "field_6094321156128",
             "label": "Страница Каталога",
-            "name": "catalog_page",
+            "name": "catalog_page_form",
             "type": "page_link",
             "instructions": "",
             "required": 0,
@@ -275,7 +299,7 @@
             ],
             "taxonomy": "",
             "allow_null": 0,
-            "allow_archives": 0,
+            "allow_archives": 1,
             "multiple": 0
         },
         {
@@ -771,6 +795,30 @@
             "layout": "table",
             "button_label": "",
             "sub_fields": [
+                {
+                    "key": "field_60b1fbee36582",
+                    "label": "Иконка",
+                    "name": "icon",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
                 {
                     "key": "field_609925415f1b8",
                     "label": "Заголовок",
@@ -2049,5 +2097,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620755087
+    "modified": 1622277212
 }

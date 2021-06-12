@@ -72,3 +72,14 @@ a.btn,
         }
     }
 }
+
+form {
+    .btn {
+        transform: scale(1);
+        &:hover,
+        &:active,
+        &:focus {
+            transform: scale(1.05);
+        }
+    }
+}

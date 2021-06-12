@@ -24,7 +24,7 @@
                             <span></span>
                         </div>
                         <a href="#" class="header__logo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg" alt="header
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="header
                             logo">
                         </a>
                         <a data-fancybox="modal-phone1" href="#modal-phone"
@@ -87,7 +87,7 @@
                                 <span></span>
                             </div>
                             <a href="#" class="header__logo">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg"
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg"
                                      alt="header logo">
                             </a>
                             <a data-fancybox="modal-phone" href="#modal-phone"

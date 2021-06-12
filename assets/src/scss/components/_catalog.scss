@@ -369,6 +369,15 @@
                 padding: 0 0 16px;
                 overflow-y: auto;
                 margin: 21px 10px 5px 0;
+                &.checkbox-manufacturer-cars {
+                    .checkbox {
+                        border-radius: 50%;
+                        &:before {
+                            background-color: $white;
+                            border-radius: 50%;
+                        }
+                    }
+                }
             }
             &.main-item {
                 background-color: transparent;

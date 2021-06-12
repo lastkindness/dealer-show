@@ -1314,7 +1314,7 @@ get_header('front'); ?>
                 </li>
                 <li class="auctions__item swiper-slide">
                     <a href="/auction" class="auctions__card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/puma-Logo.png"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/adesa-vector-logo.png"
                              alt="auction-img">
                     </a>
                     <div class="auctions__content">
@@ -1324,7 +1324,7 @@ get_header('front'); ?>
                 </li>
                 <li class="auctions__item swiper-slide">
                     <a href="/auction" class="auctions__card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/rozetka-logo.png"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/1200px-Copart_logo.png"
                              alt="auction-img">
                     </a>
                     <div class="auctions__content">
@@ -1334,7 +1334,7 @@ get_header('front'); ?>
                 </li>
                 <li class="auctions__item swiper-slide">
                     <a href="/auction" class="auctions__card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/NP-logo.svg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/manheim.png"
                              alt="auction-img">
                     </a>
                     <div class="auctions__content">
@@ -1344,7 +1344,7 @@ get_header('front'); ?>
                 </li>
                 <li class="auctions__item swiper-slide">
                     <a href="/auction" class="auctions__card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/EBay-logo.png"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/NPA.png"
                              alt="auction-img">
                     </a>
                     <div class="auctions__content">
@@ -1354,7 +1354,17 @@ get_header('front'); ?>
                 </li>
                 <li class="auctions__item swiper-slide">
                     <a href="/auction" class="auctions__card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg"
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/MaskGroup.png"
+                             alt="auction-img">
+                    </a>
+                    <div class="auctions__content">
+                        <p class="auctions__item-text">Название аукциона</p>
+                        <a href="/auction" class="auctions__link"><span>Подробнее</span><span class="icon icon-play"></span></a>
+                    </div>
+                </li>
+                <li class="auctions__item swiper-slide">
+                    <a href="/auction" class="auctions__card">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/carscom.png"
                              alt="auction-img">
                     </a>
                     <div class="auctions__content">
@@ -1509,7 +1519,7 @@ get_header('front'); ?>
                 <ul class="blog-posts__list">
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -1520,7 +1530,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/3.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -1531,7 +1542,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/10.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -1542,7 +1554,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/12.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->

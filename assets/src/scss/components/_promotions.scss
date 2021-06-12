@@ -1,0 +1,80 @@
+.promotions {
+    &__grid {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+    &__item {
+        width: calc(50% - 15px);
+        margin-bottom: 30px;
+        @include respond-to('mobile-sm') {
+            width: 100%;
+        }
+        &:before {
+            display: none;
+        }
+    }
+    &__link {
+        display: block;
+        text-decoration: unset;
+        color: $font;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $font;
+            .promotions {
+                &__title,
+                &__more {
+                    color: $secondary;
+                    @include animate(all);
+                }
+            }
+        }
+    }
+    &__image {
+        overflow: hidden;
+        border-radius: 16px;
+        font-size: 0;
+        line-height: 0;
+        height: 330px;
+        position: relative;
+        margin-bottom: 30px;
+        @include respond-to('mobile') {
+            height: 200px;
+        }
+    }
+    &__logo {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 177px;
+        height: 74px;
+        object-fit: contain;
+        background-color: transparentize($black, 0.8);
+        padding: 15px 25px;
+        border-radius: 0 0 16px 0;
+        @include respond-to('mobile') {
+            width: 120px;
+            height: 50px;
+        }
+    }
+    &__more {
+        font-weight: 900;
+        font-family: $fontFerry;
+        color: $primary;
+        @include animate(all);
+        &:after {
+            content: "\E90B";
+            font-family: 'icomoon';
+        }
+    }
+    &__text {
+        margin-bottom: 20px;
+    }
+    &__title {
+        @include animate(all);
+    }
+}

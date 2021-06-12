@@ -56,7 +56,7 @@ get_header('front'); ?>
                 <ul class="blog-posts__list">
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -67,7 +67,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/3.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -78,7 +79,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/10.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -89,7 +91,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/12.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -100,7 +103,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/36.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/36.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -114,7 +118,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/16.webp" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/16.webp" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -126,7 +131,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/37.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/37.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -137,7 +143,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/39.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/39.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -149,7 +156,8 @@ get_header('front'); ?>
 
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/40.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/40.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -160,7 +168,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/15.webp" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/15.webp" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <h4 class="h4 blog-posts__item-title">«Молния» F-150: Ford представил свой первый электрический пикап</h4>
                                 <p class="blog-posts__item-text">Электроверсия пикапа создана на базе стандартного Ford F-150, однако имеет множество серьезных конструктивных отличий. Например, здесь использовали другую раму - более прочную, чтобы выдержать массу расположенного между лонжеронами тягового аккумулятора. А задняя подвеска у модификации Lightning независимая, тогда как пикапы с ДВС имеют неразрезной мост.</p>
@@ -169,7 +178,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/41.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/41.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -180,7 +190,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/14.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/14.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -191,7 +202,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/23.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/23.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -202,7 +214,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/7.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/7.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -213,7 +226,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/4.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/4.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -224,7 +238,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/5.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/5.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->

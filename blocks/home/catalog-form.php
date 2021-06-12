@@ -1,6 +1,6 @@
 <?php $show_form_select = get_field('show_form_select') ; ?>
 
-<?php if( $catalog_page = get_field('catalog_page') && $show_form_select ) : ?>
+<?php if( $show_form_select ) : ?>
 
 	<section class="car-selection" id="car-selection">
 	    <div class="container">
@@ -10,6 +10,7 @@
 
 	        		$form_title1 = get_field('form_title1') ;
 	        		$form_title2 = get_field('form_title2') ;
+	        		$catalog_page_form = get_field('catalog_page_form') ;
 
 	        	?>
 
@@ -28,11 +29,11 @@
 		        <?php endif ; ?>
 
 	            <div class="car-selection__content">
-	                <form action="<?php echo $catalog_page ; ?>" class="car-selection__form">
+	                <form action="<?php echo $catalog_page_form ; ?>" class="car-selection__form">
 	                    <div class="column column__find-cars">
 	                        <div class="input-container">
 	                            <label for="car-type">Тип транспортного средства</label>
-	                            <select id="car-type" name="car-type">
+	                            <select id="car-type" name="type">
 	                                <option value="cars">Автомобиль</option>
 	                                <option value="mototechnics">Mото-техника</option>
 	                                <option value="electrocars">Электрокары</option>
@@ -107,7 +108,7 @@
 		                                <option></option>
 
 		                                <?php foreach( $issue_year as $year ) : ?>
-		                                	<option value="<?php echo $year->term_id ; ?>"><?php echo $year->name ; ?></option>
+		                                	<option value="<?php echo $year->name ; ?>"><?php echo $year->name ; ?></option>
 		                                <?php endforeach ; ?>
 
 		                            </select>
@@ -116,7 +117,7 @@
 		                                <option></option>
 
 		                                <?php foreach( $issue_year as $year ) : ?>
-		                                	<option value="<?php echo $year->term_id ; ?>"><?php echo $year->name ; ?></option>
+		                                	<option value="<?php echo $year->name ; ?>"><?php echo $year->name ; ?></option>
 		                                <?php endforeach ; ?>
 
 		                            </select>

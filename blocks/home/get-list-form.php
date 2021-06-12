@@ -15,7 +15,7 @@
 
 	?>
 
-	<section class="individual-form" id="individual-form">
+	<section class="individual-form individual-form_dark" id="individual-form">
 	    <div class="container">
 	        <div class="individual-form__wrapper" <?php if( $get_list_form_image ) : ?> style="background-image: url(<?php echo $get_list_form_image ; ?>)" <?php endif ; ?> >
 	            <div class="individual-form__content">

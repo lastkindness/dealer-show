@@ -1,40 +1,164 @@
 .content {
     font-size: 16px;
-    &__content {
-        width: 50%;
+    &__wrapper {
+        width: 80%;
         @include respond-to('tablet') {
             width: 100%;
         }
-        &:first-child {
-            width: 83%;
-            @include respond-to('tablet') {
-                width: 100%;
-            }
-        }
     }
-    &__img {
-        width: calc(50% - 50px);
+    ol, ul {
+        padding-left: 40px;
+    }
+    li {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    img {
+        width: 45%;
         overflow: hidden;
         border-radius: 16px;
         font-size: 0;
+        line-height: 0;
+        margin: 0 30px 30px 0;
+        display: inline-block;
+        float: left;
+        font-size: 0;
+        max-height: 460px;
         line-height: 0;
         @include respond-to('tablet') {
             width: 100%;
             margin-bottom: 30px;
         }
-        img {
+        &.alignleft {
+            float: left;
+        }
+        &.alignright {
+            float: right;
+            margin: 0 0 30px 30px;
+        }
+        &.aligncenter {
             width: 100%;
-            height: 100%;
-            font-size: 0;
-            line-height: 0;
+            margin: 30px 0;
         }
     }
-    &__wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    iframe {
+        width: 100% !important;
+        height: 500px !important;
         @include respond-to('tablet') {
+            height: 400px !important;
+        }
+        @include respond-to('mobile-sm') {
+            height: 300px !important;
+        }
+    }
+    a[data-fancybox="video"] {
+        width: 100%;
+        display: block;
+        height: 575px;
+        @include respond-to('tablet') {
+            height: 400px;
+        }
+        @include respond-to('mobile-sm') {
+            height: 300px;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+            max-height: unset;
+            display: block;
+            position: relative;
+            z-index: 0;
+        }
+        &:before {
+            position: absolute;
+            font-family: "icomoon";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            content: "\ea1c";
+            color: $font;
+            background-color: transparentize($white, 0.3);
+            width: 165px;
+            height: 165px;
+            z-index: 1;
+            font-size: 50px;
+            line-height: 1em;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            @include animate(all);
+            @include respond-to('tablet') {
+                width: 100px;
+                height: 100px;
+                font-size: 35px;
+            }
+        }
+        &:hover,
+        &:active,
+        &:focus {
+            &:before {
+                color: $secondary;
+                @include animate(all);
+                width: 185px;
+                height: 185px;
+                @include respond-to('tablet') {
+                    width: 130px;
+                    height: 130px;
+                }
+            }
+        }
+    }
+    &-banner {
+        width: 100%;
+        min-height: 520px;
+        @include respond-to('mobile-sm') {
+            min-height: 300px;
+        }
+        &__wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        &__img {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &__content {
+            height: 100%;
+            width: 100%;
+            color: $white;
+            background: linear-gradient(180deg, rgba(13, 13, 13, 0.81) 34.57%, rgba(13, 13, 13, 0) 93.19%);
+            position: relative;
+            z-index: 1;
+            padding: 43px 95px;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-start;
             flex-wrap: wrap;
+            @include respond-to('tablet') {
+                padding: 40px 50px;
+            }
+            @include respond-to('mobile-sm') {
+                padding: 40px 20px;
+            }
+        }
+        &__title {
+            max-width: 840px;
+            width: 100%;
+        }
+        &__date {
+            max-width: 840px;
+            width: 100%;
+            align-self: flex-start;
+            text-transform: uppercase;
+            color: #848FFF;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
     }
 }

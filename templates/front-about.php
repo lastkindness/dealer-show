@@ -113,17 +113,15 @@ get_header('front'); ?>
 </section>
 <section class="content" id="content">
     <div class="container">
+        <!--все что лежит в content__wrapper это WYSIWYG, просто я раскидываю стили для стандартных блоков которые могут
+        туда попасть-->
         <div class="content__wrapper">
-            <div class="content__content">
-                <h2 class="h2 content__title">Истоки Lorem Ipsum</h2>
-                <div class="content__text">
-                    <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
-                    <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
-                        1914 Английский перевод Harris Rackham гласит:</p>
-                    <p>“Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
-                        По латыни профессор Richard McClintock - человек, которому приписывают открытие корни Lorem Ipsum - он, скорее всего, что когда-то в средние века наборщиком вскарабкался часть Цицерона De Finibus для того, чтобы предоставить текст-заполнитель для смоделируйте различных шрифтов для типа образца книги. Но это было только начало.</p>
-                </div>
-            </div>
+            <h2>Истоки Lorem Ipsum</h2>
+            <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
+            <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
+                1914 Английский перевод Harris Rackham гласит:</p>
+            <p>“Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
+                По латыни профессор Richard McClintock - человек, которому приписывают открытие корни Lorem Ipsum - он, скорее всего, что когда-то в средние века наборщиком вскарабкался часть Цицерона De Finibus для того, чтобы предоставить текст-заполнитель для смоделируйте различных шрифтов для типа образца книги. Но это было только начало.</p>
         </div>
     </div>
 </section>
@@ -347,22 +345,20 @@ get_header('front'); ?>
 </section>
 <section class="content" id="content1">
     <div class="container">
+        <!--все что лежит в content__wrapper это WYSIWYG, просто я раскидываю стили для стандартных блоков которые могут
+        туда попасть-->
+        <!--классы alignleft alignright aligncenter alignnone - это классы которые присваивает сам WYSIWYG когда
+        добавляешь изображение и тыкаешь как его выровнять-->
         <div class="content__wrapper">
-            <div class="content__img">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/39.jpg" alt="">
-            </div>
-            <div class="content__content">
-                <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
-                <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="h2 content__title">Истоки Lorem Ipsum</h2>
-                <div class="content__text">
-                    <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
-                    <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
-                        1914 Английский перевод Harris Rackham гласит:</p>
-                    <p>“Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
-                        По латыни профессор Richard McClintock - человек, которому приписывают открытие корни Lorem Ipsum - он, скорее всего, что когда-то в средние века наборщиком вскарабкался часть Цицерона De Finibus для того, чтобы предоставить текст-заполнитель для смоделируйте различных шрифтов для типа образца книги. Но это было только начало.</p>
-                </div>
-            </div>
+            <img class="alignleft" src="<?php echo get_template_directory_uri(); ?>/assets/img/39.jpg" alt="">
+            <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
+            <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
+            <h2>Истоки Lorem Ipsum</h2>
+            <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
+            <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
+                    1914 Английский перевод Harris Rackham гласит:</p>
+            <p>“Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
+                    По латыни профессор Richard McClintock - человек, которому приписывают открытие корни Lorem Ipsum - он, скорее всего, что когда-то в средние века наборщиком вскарабкался часть Цицерона De Finibus для того, чтобы предоставить текст-заполнитель для смоделируйте различных шрифтов для типа образца книги. Но это было только начало.</p>
         </div>
     </div>
 </section>
@@ -372,7 +368,7 @@ get_header('front'); ?>
             <div class="content__content">
                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
-                <h2 class="h2 content__title">Истоки Lorem Ipsum</h2>
+                <h2>Истоки Lorem Ipsum</h2>
                 <div class="content__text">
                     <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
                     <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
@@ -453,7 +449,7 @@ get_header('front'); ?>
                 <ul class="blog-posts__list">
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/2.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -464,7 +460,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/3.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/3.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -475,7 +472,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/10.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/10.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
@@ -486,7 +484,8 @@ get_header('front'); ?>
                     </li>
                     <li class="blog-posts__item">
                         <a href="/blog-post" class="blog-posts__link">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/12.jpg" alt="">
+                            <span class="blog-posts__img"><img src="<?php echo get_template_directory_uri();
+                            ?>/assets/img/12.jpg" alt=""></span>
                             <div href="/review" class="blog-posts__item-content">
                                 <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                                 <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
