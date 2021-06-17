@@ -10,3 +10,33 @@
     background-color: rgba(0,0,0,.75);
     z-index: 5;
 }
+
+.modal {
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 450px;
+    .title {
+        display: block;
+        margin: 0 0 15px;
+    }
+    p {
+        margin: 0;
+    }
+    input {
+        padding: 10px 12px;
+        margin-bottom: 10px;
+    }
+    .btn {
+        padding: 15px 35px;
+        margin: 0 auto;
+        display: block;
+    }
+    .wpcf7-response-output {
+        width: auto !important;
+        max-width: 100% !important;
+        bottom: 0px;
+        margin: 10px !important;
+        color: black;
+        top: unset;
+    }
+}

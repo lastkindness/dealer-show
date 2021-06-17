@@ -273,6 +273,40 @@ table {
     }
 }
 
+.b24-widget-button-wrapper {
+    @include respond-to('mobile-sm') {
+        right: 20px !important;
+        bottom: 30px !important;
+    }
+}
+
+form {
+    .wpcf7-response-output {
+        position: absolute;
+        width: 100% !important;
+        top: -38px;
+        margin: 0 !important;
+        left: 0;
+        color: $white;
+        font-size: 12px;
+        line-height: 12px;
+        @include respond-to('mobile-sm') {
+            font-size: 10px;
+        }
+    }
+    .wpcf7-not-valid-tip {
+        width: 100% !important;
+        color: $white;
+        text-align: left;
+        font-size: 10px;
+        margin-top: 5px;
+        background: unset !important;
+        @include respond-to('mobile-sm') {
+            display: none;
+        }
+    }
+}
+
 select {
     -webkit-appearance: none;
 }

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="footer__info-wrapper">
 
-            	<?php  
+            	<?php
 
             		$footer_logo = get_field('footer_logo', 'option') ;
             		$pay_footer = get_field('pay_footer', 'option') ;
@@ -21,7 +21,7 @@
 	                <a href="<?php echo $pay_footer['url'] ; ?>" class="footer__btn btn"><?php echo $pay_footer['title'] ; ?></a>
 	            <?php endif ; ?>
 
-	            <?php  
+	            <?php
 
 	            	$telegram_chat = get_field('telegram_chat_footer', 'option') ;
                     $viber_chat = get_field('viber_chat_footer', 'option') ;
@@ -57,7 +57,7 @@
 	                </div>
 
                 <?php endif ; ?>
-                
+
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
         <div class="container">
             <div class="footer__main-wrapper">
 
-            	<?php  
+            	<?php
 
             		$footer_contacts_title = get_field('footer_contacts_title', 'option') ;
             		$footer_address = get_field('footer_address', 'option') ;
@@ -85,7 +85,7 @@
 
 	                    	<?php while( have_rows('footer_phones', 'option') ) : the_row(); ?>
 
-	                    		<?php  
+	                    		<?php
 
 	                    			$phone = get_sub_field('phone') ;
 
@@ -117,7 +117,7 @@
 
 	            <?php endif ; ?>
 
-	            <?php  
+	            <?php
 
 	            	$footer_menu_title_first = get_field('footer_menu_title_first', 'option') ;
 	            	$footer_menu_title_second = get_field('footer_menu_title_second', 'option') ;
@@ -149,8 +149,8 @@
                 </div>
 
                 <?php if( $footer_menu_title_second ) : ?>
-                    
-                    <?php  
+
+                    <?php
 
                     	$car_budget = get_terms( array(
 						    'taxonomy' => 'car_budget',
@@ -178,7 +178,7 @@
 			                    <?php endforeach ; ?>
 
 		                    </ul>
-		                	
+
 		                </div>
 		            <?php endif ; ?>
 
@@ -204,7 +204,7 @@
 </footer>
 </div>
 
-<?php  
+<?php
 
 	$call_back_form = get_field('call_back_form', 'option') ;
 	$title_call_back_form = get_field('title_call_back_form', 'option') ;
@@ -213,10 +213,10 @@
 
 <?php if( $call_back_form ) : ?>
 	<div class="modals">
-	    <div id="modal-phone" style="display: none;">
+	    <div class="modal" id="modal-phone" style="display: none;">
 
 	    	<?php if( $title_call_back_form ) : ?>
-		        <span class="h3"><?php echo $title_call_back_form ; ?></span>
+		        <span class="title h3"><?php echo $title_call_back_form ; ?></span>
 		    <?php endif ; ?>
 
 	        <?php echo do_shortcode( $call_back_form ) ; ?>
