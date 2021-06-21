@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 	$show_warranty = get_field('show_warranty') ;
 
@@ -6,7 +6,7 @@
 
 <?php if( $show_warranty ) : ?>
 
-	<?php  
+	<?php
 
 		$warranty_title = get_field('warranty_title') ;
 
@@ -28,7 +28,7 @@
 
 		                	<?php while( have_rows('warranty') ) : the_row(); ?>
 
-		                		<?php  
+		                		<?php
 
 		                			$title = get_sub_field('title') ;
 		                			$text = get_sub_field('text') ;
@@ -54,15 +54,19 @@
 
 				                                        <h4 class="h4 grid__card-title"><?php echo $title ; ?></h4>
 				                                    </div>
-				                                    <p class="grid__card-description">
-				                                        <?php echo $text ; ?>
-				                                    </p>
+                                                    <?php if( $text ) : ?>
+                                                        <p class="grid__card-description">
+                                                            <?php echo $text ; ?>
+                                                        </p>
+                                                    <?php endif ; ?>
 				                                </div>
 				                                <div class="grid__card-back">
 				                                    <h4 class="h4 grid__card-title"><?php echo $title ; ?></h4>
-				                                    <p class="grid__card-description">
-				                                        <?php echo $text ; ?>
-				                                    </p>
+                                                    <?php if( $text ) : ?>
+                                                        <p class="grid__card-description">
+                                                            <?php echo $text ; ?>
+                                                        </p>
+                                                    <?php endif ; ?>
 				                                </div>
 				                            </div>
 				                        </div>

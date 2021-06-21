@@ -97,7 +97,7 @@ export default () => {
     //header sticky start
 
     //ellipsis
-    $('.grid__card-description').ellipsis( {lines: 3});
+    $('.grid__card-description').ellipsis( {lines: 5});
     $('.warranty .grid__card-description').ellipsis( {lines: 9});
     $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
     $('.reviews__item-text').ellipsis( {lines: 5});
@@ -105,7 +105,7 @@ export default () => {
     ellipsisStages();
     $('.blog-posts__item-text').ellipsis( {lines: 5});
     $(window).on('load', function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 5});
         $('.warranty .grid__card-description').ellipsis( {lines: 9});
         $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});
@@ -114,7 +114,7 @@ export default () => {
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(document).ajaxComplete(function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 5});
         $('.warranty .grid__card-description').ellipsis( {lines: 9});
         $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});
@@ -123,7 +123,7 @@ export default () => {
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
     $(window).resize(function () {
-        $('.grid__card-description').ellipsis({lines: 3});
+        $('.grid__card-description').ellipsis({lines: 5});
         $('.warranty .grid__card-description').ellipsis( {lines: 9});
         $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
         $('.reviews__item-text').ellipsis( {lines: 5});

@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 	function clean_phone( $phone ){
 	    return preg_replace( '/[^0-9]/', '', $phone );
@@ -270,7 +270,7 @@
         		}
 
 				if( !empty($car_manufacturer) ){ ?>
-						
+
 					<div class="catalog__filter_item <?php echo $carBrand ; ?>">
 	                    <div class="catalog__filter_item_title filter-title">
 	                        <div class="plus icon icon-up"></div>
@@ -290,7 +290,7 @@
 
 		                    	<?php foreach( $car_manufacturer as $manufacturer ) : ?>
 
-		                    		<?php  
+		                    		<?php
 
 		                    			if( $manufacturer->term_id == intval( $_POST['carBrand'] ) ){
 	                    					$isActive = 'active' ;
@@ -437,7 +437,7 @@
 
 		                <?php if( !empty($location) ) : ?>
 
-		                	<?php  
+		                	<?php
 
 		                		if( isset( $_POST['inUkraine'] ) && $_POST['inUkraine'] !== '' ){
 		                			$location_open = 'open' ;
@@ -458,7 +458,7 @@
 
 		                    		<?php foreach( $location as $location_car ) : ?>
 
-		                    			<?php  
+		                    			<?php
 
 		                    				$location_car_counter = get_term_post_count_by_type( $location_car, 'location', 'cars' ) ;
 
@@ -638,7 +638,7 @@
 
 	                    		<?php foreach( $location as $location_car ) : ?>
 
-	                    			<?php  
+	                    			<?php
 
 	                    				$location_car_counter = get_term_post_count_by_type( $location_car, 'location', 'electrocars' ) ;
 
@@ -702,7 +702,7 @@
 
 	                    		<?php foreach( $location as $location_car ) : ?>
 
-	                    			<?php  
+	                    			<?php
 
 	                    				$location_car_counter = get_term_post_count_by_type( $location_car, 'location', 'mototechnics' ) ;
 
@@ -734,7 +734,7 @@
 
 			<?php
 
-				$default_posts_per_page = get_option( 'posts_per_page' ); 
+				$default_posts_per_page = get_option( 'posts_per_page' );
 
 				$today_date_time = date('Y-m-d H:i');
 
@@ -754,8 +754,8 @@
 
 
 				if( isset( $_POST['budget'] ) && $_POST['budget'] !== '' ){
-					
-					array_push( $cars_arr['tax_query'] , array( 
+
+					array_push( $cars_arr['tax_query'] , array(
 															'taxonomy'=>'car_budget',
 															'field'=>'term_id',
 															'terms'=>$_POST['budget']
@@ -766,7 +766,7 @@
 
 				if( isset( $_POST['inUkraine'] ) && $_POST['inUkraine'] !== '' ){
 
-        			array_push( $cars_arr['tax_query'] , array( 
+        			array_push( $cars_arr['tax_query'] , array(
 															'taxonomy'=>'location',
 															'field'=>'term_id',
 															'terms'=>intval( $_POST['inUkraine'] )
@@ -784,109 +784,97 @@
 					<div class="grid">
 						<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-							<?php  
+							<?php
 
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
 
 	                		?>
 
-	                		<div class="grid__card">
-		                        <div class="grid__card-flip">
-		                            <div class="grid__card-wrapper">
-		                                <div class="grid__card-front">
-		                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-		                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-		                                    </a>
-		                                    <div class="grid__card-content">
+                            <div class="grid__card">
+                                <div class="grid__card-main">
+                                    <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                    </a>
+                                    <div class="grid__card-content">
 
-		                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                        </a>
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                            <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                        </a>
+                                        <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-		                                        <p class="grid__card-description">
-		                                            <?php echo get_the_content() ; ?>
-		                                        </p>
-		                                        <div class="grid__card-footer">
-		                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                                <div class="grid__card-back">
-		                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                    </a>
-		                                    <p class="grid__card-description">
-		                                        <?php echo get_the_content() ; ?>
-		                                    </p>
-		                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                    <ul class="grid__card-characteristics">
+                                        <?php if( !empty( get_the_content() ) ) : ?>
+                                            <p class="grid__card-description">
+                                                <?php echo get_the_content() ; ?>
+                                            </p>
+                                        <?php endif ; ?>
+                                    </div>
+                                    <ul class="grid__card-characteristics">
 
-		                                    	<?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
+                                        <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-		                                    	<?php if( is_array( $car_fuel ) ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
-			                                        </li>
-			                                    <?php endif ; ?>
+                                        <?php if( is_array( $car_fuel ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
 
-			                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                        <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
 
-		                                    	<?php if( is_array( $car_year ) ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-			                                        </li>
-			                                    <?php endif ; ?>
+                                        <?php if( is_array( $car_year ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                            </li>
+                                        <?php endif ; ?>
 
-			                                    <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
+                                        <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
 
-			                                    <?php if( is_array( $car_volume ) ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $car_volume[0]->name ; ?></span>
-			                                        </li>
-		                                        <?php endif ; ?>
-
-		                                        <li class="grid__card-characteristic">
-			                                        <span class="img">
-			                                            <span class="icon"
-			                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-			                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-			                                            ></span>
-			                                        </span>
-		                                            <span class="text"><?php echo $mileage ; ?></span>
-		                                        </li>
-		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
+                                        <?php if( is_array( $car_volume ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
+                                        <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                            <span class="text"><?php echo $mileage ; ?></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid__card-footer">
+                                    <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                        стоимость</a>
+                                    <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                </div>
+                            </div>
 
 						<?php endwhile ; ?>
 					</div>
 
 	                <div class="pagination pagination-cars">
-		                <?php 
+		                <?php
 
 							echo paginate_links_custom( array(
 							    'current' => max( 1, get_query_var('paged') ),
@@ -939,105 +927,97 @@
 					<div class="grid">
 						<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-							<?php  
+							<?php
 
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
 
 	                		?>
 
-	                		<div class="grid__card">
-		                        <div class="grid__card-flip">
-		                            <div class="grid__card-wrapper">
-		                                <div class="grid__card-front">
-		                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-		                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-		                                    </a>
-		                                    <div class="grid__card-content">
+                            <div class="grid__card">
+                                <div class="grid__card-main">
+                                    <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                    </a>
+                                    <div class="grid__card-content">
 
-		                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                        </a>
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                            <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                        </a>
+                                        <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-		                                        <p class="grid__card-description">
-		                                            <?php echo get_the_content() ; ?>
-		                                        </p>
-		                                        <div class="grid__card-footer">
-		                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                                <div class="grid__card-back">
-		                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                    </a>
-		                                    <p class="grid__card-description">
-		                                        <?php echo get_the_content() ; ?>
-		                                    </p>
-		                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                    <ul class="grid__card-characteristics">
+                                        <?php if( !empty( get_the_content() ) ) : ?>
+                                            <p class="grid__card-description">
+                                                <?php echo get_the_content() ; ?>
+                                            </p>
+                                        <?php endif ; ?>
+                                    </div>
+                                    <ul class="grid__card-characteristics">
 
-		                                        <li class="grid__card-characteristic">
-			                                        <span class="img">
-			                                            <span class="icon"
-			                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
-			                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
-			                                            ></span>
-			                                        </span>
-		                                            <span class="text">Электро</span>
-		                                        </li>
+                                        <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-			                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                        <?php if( is_array( $car_fuel ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
 
-		                                    	<?php if( is_array( $car_year ) ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-			                                        </li>
-			                                    <?php endif ; ?>
+                                        <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
 
-			                                    <?php $acumulator = get_field('acumulator') ; ?>
+                                        <?php if( is_array( $car_year ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                            </li>
+                                        <?php endif ; ?>
 
-			                                    <?php if( $acumulator ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $acumulator ; ?></span>
-			                                        </li>
-		                                        <?php endif ; ?>
+                                        <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
 
-		                                        <li class="grid__card-characteristic">
-			                                        <span class="img">
-			                                            <span class="icon"
-			                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-			                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-			                                            ></span>
-			                                        </span>
-		                                            <span class="text"><?php echo $mileage ; ?></span>
-		                                        </li>
-		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
+                                        <?php if( is_array( $car_volume ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
+                                        <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                            <span class="text"><?php echo $mileage ; ?></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid__card-footer">
+                                    <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                        стоимость</a>
+                                    <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                </div>
+                            </div>
 
 						<?php endwhile ; ?>
 					</div>
 
 					<div class="pagination pagination-cars">
-		                <?php 
+		                <?php
 
 							echo paginate_links_custom( array(
 							    'current' => max( 1, get_query_var('paged') ),
@@ -1065,7 +1045,7 @@
 
 			<?php
 
-				$default_posts_per_page = get_option( 'posts_per_page' );  
+				$default_posts_per_page = get_option( 'posts_per_page' );
 
 				$today_date_time = date('Y-m-d H:i');
 
@@ -1090,80 +1070,96 @@
 					<div class="grid">
 						<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-							<?php  
+							<?php
 
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
 
 	                		?>
 
-	                		<div class="grid__card">
-		                        <div class="grid__card-flip">
-		                            <div class="grid__card-wrapper">
-		                                <div class="grid__card-front">
-		                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-		                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-		                                    </a>
-		                                    <div class="grid__card-content">
+                            <div class="grid__card">
+                                <div class="grid__card-main">
+                                    <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                    </a>
+                                    <div class="grid__card-content">
 
-		                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                        </a>
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                            <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                        </a>
+                                        <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-		                                        <p class="grid__card-description">
-		                                            <?php echo get_the_content() ; ?>
-		                                        </p>
-		                                        <div class="grid__card-footer">
-		                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                                <div class="grid__card-back">
-		                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-		                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-		                                    </a>
-		                                    <p class="grid__card-description">
-		                                        <?php echo get_the_content() ; ?>
-		                                    </p>
-		                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-		                                    <ul class="grid__card-characteristics">
+                                        <?php if( !empty( get_the_content() ) ) : ?>
+                                            <p class="grid__card-description">
+                                                <?php echo get_the_content() ; ?>
+                                            </p>
+                                        <?php endif ; ?>
+                                    </div>
+                                    <ul class="grid__card-characteristics">
 
-			                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                        <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-		                                    	<?php if( is_array( $car_year ) ) : ?>
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-			                                        </li>
-			                                    <?php endif ; ?>
+                                        <?php if( is_array( $car_fuel ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
 
-		                                        <li class="grid__card-characteristic">
-			                                        <span class="img">
-			                                            <span class="icon"
-			                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-			                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-			                                            ></span>
-			                                        </span>
-		                                            <span class="text"><?php echo $mileage ; ?></span>
-		                                        </li>
-		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
+                                        <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+
+                                        <?php if( is_array( $car_year ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                            </li>
+                                        <?php endif ; ?>
+
+                                        <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
+
+                                        <?php if( is_array( $car_volume ) ) : ?>
+                                            <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                            </li>
+                                        <?php endif ; ?>
+                                        <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                            <span class="text"><?php echo $mileage ; ?></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid__card-footer">
+                                    <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                        стоимость</a>
+                                    <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                </div>
+                            </div>
 
 						<?php endwhile ; ?>
 					</div>
 					<div class="pagination pagination-cars">
-		                <?php 
+		                <?php
 
 							echo paginate_links_custom( array(
 							    'current' => max( 1, get_query_var('paged') ),
@@ -1186,7 +1182,7 @@
 
 		<?php } ?>
 
-		<?php 
+		<?php
 
 		die;
 
@@ -1222,7 +1218,7 @@
 					$manufacturer_term = get_term_by( 'id', $_POST['manufacturer'], $tax );
 
 				?>
-				
+
 				<div class="catalog__filter_item open" data-model-parrent="<?php echo $_POST['manufacturer'] ; ?>">
 
 					<div class="catalog__filter_item_title filter-title">
@@ -1237,9 +1233,9 @@
 							<?php
 
 								$car_model = get_term_children( $_POST['manufacturer'], $tax ) ;
-								
+
 								if( !empty( $car_model ) ){
-									
+
 									foreach( $car_model as $model ){
 
 										$term_m = get_term_by( 'id', $model, $tax );
@@ -1271,7 +1267,7 @@
 
 									}
 
-								} 
+								}
 
 							?>
 
@@ -1284,12 +1280,12 @@
 							<?php
 
 								$car_model = get_term_children( $_POST['manufacturer'], $tax ) ;
-								
+
 								if( !empty( $car_model ) ){
-									
+
 									foreach( $car_model as $model ){
 
-										$term_m = get_term_by( 'id', $model, $tax ); 
+										$term_m = get_term_by( 'id', $model, $tax );
 
 										$count_two_tax = count_posts_budget_manufacturer( $model, $_POST['budget'] ) ;
 
@@ -1308,7 +1304,7 @@
 
 									}
 
-								} 
+								}
 
 							?>
 
@@ -1321,7 +1317,7 @@
 				<?php
 
 			}
-				
+
 			?>
 
 		<?php }
@@ -1334,10 +1330,10 @@
 	add_action('wp_ajax_nopriv_catalogmodel', 'catalog_model_filter');
 
 	function get_term_post_count_by_type($term,$taxonomy,$type){
-	    $args = array( 
+	    $args = array(
 	        'fields' =>'ids', //we don't really need all post data so just id wil do fine.
 	        'posts_per_page' => -1, //-1 to get all post
-	        'post_type' => $type, 
+	        'post_type' => $type,
 	        'tax_query' => array(
 	            array(
 	                'taxonomy' => $taxonomy,
@@ -1357,7 +1353,7 @@
 		if( isset( $_POST['selectedvalues'] ) && count( $_POST['selectedvalues'] ) !== 0 ){ ?>
 
 			<div class="insert-choose-filter">
-				
+
 				<div class="catalog__filter-wrapper">
 					<div class="catalog__filter-choose">
 		                <div class="catalog__filter-choose-head">
@@ -1372,13 +1368,13 @@
 				                    <div class="btn btn_secondary">
 				                    	<span>Все производители</span><span data-attr-term="all" class="icon icon-close"></span>
 				                    </div>
-				                </div>	
+				                </div>
 
 			                <?php else : ?>
 
-								<?php 
+								<?php
 
-									$term_info = get_term( $term ); 
+									$term_info = get_term( $term );
 
 									if( $term_info->taxonomy == 'car_manufacturer' && $term_info->parent == 0 || $term_info->taxonomy == 'electrocars_manufacturer' && $term_info->parent == 0 || $term_info->taxonomy == 'mototechnics_manufacturer' && $term_info->parent == 0 ){
 										$tax_manufacturer_parrent = 'parrent-man' ;
@@ -1387,7 +1383,7 @@
 									}
 
 								?>
-				                
+
 				                <div class="catalog__filter-choose-items">
 				                    <div class="btn btn_secondary">
 				                    	<span><?php echo $term_info->name ; ?></span><span <?php if( $term_info->parent != 0 ) : ?> data-attr-term-parrent="<?php echo $term_info->parent ; ?>" <?php endif ; ?> data-attr-term="<?php echo $term_info->term_id ; ?>" class="icon icon-close <?php echo $tax_manufacturer_parrent ; ?>"></span>
@@ -1402,7 +1398,7 @@
 		                <div class="catalog__filter-choose-clear" onClick="window.location.href='/catalog'">Очистить всё</div>
 		            </div>
 				</div>
-				
+
 			</div>
 
 		<?php }
@@ -1419,14 +1415,14 @@
 		check_ajax_referer('check_nonce', 'security') ;
 
 		date_default_timezone_set("Europe/Kiev");
-		date_default_timezone_get(); 
+		date_default_timezone_get();
 
 		$today_date_time = date('Y-m-d H:i');
-		$default_posts_per_page = get_option( 'posts_per_page' ); 
+		$default_posts_per_page = get_option( 'posts_per_page' );
 
 		if( isset( $_POST['typetransport'] ) && $_POST['typetransport'] !== ''  ){ ?>
 
-			<?php 
+			<?php
 
 				$pricefrom = $_POST['pricefrom'] ;
 				$priceto = $_POST['priceto'] ;
@@ -1448,8 +1444,8 @@
 				) ;
 
 				if( isset( $_POST['budget'] ) && $_POST['budget'] !== '' ){
-					
-					array_push( $cars_count['tax_query'] , array( 
+
+					array_push( $cars_count['tax_query'] , array(
 															'taxonomy'=>'car_budget',
 															'field'=>'term_id',
 															'terms'=>$_POST['budget']
@@ -1495,7 +1491,7 @@
 			            )
 			        ),
 				);
-				
+
 				$topsort = $_POST['topsort'] ;
 
 				switch ($topsort) {
@@ -1528,7 +1524,7 @@
 
 					if( isset( $_POST['manufacturercars'] ) && count( $_POST['manufacturercars'] ) > 0 && $_POST['manufacturercars'] !== 'all' ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'car_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['manufacturercars']
@@ -1539,7 +1535,7 @@
 
 					if( isset( $_POST['modelrcars'] ) && count( $_POST['modelrcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'car_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['modelrcars']
@@ -1550,7 +1546,7 @@
 
 					if( isset( $_POST['cuzovcars'] ) && count( $_POST['cuzovcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'car_type',
 																'field'=>'term_id',
 																'terms'=>$_POST['cuzovcars']
@@ -1560,8 +1556,8 @@
 					}
 
 					if( isset( $_POST['budget'] ) && $_POST['budget'] !== '' ){
-					
-						array_push( $cars_arr['tax_query'] , array( 
+
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'car_budget',
 																'field'=>'term_id',
 																'terms'=>$_POST['budget']
@@ -1572,7 +1568,7 @@
 
 					if( isset( $_POST['locationcars'] ) && count( $_POST['locationcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'location',
 																'field'=>'term_id',
 																'terms'=>$_POST['locationcars']
@@ -1583,7 +1579,7 @@
 
 					if( isset( $_POST['fuelcars'] ) && count( $_POST['fuelcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'fuel',
 																'field'=>'term_id',
 																'terms'=>$_POST['fuelcars']
@@ -1594,7 +1590,7 @@
 
 					if( isset( $_POST['volumecars'] ) && count( $_POST['volumecars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'volume',
 																'field'=>'term_id',
 																'terms'=>$_POST['volumecars']
@@ -1605,7 +1601,7 @@
 
 					if( isset( $_POST['transmissioncars'] ) && count( $_POST['transmissioncars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'transmission',
 																'field'=>'term_id',
 																'terms'=>$_POST['transmissioncars']
@@ -1616,7 +1612,7 @@
 
 					if( isset( $_POST['drivecars'] ) && count( $_POST['drivecars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'drive',
 																'field'=>'term_id',
 																'terms'=>$_POST['drivecars']
@@ -1631,7 +1627,7 @@
 
 					if( isset( $_POST['manufacturercars'] ) && count( $_POST['manufacturercars'] ) > 0 && $_POST['manufacturercars'] !== 'all' ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'electrocars_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['manufacturercars']
@@ -1642,7 +1638,7 @@
 
 					if( isset( $_POST['modelrcars'] ) && count( $_POST['modelrcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'electrocars_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['modelrcars']
@@ -1653,7 +1649,7 @@
 
 					if( isset( $_POST['cuzovcars'] ) && count( $_POST['cuzovcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'electrocars_type',
 																'field'=>'term_id',
 																'terms'=>$_POST['cuzovcars']
@@ -1664,7 +1660,7 @@
 
 					if( isset( $_POST['locationcars'] ) && count( $_POST['locationcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'location',
 																'field'=>'term_id',
 																'terms'=>$_POST['locationcars']
@@ -1675,7 +1671,7 @@
 
 					if( isset( $_POST['drivecars'] ) && count( $_POST['drivecars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'electrocars_drive',
 																'field'=>'term_id',
 																'terms'=>$_POST['drivecars']
@@ -1690,7 +1686,7 @@
 
 					if( isset( $_POST['manufacturercars'] ) && count( $_POST['manufacturercars'] ) > 0 && $_POST['manufacturercars'] !== 'all' ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'mototechnics_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['manufacturercars']
@@ -1701,7 +1697,7 @@
 
 					if( isset( $_POST['modelrcars'] ) && count( $_POST['modelrcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'mototechnics_manufacturer',
 																'field'=>'term_id',
 																'terms'=>$_POST['modelrcars']
@@ -1712,7 +1708,7 @@
 
 					if( isset( $_POST['locationcars'] ) && count( $_POST['locationcars'] ) > 0 ){
 
-						array_push( $cars_arr['tax_query'] , array( 
+						array_push( $cars_arr['tax_query'] , array(
 																'taxonomy'=>'location',
 																'field'=>'term_id',
 																'terms'=>$_POST['locationcars']
@@ -1734,103 +1730,91 @@
 						<div class="grid">
 							<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-								<?php  
+								<?php
 
 		                			$price = get_field('price') ;
 		                			$mileage = get_field('mileage') ;
 
 		                		?>
 
-		                		<div class="grid__card">
-			                        <div class="grid__card-flip">
-			                            <div class="grid__card-wrapper">
-			                                <div class="grid__card-front">
-			                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-			                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-			                                    </a>
-			                                    <div class="grid__card-content">
+                                <div class="grid__card">
+                                    <div class="grid__card-main">
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                            <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                        </a>
+                                        <div class="grid__card-content">
 
-			                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                        </a>
+                                            <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                                <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                            </a>
+                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-			                                        <p class="grid__card-description">
-			                                            <?php echo get_the_content() ; ?>
-			                                        </p>
-			                                        <div class="grid__card-footer">
-			                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="grid__card-back">
-			                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                    </a>
-			                                    <p class="grid__card-description">
-			                                        <?php echo get_the_content() ; ?>
-			                                    </p>
-			                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                    <ul class="grid__card-characteristics">
+                                            <?php if( !empty( get_the_content() ) ) : ?>
+                                                <p class="grid__card-description">
+                                                    <?php echo get_the_content() ; ?>
+                                                </p>
+                                            <?php endif ; ?>
+                                        </div>
+                                        <ul class="grid__card-characteristics">
 
-			                                    	<?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
+                                            <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-			                                    	<?php if( is_array( $car_fuel ) ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
-				                                        </li>
-				                                    <?php endif ; ?>
+                                            <?php if( is_array( $car_fuel ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
 
-				                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                            <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
 
-			                                    	<?php if( is_array( $car_year ) ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-				                                        </li>
-				                                    <?php endif ; ?>
+                                            <?php if( is_array( $car_year ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                                </li>
+                                            <?php endif ; ?>
 
-				                                    <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
+                                            <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
 
-				                                    <?php if( is_array( $car_volume ) ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $car_volume[0]->name ; ?></span>
-				                                        </li>
-			                                        <?php endif ; ?>
-
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $mileage ; ?></span>
-			                                        </li>
-			                                    </ul>
-			                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-			                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-			                                </div>
-			                            </div>
-			                        </div>
-			                    </div>
+                                            <?php if( is_array( $car_volume ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
+                                            <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                                <span class="text"><?php echo $mileage ; ?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid__card-footer">
+                                        <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                            стоимость</a>
+                                        <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                    </div>
+                                </div>
 
 							<?php endwhile ; ?>
 						</div>
@@ -1840,99 +1824,91 @@
 						<div class="grid">
 							<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-								<?php  
+								<?php
 
 		                			$price = get_field('price') ;
 		                			$mileage = get_field('mileage') ;
 
 		                		?>
 
-		                		<div class="grid__card">
-			                        <div class="grid__card-flip">
-			                            <div class="grid__card-wrapper">
-			                                <div class="grid__card-front">
-			                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-			                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-			                                    </a>
-			                                    <div class="grid__card-content">
+                                <div class="grid__card">
+                                    <div class="grid__card-main">
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                            <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                        </a>
+                                        <div class="grid__card-content">
 
-			                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                        </a>
+                                            <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                                <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                            </a>
+                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-			                                        <p class="grid__card-description">
-			                                            <?php echo get_the_content() ; ?>
-			                                        </p>
-			                                        <div class="grid__card-footer">
-			                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="grid__card-back">
-			                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                    </a>
-			                                    <p class="grid__card-description">
-			                                        <?php echo get_the_content() ; ?>
-			                                    </p>
-			                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                    <ul class="grid__card-characteristics">
+                                            <?php if( !empty( get_the_content() ) ) : ?>
+                                                <p class="grid__card-description">
+                                                    <?php echo get_the_content() ; ?>
+                                                </p>
+                                            <?php endif ; ?>
+                                        </div>
+                                        <ul class="grid__card-characteristics">
 
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text">Электро</span>
-			                                        </li>
+                                            <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-				                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                            <?php if( is_array( $car_fuel ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
 
-			                                    	<?php if( is_array( $car_year ) ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-				                                        </li>
-				                                    <?php endif ; ?>
+                                            <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
 
-				                                    <?php $acumulator = get_field('acumulator') ; ?>
+                                            <?php if( is_array( $car_year ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                                </li>
+                                            <?php endif ; ?>
 
-				                                    <?php if( $acumulator ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $acumulator ; ?></span>
-				                                        </li>
-			                                        <?php endif ; ?>
+                                            <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
 
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $mileage ; ?></span>
-			                                        </li>
-			                                    </ul>
-			                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-			                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-			                                </div>
-			                            </div>
-			                        </div>
-			                    </div>
+                                            <?php if( is_array( $car_volume ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
+                                            <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                                <span class="text"><?php echo $mileage ; ?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid__card-footer">
+                                        <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                            стоимость</a>
+                                        <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                    </div>
+                                </div>
 
 							<?php endwhile ; ?>
 						</div>
@@ -1943,75 +1919,91 @@
 						<div class="grid">
 							<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-								<?php  
+								<?php
 
 		                			$price = get_field('price') ;
 		                			$mileage = get_field('mileage') ;
 
 		                		?>
 
-		                		<div class="grid__card">
-			                        <div class="grid__card-flip">
-			                            <div class="grid__card-wrapper">
-			                                <div class="grid__card-front">
-			                                    <a class="grid__card-img" href="<?php echo get_permalink(); ?>">
-			                                        <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
-			                                    </a>
-			                                    <div class="grid__card-content">
+                                <div class="grid__card">
+                                    <div class="grid__card-main">
+                                        <a href="<?php echo get_permalink(); ?>" class="grid__card-img" href="<?php echo get_permalink(); ?>">
+                                            <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+                                        </a>
+                                        <div class="grid__card-content">
 
-			                                        <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                        	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                        </a>
+                                            <a href="<?php echo get_permalink(); ?>" class="grid__card-link" href="<?php echo get_permalink(); ?>">
+                                                <h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
+                                            </a>
+                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-			                                        <p class="grid__card-description">
-			                                            <?php echo get_the_content() ; ?>
-			                                        </p>
-			                                        <div class="grid__card-footer">
-			                                            <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                            <a href="<?php echo get_permalink(); ?>" class="btn grid__card-link">Подробнее</a>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <div class="grid__card-back">
-			                                    <a class="grid__card-link" href="<?php echo get_permalink(); ?>">
-			                                    	<h4 class="h4 grid__card-title"><?php echo get_the_title() ; ?></h4>
-			                                    </a>
-			                                    <p class="grid__card-description">
-			                                        <?php echo get_the_content() ; ?>
-			                                    </p>
-			                                    <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
-			                                    <ul class="grid__card-characteristics">
+                                            <?php if( !empty( get_the_content() ) ) : ?>
+                                                <p class="grid__card-description">
+                                                    <?php echo get_the_content() ; ?>
+                                                </p>
+                                            <?php endif ; ?>
+                                        </div>
+                                        <ul class="grid__card-characteristics">
 
-				                                    <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+                                            <?php $car_fuel = get_the_terms( get_the_ID(), 'fuel' ) ; ?>
 
-			                                    	<?php if( is_array( $car_year ) ) : ?>
-				                                        <li class="grid__card-characteristic">
-					                                        <span class="img">
-					                                            <span class="icon"
-					                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
-					                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
-					                                            ></span>
-					                                        </span>
-				                                            <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
-				                                        </li>
-				                                    <?php endif ; ?>
+                                            <?php if( is_array( $car_fuel ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/fuel-pump.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_fuel[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
 
-			                                        <li class="grid__card-characteristic">
-				                                        <span class="img">
-				                                            <span class="icon"
-				                                                  style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
-				                                                      mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
-				                                            ></span>
-				                                        </span>
-			                                            <span class="text"><?php echo $mileage ; ?></span>
-			                                        </li>
-			                                    </ul>
-			                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
-			                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
-			                                </div>
-			                            </div>
-			                        </div>
-			                    </div>
+                                            <?php $car_year = get_the_terms( get_the_ID(), 'issue_year' ) ; ?>
+
+                                            <?php if( is_array( $car_year ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/hourglass.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_year[0]->name ; ?> год</span>
+                                                </li>
+                                            <?php endif ; ?>
+
+                                            <?php $car_volume = get_the_terms( get_the_ID(), 'volume' ) ; ?>
+
+                                            <?php if( is_array( $car_volume ) ) : ?>
+                                                <li class="grid__card-characteristic">
+                                                <span class="img">
+                                                    <span class="icon"
+                                                          style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);
+                                                              mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/turbo.svg);"
+                                                    ></span>
+                                                </span>
+                                                    <span class="text"><?php echo $car_volume[0]->name ; ?></span>
+                                                </li>
+                                            <?php endif ; ?>
+                                            <li class="grid__card-characteristic">
+                                            <span class="img">
+                                                <span class="icon"
+                                                      style="-webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);
+                                                          mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/burning-wheel.svg);"
+                                                ></span>
+                                            </span>
+                                                <span class="text"><?php echo $mileage ; ?></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid__card-footer">
+                                        <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
+                                            стоимость</a>
+                                        <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
+                                    </div>
+                                </div>
 
 							<?php endwhile ; ?>
 						</div>
@@ -2019,7 +2011,7 @@
 					<?php endif ; ?>
 
 	                <div class="pagination pagination-cars">
-		                <?php 
+		                <?php
 
 							echo paginate_links_custom( array(
 							    'total' => $cars->max_num_pages,
@@ -2055,22 +2047,22 @@
 
 	function paginate_links_custom( $args = '' ) {
 	    global $wp_query, $wp_rewrite;
-	 
+
 	    // Setting up default values based on the current URL.
 	    $pagenum_link = html_entity_decode( get_pagenum_link() );
 	    $url_parts    = explode( '?', $pagenum_link );
-	 
+
 	    // Get max pages and current page out of the current query, if available.
 	    $total   = isset( $wp_query->max_num_pages ) ? $wp_query->max_num_pages : 1;
 	    $current = get_query_var( 'paged' ) ? (int) get_query_var( 'paged' ) : 1;
-	 
+
 	    // Append the format placeholder to the base URL.
 	    $pagenum_link = trailingslashit( $url_parts[0] ) . '%_%';
-	 
+
 	    // URL base depends on permalink settings.
 	    $format  = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
 	    $format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
-	 
+
 	    $defaults = array(
 	        'base'               => $pagenum_link, // http://example.com/all_posts.php%_% : %_% is replaced by format (below).
 	        'format'             => $format, // ?page=%#% : %#% is replaced by the page number.
@@ -2089,31 +2081,31 @@
 	        'before_page_number' => '',
 	        'after_page_number'  => '',
 	    );
-	 
+
 	    $args = wp_parse_args( $args, $defaults );
-	 
+
 	    if ( ! is_array( $args['add_args'] ) ) {
 	        $args['add_args'] = array();
 	    }
-	 
+
 	    // Merge additional query vars found in the original URL into 'add_args' array.
 	    if ( isset( $url_parts[1] ) ) {
 	        // Find the format argument.
 	        $format       = explode( '?', str_replace( '%_%', $args['format'], $args['base'] ) );
 	        $format_query = isset( $format[1] ) ? $format[1] : '';
 	        wp_parse_str( $format_query, $format_args );
-	 
+
 	        // Find the query args of the requested URL.
 	        wp_parse_str( $url_parts[1], $url_query_args );
-	 
+
 	        // Remove the format argument from the array of query arguments, to avoid overwriting custom format.
 	        foreach ( $format_args as $format_arg => $format_arg_value ) {
 	            unset( $url_query_args[ $format_arg ] );
 	        }
-	 
+
 	        $args['add_args'] = array_merge( $args['add_args'], urlencode_deep( $url_query_args ) );
 	    }
-	 
+
 	    // Who knows what else people pass in $args.
 	    $total = (int) $args['total'];
 	    if ( $total < 2 ) {
@@ -2128,12 +2120,12 @@
 	    if ( $mid_size < 0 ) {
 	        $mid_size = 2;
 	    }
-	 
+
 	    $add_args   = $args['add_args'];
 	    $r          = '';
 	    $page_links = array();
 	    $dots       = false;
-	 
+
 	    if ( $args['prev_next'] && $current && 1 < $current ) :
 	        $link = str_replace( '%_%', 2 == $current ? '' : $args['format'], $args['base'] );
 	        $link = str_replace( '%#%', $current - 1, $link );
@@ -2143,7 +2135,7 @@
 	        $link .= $args['add_fragment'];
 
 	    endif;
-	 
+
 	    for ( $n = 1; $n <= $total; $n++ ) :
 	        if ( $n == $current ) :
 	            $page_links[] = sprintf(
@@ -2151,7 +2143,7 @@
 	                esc_attr( $args['aria_current'] ),
 	                $args['before_page_number'] . number_format_i18n( $n ) . $args['after_page_number']
 	            );
-	 
+
 	            $dots = true;
 	        else :
 
@@ -2162,18 +2154,18 @@
 	                    $link = add_query_arg( $add_args, $link );
 	                }
 	                $link .= $args['add_fragment'];
-	 
+
 	                $page_links[] = '<li><span data-attr-page="'.$n.'">'.$n.'</span></li>' ;
-	 
+
 	                $dots = true;
 	            elseif ( $dots && ! $args['show_all'] ) :
 	                $page_links[] = '<li class="dots-not-click"><span>' . __( '&hellip;' ) . '</span></li>';
-	 
+
 	                $dots = false;
 	            endif;
 	        endif;
 	    endfor;
-	 
+
 	    if ( $args['prev_next'] && $current && $current < $total ) :
 	        $link = str_replace( '%_%', $args['format'], $args['base'] );
 	        $link = str_replace( '%#%', $current + 1, $link );
@@ -2187,7 +2179,7 @@
 	    switch ( $args['type'] ) {
 	        case 'array':
 	            return $page_links;
-	 
+
 	        case 'list':
 
 	            $r .= "<ul class='pagination__list'>";
@@ -2205,16 +2197,16 @@
 	            $r .= "</ul>";
 
 	            break;
-	 
+
 	        default:
 	            $r = implode( "\n", $page_links );
 	            break;
 	    }
-	 
-	    
+
+
 
 	    $r = apply_filters( 'paginate_links_output', $r, $args );
-	 
+
 	    return $r;
 	}
 
@@ -2273,7 +2265,7 @@
 
 		<?php if( isset( $_POST['page'] ) && $_POST['page'] !== '' ) : ?>
 
-			<?php  
+			<?php
 
 				$news_arr = array(
 					'post_type' => 'post',
@@ -2308,8 +2300,8 @@
 
 
 					<div class="pagination pagination-news">
-	                    
-						<?php 
+
+						<?php
 
 							echo paginate_links_custom( array(
 								'total' => $news->max_num_pages,
@@ -2341,7 +2333,7 @@
 
 		<?php if( isset( $_POST['page'] ) && $_POST['page'] !== '' ) : ?>
 
-			<?php  
+			<?php
 
 				$reviews_arr = array(
 					'post_type' => 'reviews',
@@ -2396,8 +2388,8 @@
 			        </ul>
 
 			        <div class="pagination pagination-reviews">
-		                    
-						<?php 
+
+						<?php
 
 							echo paginate_links_custom( array(
 							    'total' => $reviews->max_num_pages,
@@ -2429,7 +2421,7 @@
 
 		<?php if( isset( $_POST['page'] ) && $_POST['page'] !== '' ) : ?>
 
-			<?php  
+			<?php
 
 				$promotion_arr = array(
 					'post_type' => 'promotion',
@@ -2449,7 +2441,7 @@
 
 	        			<?php while ( $promotion->have_posts() ) : $promotion->the_post(); ?>
 
-	        				<?php  
+	        				<?php
 
 	        					$logo = get_field('logo') ;
 
@@ -2458,7 +2450,7 @@
 	        				<li class="promotions__item">
 			                    <a href="<?php echo get_permalink() ; ?>" class="promotions__link">
 			                        <div class="promotions__image">
-			                        	
+
 			                            <?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
 
 			                            <?php if( $logo ) : ?>
@@ -2477,8 +2469,8 @@
 	        		</ul>
 
 	        		<div class="pagination pagination-promotion">
-		                    
-						<?php 
+
+						<?php
 
 							echo paginate_links_custom( array(
 							    'total' => $promotion->max_num_pages,

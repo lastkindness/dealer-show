@@ -14,6 +14,14 @@
         width: calc(25% - 30px);
         margin: 0 15px 30px;
         position: relative;
+        box-shadow: $shadow;
+        border-radius: 16px;
+        overflow: hidden;
+        text-decoration: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
         @include respond-to('desktop-l') {
             width: calc(33.3% - 30px);
         }
@@ -43,12 +51,23 @@
             }
             @include respond-to('mobile-sm') {
                 height: 230px;
+                &:active,
+                &:focus,
+                &:hover {
+                    text-decoration: unset;
+                    .grid__card-img {
+                        img {
+                            transform: scale(1.05);
+                            @include animate(all);
+                        }
+                    }
+                }
             }
         }
         &-title {
             height: 46px;
             overflow: hidden;
-            margin: 0 0 5px 0;
+            margin: 0 0 10px 0;
             @include respond-to('laptop') {
                 text-align: center;
             }
@@ -83,15 +102,45 @@
             img {
                 height: 100%;
                 width: 100%;
+                transform: scale(1);
+                @include animate(all);
+            }
+        }
+        &-footer {
+            padding: 0 24px 24px;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            @include respond-to('mobile-sm') {
+                padding: 0 12px 12px;
+                flex-wrap: wrap;
+            }
+            .btn {
+                width: calc(50% - 10px);
+                white-space: normal;
+                align-self: stretch;
+                margin: 0;
+                @include respond-to('mobile-sm') {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                &:last-child {
+                    @include respond-to('mobile-sm') {
+                        margin-bottom: 0px;
+                    }
+                }
             }
         }
         &-characteristics {
-            padding: 0;
             margin: 0;
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
             justify-content: space-between;
+            padding: 0 24px;
+            @include respond-to('mobile-sm') {
+                padding: 0 12px;
+            }
         }
         &-characteristic {
             display: flex;
@@ -99,6 +148,7 @@
             justify-content: flex-start;
             width: calc(50% - 15px);
             margin-bottom: 20px;
+            color: $font;
             @include respond-to('laptop') {
                 width: calc(50% - 5px);
             }
@@ -114,7 +164,7 @@
                 justify-content: center;
                 width: 35px;
                 height: 35px;
-                background-color: transparentize($white, 0.9);
+                background-color: $secondary;
                 border-radius: 4px;
                 margin-right: 12px;
                 @include respond-to('mobile-sm') {
@@ -150,7 +200,9 @@
             align-items: stretch;
             justify-content: stretch;
             @include respond-to('mobile-sm') {
-                padding: 0;
+                padding: 0 12px;
+                text-align: center;
+                justify-content: center;
             }
             .btn {
                 margin: 0;
@@ -166,14 +218,14 @@
             color: $font;
         }
         &-description {
-            min-height: 63px;
-            margin-bottom: 23px;
+            margin: 10px 0 0 !important;
             width: 100%;
             @include respond-to('mobile-sm') {
                 display: none;
             }
         }
         &-price {
+            color: $primary;
             font-weight: 800;
             text-transform: uppercase;
             font-size: 18px;
@@ -182,74 +234,6 @@
             }
             @include respond-to('mobile-sm') {
                 font-size: 14px;
-            }
-        }
-        &-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            align-self: flex-end;
-            @include respond-to('laptop') {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-        &-front {
-            border-radius: 16px;
-            overflow: hidden;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: stretch;
-            @include respond-to('mobile-sm') {
-                border-radius: 8px;
-            }
-        }
-        &-back {
-            padding: 24px;
-            color: $white;
-            border-radius: 16px;
-            overflow: hidden;
-            background: $cardGradient;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            backface-visibility: hidden;
-            transform: rotateY( 180deg );
-            @include respond-to('mobile-sm') {
-                border-radius: 8px;
-                padding: 6px;
-            }
-            .grid {
-                &__card {
-                    &-title {
-                        color: $white;
-                    }
-                    &-price {
-                        margin-bottom: 20px;
-                        display: block;
-                        @include respond-to('mobile-sm') {
-                            margin-bottom: 10px;
-                        }
-                    }
-                }
-            }
-            .btn {
-                width: 100%;
-                margin-bottom: 10px;
-                @include respond-to('mobile-sm') {
-                    font-size: 10px;
-                    padding: 10px;
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                }
             }
         }
     }
