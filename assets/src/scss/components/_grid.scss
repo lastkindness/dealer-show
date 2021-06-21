@@ -24,11 +24,12 @@
             width: calc(50% - 16px);
             margin: 0 8px 24px;
         }
-        &:active,
-        &:focus,
-        &:hover {
+        //&:active,
+        //&:focus,
+        //&:hover,
+        &.hover {
             .grid__card-wrapper {
-                transform: rotateY( 180deg ) ;
+                transform: rotateY( 180deg );
                 transition: transform 0.5s;
             }
         }

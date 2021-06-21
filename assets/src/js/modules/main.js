@@ -149,4 +149,20 @@ export default () => {
     });
     //body onclick end
 
+    $('.grid__card').on('mouseenter', function (e) {
+        e.stopPropagation();
+        var thisItem = $(this);
+        setTimeout(function () {
+            thisItem.addClass('hover');
+        }, 200);
+    });
+
+    $('.grid__card').on('mouseleave', function (e) {
+        e.stopPropagation();
+        var thisItem = $(this);
+        setTimeout(function () {
+            thisItem.removeClass('hover');
+        }, 200);
+    });
+
 };
