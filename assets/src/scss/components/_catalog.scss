@@ -8,7 +8,7 @@
     .grid {
         &__card {
             width: calc(33.3% - 30px);
-            @include respond-to('desktop-l') {
+            @include respond-to('desktop') {
                 width: calc(50% - 30px);
             }
             @include respond-to('mobile-sm') {

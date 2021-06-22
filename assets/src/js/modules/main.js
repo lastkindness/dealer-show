@@ -80,14 +80,14 @@ export default () => {
     $(window).scroll(function(){
         if($(window).width()>1024) {
             $('.header__mobile').removeClass('sticky');
-            if($(this).scrollTop()>=1){
+            if($(this).scrollTop()>=250){
                 $('.header').addClass('sticky');
             } else {
                 $('.header').removeClass('sticky');
             }
         } else {
             $('.header').removeClass('sticky');
-            if($(this).scrollTop()>=1){
+            if($(this).scrollTop()>=250){
                 $('.header__mobile').addClass('sticky');
             } else {
                 $('.header__mobile').removeClass('sticky');

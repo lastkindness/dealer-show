@@ -5,11 +5,7 @@
     margin: 0 auto;
     @include respond-to('desktop-l') {
         max-width: 100%;
-        padding: 0 80px;
-    }
-    @include respond-to('desktop') {
-        max-width: 100%;
-        padding: 0 50px;
+        padding: 0 30px;
     }
     @include respond-to('mobile') {
         padding: 0 16px;

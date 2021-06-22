@@ -14,7 +14,7 @@
 <?php # TODO: code here ?>
 <div class="wrapper">
 
-    <?php  
+    <?php
 
 		$logo = get_field('logo', 'option') ;
 		$youtube_link = get_field('youtube_link', 'option') ;
@@ -81,7 +81,7 @@
                             		<a href="#" onclick="doGTranslate('ru|uk');jQuery('div.switcher div.selected a').html(jQuery(this).html());return false;" title="Ukrainian" class="nturl">UKR</a>
                             	</li>
                             </ul>
-							
+
 							<div id="google_translate_element2"></div>
 
                         <?php endif ; ?>
@@ -123,7 +123,7 @@
 								</form>
 
 							<?php endif ; ?>
-                            
+
                             <?php if( $youtube_link['url'] && $youtube_link['title'] ) : ?>
 
 	                            <a href="<?php echo $youtube_link['url'] ; ?>" class="header__youtube-link" target="_blank">
@@ -133,7 +133,7 @@
 
 	                        <?php endif ; ?>
 
-                            <?php  
+                            <?php
 
                             	$telegram_chat = get_field('telegram_chat', 'option') ;
                             	$viber_chat = get_field('viber_chat', 'option') ;
@@ -194,7 +194,7 @@
 
 		                                    	<?php while( have_rows('additional_phone', 'option') ) : the_row(); ?>
 
-		                                    		<?php  
+		                                    		<?php
 
 		                                    			$phone = get_sub_field('phone') ;
 
@@ -214,7 +214,7 @@
 
 	                            <?php endif ; ?>
 
-	                            <?php  
+	                            <?php
 
 	                            	$text_call_back_form = get_field('text_call_back_form', 'option') ;
 	                            	$call_back_form = get_field('call_back_form', 'option') ;
@@ -262,6 +262,49 @@
 								</div>
 
 	                    	<?php endif ; ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="header header_sticky">
+        <div class="header__wrapper">
+            <div class="header__main">
+                <div class="container">
+                    <div class="header__main-wrapper">
+                        <div class="header__catalog">
+
+                            <?php if( $catalog_link = get_field('catalog_link','option') ) : ?>
+                                <div class="header__catalog-hidden">
+                                    <a href="<?php echo $catalog_link['url'] ; ?>" class="btn btn_secondary">
+                                        <span class="icon" style="-webkit-mask-box-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/tire.svg'); mask: url('<?php echo get_template_directory_uri(); ?>/assets/img/tire.svg');"></span>
+                                        <span class="title"><?php echo $catalog_link['title'] ; ?></span>
+                                    </a>
+                                </div>
+                            <?php endif ; ?>
+
+                            <?php if( has_nav_menu( 'main-menu' ) ) : ?>
+
+                                <div class="header__catalog-menu">
+
+                                    <?php
+                                    wp_nav_menu( array(
+                                            'container' => false,
+                                            'theme_location' => 'main-menu',
+                                            'menu_id'        => 'navigation',
+                                            'menu_class'     => 'navbar menu',
+                                            'items_wrap'     => '<ul id="%1$s" class="navbar menu">%3$s</ul>',
+                                            'walker'         => new Custom_Walker_Nav_Menu
+                                        )
+                                    );
+
+                                    ?>
+
+                                </div>
+
+                            <?php endif ; ?>
 
                         </div>
                     </div>

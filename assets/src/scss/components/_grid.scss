@@ -22,10 +22,10 @@
         flex-direction: column;
         align-items: stretch;
         justify-content: space-between;
-        @include respond-to('desktop-l') {
+        @include respond-to('desktop') {
             width: calc(33.3% - 30px);
         }
-        @include respond-to('desktop') {
+        @include respond-to('laptop') {
             width: calc(50% - 30px);
         }
         @include respond-to('mobile-sm') {
@@ -164,7 +164,7 @@
                 justify-content: center;
                 width: 35px;
                 height: 35px;
-                background-color: $secondary;
+                background-color: transparentize($secondary, 0.3);
                 border-radius: 4px;
                 margin-right: 12px;
                 @include respond-to('mobile-sm') {

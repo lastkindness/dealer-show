@@ -25,6 +25,9 @@ a.btn,
     position: relative;
     filter: saturate(100%);
     white-space: nowrap;
+    @include respond-to('mobile-sm') {
+        font-size: 12px;
+    }
     &:hover,
     &:active,
     &:focus {

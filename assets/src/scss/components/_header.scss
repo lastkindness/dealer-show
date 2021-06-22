@@ -1,34 +1,30 @@
 .header {
     z-index: 10;
-    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    margin-bottom: 110px;
-    @include respond-to('tablet') {
-        margin-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    @include animate(all);
+    a {
+        text-decoration: unset;
     }
-    &.sticky {
+    &_sticky {
+        position: fixed;
+        z-index: -1;
         top: 0;
         left: 0;
         width: 100%;
-        .header {
-            &__info,
-            &__menu {
-                opacity: 0;
-                position: relative;
-                z-index: 3;
-                @include animate(all);
-            }
-            &__catalog {
-                box-shadow: $shadow;
-                top: 0;
-                @include animate(all);
-            }
+        opacity: 0;
+        @include animate(all);
+        @include respond-to('tablet') {
+            display: none;
         }
-    }
-    a {
-        text-decoration: unset;
+        &.sticky {
+            @include animate(all);
+            z-index: 9;
+            opacity: 1;
+        }
     }
     &__mobile {
         display: none;
@@ -51,23 +47,13 @@
         @include animate(all);
         z-index: 5;
         width: 100%;
-        left: 0;
-        background-color: $white;
-        top: 200px;
-        position: fixed;
-        padding-left: calc((100vw - 1440px ) / 2);
-        padding-right: calc((100vw - 1440px) / 2);
-        @include animate(all);
         @include respond-to('desktop-l') {
             padding: 16px 80px;
         }
         @include respond-to('desktop') {
             padding: 16px 50px;
-            top: 243px;
         }
         @include respond-to('tablet') {
-            position: static;
-            padding: 0;
             flex-wrap: wrap;
         }
         @include respond-to('mobile') {
