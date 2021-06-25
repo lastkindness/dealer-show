@@ -273,6 +273,32 @@ table {
     }
 }
 
+.slick-dots {
+    bottom: -35px;
+    li {
+        &:before {
+            display: none;
+        }
+        button {
+            border: 2px solid $primary;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            @include animate(all);
+            &:before {
+                display: none;
+            }
+        }
+        &.slick-active {
+            button {
+                background-color: $primary;
+                @include animate(all);
+            }
+        }
+    }
+}
+
 .b24-widget-button-wrapper {
     @include respond-to('mobile-sm') {
         right: 20px !important;

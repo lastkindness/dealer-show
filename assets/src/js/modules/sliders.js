@@ -202,7 +202,7 @@ export default () => {
             focusOnSelect: true,
             vertical: false,
             verticalSwiping: false,
-            arrows: false,
+            arrows: true,
             centerPadding: '0',
             adaptiveHeight: true,
             responsive: [
@@ -210,6 +210,8 @@ export default () => {
                     breakpoint: 690,
                     settings: {
                         slidesToShow: 2,
+                        arrows: false,
+                        dots: true
                     }
                 }
             ]
