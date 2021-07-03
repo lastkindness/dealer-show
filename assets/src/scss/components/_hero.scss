@@ -36,6 +36,8 @@
             @include respond-to('mobile-sm') {
                 padding: 50px 16px;
                 height: calc(100vh - 102px);
+                height: auto;
+                min-height: 800px;
                 border-radius: 0px;
             }
             &:before {
@@ -121,7 +123,7 @@
         &__content {
             z-index: 1;
             position: relative;
-            max-width: 610px;
+            max-width: 730px;
             @include respond-to('desktop') {
                 max-width: 50%;
             }

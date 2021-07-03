@@ -44,8 +44,10 @@
             &:focus,
             &:hover {
                 .grid__card-wrapper {
-                    transform: rotateY( 180deg ) ;
+                    transform: rotateY( 180deg );
                     transition: transform 0.5s;
+                    -webkit-transform: rotateY( 180deg );
+                    -webkit-transition: transform 0.5s;
                 }
             }
             &-flip {
@@ -65,6 +67,10 @@
                 height: 100%;
                 transition: transform 1s;
                 transform-style: preserve-3d;
+                -webkit-transition: transform 1s;
+                -webkit-transform-style: preserve-3d;
+                overflow: visible !important;
+                -webkit-overflow: visible !important;
                 box-shadow: $shadow;
                 background-color: $white;
                 border-radius: 16px;
@@ -79,6 +85,7 @@
                 height: 100%;
                 width: 100%;
                 backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
                 display: flex;
                 flex-direction: column;
                 align-items: stretch;
@@ -97,6 +104,7 @@
                 height: 100%;
                 width: 100%;
                 backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
                 transform: rotateY( 180deg );
                 @include respond-to('mobile-sm') {
                     border-radius: 8px;

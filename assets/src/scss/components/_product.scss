@@ -123,7 +123,27 @@
                 }
                 .slick-arrow {
                     height: 20px;
-                    margin: 10px auto 0;
+                    position: absolute;
+                    margin: 0;
+                    &:before {
+                        color: $black;
+                        font-family: 'icomoon';
+                        content: "\e908";
+                    }
+                }
+                .slick-next {
+                    @include respond-to('mobile') {
+                        right: -20px;
+                    }
+                }
+                .slick-prev {
+                    @include respond-to('mobile') {
+                        left: -20px;
+                    }
+                    &:before {
+                        display: inline-block;
+                        transform: rotate(-180deg);
+                    }
                 }
                 .slick-list,
                 .slick-track,
