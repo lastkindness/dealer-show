@@ -1,4 +1,4 @@
-<?php  
+<?php
 
     $show_stages = get_field('show_stages') ;
     $stages_title = get_field('stages_title') ;
@@ -21,7 +21,7 @@
 
                         <?php while( have_rows('stages') ) : the_row(); ?>
 
-                            <?php  
+                            <?php
 
                                 $title = get_sub_field('title') ;
                                 $text = get_sub_field('text') ;
@@ -33,7 +33,8 @@
                                 <li class="stages__item">
                                     <span class="stages__img">
                                         <span class="stages__value">
-                                            <span><?php echo get_row_index() ; ?></span>
+<!--                                            <span>--><?php //echo get_row_index() ; ?><!--</span>-->
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/29-auction.svg" alt="">
                                         </span>
                                         <h5 class="h5 stages__subtitle"><?php echo $title ; ?></h5>
                                         <span class="plus"></span>

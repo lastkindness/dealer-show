@@ -237,6 +237,7 @@
         height: 50px;
         border-radius: 12px;
         background: $secondaryGradient;
+        background: transparent;
         color: $white;
         font-size: 24px;
         font-family: 'Ferry';
@@ -247,6 +248,9 @@
         line-height: 1em;
         z-index: 1;
         margin-right: 16px;
+        img {
+            object-fit: contain;
+        }
     }
     &_dark {
         background-color: $seo;

@@ -14,7 +14,7 @@
 
 		            	<?php while( have_rows('steps') ) : the_row(); ?>
 
-		            		<?php  
+		            		<?php
 
 		            			$title = get_sub_field('title') ;
 		            			$text = get_sub_field('text') ;
@@ -27,7 +27,8 @@
 				                <li class="stages__item">
 				                    <span class="stages__img">
 				                        <span class="stages__value">
-				                            <span><?php echo get_row_index(); ?></span>
+<!--				                            <span>--><?php //echo get_row_index(); ?><!--</span>-->
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/29-auction.svg" alt="">
 				                        </span>
 
 				                        <?php if( $title ) : ?>
