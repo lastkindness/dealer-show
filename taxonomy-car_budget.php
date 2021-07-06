@@ -56,6 +56,7 @@
 
                 	<div class="catalog__filter-head">
                         <div class="catalog__filter-title h3">Фильтры</div>
+                        <div class="plus icon icon-up"></div>
                     </div>
                     <div class="catalog__filter_item" style="display: none;">
 
@@ -116,7 +117,7 @@
                         </div>
                     </div>
 
-                    <?php  
+                    <?php
 
                     	$issue_year = get_terms( array(
 						    'taxonomy' => 'issue_year',
@@ -129,10 +130,10 @@
 
                     	<?php
 
-                    		$year_arr = array() ; 
+                    		$year_arr = array() ;
 
                     		foreach( $issue_year as $year ){
-                    			array_push( $year_arr, intval($year->name) ) ; 
+                    			array_push( $year_arr, intval($year->name) ) ;
                     		}
 
                     		$min_year = min($year_arr) ;

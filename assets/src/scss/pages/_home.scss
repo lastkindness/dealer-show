@@ -1,0 +1,21 @@
+.home {
+    .header {
+        margin-bottom: 0;
+        &__catalog {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 100%;
+            @include respond-to('tablet') {
+                position: static;
+            }
+        }
+        &_sticky {
+            .header {
+                &__catalog {
+                    position: static;
+                }
+            }
+        }
+    }
+}

@@ -25,6 +25,7 @@
 
                                 $title = get_sub_field('title') ;
                                 $text = get_sub_field('text') ;
+                                $icon = get_sub_field('icon') ;
 
                             ?>
 
@@ -33,9 +34,11 @@
                                 <li class="stages__item">
                                     <span class="stages__img">
                                         <span class="stages__value">
-<!--                                            <span>--><?php //echo get_row_index() ; ?><!--</span>-->
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/29-auction.svg" alt="">
-                                        </span>
+<!--				                            <span>--><?php //echo get_row_index(); ?><!--</span>-->
+                                            <?php if( $icon ) : ?>
+                                                <img src="<?php echo $icon ; ?>" alt="">
+                                            <?php endif ; ?>
+				                        </span>
                                         <h5 class="h5 stages__subtitle"><?php echo $title ; ?></h5>
                                         <span class="plus"></span>
                                     </span>

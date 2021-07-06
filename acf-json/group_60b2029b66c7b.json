@@ -817,6 +817,44 @@
             ]
         },
         {
+            "key": "field_60e4551acc81f",
+            "label": "Координаты Маркера",
+            "name": "data_marker",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60e4554dcc820",
+            "label": "Координаты центра Карты",
+            "name": "data_center",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_60b37498873a4",
             "label": "Блог",
             "name": "",
@@ -1004,5 +1042,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1623071216
+    "modified": 1625576839
 }

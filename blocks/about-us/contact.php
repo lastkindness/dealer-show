@@ -3,9 +3,13 @@
     <section class="map-section" id="map-section">
         <div class="container">
             <div class="map-section__wrapper">
-                <div class="map" id="map">
+                <?php $data_center = get_field('data_center');
+                $data_marker = get_field('data_marker') ?>
+                <?php if($data_center && $data_marker) : ?>
+                    <div class="map" id="map" data-center="<?php echo  $data_center; ?>" data-marker="<?php echo  $data_marker; ?>">
 
-                </div>
+                    </div>
+                <?php endif ; ?>
                 <ul class="map__info">
 
                     <?php if( have_rows('contacts_phones') ) : ?>
@@ -20,7 +24,7 @@
                             <?php endif ; ?>
 
                         <?php endwhile ; ?>
-                        
+
                     <?php endif ; ?>
 
                     <?php if( $email = get_field('email') ) : ?>
@@ -44,7 +48,7 @@
 
                                 <?php while( have_rows('messangers') ) : the_row(); ?>
 
-                                    <?php  
+                                    <?php
 
                                         $link = get_sub_field('link') ;
                                         $icon = get_sub_field('icon') ;

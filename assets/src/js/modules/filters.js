@@ -104,23 +104,10 @@ if ($(".catalog__filter .catalog__filter_item_content.color .catalog__filter_ite
     });
 }
 // catalog__info-color checked
+
 //mobile filters open
-    $('.catalog .btn.sort').click(function() {
-        $(".catalog__sort" ).toggleClass('mobile-active');
-    });
-    $('.catalog .btn.filter').click(function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        $("body" ).addClass('mobile-filter');
-        $(".catalog__filter" ).addClass('mobile-active');
-        $("body").addClass('overflow');
-    });
-    $('.catalog__filter .back').click(function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        $("body" ).removeClass('mobile-filter');
-        $(".catalog__filter" ).removeClass('mobile-active');
-        $("body").removeClass('overflow');
+    $('.catalog__filter-head').click(function() {
+        $(".catalog__filter-wrapper" ).toggleClass('mobile-active');
     });
 //mobile filters open
 

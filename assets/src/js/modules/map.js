@@ -5,12 +5,14 @@ export default () => {
     // Функция initMap которая отрисует карту на странице
     function initMap() {
         // В переменной map создаем объект карты GoogleMaps и вешаем эту переменную на <div id="map"></div>
+        var center = $('#map').data("center").split(',');
+        var markers = $('#map').data("marker").split(',');
         map = new google.maps.Map(document.getElementById('map'), {
             // При создании объекта карты необходимо указать его свойства
             // center - определяем точку на которой карта будет центрироваться
-            center: {lat: 50.448123051776584, lng: 30.52994968048663},
+            center: {lat: Number(center[0]), lng: Number(center[1])},
             // zoom - определяет масштаб. 0 - видно всю платнеу. 18 - видно дома и улицы города.
-            zoom: 15,
+            zoom: 17,
             styles: [
                 {
                     "featureType": "all",
@@ -345,17 +347,14 @@ export default () => {
             ]
         });
         // Создаем маркер на карте
+        console.log(markers, Number(markers[0]),Number(markers[1]));
         var marker = new google.maps.Marker({
-
             // Определяем позицию маркера
-            position: {lat: 50.45077542041419, lng: 30.526004269530876},
-
+            position: {lat: Number(markers[0]), lng: Number(markers[1])},
             // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
             map: map,
-
             // Пишем название маркера - появится если навести на него курсор и немного подождать
             title: 'наш офис',
-
             // Укажем свою иконку для маркера
             icon: 'https://i.ibb.co/Z6hbFQ5/map-marker.png',
             icon: 'https://i.ibb.co/DprYnh7/map-marker2.png',

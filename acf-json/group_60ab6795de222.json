@@ -229,6 +229,44 @@
                     "placeholder": ""
                 }
             ]
+        },
+        {
+            "key": "field_60e458771f492",
+            "label": "Координаты Маркера",
+            "name": "data_marker",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60e458851f493",
+            "label": "Координаты центра Карты",
+            "name": "data_center",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -253,5 +291,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621846854
+    "modified": 1625577647
 }

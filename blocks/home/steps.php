@@ -28,7 +28,9 @@
 				                    <span class="stages__img">
 				                        <span class="stages__value">
 <!--				                            <span>--><?php //echo get_row_index(); ?><!--</span>-->
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/29-auction.svg" alt="">
+                                            <?php if( $icon ) : ?>
+                                                <img src="<?php echo $icon ; ?>" alt="">
+                                            <?php endif ; ?>
 				                        </span>
 
 				                        <?php if( $title ) : ?>

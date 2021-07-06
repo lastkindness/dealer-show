@@ -47,12 +47,6 @@
         @include animate(all);
         z-index: 5;
         width: 100%;
-        @include respond-to('desktop-l') {
-            padding: 16px 80px;
-        }
-        @include respond-to('desktop') {
-            padding: 16px 0px;
-        }
         @include respond-to('tablet') {
             flex-wrap: wrap;
         }
@@ -123,7 +117,7 @@
                 font-size: 16px;
                 font-family: $fontFerry;
                 font-weight: 900;
-                color: $bgDark;
+                color: $white;
                 @include respond-to('desktop') {
                     font-size: 14px;
                 }
@@ -181,13 +175,11 @@
     &__menu {
         background-color: $bgDark;
         color: $white;
-        padding: 20px 0;
         height: auto;
         opacity: 1;
         @include animate(all);
         @include respond-to('tablet') {
             order: 1;
-            padding: 24px 24px 40px;
             margin: 0;
         }
         a {
@@ -247,6 +239,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid transparentize($bg, 0.8);
+            @include animate(all);
+            @include respond-to('tablet') {
+                padding: 24px 24px 40px;
+            }
             @include respond-to('tablet') {
                 flex-direction: column;
                 align-items: center;
@@ -271,7 +269,7 @@
         }
     }
     &__main {
-        background-color: $white;
+        background-color: $bgDark;
         @include respond-to('tablet') {
             order: 0;
             margin: 0;
@@ -283,6 +281,7 @@
             }
         }
         &-wrapper {
+            position: relative;
             @include respond-to('tablet') {
                 height: 100%;
                 display: flex;
@@ -296,7 +295,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid $bg;
+        border-bottom: 1px solid transparentize($bg, 0.8);
         padding: 28px 0;
         height: auto;
         opacity: 1;
@@ -480,8 +479,11 @@
         }
         .search-field {
             padding: 12px 16px;
-            border: 1px solid $bgLight;
-            background-color: $bg;
+            border-top: 1px solid rgba(255, 255, 255, 0.24);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+            border-left: 1px solid rgba(255, 255, 255, 0.24);
+            border-right: none;
+            background-color: rgba(255, 255, 255, 0.1);
             color: $fontGray;
             font-weight: 500;
             font-size: 16px;
@@ -673,6 +675,8 @@
                 font-family: $fontFerry;
                 font-size: 18px;
                 font-weight: 900;
+                border: none;
+                background: transparent;
                 @include respond-to('desktop-l') {
                     font-size: 14px;
                 }
@@ -687,12 +691,16 @@
                     }
                 }
             }
+            &__dropdown {
+                background: transparent;
+                border: transparent;
+            }
             a {
-                color: $font;
+                color: $white;
             }
             .icon {
                 margin-left: 5px;
-                color: $font;
+                color: $white;
                 font-size: 22px;
                 font-weight: 900;
                 @include respond-to('mobile-sm') {

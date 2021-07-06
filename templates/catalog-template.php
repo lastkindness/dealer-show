@@ -59,8 +59,8 @@ get_header(); ?>
 
                 	<div class="catalog__filter-head">
                         <div class="catalog__filter-title h3">Фильтры</div>
-
-                        <?php  
+                        <div class="plus icon icon-up"></div>
+                        <?php
 
                             if( isset( $_GET['type'] ) && $_GET['type'] !== '' ){
 
@@ -117,7 +117,7 @@ get_header(); ?>
 
                     </div>
 
-                    <?php  
+                    <?php
 
                         if( isset( $_GET['cost-from'] ) && $_GET['cost-from'] !== '' ){
                             $min_price_val = intval( $_GET['cost-from'] ) ;
@@ -162,7 +162,7 @@ get_header(); ?>
                         </div>
                     </div>
 
-                    <?php  
+                    <?php
 
                     	$issue_year = get_terms( array(
 						    'taxonomy' => 'issue_year',
@@ -175,10 +175,10 @@ get_header(); ?>
 
                     	<?php
 
-                    		$year_arr = array() ; 
+                    		$year_arr = array() ;
 
                     		foreach( $issue_year as $year ){
-                    			array_push( $year_arr, intval($year->name) ) ; 
+                    			array_push( $year_arr, intval($year->name) ) ;
                     		}
 
                     		$min_year = min($year_arr) ;
@@ -257,9 +257,13 @@ get_header(); ?>
     <section class="map-section" id="map-section">
         <div class="container">
             <div class="map-section__wrapper">
-                <div class="map" id="map">
+                <?php $data_center = get_field('data_center');
+                $data_marker = get_field('data_marker') ?>
+                <?php if($data_center && $data_marker) : ?>
+                    <div class="map" id="map" data-center="<?php echo  $data_center; ?>" data-marker="<?php echo  $data_marker; ?>">
 
-                </div>
+                    </div>
+                <?php endif ; ?>
                 <ul class="map__info">
 
                     <?php if( have_rows('contacts_phones') ) : ?>
@@ -274,7 +278,7 @@ get_header(); ?>
                             <?php endif ; ?>
 
                         <?php endwhile ; ?>
-                        
+
                     <?php endif ; ?>
 
                     <?php if( $email = get_field('email') ) : ?>
@@ -298,7 +302,7 @@ get_header(); ?>
 
                                 <?php while( have_rows('messangers') ) : the_row(); ?>
 
-                                    <?php  
+                                    <?php
 
                                         $link = get_sub_field('link') ;
                                         $icon = get_sub_field('icon') ;
@@ -324,11 +328,11 @@ get_header(); ?>
 
 <?php endif ; ?>
 
-<?php  
+<?php
 
     $seo_text_title = get_field('seo_text_title') ;
     $seo_text_content = get_field('seo_text_content') ;
-    
+
 ?>
 
 <?php if( $seo_text_content ) : ?>
@@ -342,7 +346,7 @@ get_header(); ?>
 
                 <div class="text-content__container">
                     <div class="text-content__item">
-                        
+
                         <?php echo $seo_text_content ; ?>
 
                     </div>

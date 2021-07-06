@@ -52,7 +52,7 @@ get_header('front'); ?>
 <section class="map-section" id="map-section">
     <div class="container">
         <div class="map-section__wrapper">
-            <div class="map" id="map">
+            <div class="map" id="map" data-center="50.450148687162724, 30.447640303497465" data-marker="50.45055865285265, 30.444191016208258">
 
             </div>
             <ul class="map__info">

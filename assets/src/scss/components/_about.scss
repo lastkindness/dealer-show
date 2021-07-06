@@ -64,7 +64,7 @@
     .car-selection {
         &__advantages {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: row;
             width: 100%;

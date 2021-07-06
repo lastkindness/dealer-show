@@ -409,7 +409,7 @@
                     "key": "field_60943464d32e2",
                     "label": "Иконка",
                     "name": "icon",
-                    "type": "select",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -418,18 +418,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "wheel": "wheel",
-                        "check-sticker": "check-sticker",
-                        "checked": "checked"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_609502c416d16",
@@ -1204,7 +1202,7 @@
                     "key": "field_609a4880b5c53",
                     "label": "Иконка",
                     "name": "icon",
-                    "type": "select",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1213,18 +1211,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "wheel": "wheel",
-                        "check-sticker": "check-sticker",
-                        "checked": "checked"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
@@ -1912,6 +1908,44 @@
             ]
         },
         {
+            "key": "field_60e330e088643",
+            "label": "Координаты Маркера",
+            "name": "data_marker",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60e3311788644",
+            "label": "Координаты центра Карты",
+            "name": "data_center",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_609abbfab9594",
             "label": "Блог",
             "name": "",
@@ -2097,5 +2131,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622277212
+    "modified": 1625502814
 }

@@ -6,7 +6,7 @@
 	    <div class="container">
 	        <div class="car-selection__wrapper">
 
-	        	<?php  
+	        	<?php
 
 	        		$form_title1 = get_field('form_title1') ;
 	        		$form_title2 = get_field('form_title2') ;
@@ -40,7 +40,7 @@
 	                            </select>
 	                        </div>
 
-	                        <?php  
+	                        <?php
 
 	                        	$car_manufacturer = get_terms( array(
 								    'taxonomy' => 'car_manufacturer',
@@ -74,21 +74,21 @@
 
                         	<div class="input-container input-container__car-model">
                         		<div class="car-model-ajax">
-				                    
+
 				                    <label for="car-model">Модель</label>
 				                    <select id="car-model" name="car-model">
 
 				                        <option value="all">Все</option>
 
 				                    </select>
-                        			
+
                         		</div>
 			                </div>
 
 	                    </div>
 	                    <div class="column">
 
-	                    	<?php  
+	                    	<?php
 
 	                    		$issue_year = get_terms( array(
 								    'taxonomy' => 'issue_year',
@@ -169,10 +169,10 @@
 	                <?php if( have_rows('advantages') ) : ?>
 
 		                <ul class="car-selection__advantages">
-		                    
+
 		                    <?php while( have_rows('advantages') ) : the_row(); ?>
 
-		                    	<?php  
+		                    	<?php
 
 		                    		$icon = get_sub_field('icon') ;
 		                    		$text = get_sub_field('text') ;
@@ -185,8 +185,8 @@
 				                    <li class="car-selection__advantage">
 				                        <div class="img-wrap">
 				                            <span class="img" style="
-				                                -webkit-mask-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon ; ?>.svg);
-				                                mask: url(<?php echo get_template_directory_uri(); ?>/assets/img/<?php echo $icon ; ?>.svg);">
+				                                -webkit-mask-image: url(<?php echo $icon ; ?>);
+				                                mask: url(<?php echo $icon ; ?>);">
 				                            </span>
 				                        </div>
 				                        <div class="content">
