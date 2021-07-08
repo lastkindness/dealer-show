@@ -7,7 +7,7 @@
             order: 0;
         }
         @include respond-to('mobile-sm') {
-            margin-top: -20px;
+            margin-top: 0px;
             border-radius: 0px;
         }
         .container {
@@ -21,10 +21,11 @@
             padding: 200px calc((100vw - 1440px)/2) 126px;
             position: relative;
             width: 100%;
-            height: 706px;
+            height: calc(100vh - 144px);
             margin: 0;
             @include respond-to('desktop-l') {
                 padding: 200px 30px 126px;
+                height: 706px;
             }
             @include respond-to('desktop') {
                 height: 600px;
@@ -39,9 +40,9 @@
                 padding: 50px 16px;
             }
             @include respond-to('mobile-sm') {
-                padding: 50px 16px;
-                height: calc(100vh - 102px);
-                //height: auto;
+                padding: 50px 16px 80px;
+                //height: calc(100vh - 102px);
+                height: auto;
                 //min-height: 800px;
                 border-radius: 0px;
             }
@@ -67,11 +68,16 @@
                     left: 50%;
                     top: 50%;
                     transform: translate(-50%, -50%);
+                    display: none;
                 }
             }
             .btn {
                 padding: 22px 62px;
                 transform: scale(1);
+                @include respond-to('mobile-sm') {
+                    font-size: 14px;
+                    padding: 15px 25px;
+                }
                 &:hover,
                 &:active,
                 &:focus {
@@ -101,6 +107,9 @@
             @include respond-to('tablet') {
                 max-height: 142px;
             }
+            @include respond-to('mobile-sm') {
+                display: none;
+            }
         }
         &__list {
             padding: 0;
@@ -121,6 +130,7 @@
             @include respond-to('mobile-sm') {
                 left: 0;
                 bottom: 35px;
+                display: none;
             }
             .swiper-pagination-current {
                 font-size: 24px;
@@ -138,6 +148,9 @@
             @include respond-to('laptop') {
                 max-width: 100%;
                 width: 100%;
+            }
+            @include respond-to('mobile-sm') {
+                margin-bottom: 50px;
             }
         }
         &__img {
@@ -172,8 +185,8 @@
                 left: 16px;
             }
             @include respond-to('mobile-sm') {
-                bottom: 30px;
-                left: 90px;
+                bottom: 50px;
+                left: 16px;
             }
             .swiper-button-prev,
             .swiper-button-next {

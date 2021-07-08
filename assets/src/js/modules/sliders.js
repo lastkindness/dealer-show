@@ -4,6 +4,7 @@ export default () => {
         slidesPerView: 1,
         loop: true,
         effect: 'fade',
+        swipe: true,
         centeredSlides: true,
         navigation: {
             nextEl: '.hero-slider__nav .swiper-button-next',

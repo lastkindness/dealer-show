@@ -30,9 +30,12 @@
         display: none;
         border-bottom: 1px solid $bg;
         z-index: 100;
-        padding: 20px 0;
+        padding: 10px 0;
         @include respond-to('tablet') {
             display: block;
+        }
+        @include respond-to('mobile-sm') {
+            padding: 5px 0;
         }
         &.sticky {
             top: 0;
@@ -43,7 +46,7 @@
         }
     }
     &__catalog {
-        padding: 16px 0;
+        padding: 10px 0;
         @include animate(all);
         z-index: 5;
         width: 100%;
@@ -239,7 +242,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
+            padding: 10px 0;
             border-bottom: 1px solid transparentize($bg, 0.8);
             @include animate(all);
             @include respond-to('tablet') {
@@ -296,13 +299,13 @@
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid transparentize($bg, 0.8);
-        padding: 28px 0;
+        padding: 10px 0;
         height: auto;
         opacity: 1;
         @include animate(all);
         @include respond-to('laptop') {
            flex-wrap: wrap;
-            padding: 16px 0;
+            padding: 10px 0;
         }
         @include respond-to('tablet') {
             border-bottom: unset;
@@ -328,14 +331,15 @@
         justify-content: space-between;
     }
     &__logo {
-        width: 250px;
+        width: 170px;
         height: 71px;
         @include respond-to('tablet') {
             order: 1;
             margin: 0;
         }
         @include respond-to('mobile-sm') {
-            width: 200px;
+            width: 100px;
+            height: auto;
         }
         img {
             object-fit: contain;
@@ -465,17 +469,15 @@
         justify-content: center;
         border-radius: 4px;
         overflow: hidden;
-        width: 25%;
+        width: 35%;
         @include respond-to('desktop-l') {
             width: 25%;
         }
-        @include respond-to('laptop') {
+        @include respond-to('tablet') {
+            margin: 0 0 24px 0;
             order: 7;
             width: 100%;
             margin: 20px 0 0 0;
-        }
-        @include respond-to('tablet') {
-            margin: 0 0 24px 0;
         }
         .search-field {
             padding: 12px 16px;
