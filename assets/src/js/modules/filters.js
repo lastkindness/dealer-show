@@ -17,7 +17,7 @@ jQuery(".catalog__filter_item_range").each(function (index, item) {
             jQuery(item).closest('.catalog__filter_item_content').find("input.catalog__filter_item_range_from").val(jQuery(item).slider("values",0));
             jQuery(item).closest('.catalog__filter_item_content').find("input.catalog__filter_item_range_to").val(jQuery(item).slider("values",1));
         }
-    });
+    }).draggable();
 });
 /*range end*/
 

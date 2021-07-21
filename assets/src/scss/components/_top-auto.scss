@@ -1,7 +1,4 @@
 .top-auto {
-    @include respond-to('mobile') {
-        order: 1;
-    }
     &__wrapper {
 
     }

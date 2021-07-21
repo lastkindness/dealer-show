@@ -118,15 +118,17 @@
                 }
             }
         }
+        &>.catalog__filter-wrapper {
+            @include respond-to('tablet') {
+                max-height: 80px;
+                overflow: hidden;
+            }
+        }
         &-wrapper {
             padding: 24px 0;
             box-shadow: $shadow;
             border-radius: 16px;
             margin-bottom: 24px;
-            @include respond-to('tablet') {
-                max-height: 80px;
-                overflow: hidden;
-            }
             &.mobile-active {
                 @include respond-to('tablet') {
                     max-height: 5000px;

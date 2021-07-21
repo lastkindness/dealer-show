@@ -453,7 +453,7 @@ function rst_load_assets()
     //--- Load scripts and styles only for frontend: -----------------------------
     if ( ! is_admin()) {
         // Styles
-        
+
         wp_enqueue_style('swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper.min.css');
         wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/libs/fancybox/jquery.fancybox.min.css');
         wp_enqueue_style('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.css');
@@ -467,18 +467,19 @@ function rst_load_assets()
         wp_deregister_script('jquery');
         wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', false, null, false);
         wp_enqueue_script('jquery');
-        wp_register_script('maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyA-GlnQYjXq7sR8eZSFqr5IDaMN3xGhyTg', false, null, false);
+        wp_register_script('maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyB96UlTV6NrnxL-gfqQzBEXuuWHnlLqgi4', false, null, false);
         wp_enqueue_script('maps');
 
         wp_enqueue_script('elevatezoom', get_template_directory_uri() . '/assets/libs/elevatezoom/jquery.elevatezoom.min.js', [], '1.0.0', true);
         wp_enqueue_script('jquery-ui', get_template_directory_uri() . '/assets/libs/jqueryui/jquery-ui.min.js', [], '1.0.0', true);
+        wp_enqueue_script('jquery-ui-touch-punch', get_template_directory_uri() . '/assets/libs/jqueryui/jquery.ui.touch-punch.min.js', [], '1.0.0', true);
         wp_enqueue_script('fancybox', get_template_directory_uri() . '/assets/libs/fancybox/jquery.fancybox.min.js', [], '1.0.0', true);
         wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/libs/swiper/swiper.min.js', [], '1.0.0', true);
         wp_enqueue_script('text-lines', get_template_directory_uri() . '/assets/libs/text-lines/text-lines.js', [], '1.0.0', true);
         wp_enqueue_script('select2', get_template_directory_uri() . '/assets/libs/select2/select2.min.js', [], '1.0.0', true);
         wp_enqueue_script('slick', get_template_directory_uri() . '/assets/libs/slick/slick.min.js', [], '1.0.0', true);
         wp_enqueue_script('app', get_template_directory_uri() . '/assets/dist/app.min.js', [], '1.0.0', true);
-        
+
         wp_enqueue_script( 'gtranslate-script', get_template_directory_uri() . '/theme-gtranslate.js', '', '', true );
 
         wp_register_script( 'custom-js', get_stylesheet_directory_uri() . '/custom-theme.js', array('jquery'), '', true );
@@ -501,3 +502,392 @@ add_action('wp', 'rst_load_assets');
 
 require_once 'src/helpers.php';
 require_once 'src/Hooks/user-creating.php';
+
+//Вызываем функцию для перехвата данных
+add_action( 'wpcf7_mail_sent', 'your_wpcf7_mail_sent_function' );
+function your_wpcf7_mail_sent_function( $contact_form ) {
+
+    //подключение к серверу CRM
+    define('CRM_HOST', 'dealercars.bitrix24.ua');
+    define('CRM_PORT', '443');
+    define('CRM_PATH', '/crm/configs/import/lead.php');
+
+    //авторизация в CRM
+    define('CRM_LOGIN', '+380 68 924 5844');
+    define('CRM_PASSWORD', 'DO3mepev');
+
+    //перехват данных из Contact Form 7
+    $title = $contact_form->title;
+    $posted_data = $contact_form->posted_data;
+
+    if ('Получить консольтацию менеджера' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['contact-name'];
+        $message = $posted_data['contact-text'];
+        $myphone = $posted_data['tel-phone'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Получить консультацию менеджера',
+            'NAME' => $firstName,
+            'COMMENTS' => $message,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Заказать Звонок' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['text-57'];
+        $myphone = $posted_data['tel-235'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Заказать Звонок',
+            'NAME' => $firstName,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Не нашли ответ' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['individual-name'];
+        $myphone = $posted_data['individual-phone'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Не нашли ответ',
+            'NAME' => $firstName,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Получить Подборку' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['text-name'];
+        $myphone = $posted_data['tel-125'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Получить Подборку',
+            'NAME' => $firstName,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Получить Подборку Viber' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['text-name'];
+        $myphone = $posted_data['tel-phone'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Получить Подборку на Viber',
+            'NAME' => $firstName,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Заказать Звонок Карточка Товара' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['text-58'];
+        $message = $posted_data['text-59'];
+        $myphone = $posted_data['tel-236'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Заказать Звонок Карточка Товара',
+            'NAME' => $firstName,
+            'COMMENTS' => $message,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+    if ('Расчитать Cтоимость Карточка Товара' == $title ) {
+        $submission = WPCF7_Submission::get_instance();
+        $posted_data = $submission->get_posted_data();
+
+        $firstName = $posted_data['text-60'];
+        $message = $posted_data['text-61'];
+        $myphone = $posted_data['tel-237'];
+
+        //сопостановление полей Bitrix24 с полученными данными из Contact Form 7
+        $postData = array(
+            'TITLE' => 'Лид с формы Расчитать Cтоимость Карточка Товара',
+            'NAME' => $firstName,
+            'COMMENTS' => $message,
+            'PHONE_WORK' => $myphone
+        );
+
+        //передача данных из Contact Form 7 в Bitrix24
+        if (defined('CRM_AUTH')) {
+            $postData['AUTH'] = CRM_AUTH;
+        } else {
+            $postData['LOGIN'] = CRM_LOGIN;
+            $postData['PASSWORD'] = CRM_PASSWORD;
+        }
+
+        $fp = fsockopen("ssl://".CRM_HOST, CRM_PORT, $errno, $errstr, 30);
+        if ($fp) {
+            $strPostData = '';
+            foreach ($postData as $key => $value)
+                $strPostData .= ($strPostData == '' ? '' : '&').$key.'='.urlencode($value);
+
+            $str = "POST ".CRM_PATH." HTTP/1.0\r\n";
+            $str .= "Host: ".CRM_HOST."\r\n";
+            $str .= "Content-Type: application/x-www-form-urlencoded\r\n";
+            $str .= "Content-Length: ".strlen($strPostData)."\r\n";
+            $str .= "Connection: close\r\n\r\n";
+
+            $str .= $strPostData;
+
+            fwrite($fp, $str);
+
+            $result = '';
+            while (!feof($fp))
+            {
+                $result .= fgets($fp, 128);
+            }
+            fclose($fp);
+
+            $response = explode("\r\n\r\n", $result);
+
+            $output = '<pre>'.print_r($response[1], 1).'</pre>';
+        } else {
+            echo 'Connection Failed! '.$errstr.' ('.$errno.')';}
+    }
+
+}

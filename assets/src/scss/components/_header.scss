@@ -46,7 +46,7 @@
         }
     }
     &__catalog {
-        padding: 10px 0;
+        padding: 15px 0;
         @include animate(all);
         z-index: 5;
         width: 100%;
@@ -112,9 +112,13 @@
             }
         }
         &-menu {
+            width: calc(100% - 225px - 100px);
             @include respond-to('tablet') {
                 width: 100%;
                 margin-bottom: 24px;
+            }
+            .navbar {
+                justify-content: space-between;
             }
             a {
                 font-size: 16px;
@@ -164,7 +168,7 @@
         justify-content: stretch;
         width: 100%;
         @include respond-to('tablet') {
-            padding: 20px 0 0;
+            padding: 5px 0;
             display: none;
             position: fixed;
             width: 100%;
@@ -305,7 +309,7 @@
         @include animate(all);
         @include respond-to('laptop') {
            flex-wrap: wrap;
-            padding: 10px 0;
+            padding: 5px 0;
         }
         @include respond-to('tablet') {
             border-bottom: unset;
@@ -332,7 +336,7 @@
     }
     &__logo {
         width: 170px;
-        height: 71px;
+        height: auto;
         @include respond-to('tablet') {
             order: 1;
             margin: 0;
@@ -470,7 +474,7 @@
         border-radius: 4px;
         overflow: hidden;
         width: 35%;
-        @include respond-to('desktop-l') {
+        @include respond-to('laptop') {
             width: 25%;
         }
         @include respond-to('tablet') {
@@ -806,6 +810,7 @@
     }
     &.nav-active {
         .header__wrapper {
+            background-color: $bgDark;
             @include respond-to('tablet') {
                 display: flex;
             }

@@ -241,3 +241,27 @@
         padding: 50px 0 80px;
     }
 }
+
+.bs-safari {
+    .grid__card {
+        &-wrapper {
+            transform: unset;
+        }
+        &:active,
+        &:focus,
+        &:hover {
+            .grid__card {
+                &-front {
+                    opacity: 0;
+                }
+                &-back {
+                    opacity: 1;
+                    transform: none;
+                }
+                &-wrapper {
+                    transform: unset;
+                }
+            }
+        }
+    }
+}

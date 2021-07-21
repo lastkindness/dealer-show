@@ -246,7 +246,7 @@
 		                    </tbody>
 		                </table>
 		                <div class="product__buttons">
-		                    <a href="#" class="btn">Расчитать стоимость</a>
+		                    <a href="#" class="btn">Купить</a>
 		                    <a href="#" class="btn btn_light">Связаться с нами</a>
 		                </div>
 		                <div class="product__content">

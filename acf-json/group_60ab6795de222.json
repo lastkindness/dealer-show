@@ -267,6 +267,48 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_60e7046a88b26",
+            "label": "",
+            "name": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60ab67c183cf0",
+                        "operator": "==",
+                        "value": ""
+                    },
+                    {
+                        "field": "field_60ab67c183cf0",
+                        "operator": "==contains",
+                        "value": ""
+                    }
+                ],
+                [
+                    {
+                        "field": "field_60ab67c183cf0",
+                        "operator": "==contains",
+                        "value": ""
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -291,5 +333,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625577647
+    "modified": 1625755130
 }

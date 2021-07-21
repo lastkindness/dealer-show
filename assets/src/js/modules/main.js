@@ -102,7 +102,6 @@ export default () => {
     $('.warranty .grid__card-front .grid__card-description').ellipsis( {lines: 3});
     $('.reviews__item-text').ellipsis( {lines: 5});
     $('.promotions__text').ellipsis( {lines: 2});
-    ellipsisStages();
     $('.blog-posts__item-text').ellipsis( {lines: 5});
     $(window).on('load', function () {
         $('.grid__card-description').ellipsis({lines: 5});
@@ -131,11 +130,6 @@ export default () => {
         ellipsisStages();
         $('.blog-posts__item-text').ellipsis( {lines: 5});
     });
-    function ellipsisStages() {
-        if($( window ).width()>540) {
-            $('.stages__text').ellipsis( {lines: 4});
-        }
-    }
     //ellipsis
 
     $('.stages__item .plus').on('click', function () {

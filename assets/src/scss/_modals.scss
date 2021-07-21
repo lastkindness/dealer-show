@@ -39,4 +39,16 @@
         color: black;
         top: unset;
     }
+    &__phone {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 700;
+        display: inline-block;
+        margin: 0 0 10px;
+    }
+    &__item {
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+    }
 }
