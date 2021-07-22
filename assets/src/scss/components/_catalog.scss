@@ -259,6 +259,9 @@
                 background-color: $bg;
                 border-radius: 0;
                 width: 100%;
+                @include respond-to(tablet) {
+                    display: none;
+                }
                 &.ui-widget.ui-widget-content {
                     border: none;
                 }

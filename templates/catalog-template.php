@@ -37,11 +37,11 @@ get_header(); ?>
 
             <?php if(function_exists('bcn_display')) : ?>
 
-	            <ul class="page-title__breadcrumbs breadcrumbs">
-	                <?php bcn_display(); ?>
-	            </ul>
+                <ul class="page-title__breadcrumbs breadcrumbs">
+                    <?php bcn_display(); ?>
+                </ul>
 
-	        <?php endif ; ?>
+            <?php endif ; ?>
 
         </div>
     </div>
@@ -51,45 +51,45 @@ get_header(); ?>
     <div class="container">
         <div class="catalog__wrapper">
 
-        	<aside class="catalog__filter">
+            <aside class="catalog__filter">
 
-        		<div class="ajax-choose-holder"></div>
+                <div class="ajax-choose-holder"></div>
 
                 <div class="catalog__filter-wrapper">
 
-                	<div class="catalog__filter-head">
+                    <div class="catalog__filter-head">
                         <div class="catalog__filter-title h3">Фильтры</div>
                         <div class="plus icon icon-up"></div>
                         <?php
 
-                            if( isset( $_GET['type'] ) && $_GET['type'] !== '' ){
+                        if( isset( $_GET['type'] ) && $_GET['type'] !== '' ){
 
-                                $get_type = $_GET['type'] ;
+                            $get_type = $_GET['type'] ;
 
-                                switch ( $get_type ) {
-                                    case 'electrocars':
-                                        $get_type_title = 'Электрокары' ;
-                                        break;
-                                    case 'mototechnics':
-                                        $get_type_title = 'Мототехника' ;
-                                        break;
-                                    case 'cars':
-                                        $get_type_title = 'Автомобили' ;
-                                        break;
-                                }
-
-
-                            }else{
-                                $get_type = 'cars' ;
-                                $get_type_title = 'Автомобили' ;
+                            switch ( $get_type ) {
+                                case 'electrocars':
+                                    $get_type_title = 'Электрокары' ;
+                                    break;
+                                case 'mototechnics':
+                                    $get_type_title = 'Мототехника' ;
+                                    break;
+                                case 'cars':
+                                    $get_type_title = 'Автомобили' ;
+                                    break;
                             }
+
+
+                        }else{
+                            $get_type = 'cars' ;
+                            $get_type_title = 'Автомобили' ;
+                        }
 
                         ?>
 
                     </div>
                     <div class="catalog__filter_item">
 
-                    	<div class="catalog__filter_item_title filter-title">
+                        <div class="catalog__filter_item_title filter-title">
                             <div class="plus icon icon-up"></div>
                             <div class="filter-subtitle"><span>Тип транспортного средства</span></div>
                         </div>
@@ -119,17 +119,17 @@ get_header(); ?>
 
                     <?php
 
-                        if( isset( $_GET['cost-from'] ) && $_GET['cost-from'] !== '' ){
-                            $min_price_val = intval( $_GET['cost-from'] ) ;
-                        }else{
-                            $min_price_val = '0' ;
-                        }
+                    if( isset( $_GET['cost-from'] ) && $_GET['cost-from'] !== '' ){
+                        $min_price_val = intval( $_GET['cost-from'] ) ;
+                    }else{
+                        $min_price_val = '0' ;
+                    }
 
-                        if( isset( $_GET['cost-up-to'] ) && $_GET['cost-up-to'] !== '' ){
-                            $max_price_val = intval( $_GET['cost-up-to'] ) ;
-                        }else{
-                            $max_price_val = '100000' ;
-                        }
+                    if( isset( $_GET['cost-up-to'] ) && $_GET['cost-up-to'] !== '' ){
+                        $max_price_val = intval( $_GET['cost-up-to'] ) ;
+                    }else{
+                        $max_price_val = '100000' ;
+                    }
 
                     ?>
 
@@ -138,18 +138,18 @@ get_header(); ?>
                             <div class="plus icon icon-up"></div>
                             <div class="filter-subtitle"><span>Стоимость, $</span></div>
                         </div>
-                        <div class="catalog__filter_item_content close">
-                            <div class="range">
+                        <div class="catalog__filter_item_content close catalog__filter_item_content-price">
+                            <div class="range range_price">
                                 <div class="range-wrapper">
                                     <div class="catalog__filter_item_range_input">
                                         <span>от</span>
                                         <input type="text" data-slider-min="0" data-slider-max="100000" data-value="0"
-                                               value="<?php echo $min_price_val ; ?>" readonly
+                                               value="<?php echo $min_price_val ; ?>"
                                                class="catalog__filter_item_range_from catalog__filter_item_range_from_price">
                                     </div>
                                     <div class="catalog__filter_item_range_input">
                                         <span>до</span>
-                                        <input type="text" data-slider-min="0" data-slider-max="100000" data-value="100000" value="<?php echo $max_price_val ; ?>" readonly
+                                        <input type="text" data-slider-min="0" data-slider-max="100000" data-value="100000" value="<?php echo $max_price_val ; ?>"
                                                class="catalog__filter_item_range_to catalog__filter_item_range_to_price">
                                     </div>
                                 </div>
@@ -164,91 +164,91 @@ get_header(); ?>
 
                     <?php
 
-                    	$issue_year = get_terms( array(
-						    'taxonomy' => 'issue_year',
-						    'hide_empty' => true
-						) );
+                    $issue_year = get_terms( array(
+                        'taxonomy' => 'issue_year',
+                        'hide_empty' => true
+                    ) );
 
                     ?>
 
                     <?php if( !empty($issue_year) ) : ?>
 
-                    	<?php
+                        <?php
 
-                    		$year_arr = array() ;
+                        $year_arr = array() ;
 
-                    		foreach( $issue_year as $year ){
-                    			array_push( $year_arr, intval($year->name) ) ;
-                    		}
+                        foreach( $issue_year as $year ){
+                            array_push( $year_arr, intval($year->name) ) ;
+                        }
 
-                    		$min_year = min($year_arr) ;
-                    		$max_year = max($year_arr) ;
+                        $min_year = min($year_arr) ;
+                        $max_year = max($year_arr) ;
 
-                            if( isset( $_GET['year-of-issue'] ) && $_GET['year-of-issue'] !== '' ){
-                                $min_year_val = intval( $_GET['year-of-issue'] ) ;
-                            }else{
-                                $min_year_val = min($year_arr) ;
-                            }
+                        if( isset( $_GET['year-of-issue'] ) && $_GET['year-of-issue'] !== '' ){
+                            $min_year_val = intval( $_GET['year-of-issue'] ) ;
+                        }else{
+                            $min_year_val = min($year_arr) ;
+                        }
 
-                            if( isset( $_GET['year-of-ending'] ) && $_GET['year-of-ending'] !== '' ){
-                                $max_year_val = intval( $_GET['year-of-ending'] ) ;
-                            }else{
-                                $max_year_val = max($year_arr) ;
-                            }
+                        if( isset( $_GET['year-of-ending'] ) && $_GET['year-of-ending'] !== '' ){
+                            $max_year_val = intval( $_GET['year-of-ending'] ) ;
+                        }else{
+                            $max_year_val = max($year_arr) ;
+                        }
 
-                    	?>
+                        ?>
 
-                    	<div class="catalog__filter_item">
-	                        <div class="catalog__filter_item_title filter-title">
-	                            <div class="plus icon icon-up"></div>
-	                            <div class="filter-subtitle"><span>Год выпуска</span></div>
-	                        </div>
-	                        <div class="catalog__filter_item_content close">
-	                            <div class="range">
-	                                <div class="range-wrapper">
-	                                    <div class="catalog__filter_item_range_input">
-	                                        <span>от</span>
-	                                        <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>"
-	                                               data-value="<?php echo $min_year ; ?>"
-	                                               value="<?php echo $min_year_val ; ?>" readonly
-	                                               class="catalog__filter_item_range_from catalog__filter_item_range_from_year">
-	                                    </div>
-	                                    <div class="catalog__filter_item_range_input">
-	                                        <span>до</span>
-	                                        <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>" data-value="<?php echo $max_year ; ?>" value="<?php echo $max_year_val ; ?>" readonly
-	                                               class="catalog__filter_item_range_to catalog__filter_item_range_to_year">
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            <div data-from="<?php echo $min_year ; ?>" data-to="<?php echo $max_year ; ?>" class="catalog__filter_item_range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-	                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-	                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-	                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-	                            </div>
-	                        </div>
-	                    </div>
+                        <div class="catalog__filter_item">
+                            <div class="catalog__filter_item_title filter-title">
+                                <div class="plus icon icon-up"></div>
+                                <div class="filter-subtitle"><span>Год выпуска</span></div>
+                            </div>
+                            <div class="catalog__filter_item_content close catalog__filter_item_content-year">
+                                <div class="range range_year">
+                                    <div class="range-wrapper">
+                                        <div class="catalog__filter_item_range_input">
+                                            <span>от</span>
+                                            <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>"
+                                                   data-value="<?php echo $min_year ; ?>"
+                                                   value="<?php echo $min_year_val ; ?>"
+                                                   class="catalog__filter_item_range_from catalog__filter_item_range_from_year">
+                                        </div>
+                                        <div class="catalog__filter_item_range_input">
+                                            <span>до</span>
+                                            <input type="text" data-slider-min="<?php echo $min_year ; ?>" data-slider-max="<?php echo $max_year ; ?>" data-value="<?php echo $max_year ; ?>" value="<?php echo $max_year_val ; ?>"
+                                                   class="catalog__filter_item_range_to catalog__filter_item_range_to_year">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-from="<?php echo $min_year ; ?>" data-to="<?php echo $max_year ; ?>" class="catalog__filter_item_range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                </div>
+                            </div>
+                        </div>
 
                     <?php endif  ?>
 
                     <div class="filter-manufacturer-by-type">
-                    	<div class="catalog__filter_item"></div>
+                        <div class="catalog__filter_item"></div>
                     </div>
 
-	                <div class="filter-model-by-manufacturer"></div>
+                    <div class="filter-model-by-manufacturer"></div>
 
-	                <div class="filters-by-type"></div>
+                    <div class="filters-by-type"></div>
 
-	                <div class="catalog__filter_button">
+                    <div class="catalog__filter_button">
                         <button class="btn btn_fullwidth">Применить фильтры</button>
                     </div>
 
                 </div>
 
-        	</aside>
+            </aside>
 
             <div class="catalog__grid"></div>
 
-       	</div>
+        </div>
     </div>
 </section>
 
@@ -304,8 +304,8 @@ get_header(); ?>
 
                                     <?php
 
-                                        $link = get_sub_field('link') ;
-                                        $icon = get_sub_field('icon') ;
+                                    $link = get_sub_field('link') ;
+                                    $icon = get_sub_field('icon') ;
 
                                     ?>
 
@@ -330,8 +330,8 @@ get_header(); ?>
 
 <?php
 
-    $seo_text_title = get_field('seo_text_title') ;
-    $seo_text_content = get_field('seo_text_content') ;
+$seo_text_title = get_field('seo_text_title') ;
+$seo_text_content = get_field('seo_text_content') ;
 
 ?>
 

@@ -37,7 +37,7 @@ get_header('front'); ?>
                 <a class="breadcrumbs__link" href="#">Главная</a>
             </li>
             <li class="breadcrumbs__li active">
-                <a class="breadcrumbs__link" href="#">Доставка и растаможка</a>
+                <a class="breadcrumbs__link" href="#">Страхование</a>
             </li>
         </ul>
     </div>
@@ -47,20 +47,16 @@ get_header('front'); ?>
         <div class="about__wrapper">
             <div class="about__banner">
                 <div class="about__banner-img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/45.jpg" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/52.jpg" alt="">
                 </div>
                 <div class="about__banner-content">
                     <!--                                может быть как тайтл разных уровней (h1-h1) так и div. Это нужно для СЕО. Чтоб -->
                     <!--                                сеошники сами регулировали где нужны тайтлы, а где нет-->
                     <h1 class="h1 about__banner-title">
-                        <span class="white">Доставка </span>
-                        <span class="red">и растаможка</span>
+                        <span class="white">Страхование авто в пути</span>
                     </h1>
                     <div class="about__banner-description">
-                        <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже</p>
-                    </div>
-                    <div class="about__banner-selection">
-                        <p>Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
+                        <p>В компании Dealer Cars у вас есть возможность  застраховать свой автомобиль на весь период доставки — от момента покупки на аукционе в США и до прибытия в Украину.</p>
                     </div>
                 </div>
             </div>
@@ -69,86 +65,36 @@ get_header('front'); ?>
 </section>
 <section class="content" id="content">
     <div class="container">
+        <!--все что лежит в content__wrapper это WYSIWYG, просто я раскидываю стили для стандартных блоков которые могут
+        туда попасть-->
         <div class="content__wrapper">
-            <div class="content__content">
-                <h2 class="h2 content__title">Истоки Lorem Ipsum</h2>
-                <div class="content__text">
-                    <p>Классический «Lorem ipsum dolor sit amet…» проход отнести к ремиксов римского философа Цицерона 45 г. до н.э. текст De Finibus Bonorum et Malorum («О крайностями добра и зла»). Более конкретно, проход, как полагают, происходит из секций 1.10.32 - 33 из его текста, с наиболее заметным часть извлечена ниже:</p>
-                    <p>“Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
-                        1914 Английский перевод Harris Rackham гласит:</p>
-                    <p>“Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
-                        По латыни профессор Richard McClintock - человек, которому приписывают открытие корни Lorem Ipsum - он, скорее всего, что когда-то в средние века наборщиком вскарабкался часть Цицерона De Finibus для того, чтобы предоставить текст-заполнитель для смоделируйте различных шрифтов для типа образца книги. Но это было только начало.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="stages stages_dark" id="stages">
-    <div class="container">
-        <div class="stages__wrapper">
-            <h2 class="h1 stages__title">Этапы покупки автомобиля в США</h2>
-            <ul class="stages__grid">
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>1</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Покупка</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Автомобиль куплен на аукционе в США.Авто растаможено и находится на территории Украины</p>
-                </li>
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>2</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Перерегистрация авто</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Переоформление прав собственности на автомобиль в 2020 году производится непосредственно в сервисном центре МВД (ранее МРЭО).</p>
-                </li>
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>3</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Договор купли-продажи автомобиля</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Для оформления продажи авто в СЦ МВД представитель собственника должен иметь на руках нотариальную доверенность и её заверенную копию. </p>
-                </li>
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>4</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Налоги при покупке-продаже авто</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Сбор в пенсионный фонд 3-5% (исключительно при первой регистрации автомобиля на территории Украины). Зависит от стоимости автомобиля и размера прожиточного минимума для трудоспособных лиц (на момент покупки).</p>
-                </li>
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>5</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Название пятого шага</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Закажите экспертизу ТС экспертом в сервисном центре МВД, до момента передачи денег и заключения договора купли-продажи.</p>
-                </li>
-                <li class="stages__item">
-                    <span class="stages__img">
-                        <span class="stages__value">
-                            <span>6</span>
-                        </span>
-                        <h5 class="h5 stages__subtitle">Название шестого шага</h5>
-                        <span class="plus"></span>
-                    </span>
-                    <p class="stages__text">Внимательно читайте все что написано в документах, которые подписываете.</p>
-                </li>
+            <h3>В чём наше ключевое преимущество?</h3>
+            <p>У нас страхование авто в пути происходит на его полную стоимость, без франшизы. При этом тарифы на страхование соответствуют рынку. Например, у конкурентов с франшизой цены такие же. Но они в страховом случае возмещают только часть потерь, а мы — полную стоимость нанесенного ущерба.</p>
+            <p>Если на пути в Украину с вашим авто что-то произойдет, вы не понесете убытков. Наша страховка возместит вам все дополнительные расходы, в случае их возникновения. Уверенность клиентов в конечном результате — наш главный приоритет в работе.</p>
+            <br>
+            <h3>Страхование авто в Украине</h3>
+            <p>Для тех из вас, кто впервые сталкивается с приобретением собственного автомобиля, собрали информацию о возможных видах автострахования в Украине.. Можно выбрать страховку ОСАГО (это обязательное страхование ответственности водителя), по желанию сделать КАСКО (страхование вашей машины). </p>
+            <br>
+            <h3>Виды страхования авто в Украине:</h3>
+            <ul>
+                <li>ОСАГО</li>
+                <li>КАСКО</li>
+                <li>ДГО</li>
+                <li>Зеленая карта</li>
             </ul>
+            <br>
+            <h3>Почему ОСАГО — это обязательное страхование? </h3>
+            <p>С помощью этого вида страхования в случае аварии за вас будут возмещены убытки владельцу авто, которое пострадало в дтп. Страховка поможет вам избежать финансовых претензий в свой адрес от хозяина автомобиля, который пострадал по вашей вине. Максимальный размер выплат по ОСАГО — до 130 тыс грн за повреждение транспортного средства и до 260 тыс грн за причинение вреда здоровью в дтп.</p>
+            <br>
+            <h3>ДГО — удобное дополнение к ОСАГО</h3>
+            <p>ДГО — удобное дополнение к ОСАГО. Это добровольное страхование, которое позволяет увеличить размер страховых выплат до 1 млн гривен. Так как ОСАГО покрывает максимум 390 тыс грн, ДГО — это хороший способ расширить возможности страховки.</p>
+            <br>
+            <h3>КАСКО не относится к обязательным видам страхования</h3>
+            <p>КАСКО не относится к обязательным видам страхования. Вы можете сами выбрать условия, на которых застрахуете свое авто. Это может быть полное или частичное страхование — как вы посчитаете нужным для себя. </p>
+            <br>
+            <h3>Зеленая карта — пропускной билет для путешествий по Европе</h3>
+            <p>Это обязательный вид страхования для путешественников. Зеленую карту мы рекомендуем для тех водителей, которые планируют путешествовать по Европе и странам СНГ. За две недели путешествий по СНГ страховка будет стоить около 500 грн, за две недели поездок по Европе — около 700 грн.</p>
+            <br>
         </div>
     </div>
 </section>
@@ -175,3 +121,4 @@ get_header('front'); ?>
 </section>
 <?php
 get_footer('front'); ?>
+

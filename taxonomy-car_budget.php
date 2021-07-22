@@ -93,8 +93,8 @@
                             <div class="plus icon icon-up"></div>
                             <div class="filter-subtitle"><span>Стоимость, $</span></div>
                         </div>
-                        <div class="catalog__filter_item_content close">
-                            <div class="range">
+                        <div class="catalog__filter_item_content close catalog__filter_item_content-price">
+                            <div class="range range_price">
                                 <div class="range-wrapper">
                                     <div class="catalog__filter_item_range_input">
                                         <span>от</span>
@@ -146,8 +146,8 @@
 	                            <div class="plus icon icon-up"></div>
 	                            <div class="filter-subtitle"><span>Год выпуска</span></div>
 	                        </div>
-	                        <div class="catalog__filter_item_content close">
-	                            <div class="range">
+	                        <div class="catalog__filter_item_content close catalog__filter_item_content-year">
+	                            <div class="range range_year">
 	                                <div class="range-wrapper">
 	                                    <div class="catalog__filter_item_range_input">
 	                                        <span>от</span>

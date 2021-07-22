@@ -1,1068 +1,1155 @@
 (function ($) {
 
-	initCarSelectManufacturer() ;
-	initCarSelectModel() ;
-	setTimeout(initCatalogType, 1000) ;
-	runFilter() ;
-	initLangSwitch() ;
-	filterPaginationNews() ;
-	filterPaginationReviews() ;
-	filterPaginationPromotions() ;
+    initCarSelectManufacturer() ;
+    initCarSelectModel() ;
+    setTimeout(initCatalogType, 1000) ;
+    runFilter() ;
+    initLangSwitch() ;
+    filterPaginationNews() ;
+    filterPaginationReviews() ;
+    filterPaginationPromotions() ;
+    cartForms() ;
+    cartTopForms() ;
+    cartCalalogForms() ;
+    cartSameCarForms() ;
+    filterDropInput() ;
 
-	setTimeout(initLangSwitch, 2000) ;
+    setTimeout(initLangSwitch, 2000) ;
 
-	function initLangSwitch(){
+    function filterDropInput(){
 
-		let langs = $('html').attr('lang') ;
+        $('.catalog__filter_item_content .range-wrapper input').each(function() {
 
-		if( langs == 'uk' ){
-			$('.header__lang .is-active-ru').removeClass('active') ;
-			$('.header__lang .is-active-uk').addClass('active') ;
-		}
+            $(this).focus(function() {
 
-		if( langs == 'ru_RU' ){
-			$('.header__lang .is-active-ru').addClass('active') ;
-			$('.header__lang .is-active-uk').removeClass('active') ;
-		}
+                $(this).val('') ;
 
-		$('.header__lang li').each( function(){
-			$(this).on('click' , function(){
+            })
 
-				$('.header__lang li').removeClass('active') ;
+        })
 
-				$(this).addClass('active') ;
+    }
 
-			})
-		} )
-	}
+    function cartSameCarForms(){
 
-	function initCatalogType(){
+        $('.top-auto .swiper-wrapper .grid__card .btn_light').each( function(){
 
-		let defaultCatalogType = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
+            $(this).on('click', function(){
 
-		let getVars = getUrlVars() ;
+                var same_auto_link = $(this).attr('data-form-link') ;
 
-		catalogFilterByType( defaultCatalogType, getVars['location'], getVars['type'], getVars['car-brand'], getVars['car-model'] ) ;
-		
-		$( '.catalog__filter_item_content .dropdown__dropdown .dropdown__item' ).on( 'click', function(){
+                $('#modal-phone-cart-price form input[type="hidden"]').val(same_auto_link) ;
 
-			let catalogType = $(this).find('.dropdown__text').data("value");
+            })
 
-			catalogFilterByType( catalogType ) ;
+        } )
 
-			$('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
+    }
 
-		} );
+    function cartForms(){
 
-		$( '.page-title__dropdown .dropdown__dropdown .dropdown__item' ).on( 'click', function(){
+        var url = window.location.href;
 
-			let scroll = false ;
-			let paged = 1 ;
-			showFilterResult( scroll, paged ) ;
+        $('.product__buttons .btn_light--price').on('click', function(){
 
-		} );
+            $('#modal-phone-cart-price form input[type="hidden"]').val(url) ;
 
-	}
+        }) ;
 
-	function catalogFilterByType( type, inUkraine = '', typeGet = '', carBrand = '', carModel = '' ){
+        $('.product__buttons .btn_light--call').on('click', function(){
 
-		let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
+            $('#modal-phone-cart-call form input[type="hidden"]').val(url) ;
 
-		var filterData = {
-			'action' : 'catalogfiterbytype',
-			'security': filter_params.ajax_nonce,
-			'type' : type,
-			'budget' : ifBudgetpage,
-			'inUkraine': inUkraine,
-			'carBrand': carBrand,
-			'carModel': carModel,
-			'typeGet': typeGet,
-		}
+        }) ;
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+    }
 
-					$('.filter-manufacturer-by-type .catalog__filter_item').remove() ;
-					$('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
-					$('.filter-manufacturer-by-type').append($(data).filter('.manufacturer-insert-holder').html()) ;
-					$('.filters-by-type .catalog__filter_item').remove() ;
-					$('.filters-by-type').append($(data).filter('.filter-insert-holder').html()) ;
-					$('.catalog__grid .grid').remove() ;
-					$('.catalog__grid .pagination').remove() ;
-					$('.catalog__grid').append($(data).filter('.insert-cards').html()) ;
+    function cartTopForms(){
 
-					reInitCatalogDrops() ;
-					reInitCatalogCheckbox() ;
-					catalogModel() ;
-					filterPagination() ;
-					runFilterFromGet() ;
+        $('.top-auto__grid .grid__card .grid__card-footer .btn_light').each( function(){
 
-					if( carBrand !== '' && typeGet !== '' ){
-						catalogModelGet( typeGet, carBrand, carModel ) ;
-					}
+            $(this).on('click', function(){
 
-				}
-			}
-		});
+                var top_auto_link = $(this).attr('data-form-link') ;
 
-	}
+                $('#modal-phone-cart-price form input[type="hidden"]').val(top_auto_link) ;
 
-	function catalogModel(){
+            })
 
-		$('.filter-manufacturer-by-type .catalog__filter_item .catalog__filter_item_content .catalog__filter_item_input').each( function(){
+        } )
 
-			$(this).on("click", function(){
+    }
 
-				let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
+    function cartCalalogForms(){
 
-				$('.filter-manufacturer-by-type .catalog__filter_item .catalog__filter_item_content .catalog__filter_item_input input').removeClass('active') ;
+        $('.catalog__grid .grid .grid__card .btn_light').each( function(){
 
-				let singleCheckbox = $(this).find('input') ;
+            $(this).on('click', function(){
 
-				singleCheckbox.addClass('active') ;
-				
-				let type = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
+                var catalog_auto_link = $(this).attr('data-form-link') ;
 
-				if( !singleCheckbox.hasClass('active') ){
+                $('#modal-phone-cart-price form input[type="hidden"]').val(catalog_auto_link) ;
 
-					let selectedVal = singleCheckbox.val() ;
+            })
 
-					$('.filter-model-by-manufacturer .catalog__filter_item[data-model-parrent="'+selectedVal+'"]').remove() ;
+        } )
 
-				}else{
+    }
 
-					let selectedVal = singleCheckbox.val() ;
+    function initLangSwitch(){
 
-					var filterData = {
-						'action' : 'catalogmodel',
-						'security': filter_params.ajax_nonce,
-						'manufacturer' : selectedVal,
-						'type' : type,
-						'budget' : ifBudgetpage
-					}
+        let langs = $('html').attr('lang') ;
 
-					$.ajax({
-						url: filter_params.ajaxurl,
-						data: filterData,
-						type: 'POST',
-						success: function(data) {
-							if (data) {
+        if( langs == 'uk' ){
+            $('.header__lang .is-active-ru').removeClass('active') ;
+            $('.header__lang .is-active-uk').addClass('active') ;
+        }
 
-								$('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
-								$('.filter-model-by-manufacturer').append(data) ;
+        if( langs == 'ru_RU' ){
+            $('.header__lang .is-active-ru').addClass('active') ;
+            $('.header__lang .is-active-uk').removeClass('active') ;
+        }
 
-								reInitCatalogDropsModel() ;
-								reInitCatalogCheckboxModel() ;
+        $('.header__lang li').each( function(){
+            $(this).on('click' , function(){
 
-							}
-						}
-					})
+                $('.header__lang li').removeClass('active') ;
 
-				}
+                $(this).addClass('active') ;
 
-			})
+            })
+        } )
+    }
 
-		} )
+    function initCatalogType(){
 
-	}
+        let defaultCatalogType = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
 
-	function catalogModelGet( getType = '', getBrand = '', getModel = '' ){
+        let getVars = getUrlVars() ;
 
-		console.log( getType ) ;
-		console.log( getBrand ) ;
+        catalogFilterByType( defaultCatalogType, getVars['location'], getVars['type'], getVars['car-brand'], getVars['car-model'], getVars['body-type'] ) ;
 
-		var filterData = {
-			'action' : 'catalogmodel',
-			'security': filter_params.ajax_nonce,
-			'manufacturer' : getBrand,
-			'type' : getType,
-			'getModel' : getModel,
-		}
+        $( '.catalog__filter_item_content .dropdown__dropdown .dropdown__item' ).on( 'click', function(){
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
-
-					$('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
-					$('.filter-model-by-manufacturer').append(data) ;
-
-					console.log( data ) ;
-
-					reInitCatalogDropsModel() ;
-					reInitCatalogCheckboxModel() ;
-					runFilterFromGet() ;
-
-				}
-			}
-		})
-
-	}
-
-	function reInitCatalogCheckboxModel(){
-
-		$('.filter-model-by-manufacturer .catalog__filter_item_content .catalog__filter_item_checkbox input[type=checkbox]').each( function(){
-
-			$(this).on('click', function(){
-
-				$(this).toggleClass("active");
-
-			} );
-			
-		} )
-
-	}
-
-	function reInitCatalogDropsModel(){
-
-		$(".filter-model-by-manufacturer .catalog__filter_item_title").each(function(){
-	        
-	        $(this).on('click', function (e) {
-	            $(this).closest(".catalog__filter_item").toggleClass("open");
-	            $(this).siblings(".catalog__filter_item_content").toggleClass("close");
-	            e.stopPropagation();
-	        });
-
-		})
-
-	}
-
-	function reInitCatalogCheckbox(){
-		//checkbox checked
-		if ($(".checkbox-wrapper").length) {
-		    $(".checkbox-wrapper input[type=checkbox]").on('click', function(){
-		        $(this).toggleClass("active");
-		    });
-		}
-		$(".catalog__filter_item_content .catalog__filter_item_checkbox input[type=checkbox]").on('click', function(){
-		    $(this).toggleClass("active");
-		});
-		//checkbox checked
-
-		// card__info range
-		if ($(".catalog__filter_item_content").length) {
-		    var rangeFirst = $(".catalog__filter_item_range span:first-of-type").css("left");
-		    var rangeLast = $(".catalog__filter_item_range span:last-of-type").css("left");
-		}
-		// card__info range
-
-		// card__info-color checked
-		if ($(".card__info-color .catalog__filter_item_checkbox").length) {
-		    $(".card__info-color .catalog__filter_item_checkbox input[type=checkbox]").on('click', function(){
-		        if($(this).is(":checked")) {
-		            $(".card__info-color .catalog__filter_item_checkbox input[type=checkbox]").prop('checked', false);
-		            $(".card__info-color .catalog__filter_item_input").removeClass("checked");
-		            $(this).prop('checked', true);
-		            $(this).closest(".catalog__filter_item_input").addClass("checked");
-		        }
-		    });
-		}
-		// card__info-color checked
-		if ($("a.catalog__filter_item_checkbox").length) {
-		    $("a.catalog__filter_item_checkbox").on('click', function(){
-		        // location.href = $(this).attr("href");
-		        window.open($(this).attr("href"));
-		    });
-		}
-		// catalog__info-color checked
-		if ($(".catalog__filter .catalog__filter_item_content.color .catalog__filter_item_input input").length) {
-		    $(".catalog__filter .catalog__filter_item_content.color .catalog__filter_item_input input[type=checkbox]").on('click', function(){
-		        if($(this).is(":checked")) {
-		            $(this).closest(".catalog__filter_item_input").addClass("checked");
-		        } else {
-		            $(this).closest(".catalog__filter_item_input").removeClass("checked");
-		        }
-		    });
-		}
-		// catalog__info-color checked
-		//mobile filters open
-		    $('.catalog .btn.sort').click(function() {
-		        $(".catalog__sort" ).toggleClass('mobile-active');
-		    });
-		    $('.catalog .btn.filter').click(function(e) {
-		        e.stopPropagation();
-		        e.preventDefault();
-		        $("body" ).addClass('mobile-filter');
-		        $(".catalog__filter" ).addClass('mobile-active');
-		        $("body").addClass('overflow');
-		    });
-		    $('.catalog__filter .back').click(function(e) {
-		        e.stopPropagation();
-		        e.preventDefault();
-		        $("body" ).removeClass('mobile-filter');
-		        $(".catalog__filter" ).removeClass('mobile-active');
-		        $("body").removeClass('overflow');
-		    });
-		//mobile filters open
-	}
-
-	function reInitCatalogDrops(){
-		/*filter close-open start*/
-		if ($(window).width() <= 768) {
-		    $(".catalog__filter").removeClass("open");
-		    $(".main-item > .catalog__filter_item").removeClass("open");
-		    $(".catalog__filter .catalog__filter_item > .catalog__filter_item_content").addClass("close");
-		}
-		if ($(".catalog__filter_item").length) {
-		    if ($(window).width() <= 768) {
-		        $(".catalog__filter_item_title").on('click', function (e) {
-		            $(this).closest(".catalog__filter_item").toggleClass("open");
-		            $(this).siblings(".catalog__filter_item_content").toggleClass("close");
-		            e.stopPropagation();
-		        });
-		        $(".catalog__filter .main_title").on('click', function (e) {
-		            if ($(window).width() <= 768) {
-		                $(".catalog__filter").toggleClass("open");
-		                e.stopPropagation();
-		            }
-		        });
-		    } else {
-		        $(".catalog__filter_item_title:not(.main_title)").on('click', function (e) {
-		            //console.log(e.target);
-		            $(this).closest(".catalog__filter_item").toggleClass("open");
-		            $(this).siblings(".catalog__filter_item_content").toggleClass("close");
-		            e.stopPropagation();
-		        });
-		    }
-		}
-		if ($(".card__sidebar-item").length) {
-		    $(".card__sidebar-item_title").on('click', function () {
-		        $(this).closest(".card__sidebar-item").toggleClass("open");
-		        $(this).siblings(".card__sidebar-item_content").toggleClass("close");
-		    });
-		}
-		/*filter close-open end*/
-	}
-
-	function runFilter( ){
-		$('.catalog__filter_button .btn').on('click', function(){
-
-			let selectedValues = [] ;
-
-			$('.catalog__filter_item_content .catalog__filter_item_input .active').each(function(){
-				let activeCheckBox = $(this).val();
-
-				selectedValues.push(activeCheckBox);
-
-			});
-
-			var filterData = {
-				'action' : 'runcatalogfilter',
-				'security': filter_params.ajax_nonce,
-				'selectedvalues' : selectedValues
-			}
-
-			$.ajax({
-				url: filter_params.ajaxurl,
-				data: filterData,
-				type: 'POST',
-				success: function(data) {
-					if (data) {
-
-						$('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
-						$('.ajax-choose-holder').append($(data).filter('.insert-choose-filter').html()) ;
-						removeFilter() ;
-
-					}
-				}
-			});
-			
-			let scroll = true ;
-			let paged = 1 ;
-			showFilterResult( scroll, paged ) ;
-
-		});
-	}
-
-	function runFilterFromGet(){
-
-		let selectedValues = [] ;
-
-		$('.catalog__filter_item_content .catalog__filter_item_input .active').each(function(){
-			let activeCheckBox = $(this).val();
-
-			selectedValues.push(activeCheckBox);
-
-		});
-
-		var filterData = {
-			'action' : 'runcatalogfilter',
-			'security': filter_params.ajax_nonce,
-			'selectedvalues' : selectedValues
-		}
+            let catalogType = $(this).find('.dropdown__text').data("value");
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+            catalogFilterByType( catalogType ) ;
 
-					$('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
-					$('.ajax-choose-holder').append($(data).filter('.insert-choose-filter').html()) ;
-					removeFilter() ;
+            $('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
 
-				}
-			}
-		});
-		
-		let scroll = false ;
-		let paged = 1 ;
-		showFilterResult( scroll, paged ) ;
+        } );
 
-	}
+        $( '.page-title__dropdown .dropdown__dropdown .dropdown__item' ).on( 'click', function(){
 
-	function removeFilter(){
+            let scroll = false ;
+            let paged = 1 ;
+            showFilterResult( scroll, paged ) ;
 
-		$('.catalog__filter-choose-items .btn .icon-close').each(function(){
-			
-			$(this).on('click', function (e) {
+        } );
 
-				if( $(this).hasClass("parrent-man") ){
+    }
 
-					let removeTermId = $(this).attr("data-attr-term") ;
-					$(this).parent().remove() ;
+    function catalogFilterByType( type, inUkraine = '', typeGet = '', carBrand = '', carModel = '', bodyType = '' ){
 
-					$('.catalog__filter-choose-items .btn .icon-close[data-attr-term-parrent="'+removeTermId+'"]').each(function(){
-						$(this).parent().remove() ;
-					});
+        let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
 
-					$('.catalog__filter_item_checkbox').each(function(){
+        var filterData = {
+            'action' : 'catalogfiterbytype',
+            'security': filter_params.ajax_nonce,
+            'type' : type,
+            'budget' : ifBudgetpage,
+            'inUkraine': inUkraine,
+            'carBrand': carBrand,
+            'carModel': carModel,
+            'typeGet': typeGet,
+            'bodyType': bodyType
+        }
 
-						$(this).find('.catalog__filter_item_input input[value="'+removeTermId+'"]').removeClass('active') ;
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
 
-					}) ;
+                    $('.filter-manufacturer-by-type .catalog__filter_item').remove() ;
+                    $('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
+                    $('.filter-manufacturer-by-type').append($(data).filter('.manufacturer-insert-holder').html()) ;
+                    $('.filters-by-type .catalog__filter_item').remove() ;
+                    $('.filters-by-type').append($(data).filter('.filter-insert-holder').html()) ;
+                    $('.catalog__grid .grid').remove() ;
+                    $('.catalog__grid .pagination').remove() ;
+                    $('.catalog__grid').append($(data).filter('.insert-cards').html()) ;
 
-					$('.filter-model-by-manufacturer .catalog__filter_item[data-model-parrent="'+removeTermId+'"]').remove() ;
+                    reInitCatalogDrops() ;
+                    reInitCatalogCheckbox() ;
+                    catalogModel() ;
+                    filterPagination() ;
+                    runFilterFromGet() ;
 
-				}else{
+                    if( carBrand !== '' && typeGet !== '' ){
+                        catalogModelGet( typeGet, carBrand, carModel ) ;
+                    }
 
-					let removeTermId = $(this).attr("data-attr-term") ;
-					$(this).parent().remove() ;
+                }
+            }
+        });
 
-					$('.catalog__filter_item_checkbox').each(function(){
+    }
 
-						$(this).find('.catalog__filter_item_input input[value="'+removeTermId+'"]').removeClass('active') ;
+    function catalogModel(){
 
-					}) ;
+        $('.filter-manufacturer-by-type .catalog__filter_item .catalog__filter_item_content .catalog__filter_item_input').each( function(){
 
-				}
+            $(this).on("click", function(){
 
-				if( $('.ajax-choose-holder .catalog__filter-choose-items .btn').length == 0 ){
-					$('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
-				}
+                let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
 
-				let scroll = false ;
-				let paged = 1 ;
-				showFilterResult( scroll, paged ) ;
+                $('.filter-manufacturer-by-type .catalog__filter_item .catalog__filter_item_content .catalog__filter_item_input input').removeClass('active') ;
 
-			});
+                let singleCheckbox = $(this).find('input') ;
 
-		});
+                singleCheckbox.addClass('active') ;
 
-	}
+                let type = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
 
-	function showFilterResult( scroll, paged ){
+                if( !singleCheckbox.hasClass('active') ){
 
-		let typeTransport = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
+                    let selectedVal = singleCheckbox.val() ;
 
-		let priceFrom = $( '.catalog__filter_item_range_from_price' ).val() ;
-		let priceTo = $( '.catalog__filter_item_range_to_price' ).val() ;
+                    $('.filter-model-by-manufacturer .catalog__filter_item[data-model-parrent="'+selectedVal+'"]').remove() ;
 
-		let yearFrom = $( '.catalog__filter_item_range_from_year' ).val() ;
-		let yearTo = $( '.catalog__filter_item_range_to_year' ).val() ;
+                }else{
 
-		console.log( yearFrom ) ;
-		console.log( yearTo ) ;
+                    let selectedVal = singleCheckbox.val() ;
 
-		let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
+                    var filterData = {
+                        'action' : 'catalogmodel',
+                        'security': filter_params.ajax_nonce,
+                        'manufacturer' : selectedVal,
+                        'type' : type,
+                        'budget' : ifBudgetpage
+                    }
 
-		let topSort = $('.page-title__dropdown .dropdown__header-item .text').data('value');
+                    $.ajax({
+                        url: filter_params.ajaxurl,
+                        data: filterData,
+                        type: 'POST',
+                        success: function(data) {
+                            if (data) {
 
-		if( typeTransport == 'cars' ){
+                                $('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
+                                $('.filter-model-by-manufacturer').append(data) ;
 
-			let manufacturerCars = [] ;
+                                reInitCatalogDropsModel() ;
+                                reInitCatalogCheckboxModel() ;
 
-			$('.checkbox-manufacturer-cars .catalog__filter_item_input').find('.active').each( function(){
+                            }
+                        }
+                    })
 
-				let selectedVal = $(this).val() ;
+                }
 
-				manufacturerCars.push(selectedVal);
+            })
 
-			} );
+        } )
 
-			let modelCars = [] ;
+    }
 
-			$('.checkbox-model-cars .catalog__filter_item_input').find('.active').each( function(){
+    function catalogModelGet( getType = '', getBrand = '', getModel = '' ){
 
-				let selectedVal = $(this).val() ;
+        console.log( getType ) ;
+        console.log( getBrand ) ;
 
-				modelCars.push(selectedVal);
+        var filterData = {
+            'action' : 'catalogmodel',
+            'security': filter_params.ajax_nonce,
+            'manufacturer' : getBrand,
+            'type' : getType,
+            'getModel' : getModel,
+        }
 
-			} );
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
 
-			let cuzovCars = [] ;
+                    $('.filter-model-by-manufacturer .catalog__filter_item').remove() ;
+                    $('.filter-model-by-manufacturer').append(data) ;
 
-			$('.checkbox-car-cuzov .catalog__filter_item_input').find('.active').each( function(){
+                    console.log( data ) ;
 
-				let selectedVal = $(this).val() ;
+                    reInitCatalogDropsModel() ;
+                    reInitCatalogCheckboxModel() ;
+                    runFilterFromGet() ;
 
-				cuzovCars.push(selectedVal);
+                }
+            }
+        })
 
-			} );
+    }
 
-			let locationCars = [] ;
+    function reInitCatalogCheckboxModel(){
 
-			$('.checkbox-car-location .catalog__filter_item_input').find('.active').each( function(){
+        $('.filter-model-by-manufacturer .catalog__filter_item_content .catalog__filter_item_checkbox input[type=checkbox]').each( function(){
 
-				let selectedVal = $(this).val() ;
+            $(this).on('click', function(){
 
-				locationCars.push(selectedVal);
+                $(this).toggleClass("active");
+
+            } );
+
+        } )
+
+    }
+
+    function reInitCatalogDropsModel(){
+
+        $(".filter-model-by-manufacturer .catalog__filter_item_title").each(function(){
+
+            $(this).on('click', function (e) {
+                $(this).closest(".catalog__filter_item").toggleClass("open");
+                $(this).siblings(".catalog__filter_item_content").toggleClass("close");
+                e.stopPropagation();
+            });
+
+        })
+
+    }
+
+    function reInitCatalogCheckbox(){
+        //checkbox checked
+        if ($(".checkbox-wrapper").length) {
+            $(".checkbox-wrapper input[type=checkbox]").on('click', function(){
+                $(this).toggleClass("active");
+            });
+        }
+        $(".catalog__filter_item_content .catalog__filter_item_checkbox input[type=checkbox]").on('click', function(){
+            $(this).toggleClass("active");
+        });
+        //checkbox checked
+
+        // card__info range
+        if ($(".catalog__filter_item_content").length) {
+            var rangeFirst = $(".catalog__filter_item_range span:first-of-type").css("left");
+            var rangeLast = $(".catalog__filter_item_range span:last-of-type").css("left");
+        }
+        // card__info range
+
+        // card__info-color checked
+        if ($(".card__info-color .catalog__filter_item_checkbox").length) {
+            $(".card__info-color .catalog__filter_item_checkbox input[type=checkbox]").on('click', function(){
+                if($(this).is(":checked")) {
+                    $(".card__info-color .catalog__filter_item_checkbox input[type=checkbox]").prop('checked', false);
+                    $(".card__info-color .catalog__filter_item_input").removeClass("checked");
+                    $(this).prop('checked', true);
+                    $(this).closest(".catalog__filter_item_input").addClass("checked");
+                }
+            });
+        }
+        // card__info-color checked
+        if ($("a.catalog__filter_item_checkbox").length) {
+            $("a.catalog__filter_item_checkbox").on('click', function(){
+                // location.href = $(this).attr("href");
+                window.open($(this).attr("href"));
+            });
+        }
+        // catalog__info-color checked
+        if ($(".catalog__filter .catalog__filter_item_content.color .catalog__filter_item_input input").length) {
+            $(".catalog__filter .catalog__filter_item_content.color .catalog__filter_item_input input[type=checkbox]").on('click', function(){
+                if($(this).is(":checked")) {
+                    $(this).closest(".catalog__filter_item_input").addClass("checked");
+                } else {
+                    $(this).closest(".catalog__filter_item_input").removeClass("checked");
+                }
+            });
+        }
+        // catalog__info-color checked
+        //mobile filters open
+        $('.catalog .btn.sort').click(function() {
+            $(".catalog__sort" ).toggleClass('mobile-active');
+        });
+        $('.catalog .btn.filter').click(function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("body" ).addClass('mobile-filter');
+            $(".catalog__filter" ).addClass('mobile-active');
+            $("body").addClass('overflow');
+        });
+        $('.catalog__filter .back').click(function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $("body" ).removeClass('mobile-filter');
+            $(".catalog__filter" ).removeClass('mobile-active');
+            $("body").removeClass('overflow');
+        });
+        //mobile filters open
+    }
+
+    function reInitCatalogDrops(){
+        /*filter close-open start*/
+        if ($(window).width() <= 768) {
+            $(".catalog__filter").removeClass("open");
+            $(".main-item > .catalog__filter_item").removeClass("open");
+            $(".catalog__filter .catalog__filter_item > .catalog__filter_item_content").addClass("close");
+        }
+        if ($(".catalog__filter_item").length) {
+            if ($(window).width() <= 768) {
+                $(".catalog__filter_item_title").on('click', function (e) {
+                    $(this).closest(".catalog__filter_item").toggleClass("open");
+                    $(this).siblings(".catalog__filter_item_content").toggleClass("close");
+                    e.stopPropagation();
+                });
+                $(".catalog__filter .main_title").on('click', function (e) {
+                    if ($(window).width() <= 768) {
+                        $(".catalog__filter").toggleClass("open");
+                        e.stopPropagation();
+                    }
+                });
+            } else {
+                $(".catalog__filter_item_title:not(.main_title)").on('click', function (e) {
+                    //console.log(e.target);
+                    $(this).closest(".catalog__filter_item").toggleClass("open");
+                    $(this).siblings(".catalog__filter_item_content").toggleClass("close");
+                    e.stopPropagation();
+                });
+            }
+        }
+        if ($(".card__sidebar-item").length) {
+            $(".card__sidebar-item_title").on('click', function () {
+                $(this).closest(".card__sidebar-item").toggleClass("open");
+                $(this).siblings(".card__sidebar-item_content").toggleClass("close");
+            });
+        }
+        /*filter close-open end*/
+    }
+
+    function runFilter( ){
+        $('.catalog__filter_button .btn').on('click', function(){
 
-			} );
+            let selectedValues = [] ;
 
-			let fuelCars = [] ;
+            $('.catalog__filter_item_content .catalog__filter_item_input .active').each(function(){
+                let activeCheckBox = $(this).val();
 
-			$('.checkbox-car-fuel .catalog__filter_item_input').find('.active').each( function(){
+                selectedValues.push(activeCheckBox);
 
-				let selectedVal = $(this).val() ;
+            });
 
-				fuelCars.push(selectedVal);
+            var filterData = {
+                'action' : 'runcatalogfilter',
+                'security': filter_params.ajax_nonce,
+                'selectedvalues' : selectedValues
+            }
 
-			} );
+            $.ajax({
+                url: filter_params.ajaxurl,
+                data: filterData,
+                type: 'POST',
+                success: function(data) {
+                    if (data) {
 
-			let volumeCars = [] ;
+                        $('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
+                        $('.ajax-choose-holder').append($(data).filter('.insert-choose-filter').html()) ;
+                        removeFilter() ;
 
-			$('.checkbox-car-volume .catalog__filter_item_input').find('.active').each( function(){
+                    }
+                }
+            });
 
-				let selectedVal = $(this).val() ;
+            let scroll = true ;
+            let paged = 1 ;
+            showFilterResult( scroll, paged ) ;
 
-				volumeCars.push(selectedVal);
+        });
+    }
 
-			} );
+    function runFilterFromGet(){
 
-			let transmissionCars = [] ;
+        let selectedValues = [] ;
 
-			$('.checkbox-car-transmission .catalog__filter_item_input').find('.active').each( function(){
+        $('.catalog__filter_item_content .catalog__filter_item_input .active').each(function(){
+            let activeCheckBox = $(this).val();
 
-				let selectedVal = $(this).val() ;
+            selectedValues.push(activeCheckBox);
 
-				transmissionCars.push(selectedVal);
+        });
 
-			} );
+        var filterData = {
+            'action' : 'runcatalogfilter',
+            'security': filter_params.ajax_nonce,
+            'selectedvalues' : selectedValues
+        }
 
-			let driveCars = [] ;
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
 
-			$('.checkbox-car-drive .catalog__filter_item_input').find('.active').each( function(){
+                    $('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
+                    $('.ajax-choose-holder').append($(data).filter('.insert-choose-filter').html()) ;
+                    removeFilter() ;
 
-				let selectedVal = $(this).val() ;
+                }
+            }
+        });
 
-				driveCars.push(selectedVal);
+        let scroll = false ;
+        let paged = 1 ;
+        showFilterResult( scroll, paged ) ;
 
-			} );
-			
-			var filterData = {
-				'action' : 'showfilterresult',
-				'security': filter_params.ajax_nonce,
-				'typetransport' : typeTransport,
-				'pricefrom' : priceFrom,
-				'priceto' : priceTo,
-				'yearfrom' : yearFrom,
-				'yearto' : yearTo,
-				'manufacturercars' : manufacturerCars,
-				'modelrcars' : modelCars,
-				'cuzovcars' : cuzovCars,
-				'locationcars' : locationCars,
-				'fuelcars' : fuelCars,
-				'volumecars' : volumeCars,
-				'transmissioncars' : transmissionCars,
-				'drivecars' : driveCars,
-				'topsort' : topSort,
-				'currpage' : paged,
-				'budget' : ifBudgetpage
-			}
+    }
 
-		}
+    function removeFilter(){
 
-		if( typeTransport == 'mototechnics' ){
+        $('.catalog__filter-choose-items .btn .icon-close').each(function(){
 
-			let manufacturerCars = [] ;
+            $(this).on('click', function (e) {
 
-			$('.checkbox-manufacturer-mototechnics .catalog__filter_item_input').find('.active').each( function(){
+                if( $(this).hasClass("parrent-man") ){
 
-				let selectedVal = $(this).val() ;
+                    let removeTermId = $(this).attr("data-attr-term") ;
+                    $(this).parent().remove() ;
 
-				manufacturerCars.push(selectedVal);
+                    $('.catalog__filter-choose-items .btn .icon-close[data-attr-term-parrent="'+removeTermId+'"]').each(function(){
+                        $(this).parent().remove() ;
+                    });
 
-			} );
+                    $('.catalog__filter_item_checkbox').each(function(){
 
-			let modelCars = [] ;
+                        $(this).find('.catalog__filter_item_input input[value="'+removeTermId+'"]').removeClass('active') ;
 
-			$('.checkbox-model-mototechnics .catalog__filter_item_input').find('.active').each( function(){
+                    }) ;
 
-				let selectedVal = $(this).val() ;
+                    $('.filter-model-by-manufacturer .catalog__filter_item[data-model-parrent="'+removeTermId+'"]').remove() ;
 
-				modelCars.push(selectedVal);
+                }else{
 
-			} );
+                    let removeTermId = $(this).attr("data-attr-term") ;
+                    $(this).parent().remove() ;
 
-			let locationCars = [] ;
+                    $('.catalog__filter_item_checkbox').each(function(){
 
-			$('.checkbox-mototechnics-location .catalog__filter_item_input').find('.active').each( function(){
+                        $(this).find('.catalog__filter_item_input input[value="'+removeTermId+'"]').removeClass('active') ;
 
-				let selectedVal = $(this).val() ;
+                    }) ;
 
-				locationCars.push(selectedVal);
+                }
 
-			} );
+                if( $('.ajax-choose-holder .catalog__filter-choose-items .btn').length == 0 ){
+                    $('.ajax-choose-holder .catalog__filter-wrapper').remove() ;
+                }
 
-			var filterData = {
-				'action' : 'showfilterresult',
-				'security': filter_params.ajax_nonce,
-				'typetransport' : typeTransport,
-				'pricefrom' : priceFrom,
-				'priceto' : priceTo,
-				'yearfrom' : yearFrom,
-				'yearto' : yearTo,
-				'manufacturercars' : manufacturerCars,
-				'modelrcars' : modelCars,
-				'locationcars' : locationCars,
-				'topsort' : topSort,
-				'currpage' : paged
-			}
+                let scroll = false ;
+                let paged = 1 ;
+                showFilterResult( scroll, paged ) ;
 
-		}
+            });
 
-		if( typeTransport == 'electrocars' ){
+        });
 
-			let manufacturerCars = [] ;
+    }
 
-			$('.checkbox-manufacturer-electrocars .catalog__filter_item_input').find('.active').each( function(){
+    function showFilterResult( scroll, paged ){
 
-				let selectedVal = $(this).val() ;
+        let typeTransport = $('.catalog__filter_item_content .dropdown__header-item .text').data('value');
 
-				manufacturerCars.push(selectedVal);
+        let priceFrom = $( '.catalog__filter_item_range_from_price' ).val() ;
+        let priceTo = $( '.catalog__filter_item_range_to_price' ).val() ;
 
-			} );
+        let yearFrom = $( '.catalog__filter_item_range_from_year' ).val() ;
+        let yearTo = $( '.catalog__filter_item_range_to_year' ).val() ;
 
-			let modelCars = [] ;
+        console.log( yearFrom ) ;
+        console.log( yearTo ) ;
 
-			$('.checkbox-model-electrocars .catalog__filter_item_input').find('.active').each( function(){
+        let ifBudgetpage = $('.page-title').attr('data-budget-car') ;
 
-				let selectedVal = $(this).val() ;
+        let topSort = $('.page-title__dropdown .dropdown__header-item .text').data('value');
 
-				modelCars.push(selectedVal);
+        if( typeTransport == 'cars' ){
 
-			} );
+            let manufacturerCars = [] ;
 
-			let cuzovCars = [] ;
+            $('.checkbox-manufacturer-cars .catalog__filter_item_input').find('.active').each( function(){
 
-			$('.checkbox-electrocars-cuzov .catalog__filter_item_input').find('.active').each( function(){
+                let selectedVal = $(this).val() ;
 
-				let selectedVal = $(this).val() ;
+                manufacturerCars.push(selectedVal);
 
-				cuzovCars.push(selectedVal);
+            } );
 
-			} );
+            let modelCars = [] ;
 
-			let locationCars = [] ;
+            $('.checkbox-model-cars .catalog__filter_item_input').find('.active').each( function(){
 
-			$('.checkbox-electrocars-location .catalog__filter_item_input').find('.active').each( function(){
+                let selectedVal = $(this).val() ;
 
-				let selectedVal = $(this).val() ;
+                modelCars.push(selectedVal);
 
-				locationCars.push(selectedVal);
+            } );
 
-			} );
+            let cuzovCars = [] ;
 
-			let driveCars = [] ;
+            $('.checkbox-car-cuzov .catalog__filter_item_input').find('.active').each( function(){
 
-			$('.checkbox-electrocars-drive .catalog__filter_item_input').find('.active').each( function(){
+                let selectedVal = $(this).val() ;
 
-				let selectedVal = $(this).val() ;
+                cuzovCars.push(selectedVal);
 
-				driveCars.push(selectedVal);
+            } );
 
-			} );
+            let locationCars = [] ;
 
-			var filterData = {
-				'action' : 'showfilterresult',
-				'security': filter_params.ajax_nonce,
-				'typetransport' : typeTransport,
-				'pricefrom' : priceFrom,
-				'priceto' : priceTo,
-				'yearfrom' : yearFrom,
-				'yearto' : yearTo,
-				'manufacturercars' : manufacturerCars,
-				'modelrcars' : modelCars,
-				'cuzovcars' : cuzovCars,
-				'locationcars' : locationCars,
-				'drivecars' : driveCars,
-				'topsort' : topSort,
-				'currpage' : paged
-			}
+            $('.checkbox-car-location .catalog__filter_item_input').find('.active').each( function(){
 
-		}
+                let selectedVal = $(this).val() ;
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+                locationCars.push(selectedVal);
 
-					$('.catalog__grid .grid').remove() ;
-					$('.catalog__grid .pagination').remove() ;
-					$('.catalog__grid').append($(data).filter('.insert-cards').html()) ;
-					$('.catalog__filter-choose-matched').empty() ;
-					$('.catalog__filter-choose-matched').append($(data).filter('.choose-number').text()) ;
+            } );
 
-					if( scroll ){
-						
-						$('html, body').animate({
-					        scrollTop: $("#page-title-scroll").offset().top
-					    }, 1000);
+            let fuelCars = [] ;
 
-					}
+            $('.checkbox-car-fuel .catalog__filter_item_input').find('.active').each( function(){
 
-					filterPagination() ;
+                let selectedVal = $(this).val() ;
 
-				}
-			}
-		});
+                fuelCars.push(selectedVal);
 
-	}
+            } );
 
-	function filterPagination(){
+            let volumeCars = [] ;
 
-		let scroll = true ;
-		
-		$('.pagination-cars .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+            $('.checkbox-car-volume .catalog__filter_item_input').find('.active').each( function(){
 
-			$(this).on('click', function(){
+                let selectedVal = $(this).val() ;
 
-				let goPage = $(this).find('span').attr('data-attr-page');
+                volumeCars.push(selectedVal);
 
-				let paged = goPage ;
-				showFilterResult( scroll, paged ) ;
+            } );
 
-			});
+            let transmissionCars = [] ;
 
-		});
+            $('.checkbox-car-transmission .catalog__filter_item_input').find('.active').each( function(){
 
-		$('.pagination-cars .pagination__list li.next').on('click', function(){
+                let selectedVal = $(this).val() ;
 
-			let goPage = $('.pagination-cars .pagination__list li .active').attr('data-attr-page');
-			let goNextPage = parseInt( goPage ) + 1 ;
+                transmissionCars.push(selectedVal);
 
-			let paged = goNextPage ;
-			showFilterResult( scroll, paged ) ;
+            } );
 
-		});
+            let driveCars = [] ;
 
-		$('.pagination-cars .pagination__list li.prev').on('click', function(){
+            $('.checkbox-car-drive .catalog__filter_item_input').find('.active').each( function(){
 
-			let goPage = $('.pagination-cars .pagination__list li .active').attr('data-attr-page');
-			let goPrevPage = parseInt( goPage ) - 1 ;
+                let selectedVal = $(this).val() ;
 
-			let paged = goPrevPage ;
-			showFilterResult( scroll, paged ) ;
+                driveCars.push(selectedVal);
 
-		});
+            } );
 
-	}
+            var filterData = {
+                'action' : 'showfilterresult',
+                'security': filter_params.ajax_nonce,
+                'typetransport' : typeTransport,
+                'pricefrom' : priceFrom,
+                'priceto' : priceTo,
+                'yearfrom' : yearFrom,
+                'yearto' : yearTo,
+                'manufacturercars' : manufacturerCars,
+                'modelrcars' : modelCars,
+                'cuzovcars' : cuzovCars,
+                'locationcars' : locationCars,
+                'fuelcars' : fuelCars,
+                'volumecars' : volumeCars,
+                'transmissioncars' : transmissionCars,
+                'drivecars' : driveCars,
+                'topsort' : topSort,
+                'currpage' : paged,
+                'budget' : ifBudgetpage
+            }
 
-	function filterPaginationNews(){
-		
-		$('.pagination-news .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+        }
 
-			$(this).on('click', function(){
+        if( typeTransport == 'mototechnics' ){
 
-				let goPage = $(this).find('span').attr('data-attr-page');
+            let manufacturerCars = [] ;
 
-				let paged = goPage ;
-				showNewsPage( paged ) ;
+            $('.checkbox-manufacturer-mototechnics .catalog__filter_item_input').find('.active').each( function(){
 
-			});
+                let selectedVal = $(this).val() ;
 
-		});
+                manufacturerCars.push(selectedVal);
 
-		$('.pagination-news .pagination__list li.next').on('click', function(){
+            } );
 
-			let goPage = $('.pagination-news .pagination__list li .active').attr('data-attr-page');
-			let goNextPage = parseInt( goPage ) + 1 ;
+            let modelCars = [] ;
 
-			let paged = goNextPage ;
-			showNewsPage( paged ) ;
+            $('.checkbox-model-mototechnics .catalog__filter_item_input').find('.active').each( function(){
 
-		});
+                let selectedVal = $(this).val() ;
 
-		$('.pagination-news .pagination__list li.prev').on('click', function(){
+                modelCars.push(selectedVal);
 
-			let goPage = $('.pagination-news .pagination__list li .active').attr('data-attr-page');
-			let goPrevPage = parseInt( goPage ) - 1 ;
+            } );
 
-			let paged = goPrevPage ;
+            let locationCars = [] ;
 
-			showNewsPage( paged ) ;
+            $('.checkbox-mototechnics-location .catalog__filter_item_input').find('.active').each( function(){
 
-		});
+                let selectedVal = $(this).val() ;
 
-	}
+                locationCars.push(selectedVal);
 
-	function showNewsPage( paged ){
+            } );
 
-		var filterData = {
-			'action' : 'newspaged',
-			'security': filter_params.ajax_nonce,
-			'page' : paged
-		}
+            var filterData = {
+                'action' : 'showfilterresult',
+                'security': filter_params.ajax_nonce,
+                'typetransport' : typeTransport,
+                'pricefrom' : priceFrom,
+                'priceto' : priceTo,
+                'yearfrom' : yearFrom,
+                'yearto' : yearTo,
+                'manufacturercars' : manufacturerCars,
+                'modelrcars' : modelCars,
+                'locationcars' : locationCars,
+                'topsort' : topSort,
+                'currpage' : paged
+            }
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+        }
 
-					$('.blog-posts__wrapper .blog-posts__grid').remove() ;
-					$('.blog-posts__wrapper').append(data) ;
+        if( typeTransport == 'electrocars' ){
 
-				    filterPaginationNews() ;
+            let manufacturerCars = [] ;
 
-				}
-			}
-		});
+            $('.checkbox-manufacturer-electrocars .catalog__filter_item_input').find('.active').each( function(){
 
-	}
+                let selectedVal = $(this).val() ;
 
-	function filterPaginationReviews(){
+                manufacturerCars.push(selectedVal);
 
-		$('.pagination-reviews .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+            } );
 
-			$(this).on('click', function(){
+            let modelCars = [] ;
 
-				let goPage = $(this).find('span').attr('data-attr-page');
+            $('.checkbox-model-electrocars .catalog__filter_item_input').find('.active').each( function(){
 
-				let paged = goPage ;
-				showReviewsPage( paged ) ;
+                let selectedVal = $(this).val() ;
 
-			});
+                modelCars.push(selectedVal);
 
-		});
+            } );
 
-		$('.pagination-reviews .pagination__list li.next').on('click', function(){
+            let cuzovCars = [] ;
 
-			let goPage = $('.pagination-reviews .pagination__list li .active').attr('data-attr-page');
-			let goNextPage = parseInt( goPage ) + 1 ;
+            $('.checkbox-electrocars-cuzov .catalog__filter_item_input').find('.active').each( function(){
 
-			let paged = goNextPage ;
-			showReviewsPage( paged ) ;
+                let selectedVal = $(this).val() ;
 
-		});
+                cuzovCars.push(selectedVal);
 
-		$('.pagination-reviews .pagination__list li.prev').on('click', function(){
+            } );
 
-			let goPage = $('.pagination-reviews .pagination__list li .active').attr('data-attr-page');
-			let goPrevPage = parseInt( goPage ) - 1 ;
+            let locationCars = [] ;
 
-			let paged = goPrevPage ;
+            $('.checkbox-electrocars-location .catalog__filter_item_input').find('.active').each( function(){
 
-			showReviewsPage( paged ) ;
+                let selectedVal = $(this).val() ;
 
-		});
+                locationCars.push(selectedVal);
 
-	}
+            } );
 
-	function showReviewsPage( paged ){
+            let driveCars = [] ;
 
-		var filterData = {
-			'action' : 'reviewspaged',
-			'security': filter_params.ajax_nonce,
-			'page' : paged
-		}
+            $('.checkbox-electrocars-drive .catalog__filter_item_input').find('.active').each( function(){
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+                let selectedVal = $(this).val() ;
 
-					$('.reviews_list .container .reviews__wrapper').remove() ;
-					$('.reviews_list .container').append(data) ;
+                driveCars.push(selectedVal);
 
-				    filterPaginationReviews() ;
+            } );
 
-				}
-			}
-		});
+            var filterData = {
+                'action' : 'showfilterresult',
+                'security': filter_params.ajax_nonce,
+                'typetransport' : typeTransport,
+                'pricefrom' : priceFrom,
+                'priceto' : priceTo,
+                'yearfrom' : yearFrom,
+                'yearto' : yearTo,
+                'manufacturercars' : manufacturerCars,
+                'modelrcars' : modelCars,
+                'cuzovcars' : cuzovCars,
+                'locationcars' : locationCars,
+                'drivecars' : driveCars,
+                'topsort' : topSort,
+                'currpage' : paged
+            }
 
-	}
+        }
 
-	function filterPaginationPromotions(){
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
 
-		$('.pagination-promotion .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+                    $('.catalog__grid .grid').remove() ;
+                    $('.catalog__grid .pagination').remove() ;
+                    $('.catalog__grid').append($(data).filter('.insert-cards').html()) ;
+                    $('.catalog__filter-choose-matched').empty() ;
+                    $('.catalog__filter-choose-matched').append($(data).filter('.choose-number').text()) ;
 
-			$(this).on('click', function(){
+                    if( scroll ){
 
-				let goPage = $(this).find('span').attr('data-attr-page');
+                        $('html, body').animate({
+                            scrollTop: $("#page-title-scroll").offset().top
+                        }, 1000);
 
-				let paged = goPage ;
-				showPromotionsPage( paged ) ;
+                    }
 
-			});
+                    cartCalalogForms() ;
+                    filterPagination() ;
 
-		});
+                }
+            }
+        });
 
-		$('.pagination-promotion .pagination__list li.next').on('click', function(){
+    }
 
-			let goPage = $('.pagination-promotion .pagination__list li .active').attr('data-attr-page');
-			let goNextPage = parseInt( goPage ) + 1 ;
+    function filterPagination(){
 
-			let paged = goNextPage ;
-			showPromotionsPage( paged ) ;
+        let scroll = true ;
 
-		});
+        $('.pagination-cars .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
 
-		$('.pagination-promotion .pagination__list li.prev').on('click', function(){
+            $(this).on('click', function(){
 
-			let goPage = $('.pagination-promotion .pagination__list li .active').attr('data-attr-page');
-			let goPrevPage = parseInt( goPage ) - 1 ;
+                let goPage = $(this).find('span').attr('data-attr-page');
 
-			let paged = goPrevPage ;
+                let paged = goPage ;
+                showFilterResult( scroll, paged ) ;
 
-			showPromotionsPage( paged ) ;
+            });
 
-		});
+        });
 
-	}
+        $('.pagination-cars .pagination__list li.next').on('click', function(){
 
-	function showPromotionsPage( paged ){
+            let goPage = $('.pagination-cars .pagination__list li .active').attr('data-attr-page');
+            let goNextPage = parseInt( goPage ) + 1 ;
 
-		var filterData = {
-			'action' : 'promotionpaged',
-			'security': filter_params.ajax_nonce,
-			'page' : paged
-		}
+            let paged = goNextPage ;
+            showFilterResult( scroll, paged ) ;
 
-		$.ajax({
-			url: filter_params.ajaxurl,
-			data: filterData,
-			type: 'POST',
-			success: function(data) {
-				if (data) {
+        });
 
-					$('.promotions .container .promotions__wrapper').remove() ;
-					$('.promotions .container').append(data) ;
+        $('.pagination-cars .pagination__list li.prev').on('click', function(){
 
-				    filterPaginationPromotions() ;
+            let goPage = $('.pagination-cars .pagination__list li .active').attr('data-attr-page');
+            let goPrevPage = parseInt( goPage ) - 1 ;
 
-				}
-			}
-		});
+            let paged = goPrevPage ;
+            showFilterResult( scroll, paged ) ;
 
-	}
+        });
 
-	function getUrlVars(){
-	    var vars = [], hash;
-	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-	    for(var i = 0; i < hashes.length; i++)
-	    {
-	        hash = hashes[i].split('=');
-	        vars.push(hash[0]);
-	        vars[hash[0]] = hash[1];
-	    }
-	    return vars;
-	}
+    }
 
-	/*Home JS*/
+    function filterPaginationNews(){
 
-	function initCarSelectManufacturer(){
+        $('.pagination-news .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
 
-		$('.car-selection__form #car-type').change( function(){
+            $(this).on('click', function(){
 
-			let type = $(this).val() ;
+                let goPage = $(this).find('span').attr('data-attr-page');
 
-			var filterData = {
-				'action' : 'homegetcar',
-				'security': filter_params.ajax_nonce,
-				'type' : type
-			}
+                let paged = goPage ;
+                showNewsPage( paged ) ;
 
-			$.ajax({
-				url: filter_params.ajaxurl,
-				data: filterData,
-				type: 'POST',
-				success: function(data) {
-					if (data) {
+            });
 
-						$('.column__find-cars .input-container__car-brand').remove() ;
-						$('.column__find-cars .input-container__car-model').remove() ;
-						$('.column__find-cars').append(data) ;
+        });
 
-						$(".column__find-cars select").each(function (index, item) {
-					        var text = $(item).data("placeholder");
-					        $(item).select2({
-					          placeholder: text,
-					          minimumResultsForSearch: -1
-					        });
-					    });
+        $('.pagination-news .pagination__list li.next').on('click', function(){
 
-					    initCarSelectModel() ;
+            let goPage = $('.pagination-news .pagination__list li .active').attr('data-attr-page');
+            let goNextPage = parseInt( goPage ) + 1 ;
 
-					}
-				}
-			});
+            let paged = goNextPage ;
+            showNewsPage( paged ) ;
 
-		} )
+        });
 
-	}
+        $('.pagination-news .pagination__list li.prev').on('click', function(){
 
-	function initCarSelectModel(){
+            let goPage = $('.pagination-news .pagination__list li .active').attr('data-attr-page');
+            let goPrevPage = parseInt( goPage ) - 1 ;
 
-		$('.car-selection__form #car-brand').change( function(){
+            let paged = goPrevPage ;
 
-			let type = $('.car-selection__form #car-type').val() ;
-			let brand = $(this).val() ;
+            showNewsPage( paged ) ;
 
-			var filterData = {
-				'action' : 'homegetmodel',
-				'security': filter_params.ajax_nonce,
-				'brand' : brand,
-				'type' : type
-			}
+        });
 
-			$.ajax({
-				url: filter_params.ajaxurl,
-				data: filterData,
-				type: 'POST',
-				success: function(data) {
-					if (data) {
+    }
 
-						$('.column__find-cars .input-container__car-model .car-model-ajax').remove() ;
-						$('.column__find-cars .input-container__car-model').append(data) ;
+    function showNewsPage( paged ){
 
-						$(".column__find-cars select").each(function (index, item) {
-					        var text = $(item).data("placeholder");
-					        $(item).select2({
-					          placeholder: text,
-					          minimumResultsForSearch: -1
-					        });
-					    });
+        var filterData = {
+            'action' : 'newspaged',
+            'security': filter_params.ajax_nonce,
+            'page' : paged
+        }
 
-					}
-				}
-			});
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
 
-		} )
+                    $('.blog-posts__wrapper .blog-posts__grid').remove() ;
+                    $('.blog-posts__wrapper').append(data) ;
 
-	}
+                    filterPaginationNews() ;
+
+                }
+            }
+        });
+
+    }
+
+    function filterPaginationReviews(){
+
+        $('.pagination-reviews .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+
+            $(this).on('click', function(){
+
+                let goPage = $(this).find('span').attr('data-attr-page');
+
+                let paged = goPage ;
+                showReviewsPage( paged ) ;
+
+            });
+
+        });
+
+        $('.pagination-reviews .pagination__list li.next').on('click', function(){
+
+            let goPage = $('.pagination-reviews .pagination__list li .active').attr('data-attr-page');
+            let goNextPage = parseInt( goPage ) + 1 ;
+
+            let paged = goNextPage ;
+            showReviewsPage( paged ) ;
+
+        });
+
+        $('.pagination-reviews .pagination__list li.prev').on('click', function(){
+
+            let goPage = $('.pagination-reviews .pagination__list li .active').attr('data-attr-page');
+            let goPrevPage = parseInt( goPage ) - 1 ;
+
+            let paged = goPrevPage ;
+
+            showReviewsPage( paged ) ;
+
+        });
+
+    }
+
+    function showReviewsPage( paged ){
+
+        var filterData = {
+            'action' : 'reviewspaged',
+            'security': filter_params.ajax_nonce,
+            'page' : paged
+        }
+
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
+
+                    $('.reviews_list .container .reviews__wrapper').remove() ;
+                    $('.reviews_list .container').append(data) ;
+
+                    filterPaginationReviews() ;
+
+                }
+            }
+        });
+
+    }
+
+    function filterPaginationPromotions(){
+
+        $('.pagination-promotion .pagination__list li').not('.next', '.prev', '.dots-not-click').each( function(){
+
+            $(this).on('click', function(){
+
+                let goPage = $(this).find('span').attr('data-attr-page');
+
+                let paged = goPage ;
+                showPromotionsPage( paged ) ;
+
+            });
+
+        });
+
+        $('.pagination-promotion .pagination__list li.next').on('click', function(){
+
+            let goPage = $('.pagination-promotion .pagination__list li .active').attr('data-attr-page');
+            let goNextPage = parseInt( goPage ) + 1 ;
+
+            let paged = goNextPage ;
+            showPromotionsPage( paged ) ;
+
+        });
+
+        $('.pagination-promotion .pagination__list li.prev').on('click', function(){
+
+            let goPage = $('.pagination-promotion .pagination__list li .active').attr('data-attr-page');
+            let goPrevPage = parseInt( goPage ) - 1 ;
+
+            let paged = goPrevPage ;
+
+            showPromotionsPage( paged ) ;
+
+        });
+
+    }
+
+    function showPromotionsPage( paged ){
+
+        var filterData = {
+            'action' : 'promotionpaged',
+            'security': filter_params.ajax_nonce,
+            'page' : paged
+        }
+
+        $.ajax({
+            url: filter_params.ajaxurl,
+            data: filterData,
+            type: 'POST',
+            success: function(data) {
+                if (data) {
+
+                    $('.promotions .container .promotions__wrapper').remove() ;
+                    $('.promotions .container').append(data) ;
+
+                    filterPaginationPromotions() ;
+
+                }
+            }
+        });
+
+    }
+
+    function getUrlVars(){
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+    /*Home JS*/
+
+    function initCarSelectManufacturer(){
+
+        $('.car-selection__form #car-type').change( function(){
+
+            let type = $(this).val() ;
+
+            var filterData = {
+                'action' : 'homegetcar',
+                'security': filter_params.ajax_nonce,
+                'type' : type
+            }
+
+            $.ajax({
+                url: filter_params.ajaxurl,
+                data: filterData,
+                type: 'POST',
+                success: function(data) {
+                    if (data) {
+
+                        $('.column__find-cars .input-container__car-brand').remove() ;
+                        $('.column__find-cars .input-container__car-model').remove() ;
+                        $('.column__find-cars').append(data) ;
+
+                        $(".column__find-cars select").each(function (index, item) {
+                            var text = $(item).data("placeholder");
+                            $(item).select2({
+                                placeholder: text,
+                                minimumResultsForSearch: -1
+                            });
+                        });
+
+                        initCarSelectModel() ;
+
+                    }
+                }
+            });
+
+        } )
+
+    }
+
+    function initCarSelectModel(){
+
+        $('.car-selection__form #car-brand').change( function(){
+
+            let type = $('.car-selection__form #car-type').val() ;
+            let brand = $(this).val() ;
+
+            var filterData = {
+                'action' : 'homegetmodel',
+                'security': filter_params.ajax_nonce,
+                'brand' : brand,
+                'type' : type
+            }
+
+            $.ajax({
+                url: filter_params.ajaxurl,
+                data: filterData,
+                type: 'POST',
+                success: function(data) {
+                    if (data) {
+
+                        $('.column__find-cars .input-container__car-model .car-model-ajax').remove() ;
+                        $('.column__find-cars .input-container__car-model').append(data) ;
+
+                        $(".column__find-cars select").each(function (index, item) {
+                            var text = $(item).data("placeholder");
+                            $(item).select2({
+                                placeholder: text,
+                                minimumResultsForSearch: -1
+                            });
+                        });
+
+                    }
+                }
+            });
+
+        } )
+
+    }
 
 })(jQuery);

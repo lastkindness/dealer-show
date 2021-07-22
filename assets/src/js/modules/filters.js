@@ -1,11 +1,15 @@
 export default () => {
 /*range start*/
-
 jQuery(".catalog__filter_item_range").each(function (index, item) {
+    var content = jQuery(item).closest('.catalog__filter_item_content'),
+        step = 1;
+    if($(content).hasClass('catalog__filter_item_content-price')) {
+        step = 500;
+    }
     jQuery(item).slider({
         min: jQuery(item).closest('.catalog__filter_item_content').find('[data-slider-min]').data('slider-min'),
         max: jQuery(item).closest('.catalog__filter_item_content').find('[data-slider-max]').data('slider-max'),
-        step: 1,
+        step: step,
         values: [jQuery(item).data('from'),jQuery(item).data('to')],
         range: true,
         stop: function(event, ui) {
