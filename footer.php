@@ -204,34 +204,64 @@
 </footer>
 </div>
 
-<?php
+<?php  
 
 	$call_back_form = get_field('call_back_form', 'option') ;
 	$title_call_back_form = get_field('title_call_back_form', 'option') ;
 
+	$form_call_title = get_field('form_call_title', 'option') ;
+	$form_call = get_field('form_call', 'option') ;
+
+	$form_price_title = get_field('form_price_title', 'option') ;
+	$form_price_code = get_field('form_price_code', 'option') ;
+
 ?>
 
-<?php if( $call_back_form ) : ?>
-	<div class="modals">
+<div class="modals">
+
+	<?php if( $call_back_form ) : ?>
+
 	    <div class="modal" id="modal-phone" style="display: none;">
-            <div class="modal__item">
-                <span class="title h3">Позвонить на номер:</span>
-                <?php if( $default_phone = get_field('default_phone', 'option') ) : ?>
-                    <a href="tel:<?php echo clean_phone($default_phone) ?>" class="modal__phone"><?php echo
-                        $default_phone ?></a>
-                <?php endif ; ?>
-                <span class="title h4">или</span>
-            </div>
-            <?php if( $title_call_back_form ) : ?>
-		        <span class="title h3"><?php echo $title_call_back_form ; ?></span>
+
+	    	<?php if( $title_call_back_form ) : ?>
+		        <span class="h3"><?php echo $title_call_back_form ; ?></span>
 		    <?php endif ; ?>
 
 	        <?php echo do_shortcode( $call_back_form ) ; ?>
 
 	    </div>
-	</div>
 
-<?php endif ; ?>
+	<?php endif ; ?>
+
+	<?php if( $form_call ) : ?>
+
+	    <div class="modal" id="modal-phone-cart-call" style="display: none;">
+
+	    	<?php if( $form_call_title ) : ?>
+		        <span class="h3"><?php echo $form_call_title ; ?></span>
+		    <?php endif ; ?>
+
+	        <?php echo do_shortcode( $form_call ) ; ?>
+
+	    </div>
+
+	<?php endif ; ?>
+
+	<?php if( $form_price_code ) : ?>
+
+	    <div class="modal" id="modal-phone-cart-price" style="display: none;">
+
+	    	<?php if( $form_price_title ) : ?>
+		        <span class="h3"><?php echo $form_price_title ; ?></span>
+		    <?php endif ; ?>
+
+	        <?php echo do_shortcode( $form_price_code ) ; ?>
+
+	    </div>
+
+	<?php endif ; ?>
+
+</div>
 
 <?php wp_footer(); ?>
 
