@@ -204,7 +204,7 @@
 </footer>
 </div>
 
-<?php  
+<?php
 
 	$call_back_form = get_field('call_back_form', 'option') ;
 	$title_call_back_form = get_field('title_call_back_form', 'option') ;
@@ -223,11 +223,19 @@
 
 	    <div class="modal" id="modal-phone" style="display: none;">
 
-	    	<?php if( $title_call_back_form ) : ?>
-		        <span class="h3"><?php echo $title_call_back_form ; ?></span>
-		    <?php endif ; ?>
+            <div class="modal__item">
+                <span class="title h3">Позвонить на номер:</span>
+                <?php if( $default_phone = get_field('default_phone', 'option') ) : ?>
+                    <a href="tel:<?php echo clean_phone($default_phone) ?>" class="modal__phone"><?php echo
+                        $default_phone ?></a>
+                <?php endif ; ?>
+                <span class="title h4">или</span>
+            </div>
+            <?php if( $title_call_back_form ) : ?>
+                <span class="title h3"><?php echo $title_call_back_form ; ?></span>
+            <?php endif ; ?>
 
-	        <?php echo do_shortcode( $call_back_form ) ; ?>
+            <?php echo do_shortcode( $call_back_form ) ; ?>
 
 	    </div>
 
