@@ -81,7 +81,7 @@ get_header('front'); ?>
                         </ul>
                     </div>
                 </div>
-                <button class="vacancy-card__btn btn btn_secondary">Откликнуться</button>
+                <a data-fancybox="" href="#modal-vacancy" class="vacancy-card__btn btn btn_secondary">Откликнуться</a>
             </div>
             <div class="vacancy-card">
                 <h3 class="vacancy-card__title">Администратор автосалона</h3>
@@ -109,7 +109,7 @@ get_header('front'); ?>
                         </ul>
                     </div>
                 </div>
-                <button class="vacancy-card__btn btn btn_secondary">Откликнуться</button>
+                <a data-fancybox="" href="#modal-vacancy" class="vacancy-card__btn btn btn_secondary">Откликнуться</a>
             </div>
         </div>
     </div>

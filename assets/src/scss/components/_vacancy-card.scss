@@ -36,11 +36,18 @@
                 }
             }
         }
-        &__btn {
-            margin-top: 23px;
-            width: calc(50% - 15px);
-            @include respond-to('mobile-sm') {
-                width: 100%;
+        a {
+            &.vacancy {
+                &-card {
+                    &__btn {
+                        display: inline-block;
+                        margin-top: 23px;
+                        width: calc(50% - 15px);
+                        @include respond-to('mobile-sm') {
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }

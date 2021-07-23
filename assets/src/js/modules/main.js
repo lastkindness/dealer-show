@@ -159,4 +159,11 @@ export default () => {
         }, 200);
     });
 
+// files download start
+    $(".files").change(function() {
+        var filename = this.files[0].name;
+        $(this).siblings("label").text(filename);
+    });
+// files download start
+
 };

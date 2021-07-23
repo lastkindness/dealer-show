@@ -141,6 +141,23 @@
             <button type="submit" class="btn btn_form btn_big">Перезвоните мне</button>
         </form>
     </div>
+    <div class="modal" id="modal-vacancy" style="display: none;">
+        <span class="title h3">Подать заявку на вакансию "Менеджер по продажам"</span>
+        <form class="apply__form" role="subscription" method="get" action="#">
+            <input id="vacancy" name="vacancy" type="text" hidden value="">
+            <input id="name" name="name" type="text" required="required" placeholder="ФИО">
+            <input id="phone" name="phone" type="tel" required="required" placeholder="Ваш телефон">
+            <input id="email" name="email" type="email" required="required" placeholder="Ваш email">
+            <div class="input-container input-container__file">
+                <label for="files">Прикрепить резюме</label>
+                <input id="files" accept="application/pdf,text/plain,application/msword,application/rtf,application/x-rtf,text/richtext,application/rtf,text/richtext,application/vnd.oasis.opendocument.text" type="file" name="files1" data-validate="file" data-error-type="Неверный тип файла" data-error-size="Недопустимый размер файла" data-error-existence="Файл не выбран. Загрузите файл" required="required" class="files">
+                <div class="delete"></div>
+                <div class="input-container__file-desckt"><span>Размер файла не должен превышать 5
+                        мб</span><br><span>Разрешены следующие форматы: .pdf, .txt, .doc, .docx, .rtf, .odt</span></div>
+            </div>
+            <button value="Отправить" type="submit" class="btn">Отправить</button>
+        </form>
+    </div>
 </div>
 
 <?php wp_footer(); ?>
