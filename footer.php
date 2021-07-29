@@ -154,7 +154,10 @@
 
                     	$car_budget = get_terms( array(
 						    'taxonomy' => 'car_budget',
-						    'hide_empty' => true
+						    'hide_empty' => true,
+						    'meta_key' => 'position',
+						    'orderby' => 'meta_value_num',
+						    'order'  => 'ASC',
 						) );
 
                     ?>
@@ -163,7 +166,6 @@
 		                <div class="footer__catalog">
 
 		                    <span class="footer__main-title">Авто по бюджетам</span>
-
 
 		                    <ul class="navbar menu">
 
@@ -204,7 +206,7 @@
 </footer>
 </div>
 
-<?php
+<?php  
 
 	$call_back_form = get_field('call_back_form', 'option') ;
 	$title_call_back_form = get_field('title_call_back_form', 'option') ;
@@ -223,7 +225,7 @@
 
 	    <div class="modal" id="modal-phone" style="display: none;">
 
-            <div class="modal__item">
+	    	<div class="modal__item">
                 <span class="title h3">Позвонить на номер:</span>
                 <?php if( $default_phone = get_field('default_phone', 'option') ) : ?>
                     <a href="tel:<?php echo clean_phone($default_phone) ?>" class="modal__phone"><?php echo
@@ -269,22 +271,11 @@
 
 	<?php endif ; ?>
 
-    <div class="modal" id="modal-vacancy" style="display: none;">
-        <span class="title h3">Подать заявку на вакансию "Менеджер по продажам"</span>
-        <form class="apply__form" role="subscription" method="get" action="#">
-            <input id="name" name="name" type="text" required="required" placeholder="ФИО">
-            <input id="phone" name="phone" type="tel" required="required" placeholder="Ваш телефон">
-            <input id="email" name="email" type="email" required="required" placeholder="Ваш email">
-            <div class="input-container input-container__file">
-                <div class="icon icon-clip"></div>
-                <label for="files1">Прикрепить резюме</label>
-                <input id="files1" accept="application/pdf,text/plain,application/msword,application/rtf,application/x-rtf,text/richtext,application/rtf,text/richtext,application/vnd.oasis.opendocument.text" type="file" name="files1" data-validate="file" data-error-type="Неверный тип файла" data-error-size="Недопустимый размер файла" data-error-existence="Файл не выбран. Загрузите файл" required="required" class="files">
-                <div class="delete"></div>
-                <div class="input-container__file-desckt"><span>Размер файла не должен превышать 5 мб</span><span>Разрешены следующие форматы: .pdf, .txt, .doc, .docx, .rtf, .odt</span></div>
-                <div class="text-error">Загрузите файл</div>
-            </div>
-            <button value="Отправить" type="submit" class="btn">
-        </form>
+	<div class="modal" id="modal-vacancy" style="display: none;">
+        <span class="title h3">Подать заявку на вакансию</span>
+
+        <?php echo do_shortcode( '[contact-form-7 id="14522" title="Заявка на вакансию"  html_class="apply__form"]' ) ?>
+
     </div>
 
 </div>

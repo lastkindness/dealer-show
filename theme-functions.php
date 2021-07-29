@@ -407,18 +407,40 @@
 
 		                <?php if( !empty($car_type) ) : ?>
 
-							<div class="catalog__filter_item">
+		                	<?php
+
+		                		if( isset( $_POST['bodyType'] ) && $_POST['bodyType'] !== '' ){
+		                			$car_type_open = 'open' ;
+		                			$checkboxes_type_open = '' ;
+		                		}else{
+		                			$car_type_open = '' ;
+		                			$checkboxes_type_open = 'close' ;
+		                		}
+
+		                	?>
+
+							<div class="catalog__filter_item <?php echo $car_type_open ; ?>">
 			                    <div class="catalog__filter_item_title filter-title">
 			                        <div class="plus icon icon-up"></div>
 			                        <div class="filter-subtitle"><span>Тип Кузова</span></div>
 			                    </div>
-			                    <div class="catalog__filter_item_content close checkbox-car-cuzov">
+			                    <div class="catalog__filter_item_content <?php echo $checkboxes_type_open ; ?> checkbox-car-cuzov">
 
 		                    		<?php foreach( $car_type as $type_car ) : ?>
 
+		                    			<?php
+
+		                    				if( $type_car->term_id == intval( $_POST['bodyType'] ) ){
+		                    					$isActive = 'active' ;
+		                    				}else{
+		                    					$isActive = '' ;
+		                    				}
+
+		                    			?>
+
 		                    			<div class="catalog__filter_item_checkbox">
 			                                <div class="catalog__filter_item_input">
-			                                    <input id="<?php echo $type_car->term_id ; ?>-type" type="checkbox" value="<?php echo $type_car->term_id ; ?>">
+			                                    <input id="<?php echo $type_car->term_id ; ?>-type" type="checkbox" value="<?php echo $type_car->term_id ; ?>" class="<?php echo $isActive ; ?>">
 			                                    <div class="checkbox"></div>
 			                                    <label for="<?php echo $type_car->term_id ; ?>-type">
 			                                    	<?php echo $type_car->name ?>
@@ -775,6 +797,17 @@
 
         		}
 
+        		if( isset( $_POST['bodyType'] ) && $_POST['bodyType'] !== '' ){
+
+        			array_push( $cars_arr['tax_query'] , array(
+															'taxonomy'=>'car_type',
+															'field'=>'term_id',
+															'terms'=>intval( $_POST['bodyType'] )
+														)
+					) ;
+
+        		}
+
 				$cars = new WP_Query($cars_arr) ;
 
 			?>
@@ -788,6 +821,14 @@
 
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
+
+	                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                if( $check_location[0]->name == 'На Аукционе' ){
+                                    $text_location = 'Расчитать стоимость' ;
+                                }else{
+                                    $text_location = 'Купить' ;
+                                }
 
 	                		?>
 
@@ -875,7 +916,7 @@
 		                                            <span class="text"><?php echo $mileage ; ?></span>
 		                                        </li>
 		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
+		                                    <a href="#" class="btn btn_transparent"><?php echo $text_location ; ?></a>
 		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
 		                                </div>
 		                            </div>
@@ -943,6 +984,14 @@
 
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
+
+	                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                if( $check_location[0]->name == 'На Аукционе' ){
+                                    $text_location = 'Расчитать стоимость' ;
+                                }else{
+                                    $text_location = 'Купить' ;
+                                }
 
 	                		?>
 
@@ -1026,7 +1075,7 @@
 		                                            <span class="text"><?php echo $mileage ; ?></span>
 		                                        </li>
 		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
+		                                    <a href="#" class="btn btn_transparent"><?php echo $text_location ; ?></a>
 		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
 		                                </div>
 		                            </div>
@@ -1095,6 +1144,14 @@
 	                			$price = get_field('price') ;
 	                			$mileage = get_field('mileage') ;
 
+	                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                if( $check_location[0]->name == 'На Аукционе' ){
+                                    $text_location = 'Расчитать стоимость' ;
+                                }else{
+                                    $text_location = 'Купить' ;
+                                }
+
 	                		?>
 
 	                		<div class="grid__card">
@@ -1153,7 +1210,7 @@
 		                                            <span class="text"><?php echo $mileage ; ?></span>
 		                                        </li>
 		                                    </ul>
-		                                    <a href="#" class="btn btn_transparent">Расчитать стоимость</a>
+		                                    <a href="#" class="btn btn_transparent"><?php echo $text_location ; ?></a>
 		                                    <a href="<?php echo get_permalink(); ?>" class="btn btn_white">Подробнее</a>
 		                                </div>
 		                            </div>
@@ -1434,7 +1491,7 @@
 
 				$years_arr = get_years_between( $_POST['yearfrom'], $_POST['yearto'] ) ;
 
-				$cars_count = array(
+				/*$cars_count = array(
 					'post_type' => $_POST['typetransport'],
 					'posts_per_page' => -1,
 					'meta_query' => array(
@@ -1445,6 +1502,12 @@
 					        'compare'	=> '>=',
 					    )
 				    ),
+				    'tax_query' => array(),
+				) ;*/
+
+				$cars_count = array(
+					'post_type' => $_POST['typetransport'],
+					'posts_per_page' => -1,
 				    'tax_query' => array(),
 				) ;
 
@@ -1461,7 +1524,7 @@
 
 				$cars_query_count = new WP_Query($cars_count) ;
 
-				$cars_arr = array(
+				/*$cars_arr = array(
 					'post_type' => $_POST['typetransport'],
 					'posts_per_page' => $default_posts_per_page,
 					'paged' => $_POST['currpage'],
@@ -1480,6 +1543,29 @@
 						        'compare'	=> '=',
 						    )
 						),
+					    array(
+					        'key'		=> 'price',
+					        'value'		=> array($pricefrom, $priceto),
+					        'compare' => 'BETWEEN',
+					        'type' => 'NUMERIC'
+					    )
+				    ),
+				    'tax_query' => array(
+				    	'relation' => 'AND',
+			            array(
+			               	'taxonomy' => 'issue_year',
+			                'field'    => 'term_id',
+			                'terms'    => $years_arr,
+			            )
+			        ),
+				);*/
+
+				$cars_arr = array(
+					'post_type' => $_POST['typetransport'],
+					'posts_per_page' => $default_posts_per_page,
+					'paged' => $_POST['currpage'],
+					'meta_query' => array(
+						'relation'		=> 'AND',
 					    array(
 					        'key'		=> 'price',
 					        'value'		=> array($pricefrom, $priceto),
@@ -1739,6 +1825,14 @@
 		                			$mileage = get_field('mileage') ;
 		                			$car_small_desk = get_field('car_small_desk') ;
 
+		                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                    if( $check_location[0]->name == 'На Аукционе' ){
+                                        $text_location = 'Расчитать стоимость' ;
+                                    }else{
+                                        $text_location = 'Купить' ;
+                                    }
+
 		                		?>
 
 		                		<div class="grid__card">
@@ -1815,7 +1909,7 @@
                                         </ul>
                                     </div>
                                     <div class="grid__card-footer">
-                                        <a data-fancybox href="#modal-phone-cart-price" data-price-form="<?php echo get_permalink(); ?>" class="btn btn_light">Расчитать стоимость</a>
+                                        <a data-fancybox href="#modal-phone-cart-price" data-form-link="<?php echo get_permalink(); ?>" class="btn btn_light"><?php echo $text_location ; ?></a>
                                         <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
                                     </div>
                                 </div>
@@ -1834,6 +1928,14 @@
 		                			$mileage = get_field('mileage') ;
 		                			$car_small_desk = get_field('car_small_desk') ;
 
+		                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                    if( $check_location[0]->name == 'На Аукционе' ){
+                                        $text_location = 'Расчитать стоимость' ;
+                                    }else{
+                                        $text_location = 'Купить' ;
+                                    }
+
 		                		?>
 
 		                		<div class="grid__card">
@@ -1910,7 +2012,7 @@
                                         </ul>
                                     </div>
                                     <div class="grid__card-footer">
-                                        <a data-fancybox href="#modal-phone-cart-price" data-price-form="<?php echo get_permalink(); ?>" class="btn btn_light">Расчитать стоимость</a>
+                                        <a data-fancybox href="#modal-phone-cart-price" data-form-link="<?php echo get_permalink(); ?>" class="btn btn_light"><?php echo $text_location ; ?></a>
                                         <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
                                     </div>
                                 </div>
@@ -1930,6 +2032,14 @@
 		                			$mileage = get_field('mileage') ;
 		                			$car_small_desk = get_field('car_small_desk') ;
 
+		                			$check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                    if( $check_location[0]->name == 'На Аукционе' ){
+                                        $text_location = 'Расчитать стоимость' ;
+                                    }else{
+                                        $text_location = 'Купить' ;
+                                    }
+
 		                		?>
 
 		                		<div class="grid__card">
@@ -2006,7 +2116,7 @@
                                         </ul>
                                     </div>
                                     <div class="grid__card-footer">
-                                        <a data-fancybox href="#modal-phone-cart-price" data-price-form="<?php echo get_permalink(); ?>" class="btn btn_light">Расчитать стоимость</a>
+                                        <a data-fancybox href="#modal-phone-cart-price" data-form-link="<?php echo get_permalink(); ?>" class="btn btn_light"><?php echo $text_location ; ?></a>
                                         <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
                                     </div>
                                 </div>

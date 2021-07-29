@@ -1,71 +1,80 @@
 <?php if( $show_top = get_field('show_top') ) : ?>
 
-	<?php
+    <?php
 
-		$top_title = get_field('top_title') ;
-		$top_title_link = get_field('top_title_link') ;
-		$top_bottom_link = get_field('top_bottom_link') ;
+        $top_title = get_field('top_title') ;
+        $top_title_link = get_field('top_title_link') ;
+        $top_bottom_link = get_field('top_bottom_link') ;
 
-		if( $top_title_link ){
+        if( $top_title_link ){
 
-			$link_top_url = $top_title_link['url'];
-	    	$link_top_title = $top_title_link['title'];
-	    	$link_top_target = $top_title_link['target'] ? $top_title_link['target'] : '_self';
+            $link_top_url = $top_title_link['url'];
+            $link_top_title = $top_title_link['title'];
+            $link_top_target = $top_title_link['target'] ? $top_title_link['target'] : '_self';
 
-		}
+        }
 
-		if( $top_bottom_link ){
+        if( $top_bottom_link ){
 
-			$link_bottom_url = $top_bottom_link['url'];
-	    	$link_bottom_title = $top_bottom_link['title'];
-	    	$link_bottom_target = $top_bottom_link['target'] ? $top_bottom_link['target'] : '_self';
+            $link_bottom_url = $top_bottom_link['url'];
+            $link_bottom_title = $top_bottom_link['title'];
+            $link_bottom_target = $top_bottom_link['target'] ? $top_bottom_link['target'] : '_self';
 
-		}
+        }
 
-	?>
+    ?>
 
-	<section class="top-auto" id="top-auto">
-	    <div class="container">
-	        <div class="top-auto__wrapper">
-	            <div class="top-auto__title">
+    <section class="top-auto" id="top-auto">
+        <div class="container">
+            <div class="top-auto__wrapper">
+                <div class="top-auto__title">
 
-	            	<?php if( $top_title ) : ?>
-	                	<h2 class="title h2"><?php echo $top_title ; ?></h2>
-	                <?php endif ; ?>
+                    <?php if( $top_title ) : ?>
+                        <h2 class="title h2"><?php echo $top_title ; ?></h2>
+                    <?php endif ; ?>
 
-	                <?php if( $link_top_url && $link_top_title ) : ?>
-	                	<a href="<?php echo $link_top_url ; ?>" class="btn btn_secondary" target="<?php echo $link_top_target ; ?>"><?php echo $link_top_title ; ?></a>
-	                <?php endif ; ?>
+                    <?php if( $link_top_url && $link_top_title ) : ?>
+                        <a href="<?php echo $link_top_url ; ?>" class="btn btn_secondary" target="<?php echo $link_top_target ; ?>"><?php echo $link_top_title ; ?></a>
+                    <?php endif ; ?>
 
-	            </div>
+                </div>
 
-	            <?php
+                <?php
 
-	            	$top_number = get_field('top_number') ;
+                    $top_number = get_field('top_number') ;
 
-	            	$cars_arr = array(
-						'post_type' => 'cars',
-						'posts_per_page' => $top_number,
-						'meta_key'		=> 'top_auto',
-						'meta_value'	=> true
-					);
+                    $cars_arr = array(
+                        'post_type' => 'cars',
+                        'posts_per_page' => $top_number,
+                        'meta_key'      => 'top_auto',
+                        'meta_value'    => true
+                    );
 
-					$cars = new WP_Query($cars_arr) ;
+                    $cars = new WP_Query($cars_arr) ;
 
-	            ?>
+                ?>
 
-	            <?php if( $cars->have_posts() ) : ?>
-		            <div class="top-auto__grid">
-		                <div class="grid">
+                <?php if( $cars->have_posts() ) : ?>
+                    <div class="top-auto__grid">
+                        <div class="grid">
 
-		                	<?php while( $cars->have_posts() ) : $cars->the_post(); ?>
+                            <?php while( $cars->have_posts() ) : $cars->the_post(); ?>
 
-		                		<?php
+                                <?php
 
-		                			$price = get_field('price') ;
-		                			$mileage = get_field('mileage') ;
+                                    $price = get_field('price') ;
+                                    $mileage = get_field('mileage') ;
+                                    $car_small_desk = get_field('car_small_desk') ;
 
-		                		?>
+                                    $check_location = get_the_terms( get_the_ID(), 'location' );
+
+                                    if( $check_location[0]->name == 'На Аукционе' ){
+                                        $text_location = 'Расчитать стоимость' ;
+                                    }else{
+                                        $text_location = 'Купить' ;
+                                    }
+
+                                ?>
 
                                 <div class="grid__card">
                                     <div class="grid__card-main">
@@ -79,10 +88,10 @@
                                             </a>
                                             <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-                                            <?php if( !empty( get_the_content() ) ) : ?>
-                                                <p class="grid__card-description">
-                                                    <?php echo get_the_content() ; ?>
-                                                </p>
+                                            <?php if( $car_small_desk ) : ?>
+                                                <div class="grid__card-description">
+                                                    <?php echo $car_small_desk ; ?>
+                                                </div>
                                             <?php endif ; ?>
                                         </div>
                                         <ul class="grid__card-characteristics">
@@ -140,26 +149,25 @@
                                         </ul>
                                     </div>
                                     <div class="grid__card-footer">
-                                        <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
-                                            стоимость</a>
+                                        <a data-fancybox="" href="#modal-phone-cart-price" data-form-link="<?php echo get_permalink(); ?>" class="btn btn_light"><?php echo $text_location ; ?></a>
                                         <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
                                     </div>
                                 </div>
 
-			                <?php endwhile ; ?>
+                            <?php endwhile ; ?>
 
-			                <?php wp_reset_query() ; ?>
+                            <?php wp_reset_query() ; ?>
 
-		                </div>
-		            </div>
-		        <?php endif ; ?>
+                        </div>
+                    </div>
+                <?php endif ; ?>
 
-	            <?php if( $link_bottom_url && $link_bottom_title ) : ?>
-	                <a href="<?php echo $link_bottom_url ; ?>" class="btn btn_secondary btn_fullwidth" target="<?php echo $link_bottom_target ; ?>"><?php echo $link_bottom_title ; ?></a>
-	            <?php endif ; ?>
+                <?php if( $link_bottom_url && $link_bottom_title ) : ?>
+                    <a href="<?php echo $link_bottom_url ; ?>" class="btn btn_secondary btn_fullwidth" target="<?php echo $link_bottom_target ; ?>"><?php echo $link_bottom_title ; ?></a>
+                <?php endif ; ?>
 
-	        </div>
-	    </div>
-	</section>
+            </div>
+        </div>
+    </section>
 
 <?php endif ; ?>

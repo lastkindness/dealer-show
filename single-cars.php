@@ -11,6 +11,11 @@
 
 			$catalog_link = get_field('catalog_link', 'option') ;
 
+		    $price = get_field('price') ;
+
+		    $today_date_time = date('Y-m-d H:i');
+
+
 		?>
 
 		<section class="breadcrumbs-section" id="breadcrumbs-section">
@@ -50,7 +55,7 @@
 			                        		<?php if( $image ) : ?>
 					                            <a href="<?php echo $image['url'] ; ?>" data-fancybox="gallery" data-title="TOYOTA Camry">
 					                                <div class="product__image_slider-big-slide">
-					                                	<img src="<?php echo $image['url'] ; ?>" id="image-<?php echo get_row_index() ; ?>"  />
+					                                	<img src="<?php echo $image['url'] ; ?>" id="image-<?php echo get_row_index() ; ?>" data-zoom-image="<?php echo $image['url'] ; ?>" />
 					                                </div>
 					                            </a>
 					                        <?php endif ; ?>
@@ -83,7 +88,6 @@
 			        <?php endif ; ?>
 
 			        <div class="product__info">
-		                <h1 class="product__title h1"><?php the_title() ; ?></h1>
 
 		                <?php
 
@@ -101,7 +105,19 @@
 
 		                	$mileage = get_field('mileage') ;
 
+		                	if( $location[0]->name == 'На Аукционе' ){
+		                		$price_for_car_title = 'РЕКОМЕНДОВАННАЯ СТАВКА' ;
+		                		$text_location = 'Расчитать стоимость' ;
+		                	}else{
+		                		$price_for_car_title = 'СТОИМОСТЬ' ;
+		                		$text_location = 'Купить' ;
+		                	}
+
 		                ?>
+
+		                <h1 class="product__title h1"><?php the_title() ; ?></h1>
+		                <h3><?php echo $price_for_car_title ; ?> : <span style="color: #FD4B0D;"><?php echo number_format( $price, 0, '', ' ' ) ; ?> $</span></h3>
+
 
 		                <table class="product__table">
 		                    <tbody>
@@ -183,7 +199,14 @@
 
 		                        <?php
 
-				                	$auction_ends = get_field('auction_ends') ;
+				                	$auction_ends_f = get_field('auction_ends') ;
+
+				                	if( $auction_ends_f >= $today_date_time ){
+				                		$auction_ends = $auction_ends_f ;
+				                	}else{
+				                		$auction_ends = 'Завершен' ;
+				                	}
+
 				                	$price = get_field('price') ;
 				                	$lot_location = get_field('lot_location') ;
 				                	$lot_id = get_field('lot_id') ;
@@ -194,18 +217,6 @@
 
 		                        ?>
 
-		                        <tr>
-		                        	<td>
-		                        		<div class="product__item">
-		                                    <span>КОНЕЦ АУКЦИОНА</span><span><?php echo $auction_ends ; ?></span>
-		                                </div>
-		                        	</td>
-		                        	<td>
-		                        		<div class="product__item">
-		                                    <span>ОЦЕНОЧНАЯ СТОИМОСТЬ</span><span><?php echo number_format( $price, 0, '', ' ' ) ; ?> $</span>
-		                                </div>
-		                        	</td>
-		                        </tr>
 		                        <tr>
 		                        	<td>
 		                        		<div class="product__item">
@@ -226,19 +237,7 @@
 		                        	</td>
 		                        	<td>
 		                        		<div class="product__item">
-		                                    <span>ОСНОВНЫЕ ПОВРЕЖДЕНИЯ</span><span><?php echo $lot_damage ; ?></span>
-		                                </div>
-		                        	</td>
-		                        </tr>
-		                        <tr>
-		                        	<td>
-		                        		<div class="product__item">
 		                                    <span>КЛЮЧИ</span><span><?php echo $lot_keys ; ?></span>
-		                                </div>
-		                        	</td>
-		                        	<td>
-		                        		<div class="product__item">
-		                                    <span>КОМПЛЕКТАЦИЯ</span><span><?php echo $lot_komplectation ; ?></span>
 		                                </div>
 		                        	</td>
 		                        </tr>
@@ -246,8 +245,11 @@
 		                    </tbody>
 		                </table>
 		                <div class="product__buttons">
-		                    <a href="#" class="btn">Купить</a>
-		                    <a href="#" class="btn btn_light">Связаться с нами</a>
+
+		                    <a data-fancybox="" href="#modal-phone-cart-price" class="btn btn_light--price"><?php echo $text_location ; ?></a>
+
+		                    <a data-fancybox="" href="#modal-phone-cart-call" class="btn btn_light btn_light--call">Связаться с нами</a>
+
 		                </div>
 		                <div class="product__content">
 		                    <?php the_content() ; ?>
@@ -267,11 +269,19 @@
 				'post__not_in' => array($exclude_id),
 				'posts_per_page' => 10,
 				'meta_query' => array(
-				     array(
-				        'key'		=> 'auction_ends',
-				        'value'		=> $today_date_time,
-				        'compare'	=> '>=',
-				    )
+					array(
+						'relation' => 'OR',
+					    array(
+					        'key'		=> 'auction_ends',
+					        'value'		=> $today_date_time,
+					        'compare'	=> '>=',
+					    ),
+					    array(
+					        'key'		=> 'auction_ends',
+					        'value'		=> '',
+					        'compare'	=> '=',
+					    )
+					)
 			    ),
 			    'tax_query' => array(
 			    	array(
@@ -303,6 +313,15 @@
 
 			                			$price = get_field('price') ;
 	                					$mileage = get_field('mileage') ;
+	                					$car_small_desk = get_field('car_small_desk') ;
+
+	                					$check_location = get_the_terms( get_the_ID(), 'location' );
+
+	                                    if( $check_location[0]->name == 'На Аукционе' ){
+	                                        $text_location = 'Расчитать стоимость' ;
+	                                    }else{
+	                                        $text_location = 'Купить' ;
+	                                    }
 
 			                		?>
 
@@ -318,11 +337,12 @@
                                                 </a>
                                                 <span class="grid__card-price"><?php echo number_format($price) ; ?> $</span>
 
-                                                <?php if( !empty( get_the_content() ) ) : ?>
-                                                    <p class="grid__card-description">
-                                                        <?php echo get_the_content() ; ?>
-                                                    </p>
-                                                <?php endif ; ?>
+                                                <?php if( $car_small_desk ) : ?>
+	                                                <div class="grid__card-description">
+	                                                    <?php echo $car_small_desk ; ?>
+	                                                </div>
+	                                            <?php endif ; ?>
+	                                            
                                             </div>
                                             <ul class="grid__card-characteristics">
 
@@ -379,8 +399,7 @@
                                             </ul>
                                         </div>
                                         <div class="grid__card-footer">
-                                            <a href="#modal-phone-cart-price" class="btn btn_light">Расчитать
-                                                стоимость</a>
+                                            <a data-fancybox="" href="#modal-phone-cart-price" data-form-link="<?php echo get_permalink(); ?>" class="btn btn_light"><?php echo $text_location ; ?></a>
                                             <a href="<?php echo get_permalink(); ?>" class="btn">Подробнее</a>
                                         </div>
                                     </div>
