@@ -14,7 +14,7 @@
 
 	            		<?php while( have_rows('auctions') ) : the_row(); ?>
 
-	            			<?php  
+	            			<?php
 
 	            				$auctions_name = get_sub_field('auctions_name') ;
 	            				$image = get_sub_field('image') ;
@@ -30,9 +30,9 @@
 
 	            			<?php if( $image && $auctions_name ) : ?>
 		            			<li class="auctions__item swiper-slide">
-				                    <a href="<?php echo $link_target ; ?>" class="auctions__card">
+				                    <div href="<?php echo $link_target ; ?>" class="auctions__card">
 				                        <img src="<?php echo $image['url'] ; ?>" alt="<?php echo $image['alt'] ; ?>">
-				                    </a>
+				                    </div>
 				                    <div class="auctions__content">
 				                        <p class="auctions__item-text"><?php echo $auctions_name ; ?></p>
 				                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>

@@ -100,7 +100,7 @@ export default () => {
                 slidesPerView: 1,
                 centeredSlides: true,
                 autoplay: {
-                    delay: 3000,
+                    delay: 6000,
                 },
                 pagination: {
                     el: '.warranty .swiper-pagination',
