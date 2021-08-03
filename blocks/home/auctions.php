@@ -27,7 +27,6 @@
 	            				}
 
 	            			?>
-
 	            			<?php if( $image && $auctions_name ) : ?>
 		            			<li class="auctions__item swiper-slide">
 				                    <div href="<?php echo $link_target ; ?>" class="auctions__card">
@@ -35,7 +34,7 @@
 				                    </div>
 				                    <div class="auctions__content">
 				                        <p class="auctions__item-text"><?php echo $auctions_name ; ?></p>
-				                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>
+<!--				                        <a href="/auction" class="auctions__link">Подробнее <span class="icon icon-play"></span></a>-->
 				                    </div>
 				                </li>
 				            <?php endif ; ?>
